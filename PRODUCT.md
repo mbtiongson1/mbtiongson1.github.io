@@ -42,8 +42,8 @@ The owner is Marcus Rafael B. Tiongson (`mbtiongson1`). The request commits to a
 ## Evidence on Hand
 
 - Existing local web and design projects include `rock-dashboards`, `gaia-research`, and `rock-steward`.
-- Rock Dashboards has self-contained rendered HTML/CSS and fictional-data artifacts; candidate assets require inspection before publication.
-- Local Blender watershed project files and renders are available, but the best publishable preview is not yet confirmed.
+- A reviewed `rock-dashboards/build/rendered/favor-people-compiled.html` is a self-contained interactive fictional-data prototype with inline runtime and only seven local dependencies. It is publishable as a standalone demo, not a live Rock connection.
+- Reviewed media-only captures include a WIP fictional-data watershed render, a static AutoMerge prototype screen (not live/connected), and a sample-data watershed visualization (not the Steward control-plane UI). Their disclosures must stay adjacent to the work.
 - The user's public GitHub profile identifies their professional links and public repositories.
 - No approved portfolio copy, personal portrait, testimonial, or resume download was supplied for this project. Do not fabricate any.
 

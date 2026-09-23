@@ -1,0 +1,31 @@
+{
+  "note": "Only the named owner-provided artifacts below are published. WebP image provenance also travels in adjacent .webp.json sidecars. The development-only Impeccable decision comps are not shipped.",
+  "assets": [
+    {
+      "published": "assets/demos/people-compiled/",
+      "sourceDirectory": "/Users/marcotiongson/rock-dashboards/build/rendered/",
+      "sourceFiles": ["favor-people-compiled.html", "favor-people-compiled.css", "font-favorvetica-normal-normal.otf", "font-favorvetica-bold-normal.otf", "font-favor-sans-normal-normal.otf", "font-favor-sans-bold-normal.otf", "texture-grain.webp", "texture-paper.webp"],
+      "treatment": "Compiled standalone interactive page with its exact relative dependencies; two textures retain image pixels and have adjacent provenance sidecars. Fictional inline payload, no network requests. Never include live variants or source/app data."
+    },
+    {
+      "published": "assets/media/lane1-smoke-draft-whole.webp",
+      "source": "/Users/marcotiongson/soi-canon-backup-2026-09-23/lane1-smoke-draft-whole.png",
+      "treatment": "WebP quality 83; WIP fictional-data prototype; no .blend files."
+    },
+    {
+      "published": "assets/media/01-overview.webp",
+      "source": "/Users/marcotiongson/rock-automerge-signup-echo-e2e/screenshots/01-overview.png",
+      "treatment": "WebP quality 83; static prototype only, not live or connected."
+    },
+    {
+      "published": "assets/media/multiplication-watershed-sept20-dark.webp",
+      "source": "/Users/marcotiongson/rock-steward/report-assets/multiplication-watershed-sept20-dark.png",
+      "treatment": "WebP quality 83; sample-data visualization, not Steward control-plane UI."
+    },
+    {
+      "published": "assets/fonts/",
+      "source": "Google Fonts: Barlow v13 (Latin 400/600) and Barlow Condensed v13 (Latin 800), fonts.gstatic.com/s/barlow/ and /s/barlowcondensed/",
+      "treatment": "Self-hosted WOFF2 subsets. OFL licenses in assets/fonts/OFL-Barlow.txt and OFL-BarlowCondensed.txt."
+    }
+  ]
+}
