@@ -12,7 +12,7 @@ npm run check
 python3 -m http.server 8000 --directory dist
 ```
 
-Open `http://localhost:8000/`, `http://localhost:8000/worlds/field-atlas/`, and the compiled artifact at `http://localhost:8000/assets/demos/people-compiled/favor-people-compiled.html`. If port 8000 is occupied, choose another port. The project index and all project sections are generated in the HTML, so they still work with JavaScript disabled. JavaScript only updates the active chart/index state; the compiled demo's own inline runtime handles its controls and contains no network requests.
+Open `http://localhost:8000/`, `http://localhost:8000/worlds/field-atlas/`, and the compiled artifact at `http://localhost:8000/assets/demos/people-compiled/favor-people-compiled.html`. If port 8000 is occupied, choose another port. The project index and all project sections are generated in the HTML, so they still work with JavaScript disabled. Portfolio JavaScript only updates the active chart/index state. In the compiled demo, the chart-view cycler changes the selected mode and URL; campus links only rewrite the URL and **do not filter the embedded dataset**. No CSV-export behavior is claimed here because it was not verified. The demo makes no remote data requests.
 
 ## Structure
 

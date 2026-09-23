@@ -41,6 +41,9 @@ for (const [id, url] of [['gaia-skill-tree', 'https://gaiaskilltree.com/'], ['ga
     assert(!project.media && section.includes('External public website · No local image or embed.') && !section.includes('<img'), 'Gaia Research: link-only entry must not publish unverified artwork');
   }
 }
+const people = projects.find((project) => project.id === 'people-compiled');
+assert(people?.summary.includes('chart-view cycler') && !/\bfilters?\b/i.test(people.summary), 'People summary must not promise dataset filters');
+assert(people.context.includes('Campus links only rewrite the URL') && people.context.includes('do not filter'), 'People campus controls must be described as URL-only');
 assert(atlas.includes('sandbox="allow-scripts allow-downloads"'), 'Demo iframe lacks sandbox');
 assert(atlas.includes('lane1-terrain-crop.webp') && await exists(path.join(dist, 'assets/media/lane1-terrain-crop.webp.json')), 'First-viewport terrain lacks provenance');
 const hub = await readFile(path.join(dist, 'index.html'), 'utf8');

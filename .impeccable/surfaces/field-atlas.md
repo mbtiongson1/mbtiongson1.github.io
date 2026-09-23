@@ -18,7 +18,7 @@ related_targets: []
 
 **OWN-WORLD:** Deep blue-green chart field, fine contour strokes, bone-white typographic ink, cyan river trace, and restrained lime survey pins. Crisp ruled frames and annotation tabs carry navigation. A display face with expedition-poster heft contrasts with compact legible body text; neither a decorative map nor a generic dashboard skin.
 
-**STORY:** A visitor sees the compiled People prototype immediately, reads its fictional-data boundary, tries its interactive chart controls or opens it full size, then follows a named project index through the other disclosed visual studies, reviewed public Gaia links, and the shared worlds. The index works without JavaScript.
+**STORY:** A visitor sees the compiled People prototype immediately, reads its fictional-data boundary, tries its chart-view cycler or opens it full size, then follows a named project index through the other disclosed visual studies, reviewed public Gaia links, and the shared worlds. The demo's campus links are illustrative URL changes, not dataset filters; CSV export is not claimed. The index works without JavaScript.
 
 **FIRST VIEWPORT:** A narrow masthead spans the top. At desktop, a left title and named index occupy roughly a quarter of the width; a large real compiled People page owns the central/right field with its fictional-data disclosure and full-page launch above it. Contour lines stay behind the work; a disclosed crop of the WIP watershed image enters the lower-left field. On mobile, the title and a jump to the named index precede the artifact, while the full index follows it in DOM and visual order.
 

@@ -5,8 +5,8 @@
       "id": "people-compiled",
       "title": "People, compiled",
       "kind": "Interactive interface prototype",
-      "summary": "An assembled, self-contained dashboard for exploring several views of the same fictional people dataset. Open the compiled page to try its chart controls and filters.",
-      "context": "Compiled static HTML, CSS and local font/texture dependencies. Its inline runtime uses the embedded fictional dataset and makes no network requests.",
+      "summary": "A self-contained fictional-data dashboard. Open the compiled page to try its chart-view cycler, which changes the selected view.",
+      "context": "Compiled static HTML, CSS and local font/texture dependencies. The chart-view cycler updates the selected mode and URL. Campus links only rewrite the URL; they do not filter the embedded fictional dataset. No remote data requests.",
       "disclosure": "Fictional prototype data. This is not a live Rock connection, a production dashboard, or actual people records.",
       "visibility": "public",
       "demo": {
