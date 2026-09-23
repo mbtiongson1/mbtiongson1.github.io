@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#092b33">
+  <meta name="description" content="Field Atlas: a navigable survey of real interface work by Marcus Rafael B. Tiongson, with clearly labeled fictional prototypes.">
+  <title>Field Atlas — Marcus Rafael B. Tiongson</title>
+  <link rel="preload" href="/assets/fonts/barlow-condensed-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/field-atlas.css">
+  <script src="/scripts/field-atlas.js" defer></script>
+</head>
+<body class="field-atlas" data-active="people-compiled">
+  <a class="skip-link" href="#work">Skip to work</a>
+  <div class="chart-lines" aria-hidden="true"></div>
+  <header class="atlas-masthead">
+    <a class="maker-mark" href="/" aria-label="Marcus Rafael B. Tiongson — portfolio home">MRBT</a>
+    <span class="masthead-name">Marcus Rafael B. Tiongson <small>Design / maps / systems</small></span>
+    <nav class="masthead-links" aria-label="Page links"><a href="#work">Work</a><a href="#about">About</a><a href="#all-worlds">All worlds</a></nav>
+  </header>
+  <main id="work" class="atlas-main">
+    <div class="atlas-intro">
+      <div class="atlas-copy">
+        <h1>Field systems<br>for a wider view.</h1>
+        <p class="atlas-subtitle">Interfaces for complex territory.</p>
+        <a class="jump-index" href="#project-index">Browse the project index <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2v15m-6-6 6 6 6-6"/></svg></a>
+      </div>
+      <div class="lead-artifact">{{PROJECT_LEAD}}</div>
+      <nav class="project-index" id="project-index" aria-label="Project index"><h2>Project index</h2><ol>{{PROJECT_INDEX}}</ol></nav>
+      <figure class="atlas-terrain"><img src="/assets/media/lane1-terrain-crop.webp" width="1440" height="690" alt="Cropped work-in-progress fictional-data terrain study: mountain ridges, a blue river and an illustrative watershed." loading="lazy" decoding="async"><figcaption>WIP / fictional-data prototype. Terrain is illustrative, not a geographic measurement.</figcaption></figure>
+    </div>
+    <div class="chart-break" aria-hidden="true"><svg viewBox="0 0 1400 160" preserveAspectRatio="none"><path class="break-route" d="M-30 115C120 92 140 24 255 46S420 140 535 93 670 14 795 62 1030 136 1165 51 1300 42 1430 83"/><path class="break-contour" d="M-30 135C120 112 140 44 255 66S420 160 535 113 670 34 795 82 1030 156 1165 71 1300 62 1430 103M-30 95C120 72 140 4 255 26S420 120 535 73 670 -6 795 42 1030 116 1165 31 1300 22 1430 63"/></svg><span>The atlas is an index, not a dataset.</span></div>
+    <div class="project-territory">{{PROJECT_REST}}</div>
+    <section id="about" class="atlas-about" aria-labelledby="about-title"><div><h2 id="about-title">The work stays in view.</h2><p>These are real artifacts or reviewed captures of prototypes, not invented client results. Each record names what is fictional, static, or in progress. The chart is wayfinding, not a map of the projects. Six independently designed experiences browse this shared archive.</p></div><div class="about-actions"><a href="https://github.com/mbtiongson1" target="_blank" rel="noopener noreferrer">GitHub profile <span class="sr-only">(opens in a new tab)</span></a><a href="/">Return to the lobby</a></div></section>
+  </main>
+  <footer id="all-worlds" class="atlas-footer"><div class="footer-head"><h2>Choose another lens.</h2><a href="/">World-selection lobby</a></div><nav aria-label="Six portfolio experiences">{{WORLD_NAV}}</nav><p>Marcus Rafael B. Tiongson · Work shown with source and disclosure.</p></footer>
+</body>
+</html>

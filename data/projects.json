@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "projects": [
+    {
+      "id": "people-compiled",
+      "title": "People, compiled",
+      "kind": "Interactive interface prototype",
+      "summary": "A self-contained fictional-data dashboard. Open the compiled page to try its chart-view cycler, which changes the selected view.",
+      "context": "Compiled static HTML, CSS and local font/texture dependencies. The chart-view cycler updates the selected mode and URL. Campus links only rewrite the URL; they do not filter the embedded fictional dataset. No remote data requests.",
+      "disclosure": "Fictional prototype data. This is not a live Rock connection, a production dashboard, or actual people records.",
+      "visibility": "public",
+      "demo": {
+        "type": "local-html",
+        "url": "/assets/demos/people-compiled/favor-people-compiled.html",
+        "label": "Open interactive fictional prototype"
+      },
+      "media": null
+    },
+    {
+      "id": "gaia-skill-tree",
+      "title": "Gaia Skill Tree",
+      "kind": "Public website",
+      "summary": "Visit the public Gaia Skill Tree website.",
+      "context": "Linked external site with an owner-provided Open Graph illustration. The static artwork is not evidence of the site's functionality, usage, or outcomes.",
+      "disclosure": "Public external website, link verified 2026-09-24. Accompanying artwork is a static illustration, not a live interface or performance claim.",
+      "visibility": "public",
+      "live": {
+        "url": "https://gaiaskilltree.com/",
+        "label": "Visit Gaia Skill Tree",
+        "verifiedAt": "2026-09-24"
+      },
+      "demo": null,
+      "media": {
+        "src": "/assets/media/gaia-skill-tree-og.webp",
+        "width": 1200,
+        "height": 627,
+        "alt": "Dark Gaia Skill Tree Open Graph graphic with a gold branching tree, colored nodes, and the words Gaia Skill Tree.",
+        "caption": "Owner-provided Open Graph illustration; static artwork, not a screenshot of live behavior."
+      }
+    },
+    {
+      "id": "gaia-research",
+      "title": "Gaia Research",
+      "kind": "Public research website",
+      "summary": "Visit the public Gaia Research website.",
+      "context": "Linked external site; hero artwork with unverified metrics is deliberately excluded from this archive.",
+      "disclosure": "Public external website, link verified 2026-09-24. No local image, embedded site, or verified metric claims.",
+      "visibility": "public",
+      "live": {
+        "url": "https://research.gaiaskilltree.com/",
+        "label": "Visit Gaia Research",
+        "verifiedAt": "2026-09-24"
+      },
+      "demo": null,
+      "media": null
+    },
+    {
+      "id": "watershed-study",
+      "title": "Watershed study",
+      "kind": "Spatial interface study",
+      "summary": "A work-in-progress terrain view exploring a watershed as a visual model for movement and context.",
+      "context": "Presented as a still image of an in-progress 3D interface study, not a live tool or geographic dataset.",
+      "disclosure": "WIP / fictional-data prototype. Terrain and labels are illustrative, not geographic facts or measurements.",
+      "visibility": "public",
+      "demo": null,
+      "media": {
+        "src": "/assets/media/lane1-smoke-draft-whole.webp",
+        "width": 1440,
+        "height": 960,
+        "alt": "A work-in-progress rendered watershed terrain with a blue river between mountains, shown inside a prototype interface labelled fictional data.",
+        "caption": "WIP terrain interface capture, converted from the owner's original PNG."
+      }
+    },
+    {
+      "id": "automerge-overview",
+      "title": "AutoMerge overview",
+      "kind": "Static interface capture",
+      "summary": "An overview-screen prototype exploring how a review queue and manual merge controls might be organized.",
+      "context": "A still capture only. The image includes an illustrative Connected state while environment is unknown; neither connection nor thresholds represent verified current behavior.",
+      "disclosure": "Static prototype capture — not live or connected. States and thresholds in the image are not verified current behavior.",
+      "visibility": "public",
+      "demo": null,
+      "media": {
+        "src": "/assets/media/01-overview.webp",
+        "width": 1440,
+        "height": 900,
+        "alt": "Static overview-screen prototype with six status panels and review-queue and manual-merge actions; the pictured connection state is illustrative.",
+        "caption": "Static interface capture only; the pictured connection state is not a live status."
+      }
+    },
+    {
+      "id": "sample-watershed",
+      "title": "Sample watershed visualization",
+      "kind": "Sample-data visual exploration",
+      "summary": "A terrain-based visual exploration of a sample leadership-pathway model, shown as a single static image.",
+      "context": "This is a sample-data watershed visualization, not the Rock Steward control-plane UI or an operational report.",
+      "disclosure": "Sample-data visualization only — not the Rock Steward control-plane UI. Pictured names, counts and signals are illustrative, not operational data.",
+      "visibility": "public",
+      "demo": null,
+      "media": {
+        "src": "/assets/media/multiplication-watershed-sept20-dark.webp",
+        "width": 2880,
+        "height": 1800,
+        "alt": "Sample-data dark terrain visualization showing a blue river, labeled illustrative pathway points and a legend.",
+        "caption": "Sample-data watershed visualization; not a screenshot of the Steward control-plane UI."
+      }
+    }
+  ]
+}

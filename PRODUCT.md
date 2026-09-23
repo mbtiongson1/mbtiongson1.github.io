@@ -16,7 +16,7 @@ delegated: static HTML, CSS, and JavaScript for GitHub Pages, chosen from the de
 
 ## Product Purpose
 
-A personal portfolio for Marcus Rafael B. Tiongson that makes existing web and interface work easy to discover and experience. Success means a visitor can scan the work, open a real artifact, and find the GitHub profile or professional contact path.
+A personal portfolio for Marcus Rafael B. Tiongson that makes existing web and interface work easy to discover and experience. The same growing archive is presented through six distinct browsing experiences: Field Atlas, Screening Room, Arcade Marquee, Dada Contact Sheet, VU Meter Bridge, and the category-standard index. Success means a visitor can scan the work, choose a lens, experience a real artifact safely, and find the GitHub profile or professional contact path.
 
 ## Positioning
 
@@ -29,7 +29,8 @@ The portfolio will be hosted as a GitHub Pages site and linked from the `mbtiong
 ## Capabilities and Constraints
 
 - Static hosting; no server-side runtime or secrets.
-- Existing project artifacts may be copied into the portfolio while preserving required relative files and paths.
+- Existing project artifacts may be copied into the portfolio while preserving required relative files and paths. The content catalog should let future work be added once and surfaced in every experience.
+- Six browsing experiences are intentional, not merely mockups: each must be a usable, responsive route and share the same verified work archive.
 - Only assets verified safe to publish should be included. Synthetic/demo data must be labeled; real or sensitive data must not be exposed.
 - Do not invent client endorsements, awards, outcomes, or metrics. Keep project descriptions grounded in available source material.
 - The profile README and Pages site should cross-link rather than duplicate the portfolio.
@@ -41,8 +42,8 @@ The owner is Marcus Rafael B. Tiongson (`mbtiongson1`). The request commits to a
 ## Evidence on Hand
 
 - Existing local web and design projects include `rock-dashboards`, `gaia-research`, and `rock-steward`.
-- Rock Dashboards has self-contained rendered HTML/CSS and fictional-data artifacts; candidate assets require inspection before publication.
-- Local Blender watershed project files and renders are available, but the best publishable preview is not yet confirmed.
+- A reviewed `rock-dashboards/build/rendered/favor-people-compiled.html` is a self-contained interactive fictional-data prototype with inline runtime and only seven local dependencies. It is publishable as a standalone demo, not a live Rock connection.
+- Reviewed media-only captures include a WIP fictional-data watershed render, a static AutoMerge prototype screen (not live/connected), and a sample-data watershed visualization (not the Steward control-plane UI). Their disclosures must stay adjacent to the work.
 - The user's public GitHub profile identifies their professional links and public repositories.
 - No approved portfolio copy, personal portrait, testimonial, or resume download was supplied for this project. Do not fabricate any.
 

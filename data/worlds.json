@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "worlds": [
+    { "slug": "field-atlas", "name": "Field Atlas", "status": "live", "description": "Follow the work through an interface survey." },
+    { "slug": "screening-room", "name": "Screening Room", "status": "live", "description": "A cinema-like way to view the work." },
+    { "slug": "arcade-marquee", "name": "Arcade Marquee", "status": "live", "description": "An arcade-inspired way to browse the work." },
+    { "slug": "dada-contact-sheet", "name": "Dada Contact Sheet", "status": "live", "description": "A contact-sheet way to browse the work." },
+    { "slug": "vu-meter-bridge", "name": "VU Meter Bridge", "status": "live", "description": "A signal-led way to browse the work." },
+    { "slug": "classic-index", "name": "Classic Index", "status": "live", "description": "A direct, category-standard way to browse the work." }
+  ]
+}
