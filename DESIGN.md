@@ -86,7 +86,7 @@ This document records the **implemented** foundation, not a common skin for all 
 
 ## Layout
 
-The lobby opens with a large split headline, then one featured route and a ruled list of other routes. Field Atlas uses a desktop chart-sheet grid: title and named index on the left, interactive artifact on the right, with a reviewed terrain crop entering the lower left. At narrow widths the DOM order is title, artifact, project index, terrain; a direct jump link reaches the index. The index is real anchors and sections in generated HTML, independent of JavaScript. All six public routes and project URLs are built from `data/worlds.json` and `data/projects.json` into static `dist/` pages by `scripts/build.mjs`.
+The lobby opens with a large split headline, then one featured route and a ruled list of other routes. Field Atlas uses a desktop chart-sheet grid: title and named index on the left, interactive artifact on the right, with a reviewed terrain crop entering the lower left. The index also includes reviewed public-site entries: a static Gaia Skill Tree Open Graph visual with its live link, and a Gaia Research live link without unverified-metric artwork. At narrow widths the DOM order is title, artifact, project index, terrain; a direct jump link reaches the index. The index is real anchors and sections in generated HTML, independent of JavaScript. All six public routes and project URLs are built from `data/worlds.json` and `data/projects.json` into static `dist/` pages by `scripts/build.mjs`.
 
 ## Elevation & Depth
 
@@ -102,7 +102,7 @@ Square-edged ruled frames, straight separators, a small rotated survey pin and a
 - Named anchors jump to server-rendered project sections. A pin fills for the active project when JavaScript is available; the links work without it. Focus is a high-contrast outline, not hover alone.
 
 ### Artifact frame and disclosure
-- The interactive compiled page lives in an iframe with only `allow-scripts allow-downloads`, a visible fictional-data band, and a separate full-page launch. Static images open at full size and retain adjacent media-only disclosure. The dashboard's own runtime and files remain untouched.
+- The interactive compiled page lives in an iframe with only `allow-scripts allow-downloads`, a visible fictional-data band, and a separate full-page launch. Static images open at full size and retain adjacent disclosures; link-only entries show an explicit no-local-image note. The dashboard's own runtime and files remain untouched.
 
 ### Lobby selector
 - The featured route is a large dark field with a real WIP image and a disclosure. Remaining routes are typographic rows. The five placeholder pages are temporary source seams and are not a shared visual identity for those worlds.

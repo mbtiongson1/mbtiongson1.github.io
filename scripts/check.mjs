@@ -26,6 +26,20 @@ const atlas = await readFile(path.join(dist, 'worlds/field-atlas/index.html'), '
 for (const project of projects) {
   assert(atlas.includes(`id="${project.id}"`), `Atlas missing ${project.title}`);
   assert(atlas.includes(project.disclosure.replaceAll('&', '&amp;').replaceAll('—', '—')), `Atlas missing disclosure: ${project.title}`);
+  if (project.live) assert(atlas.includes(`href="${project.live.url}" target="_blank" rel="noopener noreferrer"`), `Atlas missing safe verified link: ${project.title}`);
+}
+for (const [id, url] of [['gaia-skill-tree', 'https://gaiaskilltree.com/'], ['gaia-research', 'https://research.gaiaskilltree.com/']]) {
+  const project = projects.find((p) => p.id === id);
+  assert(project?.live?.url === url && project.live.verifiedAt === '2026-09-24', `Missing browser-verified public link: ${id}`);
+  const section = atlas.match(new RegExp(`<section class="project-section" id="${id}"[\\s\\S]*?<\\/section>`))?.[0];
+  assert(section?.includes(`href="${url}"`) && section.includes(project.disclosure), `${id}: missing linked section or adjacent disclosure`);
+  assert(!project.demo, `${id}: external site must not be embedded`);
+  if (id === 'gaia-skill-tree') {
+    assert(project.media?.src === '/assets/media/gaia-skill-tree-og.webp' && section.includes(project.media.src), 'Gaia Skill Tree: reviewed media+live combination missing');
+    assert(await exists(path.join(dist, 'assets/media/gaia-skill-tree-og.webp.json')), 'Gaia Skill Tree image lacks provenance');
+  } else {
+    assert(!project.media && section.includes('External public website · No local image or embed.') && !section.includes('<img'), 'Gaia Research: link-only entry must not publish unverified artwork');
+  }
 }
 assert(atlas.includes('sandbox="allow-scripts allow-downloads"'), 'Demo iframe lacks sandbox');
 assert(atlas.includes('lane1-terrain-crop.webp') && await exists(path.join(dist, 'assets/media/lane1-terrain-crop.webp.json')), 'First-viewport terrain lacks provenance');

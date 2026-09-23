@@ -18,6 +18,11 @@
       "treatment": "Crop x0 y172 w1440 h690 of the owner-provided WIP fictional-data prototype, converted to WebP quality 83. The site labels it non-geographic."
     },
     {
+      "published": "assets/media/gaia-skill-tree-og.webp",
+      "source": "/Users/marcotiongson/gaia-skill-tree/docs/assets/og-image.png",
+      "treatment": "Owner-provided 1200x627 Open Graph illustration converted to WebP quality 83 without cropping. It has no numeric dashboard claims; static artwork is not a live site capture."
+    },
+    {
       "published": "assets/media/01-overview.webp",
       "source": "/Users/marcotiongson/rock-automerge-signup-echo-e2e/screenshots/01-overview.png",
       "treatment": "WebP quality 83; static prototype only, not live or connected."

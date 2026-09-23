@@ -17,6 +17,44 @@
       "media": null
     },
     {
+      "id": "gaia-skill-tree",
+      "title": "Gaia Skill Tree",
+      "kind": "Public website",
+      "summary": "Visit the public Gaia Skill Tree website.",
+      "context": "Linked external site with an owner-provided Open Graph illustration. The static artwork is not evidence of the site's functionality, usage, or outcomes.",
+      "disclosure": "Public external website, link verified 2026-09-24. Accompanying artwork is a static illustration, not a live interface or performance claim.",
+      "visibility": "public",
+      "live": {
+        "url": "https://gaiaskilltree.com/",
+        "label": "Visit Gaia Skill Tree",
+        "verifiedAt": "2026-09-24"
+      },
+      "demo": null,
+      "media": {
+        "src": "/assets/media/gaia-skill-tree-og.webp",
+        "width": 1200,
+        "height": 627,
+        "alt": "Dark Gaia Skill Tree Open Graph graphic with a gold branching tree, colored nodes, and the words Gaia Skill Tree.",
+        "caption": "Owner-provided Open Graph illustration; static artwork, not a screenshot of live behavior."
+      }
+    },
+    {
+      "id": "gaia-research",
+      "title": "Gaia Research",
+      "kind": "Public research website",
+      "summary": "Visit the public Gaia Research website.",
+      "context": "Linked external site; hero artwork with unverified metrics is deliberately excluded from this archive.",
+      "disclosure": "Public external website, link verified 2026-09-24. No local image, embedded site, or verified metric claims.",
+      "visibility": "public",
+      "live": {
+        "url": "https://research.gaiaskilltree.com/",
+        "label": "Visit Gaia Research",
+        "verifiedAt": "2026-09-24"
+      },
+      "demo": null,
+      "media": null
+    },
+    {
       "id": "watershed-study",
       "title": "Watershed study",
       "kind": "Spatial interface study",

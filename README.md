@@ -20,7 +20,7 @@ Open `http://localhost:8000/`, `http://localhost:8000/worlds/field-atlas/`, and 
 - `data/worlds.json` — six final live route slugs and display names. The five other routes have temporary, honest source placeholders in this PR, replaced in their own world PRs before deployment. `docs/worlds.md` maps each route to its isolated page/CSS/JS seam.
 - `src/pages/`, `src/styles/`, `src/scripts/` — page templates and independent visual treatments. `scripts/build.mjs` renders static `dist/` from those sources and copies `assets/`; incoming world agents edit their own source files without modifying it.
 - `assets/demos/people-compiled/` — **only** the owner-provided compiled fictional-data HTML, CSS, four local fonts, and two textures. This is an interactive prototype, not a live Rock connection.
-- `assets/media/` — optimized, disclosed media-only work samples. Image provenance sidecars stay beside WebP files.
+- `assets/media/` — optimized, disclosed visual samples, including the owner-provided, metric-free Gaia Skill Tree Open Graph illustration. Image provenance sidecars stay beside WebP files; Gaia Research remains link-only because its hero image has unverified metrics.
 - `docs/add-a-project.md` — record schema, safety review, media rules, and integration contract for every world.
 
 ## Deployment and publication
