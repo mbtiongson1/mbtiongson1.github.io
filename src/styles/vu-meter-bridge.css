@@ -98,6 +98,9 @@ button { font: inherit; }
 .skip-link:focus {
   position: fixed;
   z-index: 20;
+  display: inline-flex;
+  min-height: var(--tap);
+  align-items: center;
   top: .75rem;
   left: .75rem;
   width: auto;
@@ -123,6 +126,7 @@ button { font: inherit; }
 
 .maker-lockup {
   display: grid;
+  min-height: var(--tap);
   grid-template-columns: 3.2rem minmax(0, 1fr);
   grid-template-rows: auto auto;
   align-items: center;
@@ -817,7 +821,7 @@ button { font: inherit; }
 
   .bridge-header { padding-top: .6rem; }
   .maker-lockup { grid-template-columns: 2.8rem minmax(0, 1fr); column-gap: .65rem; }
-  .maker-mark { width: 2.7rem; height: 2.7rem; }
+  .maker-mark { width: 2.75rem; height: 2.75rem; min-width: var(--tap); min-height: var(--tap); }
   .maker-name { font-size: .91rem; }
   .maker-role { font-size: .78rem; }
   .world-nav { flex-wrap: wrap; gap: .15rem .8rem; overflow: visible; margin-inline: -.1rem; }

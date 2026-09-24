@@ -76,6 +76,15 @@ components:
     backgroundColor: "transparent"
     textColor: "{colors.muted}"
     height: "{spacing.tap}"
+  skip-link:
+    backgroundColor: "{colors.face}"
+    textColor: "{colors.face-ink}"
+    padding: "0.65rem 1rem"
+    height: "{spacing.tap}"
+  maker-lockup:
+    backgroundColor: "transparent"
+    textColor: "{colors.paper}"
+    height: "{spacing.tap}"
 ---
 
 # Design System: VU Meter Bridge
@@ -168,6 +177,10 @@ Panels, channel controls, links, and archive rows use square corners. Only the C
 ### Portfolio-world navigation
 - **Style:** named text links in the maker header, with the current world indicated by an underline and color shift.
 - **Mobile:** links wrap into rows, preserving access to every world.
+
+### Maker and skip affordances
+- **Maker lockup:** the full home link and its mobile mark remain at least 44px tall/square.
+- **Skip link:** becomes visible on keyboard focus and retains the same 44px minimum target.
 
 ## Do's and Don'ts
 

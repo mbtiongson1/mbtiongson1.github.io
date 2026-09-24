@@ -85,6 +85,22 @@
       "description": "Named portfolio-world navigation that remains a real link at every breakpoint.",
       "html": "<a class=\"ds-world-link\" href=\"/worlds/vu-meter-bridge/\" aria-current=\"page\">VU Meter Bridge</a>",
       "css": ".ds-world-link { display: inline-flex; min-height: var(--tap); align-items: center; padding: .45rem .12rem; border-bottom: 2px solid var(--face); color: var(--face); font: 600 .78rem/1.25 Barlow, Arial, sans-serif; letter-spacing: .065em; text-decoration: none; text-transform: uppercase; } .ds-world-link:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }"
+    },
+    {
+      "name": "Keyboard Skip Link",
+      "kind": "nav",
+      "refersTo": "skip-link",
+      "description": "A focus-revealed route into the work with a minimum 44px hit area.",
+      "html": "<a class=\"ds-skip-link\" href=\"#main\">Skip to the work</a>",
+      "css": ".ds-skip-link { position: fixed; z-index: 20; top: -4rem; left: .75rem; display: inline-flex; min-height: var(--tap); align-items: center; padding: .65rem 1rem; background: var(--face); color: var(--face-ink); font: 600 .8rem/1.25 Barlow, Arial, sans-serif; } .ds-skip-link:focus { top: .75rem; outline: 3px solid var(--focus); outline-offset: 4px; }"
+    },
+    {
+      "name": "Maker Home Lockup",
+      "kind": "nav",
+      "refersTo": "maker-lockup",
+      "description": "The owner's named home link retains a 44px minimum target; the mobile initial mark is 44px square.",
+      "html": "<a class=\"ds-maker-lockup\" href=\"/\"><span class=\"ds-maker-mark\" aria-hidden=\"true\">MRBT</span><span>Marcus Rafael B. Tiongson</span></a>",
+      "css": ".ds-maker-lockup { display: grid; min-height: var(--tap); grid-template-columns: 3.2rem minmax(0,1fr); align-items: center; gap: .85rem; color: var(--paper); text-decoration: none; } .ds-maker-mark { display: grid; width: 3.1rem; height: 3.1rem; place-items: center; border: 1px solid var(--steel); background: var(--walnut-deep); color: var(--face); font: 800 1.25rem/1 Barlow Condensed, Barlow, sans-serif; } @media (max-width: 560px) { .ds-maker-mark { width: 2.75rem; height: 2.75rem; min-width: var(--tap); min-height: var(--tap); } }"
     }
   ],
   "narrative": {
