@@ -1,10 +1,12 @@
-# Marcus Rafael B. Tiongson — Portfolio
+# mbtiongson1 — Portfolio
 
-A web-design-focused portfolio at `https://mbtiongson1.github.io/`: six independently art-directed ways into one growing, reviewed project archive. This branch builds the root world-selection lobby and the complete Field Atlas route; the other five routes currently use honest fallback pages in this PR and are supplied by separate PRs before the site is published.
+A portfolio by Marcus Rafael B. Tiongson at **[mbtiongson1.github.io](https://mbtiongson1.github.io/)**. Screening Room is the single public experience: the Gaia Skill Tree flagship, Gaia Research, Skill Heaven, interactive dashboards, agent infrastructure, applied ML, and visual studies all live in one evidence-backed project reel.
+
+The other five portfolio-world experiments remain in the repository as source, but are disabled from the published build. They are not alternate public destinations.
 
 ## Local preview
 
-Requires Node 22+ for the build and Python 3 for the optional local server. No npm install, backend, secret, or external service is needed.
+Requires Node 22+ and Python 3 for the optional static server. There are no install steps, backend, credentials, or live service connection.
 
 ```sh
 npm run build
@@ -12,21 +14,33 @@ npm run check
 python3 -m http.server 8000 --directory dist
 ```
 
-Open `http://localhost:8000/`, `http://localhost:8000/worlds/field-atlas/`, and the compiled artifact at `http://localhost:8000/assets/demos/people-compiled/favor-people-compiled.html`. If port 8000 is occupied, choose another port. The project index and all project sections are generated in the HTML, so they still work with JavaScript disabled. Portfolio JavaScript only updates the active chart/index state. In the compiled demo, the chart-view cycler changes the selected mode and URL; campus links only rewrite the URL and **do not filter the embedded dataset**. No CSV-export behavior is claimed here because it was not verified. The demo makes no remote data requests.
+Open `http://localhost:8000/`, the full case study at `http://localhost:8000/work/gaia-skill-tree/`, and the local Connect Health demo at `http://localhost:8000/assets/demos/connect-health/`. The main project index and fallback project sections are server-rendered; they remain readable when JavaScript is disabled. The feature explainers run locally. External Gaia projects open at their public sites; they are not embedded.
 
 ## Structure
 
-- `data/projects.json` — one record per reviewed project; `data/asset-provenance.json` names each original source file.
-- `data/worlds.json` — six final live route slugs and display names. The five other routes have temporary, honest source placeholders in this PR, replaced in their own world PRs before deployment. `docs/worlds.md` maps each route to its isolated page/CSS/JS seam.
-- `src/pages/`, `src/styles/`, `src/scripts/` — page templates and independent visual treatments. `scripts/build.mjs` renders static `dist/` from those sources and copies `assets/`; incoming world agents edit their own source files without modifying it.
-- `assets/demos/people-compiled/` — **only** the owner-provided compiled fictional-data HTML, CSS, four local fonts, and two textures. This is an interactive prototype, not a live Rock connection.
-- `assets/media/` — optimized, disclosed visual samples, including the owner-provided, metric-free Gaia Skill Tree Open Graph illustration. Image provenance sidecars stay beside WebP files; Gaia Research remains link-only because its hero image has unverified metrics.
-- `docs/add-a-project.md` — record schema, safety review, media rules, and integration contract for every world.
+- `data/projects.json` — reviewed project records, contribution notes, public links, demos, media, and adjacent disclosures.
+- `data/worlds.json` — one `home` experience and five disabled-but-retained visual directions.
+- `src/pages/worlds/screening-room.html` — the public root page's source template.
+- `src/pages/work/gaia-skill-tree.html` — full flagship case study.
+- `src/styles/` and `src/scripts/` — Screening Room and case-study assets. Disabled world source files remain in the repository but are not copied into `dist/`.
+- `assets/demos/connect-health/` — offline, interactive Connect Health prototype; fictional sample only, locally bundled fonts, no network requests or Rock URLs.
+- `assets/demos/people-compiled/` — older, self-contained fictional-data prototype; intentionally secondary in the reel.
+- `assets/media/` — disclosed images with adjacent provenance sidecars. The Gaia Skill Tree asset is Open Graph artwork, not a live interface screenshot.
+- `docs/add-a-project.md` — project-record, evidence, disclosure, and publication rules.
 
-## Deployment and publication
+## Checks and publishing
 
-`.github/workflows/pages.yml` builds and checks on pull requests and pushes to `main`; it does **not** publish on push. After the five other world PRs replace their fallback routes and the central desktop/mobile review is complete, an operator can manually run the workflow on `main`. That run requires `npm run check -- --release` to pass (no placeholder routes) before uploading and deploying `dist/` through GitHub Pages Actions. Set the repository Pages source to **GitHub Actions**. The GitHub personal-profile README is a separate repository, outside this branch's write boundary; after the Pages deployment is verified, link `https://mbtiongson1.github.io/` from that profile.
+```sh
+npm run build
+npm run check
+npm run check -- --release
+```
 
-## Publishing safeguards
+The Pages workflow checks pull requests and main pushes but only deploys on manual `workflow_dispatch`. The release check requires the flagship case study, local interactive dashboard, complete project disclosures, preserved-but-disabled world sources, and a clean publication boundary before deployment.
 
-Every visible prototype is clearly identified at the point of viewing. Never copy the gitignored `out/evidence` harness, live Rock variants, source/app code, production data, `.blend` files, or private contact material. The static AutoMerge capture is **not** evidence of a live connection; the Steward-adjacent sample image is **not** its control-plane UI. No client outcomes, metrics, or connected behavior are claimed by this portfolio. The development-only `.impeccable/mocks/decision/` comps are not shipped.
+## Publication boundaries
+
+- Dashboard fixtures are local and fictional. The Connect Health demo never reads or writes Rock and never makes a network request.
+- No Gaia site is embedded or proxied; links point to the actual public product or repository.
+- AutoMerge is a static prototype capture. Watershed items are WIP/sample-data visuals, not geographic or operational evidence.
+- No live system credentials, production data, private Rock variants, `.blend` files, generated decision comps, or unsupported claims are shipped.

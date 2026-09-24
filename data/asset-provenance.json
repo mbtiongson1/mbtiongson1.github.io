@@ -1,5 +1,5 @@
 {
-  "note": "Only the named owner-provided artifacts below are published. WebP image provenance also travels in adjacent .webp.json sidecars. The development-only Impeccable decision comps are not shipped.",
+  "note": "Only named owner-provided or public-source artifacts reviewed for this portfolio are published. WebP image provenance also travels in adjacent .webp.json sidecars. The development-only Impeccable decision comps are not shipped.",
   "assets": [
     {
       "published": "assets/demos/people-compiled/",
@@ -33,7 +33,12 @@
       "treatment": "WebP quality 83; sample-data visualization, not Steward control-plane UI."
     },
     {
-      "published": "assets/fonts/",
+      "published": "assets/media/fuel-abemis-shap-summary.webp",
+      "source": "https://raw.githubusercontent.com/mbtiongson1/fuel-abemis/main/Mini-Project/Project%20Documents/shap_summary_bar.png",
+      "treatment": "Public-source SHAP global feature-importance chart, converted to WebP quality 84 without cropping. It is a static plot from the pilot model, not a live analysis or general performance claim."
+    },
+    {
+      "published": "assets/fonts/"
       "source": "Google Fonts: Barlow v13 (Latin 400/600) and Barlow Condensed v13 (Latin 800), fonts.gstatic.com/s/barlow/ and /s/barlowcondensed/",
       "treatment": "Self-hosted WOFF2 subsets. OFL licenses in assets/fonts/OFL-Barlow.txt and OFL-BarlowCondensed.txt."
     }

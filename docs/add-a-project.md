@@ -1,55 +1,64 @@
 # Add a project once
 
-The source of truth is `data/projects.json`. The build writes semantic HTML for the lobby and Field Atlas from that file; future worlds can use the same data in their own template or read `/data/projects.json` on the static site. Do **not** author a second project list in a world.
+`data/projects.json` is the single reviewed project archive. The Screening Room reel, no-JavaScript project notes, and case-study references draw from it. Do not create a parallel catalog in page JavaScript.
 
-## 1. Review publication boundaries
+## 1. Review the publication boundary
 
-Confirm you own or may publish every file. Remove names, credentials, private contact details, production data, and unreviewed source. A prototype is not a live integration. Keep fictional/sample/WIP status visible **beside the artifact**, not only in a footer or alt text. Add the original filename and source path to `data/asset-provenance.json`. For a WebP/PNG raster, record its source in an adjacent provenance sidecar using `impeccable embed-prompt <asset> --prompt 'Sourced from ...'`; `impeccable embed-prompt --scan assets/media assets/demos` must report zero missing. Sidecar fallback is normal for WebP.
+Confirm the work may be shown publicly. Remove private names, credentials, personal data, production payloads, and unreviewed source. An interactive dashboard demo must use local fictional data only and must not connect to Rock or another live system. Keep `fictional`, `sample`, `WIP`, and static-capture boundaries immediately beside the artifact. Record raster provenance in `data/asset-provenance.json` and in the media sidecar; never ship generated decision comps as evidence.
 
-## 2. Add one record
-
-Copy this shape and replace the values. `id` is a permanent URL fragment (`lowercase-hyphenated`); do not rename it after links circulate.
+## 2. Record the project
 
 ```json
 {
   "id": "example-project",
   "title": "Project title",
-  "kind": "Interface study",
-  "summary": "One factual sentence about what can be seen or tried.",
-  "context": "How this artifact was made and what it does not prove.",
-  "disclosure": "WIP / fictional-data prototype. No live or production data.",
+  "kind": "Tool / research system / interface study",
+  "summary": "One factual sentence about what can be inspected or tried.",
+  "context": "How it was made and what the artifact does not prove.",
+  "disclosure": "A concise status or data boundary displayed beside the artifact.",
+  "role": "Optional, evidence-backed contribution statement.",
   "visibility": "public",
-  "live": {
-    "url": "https://example.org/verified-public-page",
-    "label": "Visit the public site",
-    "verifiedAt": "2026-09-24"
-  },
-  "demo": {
-    "type": "local-html",
-    "url": "/assets/demos/example-project/index.html",
-    "label": "Open the interactive prototype",
-    "previewAnchor": "optional-id-inside-demo"
-  },
-  "media": {
-    "src": "/assets/media/example-project.webp",
-    "width": 1600,
-    "height": 1000,
-    "alt": "Specific description of the visible interface or image, without a claim it cannot support.",
-    "caption": "What this image actually shows, including synthetic/WIP status if applicable."
-  }
+  "live": null,
+  "links": [
+    {
+      "url": "https://example.org/source",
+      "label": "Read the public source",
+      "verifiedAt": "2026-09-24"
+    }
+  ],
+  "caseStudy": null,
+  "demo": null,
+  "media": null
 }
 ```
 
-At least one of `demo`, `media`, or `live` is required; either local artifact may be `null`. A **link-only record** sets both `demo` and `media` to `null` and provides `live`, and the renderer shows a no-local-image note rather than inventing an image. `live` is optional for local artifacts; only add a public HTTPS URL after checking it in a browser, record the check date in `verifiedAt`, and do not infer active features or outcomes from the link. Gaia Skill Tree is a **media+live** record with a reviewed, metric-free owner-provided Open Graph illustration. Gaia Research is **live-only**; its hero artwork contains unverified metrics and must not be copied into this archive. Both public links were browser-verified on 2026-09-24. Only `visibility: "public"` records are accepted by the build. Keep drafts outside this catalog until reviewed. `demo.type` currently supports only `local-html`: a copied static artifact whose URL starts at this site root. `previewAnchor` optionally scrolls the **embedded preview** to a meaningful section; the full-size launch still opens the page from the top. Do not put a live endpoint, private app, or external embed in `demo.url`. For a public external site, use `live` after verification; do not mislabel it as a local demo.
+At least one of `live`, `links`, `caseStudy`, `demo`, or `media` must be present. `live` is a verified public product URL. `links` can carry a repository, paper, public lab, or related source; verify each HTTPS URL and date it. `caseStudy` is a local route such as `/work/gaia-skill-tree/`. Do not claim a local demo is the live product.
 
-## 3. Prepare media
+A local demo uses:
 
-Aim for a source image at least **1600px wide** for large interface captures; a smaller owner-provided Open Graph image may be used at its actual dimensions without enlarging it. Preserve its natural aspect ratio and enter its exact width and height. Optimize to WebP around quality 80–85, inspect text legibility at displayed size, and let visitors open the full-size image. Never crop away a source disclosure without repeating it adjacent to the image. Alt text describes visible content, not marketing claims; a decorative duplicate would use empty alt, but project imagery here is informative. Caption gives source/context and distinguishes screenshots from functioning software. `disclosure` is always rendered directly next to the artifact, including an iframe. Keep downloaded fonts' licenses with them.
+```json
+"demo": {
+  "type": "local-html",
+  "url": "/assets/demos/example-project/index.html",
+  "label": "Open interactive local demo",
+  "frameLabel": "FICTIONAL LOCAL DATA / INTERACTIVE PROTOTYPE"
+}
+```
 
-## 4. Build and verify
+The builder embeds local demos in a sandboxed iframe (`allow-scripts allow-downloads`, without `allow-same-origin`). Keep demo data self-contained and offline: no live APIs, Rock paths, production endpoints, analytics, or external network requests. Load licensed fonts from local files. The visible `frameLabel` and adjacent disclosure must make sample status unmistakable.
 
-Run `npm run build && npm run check`, then preview `dist/` with `python3 -m http.server 8000 --directory dist`. Check `/`, `/worlds/field-atlas/#example-project`, the full-size asset, and any local HTML demo. The build is static: no server process or secret is deployed. `scripts/build.mjs` validates media paths, required descriptions/disclosures, public visibility, each demo's local URL, and verified public-link metadata. `scripts/check.mjs` validates generated routes, six-way navigation, disclosures, safe external Gaia links, demo boundaries, and raster provenance.
+A raster record needs `src`, intrinsic `width` and `height`, descriptive `alt`, and an accurate `caption`. The Gaia Skill Tree Open Graph art is not a screenshot. The Gaia Research hero contains unverified metrics and remains excluded from the portfolio media catalog.
 
-## How the six worlds integrate
+Array order is editorial: the first project is the default Screening Room feature. Keep Gaia Skill Tree first unless the owner explicitly reorders the flagship.
 
-`data/worlds.json` is the route registry; all six slugs and statuses are final. Every page must link the other five worlds and use the shared project catalog. For an incoming world, replace its existing placeholder at `src/pages/worlds/<slug>.html` and add its own `src/styles/<slug>.css` and optional `src/scripts/<slug>.js`; the build automatically assembles them. See the exact route map in `docs/worlds.md`. Tokens available to its template: `{{WORLD_NAV}}`, `{{WORLD_NAME}}`, `{{WORLD_DESCRIPTION}}`, `{{PROJECT_INDEX}}`, `{{PROJECT_LEAD}}`, `{{PROJECT_REST}}`, and `{{PROJECT_LINKS}}`. Those generic render helpers are optional; a world with a different structure can use a dedicated client script reading `/data/projects.json`, while retaining a named static fallback from the template tokens. The five incoming world workers do not need to edit the shared build script. Give the new world its own stylesheet, interaction, semantics, responsive behavior, and no-JavaScript route to the work. Do not apply Field Atlas styling globally or turn the six experiences into theme variants.
+## 3. Build and verify
+
+```sh
+npm run build
+npm run check
+npm run check -- --release
+```
+
+The builder emits the portfolio at `/`, the flagship case study at `/work/gaia-skill-tree/`, and only files used by the active Screening Room. It keeps five other world source trees in the repo but does not publish their routes, styles, or scripts. The project archive is emitted at `/data/projects.json` for the filmstrip enhancement; the server-rendered HTML remains useful if JavaScript is off.
+
+The check verifies disclosures, local links, case-study output, media provenance, sandboxing, fake-data demo boundaries, and that disabled world routes do not appear in `dist/`. Preview `dist/` with `python3 -m http.server 8000 --directory dist`; inspect desktop and mobile in the already-authorized browser space before publishing. Do not access production systems to QA a portfolio demo.

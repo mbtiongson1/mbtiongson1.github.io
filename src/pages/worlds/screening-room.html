@@ -4,32 +4,40 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#081818">
-  <meta name="description" content="{{WORLD_DESCRIPTION}} Explore the shared portfolio archive through a live interface screening room.">
-  <title>{{WORLD_NAME}} — Marcus Rafael B. Tiongson</title>
+  <meta name="description" content="Work by mbtiongson1: Gaia Skill Tree, research systems, dashboards, agent tools, applied ML, and interface experiments.">
+  <title>mbtiongson1 — Marcus Rafael B. Tiongson</title>
+  <link rel="preload" href="/assets/fonts/barlow-condensed-latin-800.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/styles/screening-room.css">
+  <link rel="stylesheet" href="/styles/portfolio-home.css">
   <script src="/scripts/screening-room.js" defer></script>
+  <script src="/scripts/portfolio-systems.js" defer></script>
 </head>
-<body class="screening-room">
+<body class="screening-room portfolio-home">
   <a class="skip-link" href="#main">Skip to the work</a>
   <header class="room-header">
-    <a class="room-wordmark" href="/" aria-label="Marcus Rafael B. Tiongson portfolio home">
-      <span class="wordmark-mark" aria-hidden="true">MRBT</span>
-      <span class="wordmark-caption">Six ways into<br>one archive</span>
+    <a class="room-wordmark" href="/" aria-label="mbtiongson1 portfolio home">
+      <span class="wordmark-mark">mbtiongson1</span>
+      <span class="wordmark-caption">Products / systems / research</span>
     </a>
-    <p class="room-label">{{WORLD_NAME}}<span> / portfolio experience</span></p>
-    <nav class="world-nav" aria-label="Portfolio experiences">{{WORLD_NAV}}</nav>
+    <p class="room-label">Marcus Rafael B. Tiongson <span>/ portfolio</span></p>
+    <nav class="world-nav section-nav" aria-label="Portfolio sections">
+      <a href="#work"><span>Work</span></a>
+      <a href="#story"><span>Founder story</span></a>
+      <a href="#systems"><span>Beyond the browser</span></a>
+      <a href="#contact"><span>Contact</span></a>
+    </nav>
   </header>
 
-  <main id="main">
-    <div class="screening-grid">
-      <aside class="archive-rail" aria-label="Project filmstrip">
+  <main id="main" tabindex="-1">
+    <div class="screening-grid" id="work">
+      <aside class="archive-rail" aria-label="Selected work">
         <div class="identity">
           <h1 id="page-title">
             <span>Marcus</span>
-            <span>Rafael</span>
-            <span>B. Tiongson</span>
+            <span>Rafael B.</span>
+            <span>Tiongson</span>
           </h1>
-          <p class="identity-descriptor">Interfaces <span>/</span> research <span>/</span> systems</p>
+          <p class="identity-descriptor">AI engineering <span>/</span> builder <span>/</span> researcher</p>
           <span class="identity-rule" aria-hidden="true"></span>
         </div>
 
@@ -43,7 +51,7 @@
           </div>
           <div class="filmstrip-controls" id="filmstrip-controls" role="group" aria-label="Choose a project" hidden></div>
         </nav>
-        <p class="rail-note">Real screens.<br>Clear status.</p>
+        <p class="rail-note">Products, tools,<br>interfaces, research.</p>
       </aside>
 
       <section class="projection" aria-label="Featured project screening area">
@@ -51,26 +59,142 @@
           <div class="frame-meta">
             <span class="frame-meta-label"><span class="signal-dot" aria-hidden="true"></span> On screen</span>
             <span class="frame-meta-rule" aria-hidden="true"></span>
-            <p class="frame-meta-code screen-announce" id="screen-announce" role="status" aria-live="polite">Showing People, compiled — interactive local prototype.</p>
+            <p class="frame-meta-code screen-announce" id="screen-announce" role="status" aria-live="polite">Showing Gaia Skill Tree — flagship open-source capability registry.</p>
           </div>
           <div class="featured-project" id="selected-project">{{PROJECT_LEAD}}</div>
         </div>
+        <p class="projection-followup"><span>Flagship / Gaia Skill Tree</span><a href="/work/gaia-skill-tree/">Open the full case study <span aria-hidden="true">↗</span></a></p>
       </section>
     </div>
 
+    <section class="founder-story" id="story" aria-labelledby="story-title">
+      <div class="founder-heading">
+        <h2 id="story-title">Skills should carry their maker’s name.</h2>
+        <p>Why I started building Gaia.</p>
+      </div>
+      <div class="founder-copy">
+        <blockquote>“I built this because skills should be attributed to the people who proved them. Permanently, not just until the repo goes private.”</blockquote>
+        <p class="founder-attribution">Marcus Rafael B. Tiongson <span>/</span> Gaia Skill Tree README</p>
+        <p>I’m an MEng student in AI Engineering at the University of the Philippines Diliman. I build tools that make complex systems easier to inspect: an evidence-backed skills registry, agent-session tooling, research labs, operational dashboards, and the interfaces around them. This reel shows the products and the working parts—not just the websites.</p>
+      </div>
+    </section>
+
+    <section class="systems-section" id="systems" aria-labelledby="systems-title">
+      <div class="systems-heading">
+        <h2 id="systems-title">Beyond the browser</h2>
+        <p>Some work runs in a terminal. Some travels through an agent protocol. These controls explain the mechanism; they do not connect to a live service.</p>
+      </div>
+
+      <article class="system-story skill-heaven-story" aria-labelledby="heaven-title">
+        <div class="system-story-copy">
+          <p class="system-type">Agent tooling / plugin + CLI</p>
+          <h3 id="heaven-title">Skill Heaven</h3>
+          <p>One mechanic—<code>/summon</code>—brings a skill into one session without installing it. Heaven narrows toward the task; Hell explores more widely; Zero starts clean; Ultra chooses direction and depth.</p>
+          <div class="system-links">
+            <a href="https://gaia-research.github.io/gaia-skill-heaven/" target="_blank" rel="noopener noreferrer">Explore Skill Heaven <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/gaia-research/gaia-skill-heaven" target="_blank" rel="noopener noreferrer">Read the source <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="rung-explorer" data-rung-explorer>
+          <div class="rung-heading"><span>Try the one line</span><span>Session behavior explainer</span></div>
+          <div class="rung-controls" role="group" aria-label="Choose a Skill Heaven rung">
+            <button type="button" data-rung="zero" aria-pressed="true">Zero</button>
+            <button type="button" data-rung="low" aria-pressed="false">Low</button>
+            <button type="button" data-rung="med" aria-pressed="false">Med</button>
+            <button type="button" data-rung="high" aria-pressed="false">High</button>
+            <button type="button" data-rung="xhigh" aria-pressed="false">Xhigh</button>
+            <button type="button" data-rung="max" aria-pressed="false">Max</button>
+            <button type="button" data-rung="ultra" aria-pressed="false">Ultra</button>
+          </div>
+          <div class="rung-output" id="rung-output" aria-live="polite" aria-atomic="true">
+            <strong>ZERO / clean launch</strong>
+            <p>Start with no ambient skills. Add nothing permanently; summon a skill only for this session.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="system-story research-story" aria-labelledby="research-title">
+        <div class="system-story-copy">
+          <p class="system-type">Research lab / browser experiments</p>
+          <h3 id="research-title">Gaia Research</h3>
+          <p>An open lab for evidence-first agent work. The public site pairs research notes with browser tools; this chooser explains the two featured labs and opens the actual experiment.</p>
+          <div class="system-links">
+            <a href="https://research.gaiaskilltree.com/" target="_blank" rel="noopener noreferrer">Visit Gaia Research <span aria-hidden="true">↗</span></a>
+            <a href="https://github.com/gaia-research/gaia-research" target="_blank" rel="noopener noreferrer">Read the source <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="lab-explorer" data-lab-explorer>
+          <div class="lab-heading"><span>Choose a lab</span><span>Public tools / opens live</span></div>
+          <div class="lab-controls" role="group" aria-label="Choose a Gaia Research lab">
+            <button type="button" data-lab="craft" aria-pressed="true">Infinite Skill Craft</button>
+            <button type="button" data-lab="diet" aria-pressed="false">Context Diet</button>
+          </div>
+          <div class="lab-output" id="lab-output" aria-live="polite" aria-atomic="true">
+            <div><strong>INFINITE SKILL CRAFT</strong><p>Combine two skills in a browser game, discover a recipe, and follow successful combinations toward real Gaia registry skills.</p></div>
+            <a href="https://research.gaiaskilltree.com/labs/infinite-skill-craft" target="_blank" rel="noopener noreferrer">Start crafting <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="system-story mcp-story" aria-labelledby="mcp-title">
+        <div class="system-story-copy">
+          <p class="system-type">Protocol server / controlled integration</p>
+          <h3 id="mcp-title">Rock MCP</h3>
+          <p>An MCP server for Rock RMS with OAuth-backed request context, a read-only endpoint, and writes gated by caller scope and authorization. The portfolio shows the architecture only; no Rock server, credentials, or production data are connected here.</p>
+          <div class="system-links">
+            <a href="https://github.com/mbtiongson1/rock-mcp-dashboards" target="_blank" rel="noopener noreferrer">Explore the public repository <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="protocol-explorer" data-protocol-explorer>
+          <div class="protocol-heading"><span>Request path</span><span>Offline architecture walkthrough</span></div>
+          <div class="protocol-controls" role="group" aria-label="Choose an MCP request mode">
+            <button type="button" data-protocol-mode="readonly" aria-pressed="true">Read-only request</button>
+            <button type="button" data-protocol-mode="write" aria-pressed="false">Authorized write</button>
+          </div>
+          <ol class="protocol-steps" id="protocol-steps" aria-live="polite" aria-atomic="true">
+            <li><strong>Client</strong><span>Requests a Rock report through MCP.</span></li>
+            <li><strong>OAuth</strong><span>Token is validated and resolved to a caller.</span></li>
+            <li><strong>Read-only tool</strong><span>The request receives only read tools; the portfolio never executes it.</span></li>
+          </ol>
+        </div>
+      </article>
+
+      <article class="system-story macdash-story" aria-labelledby="macdash-title">
+        <div class="system-story-copy">
+          <p class="system-type">macOS / Python terminal utility</p>
+          <h3 id="macdash-title">macdash</h3>
+          <p>A dependency-free system dashboard that reads macOS command-line tools for CPU, GPU, memory, swap, network, load, uptime, disk, battery, and thermal state. This is a small local replay—not a read of your device.</p>
+          <div class="system-links">
+            <a href="https://github.com/mbtiongson1/macdash" target="_blank" rel="noopener noreferrer">Read the source <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="terminal-replay" data-terminal-replay>
+          <div class="terminal-bar"><span>macdash / sample replay</span><span>LOCAL · FICTIONAL</span></div>
+          <pre aria-live="polite" aria-atomic="true" id="terminal-output">CPU  18%   GPU  12%   RAM  8.4 / 16 GB
+NET  ↓ 1.2 MB/s   ↑ 0.4 MB/s
+LOAD 0.72  0.81  0.75   UPTIME 2d 04h</pre>
+          <button type="button" id="terminal-refresh">Advance sample frame</button>
+        </div>
+      </article>
+    </section>
+
     <section class="archive-fallback" id="project-notes" aria-labelledby="archive-fallback-heading">
       <div class="fallback-heading">
-        <p>Archive notes</p>
-        <h2 id="archive-fallback-heading">More from the reel</h2>
+        <div>
+          <p>Selected projects</p>
+          <h2 id="archive-fallback-heading">More from the reel</h2>
+        </div>
+        <p class="archive-explainer">Research, dashboards, tools, applied ML, prototypes, and visual studies—each with its status beside the work.</p>
       </div>
       <div class="fallback-projects">{{PROJECT_REST}}</div>
     </section>
   </main>
 
-  <footer class="room-footer">
-    <p>Marcus Rafael B. Tiongson<span> / </span>Screening Room</p>
+  <footer class="room-footer" id="contact">
+    <p>mbtiongson1 <span>/</span> Marcus Rafael B. Tiongson</p>
     <span class="footer-rule" aria-hidden="true"></span>
-    <a href="/">All six worlds <span aria-hidden="true">↗</span></a>
+    <a href="https://github.com/mbtiongson1" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    <a href="https://linkedin.com/in/marcus-tiongson" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
   </footer>
 </body>
 </html>

@@ -393,7 +393,19 @@ main { width: min(100%, 1920px); margin-inline: auto; }
 .frame-meta-rule { height: 1px; background: var(--rule); }
 .frame-meta-code { color: var(--muted); text-align: right; }
 
-.featured-project { min-width: 0; }
+.featured-project { min-width: 0; view-transition-name: screening-project; }
+
+@keyframes screening-project-in {
+  from { opacity: 0.35; transform: translateY(0.45rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes screening-project-out {
+  to { opacity: 0; transform: translateY(-0.3rem); }
+}
+
+::view-transition-old(screening-project) { animation: screening-project-out 120ms ease-in both; }
+::view-transition-new(screening-project) { animation: screening-project-in 220ms cubic-bezier(0.16, 1, 0.3, 1) both; }
 
 .project-section {
   min-width: 0;
@@ -707,5 +719,7 @@ main { width: min(100%, 1920px); margin-inline: auto; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  ::view-transition-old(screening-project),
+  ::view-transition-new(screening-project) { animation: none; }
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }

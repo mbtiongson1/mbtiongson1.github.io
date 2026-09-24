@@ -2,6 +2,198 @@
   "schemaVersion": 1,
   "projects": [
     {
+      "id": "gaia-skill-tree",
+      "title": "Gaia Skill Tree",
+      "kind": "Flagship product / evidence-backed capability registry",
+      "summary": "A public registry that connects AI-agent skills to the people who authored and proved them, with evidence, progression, and a navigable skill graph.",
+      "context": "The public README credits mbtiongson1 as creator and maintainer for graph design, CLI, MCP server, and curation pipeline. The local illustration is Open Graph artwork, not a screenshot of the live registry.",
+      "disclosure": "Public product and source. The accompanying Open Graph illustration is static brand artwork, not a live interface capture.",
+      "role": "Creator + maintainer / graph design, CLI, MCP server, curation pipeline",
+      "visibility": "public",
+      "live": {
+        "url": "https://gaiaskilltree.com/",
+        "label": "Explore the live registry",
+        "verifiedAt": "2026-09-24"
+      },
+      "caseStudy": {
+        "url": "/work/gaia-skill-tree/",
+        "label": "Read the full flagship case study"
+      },
+      "links": [
+        {
+          "url": "https://gaiaskilltree.com/u/mbtiongson1/",
+          "label": "View Marcus's public skill-tree profile",
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "url": "https://github.com/gaia-research/gaia-skill-tree",
+          "label": "Read the open-source repository",
+          "verifiedAt": "2026-09-24"
+        }
+      ],
+      "media": {
+        "src": "/assets/media/gaia-skill-tree-og.webp",
+        "width": 1200,
+        "height": 627,
+        "alt": "Dark Gaia Skill Tree Open Graph graphic with a gold branching tree, colored nodes, and the words Gaia Skill Tree.",
+        "caption": "Owner-provided Open Graph illustration; static artwork, not a screenshot of live behavior."
+      },
+      "demo": null
+    },
+    {
+      "id": "connect-health",
+      "title": "Connect Health",
+      "kind": "Interactive operational dashboard / local prototype",
+      "summary": "A field view for reading where Connect groups need attention and why, with filters and alternate ways to inspect the same fictional sample.",
+      "context": "The portfolio version is an isolated local demo with anonymized fictional data. It makes no Rock requests, has no production connection, and links to no real group records.",
+      "disclosure": "Fictional local data only. Interactive prototype; it is not connected to Rock and is not a live dashboard.",
+      "role": "Dashboard design and interaction model; this portfolio package is the offline fictional-data demo.",
+      "visibility": "public",
+      "live": null,
+      "caseStudy": null,
+      "links": [],
+      "media": null,
+      "demo": {
+        "type": "local-html",
+        "url": "/assets/demos/connect-health/index.html",
+        "label": "Open interactive fictional-data dashboard",
+        "frameLabel": "FICTIONAL LOCAL DATA / INTERACTIVE PROTOTYPE / NOT CONNECTED TO ROCK"
+      }
+    },
+    {
+      "id": "skill-heaven",
+      "title": "Skill Heaven",
+      "kind": "Agent infrastructure / plugin and launchers",
+      "summary": "A session-context toolkit that starts agent sessions clean and summons the skills needed for the current task without installing them permanently.",
+      "context": "The public documentation describes one /summon mechanic and four choosing surfaces: Zero, Heaven, Hell, and Ultra. Benchmark-derived trust routing is not built; the portfolio links to the current implementation and docs rather than claiming it is.",
+      "disclosure": "Public preview and source repository. Links open the actual project; the portfolio does not install or run an agent session.",
+      "role": "Core implementation / session-context flow, agent plugin, and launchers",
+      "visibility": "public",
+      "live": {
+        "url": "https://gaia-research.github.io/gaia-skill-heaven/",
+        "label": "Explore the live Skill Heaven site",
+        "verifiedAt": "2026-09-24"
+      },
+      "links": [
+        {
+          "url": "https://github.com/gaia-research/gaia-skill-heaven",
+          "label": "Read the source and documentation",
+          "verifiedAt": "2026-09-24"
+        }
+      ],
+      "media": null,
+      "demo": null
+    },
+    {
+      "id": "gaia-research",
+      "title": "Gaia Research",
+      "kind": "Open research lab / browser tools",
+      "summary": "An evidence-first lab for agent capability, with public research, Infinite Skill Craft, and Context Diet browser experiments.",
+      "context": "The live site and repository document the labs and research. Portfolio copy links to those materials and does not restate unverified benchmark results.",
+      "disclosure": "Public research site and source. The interactive labs run at the linked site; there is no external-site embed here.",
+      "role": "Core contribution / research site, browser labs, and benchmark-ingest tooling",
+      "visibility": "public",
+      "live": {
+        "url": "https://research.gaiaskilltree.com/",
+        "label": "Visit Gaia Research",
+        "verifiedAt": "2026-09-24"
+      },
+      "links": [
+        {
+          "url": "https://github.com/gaia-research/gaia-research",
+          "label": "Read the research repository",
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "url": "https://research.gaiaskilltree.com/labs/infinite-skill-craft",
+          "label": "Play Infinite Skill Craft",
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "url": "https://research.gaiaskilltree.com/labs/context-diet",
+          "label": "Try Context Diet",
+          "verifiedAt": "2026-09-24"
+        }
+      ],
+      "media": null,
+      "demo": null
+    },
+    {
+      "id": "rock-mcp-dashboards",
+      "title": "Rock MCP",
+      "kind": "MCP server / controlled integration",
+      "summary": "An MCP server for Rock RMS with OAuth-backed caller context, read-only access, report tools, and tightly authorized writes.",
+      "context": "The public repository documents the OAuth, tool, and authorization flow. The interactive explanation on this portfolio is offline; no Rock server or credential is contacted.",
+      "disclosure": "Public source repository only. No live endpoint, credentials, or Rock data are connected to this portfolio.",
+      "role": "Creator and maintainer / MCP server, OAuth gateway, and tool surface",
+      "visibility": "public",
+      "live": null,
+      "links": [
+        {
+          "url": "https://github.com/mbtiongson1/rock-mcp-dashboards",
+          "label": "Read the public repository",
+          "verifiedAt": "2026-09-24"
+        }
+      ],
+      "media": null,
+      "demo": null
+    },
+    {
+      "id": "macdash",
+      "title": "macdash",
+      "kind": "macOS terminal utility / Python",
+      "summary": "A dependency-free terminal dashboard that reads native macOS tools for CPU, GPU, memory, swap, network, load, uptime, disk, battery, and thermal state.",
+      "context": "The live program reads the machine it runs on. This portfolio's small terminal replay uses deterministic sample values only and never reads the visitor's device.",
+      "disclosure": "Sample values in this page are fictional. The source link opens the utility; no live machine telemetry is shown here.",
+      "role": "Author / dependency-free Python terminal dashboard",
+      "visibility": "public",
+      "live": null,
+      "links": [
+        {
+          "url": "https://github.com/mbtiongson1/macdash",
+          "label": "Read the source repository",
+          "verifiedAt": "2026-09-24"
+        }
+      ],
+      "media": null,
+      "demo": null
+    },
+    {
+      "id": "fuel-abemis",
+      "title": "Fuel ABEMIS",
+      "kind": "Applied ML / agricultural machinery study",
+      "summary": "A pilot study combining national machinery inventory and laboratory performance data to model fuel consumption, then inspect model behavior with SHAP and LIME.",
+      "context": "The public README reports holdout results for its best Random Forest model: R² 0.91, MAE 1.09 L/h, and RMSE 1.61 L/h. Those are dataset-specific project results, not a general performance guarantee.",
+      "disclosure": "Collaborative pilot study. Reported metrics are scoped to the project's holdout data and source README; they are not a generalization claim.",
+      "role": "Collaborative study with BAFE Engineer Rosas",
+      "visibility": "public",
+      "live": {
+        "url": "https://mbtiongson1.github.io/fuel-abemis/",
+        "label": "View the project slides",
+        "verifiedAt": "2026-09-24"
+      },
+      "links": [
+        {
+          "url": "https://github.com/mbtiongson1/fuel-abemis",
+          "label": "Read the analysis repository",
+          "verifiedAt": "2026-09-24"
+        },
+        {
+          "url": "https://github.com/mbtiongson1/fuel-abemis/blob/main/Mini-Project/Project%20Documents/Rosas%2C%20Tiongson%20-%20Pilot%20ML%20Fuel%20Agriculture%20%5BIEEE%5D.pdf",
+          "label": "Open the IEEE-format paper",
+          "verifiedAt": "2026-09-24"
+        }
+      ],
+      "media": {
+        "src": "/assets/media/fuel-abemis-shap-summary.webp",
+        "width": 2370,
+        "height": 1381,
+        "alt": "SHAP global feature-importance bar chart from the Fuel ABEMIS pilot model, with power_kw as the largest plotted contribution.",
+        "caption": "Static SHAP summary from the public project repository; a pilot-model explanation, not a live analysis."
+      },
+      "demo": null
+    },
+    {
       "id": "people-compiled",
       "title": "People, compiled",
       "kind": "Interactive interface prototype",
@@ -9,66 +201,14 @@
       "context": "Compiled static HTML, CSS and local font/texture dependencies. The chart-view cycler updates the selected mode and URL. Campus links only rewrite the URL; they do not filter the embedded fictional dataset. No remote data requests.",
       "disclosure": "Fictional prototype data. This is not a live Rock connection, a production dashboard, or actual people records.",
       "visibility": "public",
+      "live": null,
+      "links": [],
+      "media": null,
       "demo": {
         "type": "local-html",
         "url": "/assets/demos/people-compiled/favor-people-compiled.html",
-        "label": "Open interactive fictional prototype"
-      },
-      "media": null
-    },
-    {
-      "id": "gaia-skill-tree",
-      "title": "Gaia Skill Tree",
-      "kind": "Public website",
-      "summary": "Visit the public Gaia Skill Tree website.",
-      "context": "Linked external site with an owner-provided Open Graph illustration. The static artwork is not evidence of the site's functionality, usage, or outcomes.",
-      "disclosure": "Public external website, link verified 2026-09-24. Accompanying artwork is a static illustration, not a live interface or performance claim.",
-      "visibility": "public",
-      "live": {
-        "url": "https://gaiaskilltree.com/",
-        "label": "Visit Gaia Skill Tree",
-        "verifiedAt": "2026-09-24"
-      },
-      "demo": null,
-      "media": {
-        "src": "/assets/media/gaia-skill-tree-og.webp",
-        "width": 1200,
-        "height": 627,
-        "alt": "Dark Gaia Skill Tree Open Graph graphic with a gold branching tree, colored nodes, and the words Gaia Skill Tree.",
-        "caption": "Owner-provided Open Graph illustration; static artwork, not a screenshot of live behavior."
-      }
-    },
-    {
-      "id": "gaia-research",
-      "title": "Gaia Research",
-      "kind": "Public research website",
-      "summary": "Visit the public Gaia Research website.",
-      "context": "Linked external site; hero artwork with unverified metrics is deliberately excluded from this archive.",
-      "disclosure": "Public external website, link verified 2026-09-24. No local image, embedded site, or verified metric claims.",
-      "visibility": "public",
-      "live": {
-        "url": "https://research.gaiaskilltree.com/",
-        "label": "Visit Gaia Research",
-        "verifiedAt": "2026-09-24"
-      },
-      "demo": null,
-      "media": null
-    },
-    {
-      "id": "watershed-study",
-      "title": "Watershed study",
-      "kind": "Spatial interface study",
-      "summary": "A work-in-progress terrain view exploring a watershed as a visual model for movement and context.",
-      "context": "Presented as a still image of an in-progress 3D interface study, not a live tool or geographic dataset.",
-      "disclosure": "WIP / fictional-data prototype. Terrain and labels are illustrative, not geographic facts or measurements.",
-      "visibility": "public",
-      "demo": null,
-      "media": {
-        "src": "/assets/media/lane1-smoke-draft-whole.webp",
-        "width": 1440,
-        "height": 960,
-        "alt": "A work-in-progress rendered watershed terrain with a blue river between mountains, shown inside a prototype interface labelled fictional data.",
-        "caption": "WIP terrain interface capture, converted from the owner's original PNG."
+        "label": "Open interactive fictional prototype",
+        "frameLabel": "FICTIONAL PROTOTYPE DATA / INTERACTIVE"
       }
     },
     {
@@ -79,14 +219,35 @@
       "context": "A still capture only. The image includes an illustrative Connected state while environment is unknown; neither connection nor thresholds represent verified current behavior.",
       "disclosure": "Static prototype capture — not live or connected. States and thresholds in the image are not verified current behavior.",
       "visibility": "public",
-      "demo": null,
+      "live": null,
+      "links": [],
       "media": {
         "src": "/assets/media/01-overview.webp",
         "width": 1440,
         "height": 900,
         "alt": "Static overview-screen prototype with six status panels and review-queue and manual-merge actions; the pictured connection state is illustrative.",
         "caption": "Static interface capture only; the pictured connection state is not a live status."
-      }
+      },
+      "demo": null
+    },
+    {
+      "id": "watershed-study",
+      "title": "Watershed study",
+      "kind": "Spatial interface study",
+      "summary": "A work-in-progress terrain view exploring a watershed as a visual model for movement and context.",
+      "context": "Presented as a still image of an in-progress 3D interface study, not a live tool or geographic dataset.",
+      "disclosure": "WIP / fictional-data prototype. Terrain and labels are illustrative, not geographic facts or measurements.",
+      "visibility": "public",
+      "live": null,
+      "links": [],
+      "media": {
+        "src": "/assets/media/lane1-smoke-draft-whole.webp",
+        "width": 1440,
+        "height": 960,
+        "alt": "A work-in-progress rendered watershed terrain with a blue river between mountains, shown inside a prototype interface labelled fictional data.",
+        "caption": "WIP terrain interface capture, converted from the owner's original PNG."
+      },
+      "demo": null
     },
     {
       "id": "sample-watershed",
@@ -96,14 +257,16 @@
       "context": "This is a sample-data watershed visualization, not the Rock Steward control-plane UI or an operational report.",
       "disclosure": "Sample-data visualization only — not the Rock Steward control-plane UI. Pictured names, counts and signals are illustrative, not operational data.",
       "visibility": "public",
-      "demo": null,
+      "live": null,
+      "links": [],
       "media": {
         "src": "/assets/media/multiplication-watershed-sept20-dark.webp",
         "width": 2880,
         "height": 1800,
         "alt": "Sample-data dark terrain visualization showing a blue river, labeled illustrative pathway points and a legend.",
         "caption": "Sample-data watershed visualization; not a screenshot of the Steward control-plane UI."
-      }
+      },
+      "demo": null
     }
   ]
 }

@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "worlds": [
-    { "slug": "field-atlas", "name": "Field Atlas", "status": "live", "description": "Follow the work through an interface survey." },
-    { "slug": "screening-room", "name": "Screening Room", "status": "live", "description": "A cinema-like way to view the work." },
-    { "slug": "arcade-marquee", "name": "Arcade Marquee", "status": "live", "description": "An arcade-inspired way to browse the work." },
-    { "slug": "dada-contact-sheet", "name": "Dada Contact Sheet", "status": "live", "description": "A contact-sheet way to browse the work." },
-    { "slug": "vu-meter-bridge", "name": "VU Meter Bridge", "status": "live", "description": "A signal-led way to browse the work." },
-    { "slug": "classic-index", "name": "Classic Index", "status": "live", "description": "A direct, category-standard way to browse the work." }
+    { "slug": "field-atlas", "name": "Field Atlas", "status": "disabled", "description": "Archived portfolio direction; source retained, not built or linked." },
+    { "slug": "screening-room", "name": "Screening Room", "status": "home", "description": "The sole public portfolio experience at /." },
+    { "slug": "arcade-marquee", "name": "Arcade Marquee", "status": "disabled", "description": "Archived portfolio direction; source retained, not built or linked." },
+    { "slug": "dada-contact-sheet", "name": "Dada Contact Sheet", "status": "disabled", "description": "Archived portfolio direction; source retained, not built or linked." },
+    { "slug": "vu-meter-bridge", "name": "VU Meter Bridge", "status": "disabled", "description": "Archived portfolio direction; source retained, not built or linked." },
+    { "slug": "classic-index", "name": "Classic Index", "status": "disabled", "description": "Archived portfolio direction; source retained, not built or linked." }
   ]
 }

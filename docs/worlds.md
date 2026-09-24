@@ -1,16 +1,18 @@
-# World route seams
+# Portfolio worlds: active and retained
 
-The URL `/worlds/<slug>/` is **generated output**, not the editable source directory. `npm run build` reads each source page below, replaces its `{{...}}` catalog/navigation tokens, copies `src/styles/` and `src/scripts/`, and writes `dist/worlds/<slug>/index.html`. Every route already has an honest, buildable placeholder file. A worker owns its page and may add its own CSS/JS files; **no change to the shared build script is required**.
+The public portfolio has one visual experience: **Screening Room**. It is built at `/` from `src/pages/worlds/screening-room.html`; the filename preserves the route seam from the earlier six-world project. There is no public `/worlds/<slug>/` switcher.
 
-| Public route | Edit this source page | Add own styling / optional enhancement |
+`data/worlds.json` retains the six decisions. `screening-room` has status `home`; the other five have status `disabled`. Disabled HTML, CSS, JavaScript, Impeccable briefs, and documentation remain in the repository for future reuse, but the builder does not link them, copy their styles/scripts, or emit their routes. Hiding is not deletion.
+
+| Retained direction | Source page | Status in build |
 | --- | --- | --- |
-| `/worlds/field-atlas/` | `src/pages/field-atlas.html` | `src/styles/field-atlas.css`, `src/scripts/field-atlas.js` |
-| `/worlds/screening-room/` | `src/pages/worlds/screening-room.html` | `src/styles/screening-room.css`, `src/scripts/screening-room.js` |
-| `/worlds/arcade-marquee/` | `src/pages/worlds/arcade-marquee.html` | `src/styles/arcade-marquee.css`, `src/scripts/arcade-marquee.js` |
-| `/worlds/dada-contact-sheet/` | `src/pages/worlds/dada-contact-sheet.html` | `src/styles/dada-contact-sheet.css`, `src/scripts/dada-contact-sheet.js` |
-| `/worlds/vu-meter-bridge/` | `src/pages/worlds/vu-meter-bridge.html` | `src/styles/vu-meter-bridge.css`, `src/scripts/vu-meter-bridge.js` |
-| `/worlds/classic-index/` | `src/pages/worlds/classic-index.html` | `src/styles/classic-index.css`, `src/scripts/classic-index.js` |
+| Screening Room | `src/pages/worlds/screening-room.html` | `home` → `/` |
+| Field Atlas | `src/pages/field-atlas.html` | disabled; source retained |
+| Arcade Marquee | `src/pages/worlds/arcade-marquee.html` | disabled; source retained |
+| Dada Contact Sheet | `src/pages/worlds/dada-contact-sheet.html` | disabled; source retained |
+| VU Meter Bridge | `src/pages/worlds/vu-meter-bridge.html` | disabled; source retained |
+| Classic Index | `src/pages/worlds/classic-index.html` | disabled; source retained |
 
-All six final slugs are marked live in `data/worlds.json` because the full release waits for the five independent world PRs; the placeholders are temporary on this foundation branch, not the published destination. `npm run check -- --release` rejects the remaining placeholder text, and the manual Pages deployment on `main` invokes this release gate. In a new page, link its own `/styles/<slug>.css` and optional `/scripts/<slug>.js` in the HTML. `scripts/build.mjs` copies the whole `src/styles` and `src/scripts` directories and picks up the page file by slug. It also injects `{{WORLD_NAV}}` as a six-way menu and shared project tokens documented in `docs/add-a-project.md`. Keep a no-JavaScript named path to every project; a world can use `{{PROJECT_INDEX}}` and `{{PROJECT_REST}}` as fallback semantic content while its JS creates its distinctive interactive layer from `/data/projects.json`. Never hardcode project copy or add visual tokens to another world's stylesheet.
+The project reel is data-driven from `data/projects.json`; it is not another world selector. `scripts/build.mjs` emits static semantic content at the root, copies only active Screening Room and case-study code, and writes the dedicated `/work/gaia-skill-tree/` flagship route. The client script enhances server-rendered project records into a keyboard-operable filmstrip. It does not fetch remote product data.
 
-The lobby source is `src/pages/hub.html` and its route is `/`; do not replace its typography or topology to make an incoming world. Each world owns its independent form, while `data/projects.json` owns the shared facts. Before a PR, run `npm run build && npm run check`; visit its generated route and verify the six-way links and disclosures.
+For project additions and publication requirements, see [add-a-project.md](add-a-project.md).

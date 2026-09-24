@@ -50,15 +50,18 @@
   const projectStatus = (project) => {
     if (project.demo) return "Interactive local prototype";
     if (project.media && project.live) return "Static artwork with a live-site link";
-    if (project.media) return "Static image";
-    return "External site — no local preview";
+    if (project.media) return "Static project artifact";
+    if (project.live) return "Public site · live link";
+    if (project.caseStudy || project.links?.length) return "Project story and source links";
+    return "Project record";
   };
 
   const screenStatus = (project) => {
     if (project.demo) return "local interactive prototype";
     if (project.live && project.media) return "static artwork · live site";
-    if (project.live) return "live link · no local preview";
-    return "static image";
+    if (project.live) return "live public site · no local preview";
+    if (project.media) return "static project artifact";
+    return "case study · source links";
   };
 
   const createFilmstripButton = (project, index) => {
@@ -126,6 +129,28 @@
       }
     }
 
+    if (project.caseStudy) {
+      const href = localPath(project.caseStudy.url);
+      if (href && project.caseStudy.label) {
+        const link = create("a", "artifact-open", project.caseStudy.label);
+        link.href = href;
+        link.append(makeExternalIcon());
+        links.append(link);
+        count += 1;
+      }
+    }
+
+    if (Array.isArray(project.links)) {
+      project.links.forEach((item) => {
+        if (!item || typeof item.url !== "string" || typeof item.label !== "string") return;
+        const link = externalLink(item.url, item.label);
+        if (link) {
+          links.append(link);
+          count += 1;
+        }
+      });
+    }
+
     if (count) container.append(links);
   };
 
@@ -135,8 +160,8 @@
       if (href) {
         const windowBox = create("div", "demo-window");
         const bar = create("div", "demo-window-bar");
-        bar.append(create("span", "", "Local interactive prototype"));
-        bar.append(create("span", "", "Compiled HTML"));
+        bar.append(create("span", "", project.demo.frameLabel || "Local interactive prototype"));
+        bar.append(create("span", "", "Sandboxed local HTML"));
         const frame = document.createElement("iframe");
         frame.src = href;
         frame.title = `${project.title} — interactive fictional-data prototype`;
@@ -171,9 +196,11 @@
     }
 
     const note = create("div", "live-artifact-note");
-    note.append(create("span", "note-label", "External public site / no local preview"));
+    note.append(create("span", "note-label", project.live ? "External public site / no local preview" : "Public source / no live service"));
     note.append(create("strong", "", project.title));
-    note.append(create("p", "", "No local image or embedded preview is available for this project."));
+    note.append(create("p", "", project.live
+      ? "The public product opens at its own site. This portfolio does not embed or proxy that external service."
+      : "Read the public project source. This portfolio does not connect to a running service or private system."));
     return note;
   };
 
@@ -189,6 +216,7 @@
     heading.append(headingCopy);
     addProjectLinks(heading, project);
     section.append(heading);
+    if (project.role) section.append(create("p", "project-role", project.role));
 
     const disclosure = create("p", "disclosure");
     disclosure.append(create("strong", "", "About this artifact "));
@@ -216,7 +244,17 @@
         button.scrollIntoView({ block: "nearest", inline: "nearest" });
       }
     });
-    renderProject(projectCatalog[index], index);
+    const updateProjection = () => renderProject(projectCatalog[index], index);
+    const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (!reducedMotion && typeof document.startViewTransition === "function") {
+      try {
+        document.startViewTransition(updateProjection);
+      } catch {
+        updateProjection();
+      }
+    } else {
+      updateProjection();
+    }
   };
 
   const init = async () => {

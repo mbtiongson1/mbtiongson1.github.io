@@ -1,22 +1,24 @@
 ---
-name: Marcus Portfolio — Field Atlas foundation
-description: A neutral six-world lobby and a separately authored chart-informed Field Atlas.
+name: mbtiongson1 Portfolio — Screening Room
+description: A single portfolio experience that lets the work lead and keeps the founder, product mechanisms, and artifact boundaries in view.
 colors:
-  atlas-sea: "#092b33"
-  atlas-deep: "#06232b"
-  atlas-ink: "#f4f2e9"
-  atlas-muted: "#c1d6d0"
-  atlas-rule: "#537d7e"
-  atlas-current: "#cafa53"
-  atlas-cyan: "#62d4e7"
-  lobby-paper: "#e6e7df"
-  lobby-ink: "#18232b"
-  lobby-signal: "#b23a27"
+  night: "#081818"
+  night-deep: "#061113"
+  night-panel: "#111c20"
+  paper: "#f5f0ea"
+  ink: "#101b1d"
+  mist: "#c0ceca"
+  muted: "#9aaba8"
+  rule: "#526462"
+  coral: "#ff684f"
+  mint: "#65dfb1"
+  sunflower: "#f4d34f"
+  focus: "#fff0a3"
 typography:
   display:
     fontFamily: "Barlow Condensed, sans-serif"
     fontWeight: 800
-    lineHeight: 0.88
+    lineHeight: 0.9
   body:
     fontFamily: "Barlow, Arial, sans-serif"
     fontSize: "1rem"
@@ -25,96 +27,113 @@ typography:
   label:
     fontFamily: "Barlow, Arial, sans-serif"
     fontWeight: 600
+  code:
+    fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+    usage: "Commands, identifiers, and measured sample values only"
 components:
-  atlas-artifact-link:
-    backgroundColor: "{colors.atlas-deep}"
-    textColor: "{colors.atlas-ink}"
-    padding: "0.6rem 0.8rem"
-  atlas-disclosure:
-    backgroundColor: "{colors.atlas-current}"
-    textColor: "{colors.atlas-deep}"
-    padding: "0.5rem 0.8rem"
-  lobby-enter:
-    backgroundColor: "{colors.atlas-current}"
-    textColor: "{colors.atlas-deep}"
-    padding: "1rem 1.2rem"
+  screening-frame:
+    backgroundColor: "{colors.night-deep}"
+    border: "1px solid {colors.rule}"
+  fictional-disclosure:
+    backgroundColor: "{colors.sunflower}"
+    textColor: "{colors.ink}"
+    padding: "0.65rem 1rem"
+  project-action:
+    minHeight: "2.75rem"
+    border: "1px solid {colors.rule}"
+    textColor: "{colors.paper}"
 ---
 
-# Design System: Marcus Portfolio — Field Atlas foundation
+# Design System: mbtiongson1 Portfolio — Screening Room
 
 ## Overview
 
-**Creative North Star: "The navigable survey sheet"**
+**Creative North Star: “The working screening room.”**
 
-This document records the **implemented** foundation, not a common skin for all six worlds. The root lobby uses its own paper, ink, signal-red and departure-board typography to choose a route. Field Atlas changes physical scene: a visitor studies a fictional-data interactive interface against a dark blue-green chart field, with contour linework and a direct project index. The real artifact and its disclosure stay legible. The other five routes own their own systems when their separate PRs arrive; their temporary placeholders inherit the lobby only because they are not finished worlds.
+The site is a portfolio, not a selector between design experiments. A dark, ruled screening frame gives each piece enough room to be inspected while the index keeps the whole body of work in reach. The selected world is Screening Room; five other visual experiments remain source-only and are disabled from the build. The content leads: the first feature is Gaia Skill Tree, followed by dashboards, research, agent tooling, applied ML, and visual studies. A full Gaia Skill Tree case study explains the product and the creator's documented contribution.
 
-**Key Characteristics:**
-- The lobby is a typographic selector, not six equal cards.
-- Field Atlas has one dominant artifact frame, a named index, restrained contour linework, and honest media captions.
-- Content/provenance are shared; palettes and component systems are not.
+**Physical scene:** a maker and a hiring collaborator reviewing real work together in a dim studio; the projected surface stays legible, while the neighboring index keeps context close. The night ground belongs to the screening room, not to a generic “tech dark mode.”
+
+**Key characteristics:**
+- The `mbtiongson1` wordmark replaces the old MRBT monogram.
+- The homepage opens with one named project reel and one broad artifact stage; it does not offer six competing visual worlds.
+- Project actions, source links, creator roles, and disclosures stay adjacent to the current artifact.
+- The founder story and “Beyond the browser” section show why the work exists and how the research labs, agent runtime, integration architecture, and terminal tool behave.
+- The dashboard embeds are local-only; Gaia products open at their real public URLs rather than inside external iframes.
 
 ## Colors
 
 ### Primary
-- **Atlas Sea** (`atlas-sea`): the chart ground, spanning the Field Atlas page behind the work.
-- **Atlas Deep** (`atlas-deep`): artifact framing and the darker closing region.
-- **Atlas Current** (`atlas-current`): active wayfinding pin, primary artifact disclosure, and route emphasis. Its strong contrast carries publication boundaries rather than fake measurements.
+- **Night** (`night`, `#081818`): the page field and the room around the work.
+- **Night Deep** (`night-deep`, `#061113`): projection surfaces and code exhibits.
+- **Night Panel** (`night-panel`, `#111c20`): screen furniture, selection state, and bounded panels.
+- **Paper** (`paper`, `#f5f0ea`): display type and primary reading ink.
 
-### Secondary
-- **Atlas Cyan** (`atlas-cyan`): sparse route trace and project-kind emphasis, never a data encoding.
-- **Lobby Signal** (`lobby-signal`): the root selector's second-line emphasis and focus cue; not a Field Atlas accent.
+### Signals
+- **Sunflower** (`sunflower`, `#f4d34f`): primary action, keyboard focus on dark grounds, and explicit disclosure on its own panel.
+- **Mint** (`mint`, `#65dfb1`): active signal and secondary action.
+- **Coral** (`coral`, `#ff684f`): interruption, separators, and a restrained emphasis.
 
-### Neutral
-- **Atlas Ink / Muted / Rule**: bright heading, supporting copy and thin survey rules respectively; use the muted ink only on the dark chart field.
-- **Lobby Paper / Ink**: the lobby's light field and dark typographic voice.
+### Supporting neutrals
+- **Mist** (`mist`, `#c0ceca`): long-form supporting text.
+- **Muted** (`muted`, `#9aaba8`): short metadata and captions only.
+- **Rule** (`rule`, `#526462`): thin structure between sections and frames.
+- **Ink** (`ink`, `#101b1d`): text on sunflower/coral light surfaces.
+- **Focus** (`focus`, `#fff0a3`): visible focus ring over the dark surface.
 
-**The Boundary Rule.** A fictional-data label is adjacent to the artifact and contrasts with its own ground; it is not a quiet footnote.
+**Boundary rule:** synthetic, sample, WIP, and static-only status uses explicit adjacent text. Semantic signal colors inside an embedded dashboard remain the artifact's own meanings; portfolio chrome does not recolor them.
 
 ## Typography
 
-**Display Font:** Self-hosted Barlow Condensed at weight 800 (with sans-serif fallback). **Body Font:** Self-hosted Barlow at weights 400 and 600. Both have OFL notices in `assets/fonts/`.
+**Display:** self-hosted Barlow Condensed 800. **Body:** self-hosted Barlow 400/600. Both are bundled under `assets/fonts/` with OFL notices. The same system is used by the flagship case study.
 
-**Character:** Wide typographic scale makes the lobby an entry decision; condensed uppercase lettering makes Field Atlas read like an expedition poster without turning body copy into a map prop.
+**Code and measurement:** a system monospace stack (`ui-monospace`, SFMono, Menlo, Consolas) is reserved for commands, identifiers, and sample telemetry. It is not a second display voice.
 
 ### Hierarchy
-- **Display:** Field Atlas title uses a fluid clamp capped below 6rem, tight but legible line-height; the lobby title is larger because its route choice is the whole first screen.
-- **Project title:** condensed heavy caps identify an artifact before its explanatory copy.
-- **Body:** Barlow regular at 1rem with 1.5 line-height; explanatory lines stay around 65–70 characters where space permits.
-- **Label:** Barlow semibold; small uppercase is reserved for short functional labels, while longer descriptions remain sentence case.
-
-**The Artifact Name Rule.** Project titles are content, not anonymous card headings; every world gets the same title from the shared record.
+- The identity and section headlines are large, condensed, and sentence-case or short uppercase phrases; long explanations stay in Barlow body text.
+- Project names are set in the display face; summaries, contribution scopes, captions, and disclosures stay in the body face.
+- Small uppercase labels are short and functional. Longer explanations are never letter-spaced or forced into all caps.
+- The dashboard iframe keeps its bundled Favor typography rather than inheriting portfolio fonts.
 
 ## Layout
 
-The lobby opens with a large split headline, then one featured route and a ruled list of other routes. Field Atlas uses a desktop chart-sheet grid: title and named index on the left, interactive artifact on the right, with a reviewed terrain crop entering the lower left. The index also includes reviewed public-site entries: a static Gaia Skill Tree Open Graph visual with its live link, and a Gaia Research live link without unverified-metric artwork. At narrow widths the DOM order is title, artifact, project index, terrain; a direct jump link reaches the index. The index is real anchors and sections in generated HTML, independent of JavaScript. All six public routes and project URLs are built from `data/worlds.json` and `data/projects.json` into static `dist/` pages by `scripts/build.mjs`.
+The header identifies `mbtiongson1` and links within the one portfolio. The opening grid places the full owner name and a horizontal/vertical project filmstrip on the left, with the selected project in a large screening frame at the right. Gaia Skill Tree is the default feature. The “Founder story” follows with the owner-authored origin statement; “Beyond the browser” contains interactive explainers for Gaia Research's live browser labs, Skill Heaven, Rock MCP, and macdash; the complete project archive remains available as a server-rendered fallback.
 
-## Elevation & Depth
+At narrow widths, the project rail moves above the full-width stage and becomes a horizontal scroll-snap strip. Story and systems sections stack vertically. The Gaia case study reuses the palette and frame language while changing its composition for long-form reading. Focus targets remain keyboard reachable.
 
-Field Atlas is flat except for a soft, downward artifact-frame shadow; borders and field value establish layering. The lobby uses tonal blocks, not floating cards. The compiled demo retains its own paper texture and typography within its sandboxed frame; the portfolio does not restyle that owner artifact.
+## Elevation, shape, and motion
 
-## Shapes
-
-Square-edged ruled frames, straight separators, a small rotated survey pin and a single thin route trace. Contour curves are authored chart material rather than project coordinates. No rounded-card system is shared with future worlds.
+The page is largely flat. Thin rules, value contrast, and dark panel fields establish hierarchy; shadows are not used as a generic card treatment. Borders are square and restrained. The featured project uses one same-document View Transition when available; the update is immediate when unsupported and motion is disabled for `prefers-reduced-motion: reduce`. All content and controls remain visible and useful without animation.
 
 ## Components
 
-### Field Atlas project index
-- Named anchors jump to server-rendered project sections. A pin fills for the active project when JavaScript is available; the links work without it. Focus is a high-contrast outline, not hover alone.
+### Screening frame and project filmstrip
+- The server-rendered reel contains every reviewed public record and its disclosure. JavaScript enhances it into native buttons with `aria-pressed`, focus, and status announcements.
+- Project selection changes the artifact area without changing its source facts. Keyboard arrows/Home/End move through the reel; the static anchor list is retained when JavaScript is unavailable.
+- Local demos are sandboxed with `allow-scripts allow-downloads`, not `allow-same-origin`. A dashboard's visible disclosure repeats inside the iframe.
 
-### Artifact frame and disclosure
-- The interactive compiled page lives in an iframe with only `allow-scripts allow-downloads`, a visible fictional-data band, and a separate full-page launch. Static images open at full size and retain adjacent disclosures; link-only entries show an explicit no-local-image note. The dashboard's own runtime and files remain untouched.
+### “Beyond the browser” explainers
+- Gaia Research selects between two documented browser labs and opens the actual public experiment; the portfolio does not embed either one.
+- Skill Heaven selects a documented entropy rung and explains its behavior.
+- Rock MCP switches between an offline read-only request path and a scoped/authorized write path. It does not call Rock.
+- macdash advances through fictional sample frames. It never reads the portfolio visitor's machine.
 
-### Lobby selector
-- The featured route is a large dark field with a real WIP image and a disclosure. Remaining routes are typographic rows. The five placeholder pages are temporary source seams and are not a shared visual identity for those worlds.
+### Gaia Skill Tree case study
+- The case study explains attribution, evidence grades, ranks, graph/fusion structure, CLI, API, badges, and source scope using public repository facts.
+- Authored diagrams are labeled as explanations, not live data. The Open Graph art is captioned as static identity artwork, never as an interface capture.
+- Its feature walkthrough retains all four content panels without JavaScript; when enhanced, native buttons expose the selected panel with keyboard operation and a live status.
 
 ## Do's and Don'ts
 
-### Do:
-- **Do** let source artifacts determine the visual center and preserve their source names and publication caveats.
-- **Do** route every world through the same project catalog while letting its own page, stylesheet, and optional script define its experience.
-- **Do** keep a direct named list and clear keyboard focus alongside the chart metaphor.
+### Do
+- Let actual work, contribution scope, and artifact status lead.
+- Keep the Gaia Skill Tree flagship first and the five alternate worlds disabled but retained in source.
+- Use local fictional data for dashboard demos and load the required local fonts.
+- Prefer public product/source links over embedding third-party Gaia sites.
+- Keep keyboard focus, reduced motion, semantic fallbacks, and adjacent provenance visible.
 
-### Don't:
-- **Don't** infer geography, rankings, live connections, actual people data, or client outcomes from the chart or prototype screenshots.
-- **Don't** ship the generated decision comps or the private Rock harness and live variants.
-- **Don't** turn upcoming independently art-directed worlds into palette swaps of Field Atlas or the lobby.
+### Don't
+- Do not restore the six-world selector or give the watershed study flagship prominence.
+- Do not call a local dashboard live, connect it to production, expose real Rock data, or enable drill-through URLs.
+- Do not present an OG asset, a generated comp, or an authored explanation as a screenshot of live behavior.
+- Do not claim benchmarks, customer outcomes, or sole authorship absent source evidence.

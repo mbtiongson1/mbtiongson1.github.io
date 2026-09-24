@@ -1,0 +1,353 @@
+/* Portfolio-only sections extend the selected Screening Room system. */
+.portfolio-home .room-header {
+  grid-template-columns: minmax(12rem, 1fr) minmax(9rem, auto) minmax(0, 1.8fr);
+}
+
+.portfolio-home .world-nav a {
+  white-space: normal;
+  text-align: center;
+}
+
+.portfolio-home .screening-grid {
+  padding-top: clamp(1.1rem, 2vw, 2rem);
+}
+
+.portfolio-home .projection-followup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--rule);
+  border-top: 0;
+  color: var(--mist);
+  font-size: 0.76rem;
+}
+
+.portfolio-home .project-role {
+  margin: 0;
+  padding: 0.55rem 1rem 0;
+  color: var(--sunflower);
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.portfolio-home .projection-followup > span {
+  color: var(--mint);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.portfolio-home .projection-followup a {
+  color: var(--sunflower);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.portfolio-home .projection-followup a:hover { text-decoration: underline; }
+
+.portfolio-home .founder-story,
+.portfolio-home .systems-section {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(1.5rem, 5vw, 6rem);
+  padding: clamp(3.2rem, 7vw, 7rem) clamp(1rem, 2.5vw, 2.5rem);
+  border-top: 1px solid var(--rule);
+}
+
+.portfolio-home .founder-heading h2,
+.portfolio-home .systems-heading h2 {
+  max-width: 12ch;
+  margin: 0;
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.2vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  text-wrap: balance;
+}
+
+.portfolio-home .founder-heading > p,
+.portfolio-home .systems-heading > p {
+  max-width: 38ch;
+  margin: 1rem 0 0;
+  color: var(--mint);
+  font-size: 0.85rem;
+}
+
+.portfolio-home .founder-copy { max-width: 72ch; }
+
+.portfolio-home .founder-copy blockquote {
+  margin: 0;
+  padding: 0 0 1.4rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.4vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 0.98;
+}
+
+.portfolio-home .founder-attribution {
+  margin: 0.65rem 0 1.2rem;
+  color: var(--sunflower);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.portfolio-home .founder-attribution span { color: var(--coral); padding-inline: 0.3em; }
+.portfolio-home .founder-copy > p:last-child { margin-bottom: 0; color: var(--mist); line-height: 1.65; }
+
+.portfolio-home .systems-section {
+  grid-template-columns: minmax(13rem, 0.55fr) minmax(0, 1.45fr);
+  background: var(--night-deep);
+}
+
+.portfolio-home .systems-heading { position: sticky; top: 1.5rem; align-self: start; }
+.portfolio-home .systems-heading h2 { max-width: 8ch; }
+.portfolio-home .systems-heading > p { color: var(--mist); }
+
+.portfolio-home .system-story {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(1.25rem, 3vw, 3rem);
+  padding: 1.6rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.portfolio-home .system-story:first-of-type { padding-top: 0; border-top: 0; }
+.portfolio-home .system-story-copy h3 {
+  margin: 0.3rem 0 0.65rem;
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 3.15rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 0.95;
+}
+
+.portfolio-home .system-type {
+  margin: 0;
+  color: var(--mint);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.portfolio-home .system-story-copy > p:not(.system-type) {
+  max-width: 42ch;
+  margin: 0;
+  color: var(--mist);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.portfolio-home .system-story code {
+  color: var(--sunflower);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+.portfolio-home .system-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  margin-top: 1rem;
+}
+
+.portfolio-home .system-links a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--sunflower);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.portfolio-home .rung-explorer,
+.portfolio-home .lab-explorer,
+.portfolio-home .protocol-explorer,
+.portfolio-home .terminal-replay {
+  min-width: 0;
+  border: 1px solid var(--rule);
+  background: var(--night-panel);
+}
+
+.portfolio-home .rung-heading,
+.portfolio-home .lab-heading,
+.portfolio-home .protocol-heading,
+.portfolio-home .terminal-bar {
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--paper);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.portfolio-home .rung-heading span:last-child,
+.portfolio-home .lab-heading span:last-child,
+.portfolio-home .protocol-heading span:last-child,
+.portfolio-home .terminal-bar span:last-child {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.portfolio-home .rung-controls,
+.portfolio-home .lab-controls,
+.portfolio-home .protocol-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.7rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.portfolio-home .rung-controls button,
+.portfolio-home .lab-controls button,
+.portfolio-home .protocol-controls button,
+.portfolio-home #terminal-refresh {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--rule);
+  background: transparent;
+  color: var(--mist);
+  font: 600 0.76rem/1.2 var(--font-body);
+  cursor: pointer;
+  transition: background-color 140ms ease-out, color 140ms ease-out, border-color 140ms ease-out;
+}
+
+.portfolio-home .rung-controls button:hover,
+.portfolio-home .lab-controls button:hover,
+.portfolio-home .protocol-controls button:hover,
+.portfolio-home #terminal-refresh:hover { border-color: var(--sunflower); color: var(--sunflower); }
+
+.portfolio-home .rung-controls button[aria-pressed="true"],
+.portfolio-home .lab-controls button[aria-pressed="true"],
+.portfolio-home .protocol-controls button[aria-pressed="true"] {
+  border-color: var(--sunflower);
+  background: var(--sunflower);
+  color: var(--ink);
+}
+
+.portfolio-home .rung-output,
+.portfolio-home .lab-output { min-height: 7rem; display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; padding: 1rem; }
+.portfolio-home .lab-output strong { color: var(--sunflower); font-size: 0.76rem; letter-spacing: 0.08em; }
+.portfolio-home .lab-output p { max-width: 50ch; margin: 0.45rem 0 0; color: var(--mist); font-size: 0.86rem; line-height: 1.5; }
+.portfolio-home .lab-output a { display: inline-flex; min-height: 2.75rem; flex: none; align-items: center; gap: 0.4rem; color: var(--sunflower); font-size: 0.78rem; font-weight: 600; }
+.portfolio-home .lab-output a:hover { color: var(--paper); }
+.portfolio-home .rung-output strong { color: var(--sunflower); font-size: 0.76rem; letter-spacing: 0.08em; }
+.portfolio-home .rung-output p { max-width: 58ch; margin: 0.45rem 0 0; color: var(--mist); font-size: 0.86rem; line-height: 1.5; }
+
+.portfolio-home .protocol-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.portfolio-home .protocol-steps li {
+  min-height: 7.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.9rem;
+  border-right: 1px solid var(--rule);
+}
+
+.portfolio-home .protocol-steps li:last-child { border-right: 0; }
+.portfolio-home .protocol-steps strong { color: var(--mint); font-size: 0.76rem; }
+.portfolio-home .protocol-steps span { color: var(--mist); font-size: 0.78rem; line-height: 1.45; }
+
+.portfolio-home .terminal-bar span:first-child {
+  color: var(--mint);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.portfolio-home .terminal-replay pre {
+  overflow-x: auto;
+  margin: 0;
+  padding: 1rem;
+  color: var(--paper);
+  font: 0.75rem/1.65 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.portfolio-home #terminal-refresh {
+  width: calc(100% - 1.4rem);
+  margin: 0 0.7rem 0.7rem;
+  color: var(--sunflower);
+  text-align: left;
+}
+
+.portfolio-home .archive-explainer {
+  max-width: 48ch;
+  margin: 0;
+  color: var(--mist);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.portfolio-home .room-footer a { gap: 0.35rem; padding-inline: 0.2rem; }
+
+@media (max-width: 1120px) {
+  .portfolio-home .room-header { grid-template-columns: minmax(11rem, auto) minmax(0, 1fr); }
+  .portfolio-home .section-nav { justify-content: flex-end; }
+}
+
+@media (max-width: 800px) {
+  .portfolio-home .room-header { grid-template-columns: 1fr; }
+  .portfolio-home .section-nav { justify-content: flex-start; }
+  .portfolio-home .founder-story,
+  .portfolio-home .systems-section { grid-template-columns: 1fr; }
+  .portfolio-home .systems-heading { position: static; }
+  .portfolio-home .systems-heading h2 { max-width: 12ch; }
+}
+
+@media (max-width: 560px) {
+  .portfolio-home .projection-followup { align-items: flex-start; flex-direction: column; gap: 0.4rem; padding-inline: 0.7rem; }
+  .portfolio-home .system-story { grid-template-columns: 1fr; gap: 1rem; }
+  .portfolio-home .lab-output { align-items: flex-start; flex-direction: column; }
+  .portfolio-home .lab-output a { align-self: flex-start; }
+  .portfolio-home .protocol-steps { grid-template-columns: 1fr; }
+  .portfolio-home .protocol-steps li { min-height: 0; border-right: 0; border-bottom: 1px solid var(--rule); }
+  .portfolio-home .protocol-steps li:last-child { border-bottom: 0; }
+  .portfolio-home .founder-story,
+  .portfolio-home .systems-section { padding-inline: 0.85rem; }
+  .portfolio-home .room-footer { flex-wrap: wrap; }
+  .portfolio-home .footer-rule { min-width: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-home .rung-controls button,
+  .portfolio-home .lab-controls button,
+  .portfolio-home .protocol-controls button,
+  .portfolio-home #terminal-refresh { transition: none; }
+}

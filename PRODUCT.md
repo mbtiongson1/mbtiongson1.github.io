@@ -4,53 +4,60 @@
 
 ## Platform
 
-web
+Web
 
 ## Stack
 
-delegated: static HTML, CSS, and JavaScript for GitHub Pages, chosen from the deployment target and the preference to serve real project files directly.
+Static HTML, CSS, and JavaScript on GitHub Pages. The portfolio must keep working without a server, secrets, or backend services.
 
 ## Users
 
-**Inferred from the request:** design-focused hiring managers, collaborators, and peers arriving from GitHub or a professional profile link. They need to recognize the maker's design range quickly, then inspect real interfaces and details at their own pace.
+Design-focused hiring teams, engineering collaborators, researchers, and peers arriving from the GitHub profile. They should understand Marcus's work across products, dashboards, research, agent tooling, applied ML, and interface design, then inspect an artifact or its public source.
 
 ## Product Purpose
 
-A personal portfolio for Marcus Rafael B. Tiongson that makes existing web and interface work easy to discover and experience. The same growing archive is presented through six distinct browsing experiences: Field Atlas, Screening Room, Arcade Marquee, Dada Contact Sheet, VU Meter Bridge, and the category-standard index. Success means a visitor can scan the work, choose a lens, experience a real artifact safely, and find the GitHub profile or professional contact path.
+A founder-led portfolio for Marcus Rafael B. Tiongson (`mbtiongson1`). It documents what he built and why: the flagship Gaia Skill Tree, its related Gaia Research and Skill Heaven work, operational dashboards, software tools, research, and visual studies. Screening Room is the single public experience and editorial frame; the other five experimental worlds stay in the repository but are disabled from the published build.
+
+Success means a visitor sees the flagship first, understands the founder's attribution principle, can try honest local prototypes, and can follow verified links to the actual public products, source repositories, and research.
 
 ## Positioning
 
-The portfolio prioritizes actual demos, rendered work, and project files over speculative mockup-only case studies. This is a product decision inferred from the request to showcase existing designs and use the actual served files.
+This is a portfolio, not a design-world selector or a gallery of interchangeable landing pages. The artifacts, mechanisms, role, and evidence lead; the Screening Room shell helps visitors inspect them without replacing their product identity.
 
 ## Operating Context
 
-The portfolio will be hosted as a GitHub Pages site and linked from the `mbtiongson1` GitHub profile. Visitors may arrive on desktop or mobile and may open project work in a separate view.
+The home page is hosted at `https://mbtiongson1.github.io/` and linked from the `mbtiongson1` GitHub profile. The portfolio is static; public Gaia products open at their own URLs. Visitors may arrive on a phone or desktop and may prefer reduced motion.
 
 ## Capabilities and Constraints
 
-- Static hosting; no server-side runtime or secrets.
-- Existing project artifacts may be copied into the portfolio while preserving required relative files and paths. The content catalog should let future work be added once and surfaced in every experience.
-- Six browsing experiences are intentional, not merely mockups: each must be a usable, responsive route and share the same verified work archive.
-- Only assets verified safe to publish should be included. Synthetic/demo data must be labeled; real or sensitive data must not be exposed.
-- Do not invent client endorsements, awards, outcomes, or metrics. Keep project descriptions grounded in available source material.
-- The profile README and Pages site should cross-link rather than duplicate the portfolio.
+- One public Screening Room experience at `/`; one full Gaia Skill Tree case study at `/work/gaia-skill-tree/`.
+- The shared `data/projects.json` is the source of truth for the project reel and its disclosures. Work must cover digital products and non-website artifacts, not only websites.
+- Dashboard demos use local fictional data, are interactive, load their local fonts, and visibly state that they are not connected to Rock. No live Rock/production data, credentials, network calls, or drill-through URLs ship in a demo.
+- Gaia Research, Skill Heaven, and Gaia Skill Tree are linked to their public sites and repositories. External Gaia products are not embedded or proxied.
+- Case-study roles and product claims must be supported by public repository materials. A shared project is not presented as solely authored; collaborators are acknowledged where relevant.
+- Synthetic, sample, WIP, and static artifacts keep clear disclosures beside the work. Never publish private or unreviewed source, sensitive data, generated comps as evidence, or unsupported metrics.
+- Five inactive visual-world source trees are retained in the repository but are not built, linked, or deployed.
+- Do not invent testimonials, awards, clients, or personal history. The founder story uses the owner-authored Gaia Skill Tree statement and verifiable profile facts.
 
 ## Brand Commitments
 
-The owner is Marcus Rafael B. Tiongson (`mbtiongson1`). The request commits to a web-designer-focused portfolio, breadth beyond web design, authentic existing work where possible, and a high-craft result. Visual identity remains open for the surface direction.
+The owner is Marcus Rafael B. Tiongson (`mbtiongson1`). Screening Room is the chosen visual system: electric midnight, off-white display fields, coral/mint/sunflower signal accents, square ruled frames, and Barlow typography. The design is settled; content and project hierarchy are being corrected without reopening the six-world visual decision.
 
 ## Evidence on Hand
 
-- Existing local web and design projects include `rock-dashboards`, `gaia-research`, and `rock-steward`.
-- A reviewed `rock-dashboards/build/rendered/favor-people-compiled.html` is a self-contained interactive fictional-data prototype with inline runtime and only seven local dependencies. It is publishable as a standalone demo, not a live Rock connection.
-- Reviewed media-only captures include a WIP fictional-data watershed render, a static AutoMerge prototype screen (not live/connected), and a sample-data watershed visualization (not the Steward control-plane UI). Their disclosures must stay adjacent to the work.
-- The user's public GitHub profile identifies their professional links and public repositories.
-- No approved portfolio copy, personal portrait, testimonial, or resume download was supplied for this project. Do not fabricate any.
+- Gaia Skill Tree's public README credits `mbtiongson1` as creator and maintainer for graph design, CLI, MCP server, and curation pipeline; its collaborator list remains part of the project's authorship context.
+- The README's founder statement: “I built this because skills should be attributed to the people who proved them. Permanently, not just until the repo goes private.”
+- The Gaia Skill Tree, Gaia Research, and Skill Heaven public sites/repositories document their current features and limitations.
+- Connect Health has a local fictional-data prototype. The portfolio version is deliberately offline and does not represent a live dashboard.
+- `macdash` is a dependency-free Python/macOS terminal utility. Its portfolio replay uses fictional sample values and does not inspect a visitor's machine.
+- Fuel ABEMIS has a public repository and linked slides/paper; reported model results are scoped to the project's stated holdout data.
+- Reviewed artifacts include the compiled fictional-data People prototype, static AutoMerge capture, WIP terrain study, and sample-data watershed visualization. They remain secondary and keep adjacent disclosures.
 
 ## Product Principles
 
-1. Let the work itself prove the craft.
-2. Make the experience quick to scan and rewarding to explore.
-3. Preserve the provenance and working context of authentic artifacts.
-4. Respect publication boundaries and identify synthetic demonstrations honestly.
-5. Keep the site lightweight, responsive, and usable without motion.
+1. Show what was built, the author's role, and how the mechanism works.
+2. Put the flagship and genuinely interactive artifacts before static studies.
+3. Use local interactive demos where their publication boundary is clear.
+4. Preserve contributor attribution, provenance, and uncertainty.
+5. Keep external systems outside the static portfolio; a link is not a live connection.
+6. Remain legible, responsive, keyboard-usable, and complete under reduced motion or with JavaScript disabled.
