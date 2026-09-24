@@ -60,7 +60,7 @@
       "refersTo": "artifact-link",
       "description": "Open the catalog's real local artifact or verified public link.",
       "html": "<a class=\"ds-artifact-link\" href=\"/assets/demos/people-compiled/favor-people-compiled.html\" target=\"_blank\" rel=\"noopener noreferrer\">Open interactive fictional prototype</a>",
-      "css": ".ds-artifact-link { display: inline-flex; min-height: var(--tap); align-items: center; justify-content: center; gap: .45rem; padding: .58rem .72rem; border: 1px solid var(--steel); background: var(--chassis); color: var(--paper); font: 600 .8rem/1.25 Barlow, Arial, sans-serif; text-underline-offset: .22em; transition: color 150ms ease-out, border-color 150ms ease-out, background-color 150ms ease-out; } .ds-artifact-link:hover { border-color: var(--face); background: var(--face); color: var(--face-ink); } .ds-artifact-link:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-artifact-link { transition: none; } }"
+      "css": ".ds-artifact-link { display: inline-flex; min-height: var(--tap); align-items: center; justify-content: center; gap: .45rem; padding: .58rem .72rem; border: 1px solid var(--steel); background: transparent; color: var(--paper); font: 600 .8rem/1.25 Barlow, Arial, sans-serif; text-underline-offset: .22em; transition: color 150ms ease-out, border-color 150ms ease-out, background-color 150ms ease-out; } .ds-artifact-link:hover { border-color: var(--face); background: var(--face); color: var(--face-ink); } .ds-artifact-link:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-artifact-link { transition: none; } }"
     },
     {
       "name": "Publication Disclosure",
