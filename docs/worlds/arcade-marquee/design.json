@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-24T04:11:04Z",
+  "title": "Design System: Arcade Marquee",
+  "extensions": {
+    "colorMeta": {
+      "aisle": { "role": "neutral", "displayName": "Arcade Aisle", "canonical": "#0c141a", "tonalRamp": ["oklch(15% 0.02 240)", "oklch(26% 0.02 240)", "oklch(37% 0.02 240)", "oklch(48% 0.02 240)", "oklch(59% 0.02 240)", "oklch(70% 0.02 240)", "oklch(82% 0.02 240)", "oklch(94% 0.02 240)"] },
+      "aisle-shadow": { "role": "neutral", "displayName": "Aisle Shadow", "canonical": "#080e13", "tonalRamp": ["oklch(15% 0.02 240)", "oklch(26% 0.02 240)", "oklch(37% 0.02 240)", "oklch(48% 0.02 240)", "oklch(59% 0.02 240)", "oklch(70% 0.02 240)", "oklch(82% 0.02 240)", "oklch(94% 0.02 240)"] },
+      "cabinet": { "role": "neutral", "displayName": "Cabinet Enamel", "canonical": "#111b24", "tonalRamp": ["oklch(15% 0.02 240)", "oklch(26% 0.02 240)", "oklch(37% 0.02 240)", "oklch(48% 0.02 240)", "oklch(59% 0.02 240)", "oklch(70% 0.02 240)", "oklch(82% 0.02 240)", "oklch(94% 0.02 240)"] },
+      "screen-well": { "role": "neutral", "displayName": "Screen Well", "canonical": "#0a1117", "tonalRamp": ["oklch(15% 0.02 240)", "oklch(26% 0.02 240)", "oklch(37% 0.02 240)", "oklch(48% 0.02 240)", "oklch(59% 0.02 240)", "oklch(70% 0.02 240)", "oklch(82% 0.02 240)", "oklch(94% 0.02 240)"] },
+      "ink": { "role": "neutral", "displayName": "Warm Screen Ink", "canonical": "#f5f0e6", "tonalRamp": ["oklch(15% 0.02 90)", "oklch(26% 0.02 90)", "oklch(37% 0.02 90)", "oklch(48% 0.02 90)", "oklch(59% 0.02 90)", "oklch(70% 0.02 90)", "oklch(82% 0.02 90)", "oklch(94% 0.02 90)"] },
+      "muted": { "role": "neutral", "displayName": "Aisle Lettering", "canonical": "#bdc9d0", "tonalRamp": ["oklch(15% 0.025 225)", "oklch(26% 0.025 225)", "oklch(37% 0.025 225)", "oklch(48% 0.025 225)", "oklch(59% 0.025 225)", "oklch(70% 0.025 225)", "oklch(82% 0.025 225)", "oklch(94% 0.025 225)"] },
+      "rule": { "role": "neutral", "displayName": "Hardware Rule", "canonical": "#455560", "tonalRamp": ["oklch(15% 0.03 230)", "oklch(26% 0.03 230)", "oklch(37% 0.03 230)", "oklch(48% 0.03 230)", "oklch(59% 0.03 230)", "oklch(70% 0.03 230)", "oklch(82% 0.03 230)", "oklch(94% 0.03 230)"] },
+      "aisle-rule": { "role": "neutral", "displayName": "Aisle Divider", "canonical": "#253640", "tonalRamp": ["oklch(15% 0.025 230)", "oklch(26% 0.025 230)", "oklch(37% 0.025 230)", "oklch(48% 0.025 230)", "oklch(59% 0.025 230)", "oklch(70% 0.025 230)", "oklch(82% 0.025 230)", "oklch(94% 0.025 230)"] },
+      "cyan": { "role": "primary", "displayName": "Selected Cyan", "canonical": "#2feff8", "tonalRamp": ["oklch(15% 0.14 192)", "oklch(26% 0.14 192)", "oklch(37% 0.14 192)", "oklch(48% 0.14 192)", "oklch(59% 0.14 192)", "oklch(70% 0.14 192)", "oklch(82% 0.14 192)", "oklch(94% 0.14 192)"] },
+      "magenta": { "role": "secondary", "displayName": "Archive Magenta", "canonical": "#e774b2", "tonalRamp": ["oklch(15% 0.15 345)", "oklch(26% 0.15 345)", "oklch(37% 0.15 345)", "oklch(48% 0.15 345)", "oklch(59% 0.15 345)", "oklch(70% 0.15 345)", "oklch(82% 0.15 345)", "oklch(94% 0.15 345)"] },
+      "amber": { "role": "tertiary", "displayName": "Action Amber", "canonical": "#f8ab4c", "tonalRamp": ["oklch(15% 0.14 70)", "oklch(26% 0.14 70)", "oklch(37% 0.14 70)", "oklch(48% 0.14 70)", "oklch(59% 0.14 70)", "oklch(70% 0.14 70)", "oklch(82% 0.14 70)", "oklch(94% 0.14 70)"] },
+      "amber-ink": { "role": "neutral", "displayName": "Disclosure Ink", "canonical": "#21170b", "tonalRamp": ["oklch(15% 0.04 80)", "oklch(26% 0.04 80)", "oklch(37% 0.04 80)", "oklch(48% 0.04 80)", "oklch(59% 0.04 80)", "oklch(70% 0.04 80)", "oklch(82% 0.04 80)", "oklch(94% 0.04 80)"] },
+      "demo-paper": { "role": "neutral", "displayName": "Prototype Surround", "canonical": "#f2eee5", "tonalRamp": ["oklch(15% 0.015 90)", "oklch(26% 0.015 90)", "oklch(37% 0.015 90)", "oklch(48% 0.015 90)", "oklch(59% 0.015 90)", "oklch(70% 0.015 90)", "oklch(82% 0.015 90)", "oklch(94% 0.015 90)"] },
+      "demo-screen": { "role": "neutral", "displayName": "Prototype Screen Ground", "canonical": "#e3e4dd", "tonalRamp": ["oklch(15% 0.01 110)", "oklch(26% 0.01 110)", "oklch(37% 0.01 110)", "oklch(48% 0.01 110)", "oklch(59% 0.01 110)", "oklch(70% 0.01 110)", "oklch(82% 0.01 110)", "oklch(94% 0.01 110)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Marquee Display", "purpose": "World and project titles in self-hosted Barlow Condensed 800." },
+      "body": { "displayName": "Archive Reading Text", "purpose": "Project summaries, context, and disclosure copy in Barlow 400." },
+      "label": { "displayName": "Cabinet Label", "purpose": "Short functional labels and wayfinding in Barlow 600; longer text stays sentence case." }
+    },
+    "interaction": { "minimumTarget": "2.75rem / 44px", "purpose": "All route-owned links, buttons, and the project-index summary retain this minimum at every breakpoint." },
+    "motion": [
+      { "name": "attract-interval", "value": "8500ms", "purpose": "Optional project preview rotation; paused for selection, pointer/focus, hidden page, offscreen state, and reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "1100px" },
+      { "name": "mobile", "value": "760px" },
+      { "name": "small", "value": "390px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Marquee Sign",
+      "kind": "custom",
+      "refersTo": "marquee-sign",
+      "description": "World-title hardware with a double rule, restrained colors, and no glow.",
+      "html": "<section class=\"ds-sign\" aria-labelledby=\"ds-title\"><p class=\"ds-sign-label\">One archive · six distinct worlds</p><h1 id=\"ds-title\">Arcade <span>Marquee</span></h1></section>",
+      "css": ".ds-sign{position:relative;border:1px solid var(--rule);background:var(--cabinet);color:var(--ink);padding:1.2rem}.ds-sign:before{position:absolute;inset:.38rem;border:1px solid var(--rule);content:\"\";pointer-events:none}.ds-sign h1{position:relative;margin:0;font:800 clamp(2.5rem,8vw,6rem)/.86 'Barlow Condensed',sans-serif;text-transform:uppercase}.ds-sign h1 span{color:var(--cyan)}.ds-sign-label{position:relative;color:var(--muted);font:600 .72rem/1.3 Barlow,Arial,sans-serif;letter-spacing:.07em;text-transform:uppercase}"
+    },
+    {
+      "name": "Named Project Index",
+      "kind": "nav",
+      "refersTo": "project-index",
+      "description": "An ordered, direct list; selected and keyboard states are visible without gesture-only cues.",
+      "html": "<nav aria-label=\"Project index\"><ol class=\"ds-project-list\"><li><a href=\"#people-compiled\" aria-current=\"location\">People, compiled <span>Interactive interface prototype</span></a></li></ol></nav>",
+      "css": ".ds-project-list{margin:0;padding:0;list-style:none}.ds-project-list a{display:block;min-height:2.75rem;border-bottom:1px solid var(--aisle-rule);color:var(--ink);padding:.65rem .3rem;font:600 1rem/1.25 Barlow,Arial,sans-serif;text-decoration:none}.ds-project-list a span{display:block;color:var(--muted);font-size:.72rem;font-weight:400}.ds-project-list a[aria-current=location],.ds-project-list a:hover{color:var(--cyan)}.ds-project-list a:focus-visible{outline:3px solid var(--amber);outline-offset:4px}"
+    },
+    {
+      "name": "Selected Cabinet Frame",
+      "kind": "custom",
+      "refersTo": "cabinet-frame",
+      "description": "A square screen well around the actual sandboxed local demo, not a mock screenshot.",
+      "html": "<section class=\"ds-cabinet\" aria-labelledby=\"ds-cabinet-title\"><h2 id=\"ds-cabinet-title\">People, compiled</h2><iframe title=\"People, compiled HTML prototype\" src=\"/assets/demos/people-compiled/favor-people-compiled.html\" sandbox=\"allow-scripts allow-downloads\"></iframe></section>",
+      "css": ".ds-cabinet{min-width:0;border:1px solid var(--rule);background:var(--cabinet);padding:.75rem;color:var(--ink)}.ds-cabinet h2{margin:0 0 .7rem;font:800 2rem/.95 'Barlow Condensed',sans-serif;text-transform:uppercase}.ds-cabinet iframe{display:block;width:100%;height:min(70vh,42rem);border:1px solid var(--rule);background:var(--demo-screen)}"
+    },
+    {
+      "name": "Adjacent Artifact Disclosure",
+      "kind": "custom",
+      "refersTo": "disclosure",
+      "description": "A high-contrast publication boundary placed immediately beside its own artifact.",
+      "html": "<p class=\"ds-disclosure\"><strong>About this artifact</strong> Fictional prototype data. Not a live connection.</p>",
+      "css": ".ds-disclosure{margin:0 0 .5rem;padding:.55rem .75rem;background:var(--amber);color:var(--amber-ink);font:400 .76rem/1.4 Barlow,Arial,sans-serif}.ds-disclosure strong{margin-right:.28rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}"
+    },
+    {
+      "name": "Open Original Artifact",
+      "kind": "button",
+      "refersTo": "artifact-open",
+      "description": "A separate direct path to the actual local artifact or verified public destination.",
+      "html": "<a class=\"ds-artifact-open\" href=\"/assets/demos/people-compiled/favor-people-compiled.html\">Open the full prototype</a>",
+      "css": ".ds-artifact-open{display:inline-flex;align-items:center;min-height:2.85rem;border:1px solid var(--amber);color:var(--amber);padding:.62rem .8rem;font:600 .78rem/1.25 Barlow,Arial,sans-serif;text-decoration:none}.ds-artifact-open:hover{background:var(--amber);color:var(--aisle-shadow)}.ds-artifact-open:focus-visible{outline:3px solid var(--amber);outline-offset:4px}"
+    },
+    {
+      "name": "Attract Mode Toggle",
+      "kind": "button",
+      "refersTo": "attract-toggle",
+      "description": "A visible, explicit choice to start or stop optional preview rotation.",
+      "html": "<button class=\"ds-attract-toggle\" type=\"button\" aria-pressed=\"true\">Attract mode on</button>",
+      "css": ".ds-attract-toggle{display:inline-flex;align-items:center;justify-content:center;min-height:2.75rem;border:1px solid var(--rule);background:var(--screen-well);color:var(--ink);padding:.4rem .7rem;font:600 .72rem/1.2 Barlow,Arial,sans-serif}.ds-attract-toggle:hover,.ds-attract-toggle[aria-pressed=false]{border-color:var(--amber);color:var(--amber)}.ds-attract-toggle:focus-visible{outline:3px solid var(--amber);outline-offset:4px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "One selected cabinet, six ways in.",
+    "overview": "Arcade Marquee is the portfolio archive staged as a dark aisle of project cabinets. Its own cyan, magenta, and amber wayfinding, self-hosted Barlow typography, and ruled hardware are local to this route; the generated archive and honest project disclosures remain shared. A visitor selects one real record, sees its true preview or media, and follows the real opening path. The local People, compiled prototype is visibly bounded as fictional data. Public destinations are links, not external embeds.",
+    "keyCharacteristics": [
+      "The marquee sign and square cabinet frame build physical hardware from tonal blocks, double rules, and discrete lights instead of neon glow.",
+      "One semantic project list selects one cabinet; source titles, summaries, context, artifacts, and disclosures come from the shared archive.",
+      "Attract rotation is optional and pauses for user intent, hidden/offscreen state, and reduced-motion preference."
+    ],
+    "rules": [
+      { "name": "The Aisle Contrast Rule", "body": "Cyan marks selection, magenta is secondary archive wayfinding, and amber indicates action or publication boundary; none of the accents encode fictional metrics.", "section": "colors" },
+      { "name": "The Named Work Rule", "body": "Source project titles remain visible in the semantic list and follow their own summary, context, media, publication note, and opening path.", "section": "typography" },
+      { "name": "The Artifact Boundary Rule", "body": "Keep every catalog disclosure beside its artifact; only the verified local demo is embedded, with a restricted sandbox.", "section": "components" }
+    ],
+    "dos": [
+      "Use data/projects.json as the sole source for titles, descriptions, paths, and publication notes.",
+      "Keep all projects findable without JavaScript and retain the semantic index, visible keyboard focus, browser history, and reduced-motion support.",
+      "Place the true preview or media at the center of each selected cabinet and keep a direct opening path distinct from its preview."
+    ],
+    "donts": [
+      "Do not reproduce the approved comp's invented project labels, dashboard metrics, or visualized facts.",
+      "Do not present fictional prototype data as people evidence, a live service, client outcomes, or a connected system.",
+      "Do not embed an external public site or invent an image for a link-only record.",
+      "Do not make this palette a shared default for other independently designed worlds."
+    ]
+  }
+}

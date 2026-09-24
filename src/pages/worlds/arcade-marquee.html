@@ -1,5 +1,74 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#e6e7df"><meta name="description" content="{{WORLD_NAME}} is being built. Explore the shared work archive in Field Atlas now."><title>{{WORLD_NAME}} — in preparation</title><link rel="stylesheet" href="/styles/lobby.css"></head>
-<body class="lobby preview-page"><a class="skip-link" href="#preview">Skip to preview</a><header class="lobby-header"><a href="/" class="lobby-mark" aria-label="Portfolio home">MRBT<span class="mark-rule"></span>Studio index</a><a href="/">All six worlds</a></header><main id="preview"><div class="preview-intro"><p class="preview-status">In preparation / route reserved</p><h1>{{WORLD_NAME}}</h1><p>{{WORLD_DESCRIPTION}} This independent experience is not yet built. The project archive is already available in Field Atlas.</p><a class="preview-action" href="/worlds/field-atlas/">Explore real work in Field Atlas <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h19m-7-7 7 7-7 7"/></svg></a></div><div class="preview-index"><h2>Work available now</h2><ul>{{PROJECT_LINKS}}</ul></div></main><footer class="lobby-footer"><span>Six ways into one archive</span><nav aria-label="Portfolio experiences">{{WORLD_NAV}}</nav></footer></body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c141a">
+  <meta name="description" content="Browse Marcus Rafael B. Tiongson’s work through the Arcade Marquee: one selected cabinet, real project artifacts, and a direct path to each original.">
+  <title>Arcade Marquee — Marcus Rafael B. Tiongson</title>
+  <link rel="stylesheet" href="/styles/arcade-marquee.css">
+  <script src="/scripts/arcade-marquee.js" defer></script>
+</head>
+<body class="arcade-marquee">
+  <a class="skip-link" href="#arcade-main">Skip to the work</a>
+  <header class="arcade-masthead">
+    <a class="maker-lockup" href="/" aria-label="Portfolio home">
+      <span class="maker-name">Marcus Rafael B. Tiongson</span>
+      <span class="maker-role">Portfolio / design &amp; interfaces</span>
+    </a>
+    <nav class="world-navigation" aria-label="Portfolio worlds">
+      {{WORLD_NAV}}
+    </nav>
+  </header>
+
+  <main id="arcade-main" class="arcade-main">
+    <section class="marquee-sign" aria-labelledby="world-title">
+      <span class="sign-fastener sign-fastener--top-left" aria-hidden="true"></span>
+      <span class="sign-fastener sign-fastener--top-right" aria-hidden="true"></span>
+      <span class="sign-fastener sign-fastener--bottom-left" aria-hidden="true"></span>
+      <span class="sign-fastener sign-fastener--bottom-right" aria-hidden="true"></span>
+      <p class="sign-side sign-side--left">Real work<br>open to view</p>
+      <h1 id="world-title"><span>Arcade</span> <span class="marquee-accent">Marquee</span></h1>
+      <p class="sign-side sign-side--right">One archive<br>six distinct worlds</p>
+      <div class="sign-light-rail" aria-hidden="true"><span></span><span></span><span></span></div>
+    </section>
+
+    <div class="arcade-floor" id="arcade-floor">
+      <aside class="project-rail" aria-label="Project selection">
+        <div class="project-information" id="project-information"></div>
+        <details class="project-index" id="project-index" open>
+          <summary class="rail-heading"><h2 id="project-index-heading">Choose a project</h2></summary>
+          <nav aria-labelledby="project-index-heading">
+            <ol>{{PROJECT_INDEX}}</ol>
+          </nav>
+        </details>
+      </aside>
+
+      <section class="cabinet-bay" aria-labelledby="cabinet-heading">
+        <div class="cabinet-topline">
+          <h2 class="visually-hidden" id="cabinet-heading">Selected project cabinet</h2>
+          <div class="cabinet-controls">
+            <p class="cabinet-status" id="cabinet-status" aria-live="off">Archive preview</p>
+            <button class="attract-toggle" id="attract-toggle" type="button" aria-pressed="true" hidden>Attract mode on</button>
+          </div>
+        </div>
+        <div class="cabinet-window" id="cabinet-window" aria-live="off">
+          {{PROJECT_LEAD}}
+        </div>
+        <p class="selection-announcement visually-hidden" id="selection-announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+      </section>
+    </div>
+
+    <section class="project-library" id="project-library" aria-labelledby="library-heading">
+      <h2 id="library-heading">More work in the archive</h2>
+      <p class="library-intro">Browse each real prototype, image, or verified public site. Publication notes stay beside the work.</p>
+      <div class="library-projects">{{PROJECT_REST}}</div>
+    </section>
+  </main>
+
+  <footer class="arcade-footer">
+    <p>One shared archive. Six different ways in.</p>
+    <a href="/">Back to all worlds</a>
+  </footer>
+</body>
 </html>
