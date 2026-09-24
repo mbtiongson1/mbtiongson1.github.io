@@ -1,5 +1,84 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#e6e7df"><meta name="description" content="{{WORLD_NAME}} is being built. Explore the shared work archive in Field Atlas now."><title>{{WORLD_NAME}} — in preparation</title><link rel="stylesheet" href="/styles/lobby.css"></head>
-<body class="lobby preview-page"><a class="skip-link" href="#preview">Skip to preview</a><header class="lobby-header"><a href="/" class="lobby-mark" aria-label="Portfolio home">MRBT<span class="mark-rule"></span>Studio index</a><a href="/">All six worlds</a></header><main id="preview"><div class="preview-intro"><p class="preview-status">In preparation / route reserved</p><h1>{{WORLD_NAME}}</h1><p>{{WORLD_DESCRIPTION}} This independent experience is not yet built. The project archive is already available in Field Atlas.</p><a class="preview-action" href="/worlds/field-atlas/">Explore real work in Field Atlas <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h19m-7-7 7 7-7 7"/></svg></a></div><div class="preview-index"><h2>Work available now</h2><ul>{{PROJECT_LINKS}}</ul></div></main><footer class="lobby-footer"><span>Six ways into one archive</span><nav aria-label="Portfolio experiences">{{WORLD_NAV}}</nav></footer></body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e2d8c9">
+  <meta name="description" content="Dada Contact Sheet — a cut-paper way to inspect the real interface work of Marcus Rafael B. Tiongson.">
+  <title>Dada Contact Sheet — Marcus Rafael B. Tiongson</title>
+  <link rel="preload" href="/assets/fonts/barlow-condensed-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/dada-contact-sheet.css">
+  <script src="/scripts/dada-contact-sheet.js" defer></script>
+</head>
+<body class="dada-contact-sheet">
+  <a class="skip-link" href="#main">Skip to the work index</a>
+  <header class="folio-header">
+    <a class="portfolio-mark" href="/" aria-label="Marcus Rafael B. Tiongson portfolio home">
+      <span class="mark-monogram" aria-hidden="true">MRBT</span>
+      <span class="mark-caption">Six ways into<br>one archive</span>
+    </a>
+    <p class="folio-label">Dada Contact Sheet <span>/</span> Portfolio experience</p>
+    <nav class="world-nav" aria-label="Portfolio experiences">{{WORLD_NAV}}</nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="contact-sheet" id="work" aria-labelledby="maker-name">
+      <div class="collage-cutouts" aria-hidden="true">
+        <span class="cutout cutout--charcoal"></span>
+        <span class="cutout cutout--charcoal-low"></span>
+        <span class="cutout cutout--scarlet"></span>
+        <span class="cutout cutout--cobalt"></span>
+        <span class="cutout cutout--scarlet-foot"></span>
+        <span class="cutout cutout--cobalt-foot"></span>
+      </div>
+      <svg class="registration registration--top" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0v40M0 20h40"/><circle cx="20" cy="20" r="10"/></svg>
+      <svg class="registration registration--edge" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0v40M0 20h40"/><circle cx="20" cy="20" r="10"/></svg>
+
+      <aside class="sheet-index" aria-label="Portfolio index">
+        <div class="maker-imprint">
+          <h1 id="maker-name"><span>Marcus</span><span>Rafael B.</span><span>Tiongson</span></h1>
+          <p class="sheet-descriptor">Web interface portfolio</p>
+        </div>
+
+        <nav class="project-index" id="project-index" aria-label="Project index">
+          <h2>Work index</h2>
+          <ol id="project-list">{{PROJECT_INDEX}}</ol>
+        </nav>
+        <p class="side-colophon">Design<br>Build<br>Explore</p>
+      </aside>
+
+      <section class="featured-stage" id="featured" aria-label="Selected project">
+        <div class="stage-label">
+          <span class="ink-stamp" aria-hidden="true"></span>
+          <p>Selected project</p>
+          <p class="selection-status" id="selection-status" role="status" aria-live="polite">Showing People, compiled — interactive interface prototype.</p>
+        </div>
+        <div class="screen-mount" id="selected-project">{{PROJECT_LEAD}}</div>
+      </section>
+    </section>
+
+    <section class="archive-fallback" id="archive" aria-labelledby="archive-title">
+      <div class="archive-heading">
+        <p class="archive-label">Full archive / named records</p>
+        <h2 id="archive-title">Every project, in its own context.</h2>
+      </div>
+      <div class="archive-projects" id="archive-projects">{{PROJECT_REST}}</div>
+    </section>
+
+    <section class="closing-note" aria-labelledby="closing-title">
+      <div>
+        <p class="closing-label">One archive / six experiences</p>
+        <h2 id="closing-title">Different ways in.<br>The work stays real.</h2>
+      </div>
+      <p>Project names, artifacts, captions, and publication notes come from the shared reviewed archive. Static images stay whole; prototypes and sample data keep their labels; public sites open directly instead of appearing as invented previews.</p>
+      <a class="profile-link" href="https://github.com/mbtiongson1" target="_blank" rel="noopener noreferrer">GitHub profile <span class="new-window-note">(opens in a new tab)</span></a>
+    </section>
+  </main>
+
+  <footer class="folio-footer">
+    <p>Marcus Rafael B. Tiongson <span>/</span> Dada Contact Sheet</p>
+    <a href="/">Return to all six worlds</a>
+    <nav class="footer-world-nav" aria-label="All portfolio experiences">{{WORLD_NAV}}</nav>
+  </footer>
+</body>
 </html>

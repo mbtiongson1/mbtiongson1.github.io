@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-24T06:15:23Z",
+  "title": "Design System: Dada Contact Sheet",
+  "extensions": {
+    "colorMeta": {
+      "newsprint": { "role": "neutral", "displayName": "Newsprint", "canonical": "#e2d8c9", "tonalRamp": ["oklch(15% 0.026 77)", "oklch(26% 0.026 77)", "oklch(37% 0.026 77)", "oklch(48% 0.026 77)", "oklch(59% 0.026 77)", "oklch(70% 0.026 77)", "oklch(82% 0.026 77)", "oklch(95% 0.026 77)"] },
+      "ticket-stock": { "role": "neutral", "displayName": "Ticket Stock", "canonical": "#eee8de", "tonalRamp": ["oklch(15% 0.02 80)", "oklch(26% 0.02 80)", "oklch(37% 0.02 80)", "oklch(48% 0.02 80)", "oklch(59% 0.02 80)", "oklch(70% 0.02 80)", "oklch(82% 0.02 80)", "oklch(95% 0.02 80)"] },
+      "ink": { "role": "neutral", "displayName": "Charcoal Ink", "canonical": "#121a1c", "tonalRamp": ["oklch(15% 0.01 220)", "oklch(26% 0.01 220)", "oklch(37% 0.01 220)", "oklch(48% 0.01 220)", "oklch(59% 0.01 220)", "oklch(70% 0.01 220)", "oklch(82% 0.01 220)", "oklch(95% 0.01 220)"] },
+      "muted": { "role": "neutral", "displayName": "Supporting Ink", "canonical": "#514d47", "tonalRamp": ["oklch(15% 0.015 75)", "oklch(26% 0.015 75)", "oklch(37% 0.015 75)", "oklch(48% 0.015 75)", "oklch(59% 0.015 75)", "oklch(70% 0.015 75)", "oklch(82% 0.015 75)", "oklch(95% 0.015 75)"] },
+      "rule": { "role": "neutral", "displayName": "Registration Rule", "canonical": "#777067", "tonalRamp": ["oklch(15% 0.015 77)", "oklch(26% 0.015 77)", "oklch(37% 0.015 77)", "oklch(48% 0.015 77)", "oklch(59% 0.015 77)", "oklch(70% 0.015 77)", "oklch(82% 0.015 77)", "oklch(95% 0.015 77)"] },
+      "scarlet": { "role": "primary", "displayName": "Registration Scarlet", "canonical": "#d5221f", "tonalRamp": ["oklch(15% 0.19 27)", "oklch(26% 0.19 27)", "oklch(37% 0.19 27)", "oklch(48% 0.19 27)", "oklch(59% 0.19 27)", "oklch(70% 0.19 27)", "oklch(82% 0.19 27)", "oklch(95% 0.19 27)"] },
+      "scarlet-ink": { "role": "tertiary", "displayName": "Deep Scarlet Ink", "canonical": "#a91b18", "tonalRamp": ["oklch(15% 0.15 27)", "oklch(26% 0.15 27)", "oklch(37% 0.15 27)", "oklch(48% 0.15 27)", "oklch(59% 0.15 27)", "oklch(70% 0.15 27)", "oklch(82% 0.15 27)", "oklch(95% 0.15 27)"] },
+      "cobalt": { "role": "secondary", "displayName": "Registration Cobalt", "canonical": "#0d4c9c", "tonalRamp": ["oklch(15% 0.16 257)", "oklch(26% 0.16 257)", "oklch(37% 0.16 257)", "oklch(48% 0.16 257)", "oklch(59% 0.16 257)", "oklch(70% 0.16 257)", "oklch(82% 0.16 257)", "oklch(95% 0.16 257)"] },
+      "paper-white": { "role": "neutral", "displayName": "Soft Paper White", "canonical": "#f5f1e9", "tonalRamp": ["oklch(15% 0.015 80)", "oklch(26% 0.015 80)", "oklch(37% 0.015 80)", "oklch(48% 0.015 80)", "oklch(59% 0.015 80)", "oklch(70% 0.015 80)", "oklch(82% 0.015 80)", "oklch(95% 0.015 80)"] },
+      "print-white": { "role": "neutral", "displayName": "Print White", "canonical": "#ffffff", "tonalRamp": ["oklch(15% 0 0)", "oklch(26% 0 0)", "oklch(37% 0 0)", "oklch(48% 0 0)", "oklch(59% 0 0)", "oklch(70% 0 0)", "oklch(82% 0 0)", "oklch(95% 0 0)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Barlow Condensed Display", "purpose": "Large maker and project names in self-hosted weight 800." },
+      "body": { "displayName": "Barlow Reading Text", "purpose": "Project summaries, context, controls, and disclosures." },
+      "label": { "displayName": "Barlow Label", "purpose": "Short uppercase index, navigation, and record-kind labels." }
+    },
+    "interaction": {
+      "minimumTarget": "2.75rem / 44px",
+      "purpose": "World links, scrap selectors, artifact actions, and the skip link retain a minimum 44px target."
+    },
+    "motion": [
+      { "name": "paper-state-transition", "value": "150ms ease-out", "purpose": "Small color and border response on selection and hover; reduced-motion settings collapse the transition and disable smooth scrolling." }
+    ],
+    "breakpoints": [
+      { "name": "tablet-index", "value": "1160px" },
+      { "name": "tablet-stack", "value": "820px" },
+      { "name": "mobile", "value": "620px" }
+    ],
+    "shadows": []
+  },
+  "components": [
+    {
+      "name": "Named Scrap Selector",
+      "kind": "button",
+      "refersTo": "project-scrap",
+      "description": "A numbered, named project row; the selected paper slip has explicit pressed state.",
+      "html": "<button class=\"ds-scrap\" type=\"button\" aria-pressed=\"true\"><span class=\"ds-number\" aria-hidden=\"true\">01</span><span>People, compiled</span></button>",
+      "css": ".ds-scrap{display:grid;grid-template-columns:2.5rem minmax(0,1fr);align-items:center;gap:.5rem;width:100%;min-height:3.65rem;padding:.48rem .25rem .48rem 0;border:0;border-bottom:1px solid var(--rule);background:transparent;color:var(--ink);text-align:left;font:700 .94rem/1.1 Barlow,Arial,sans-serif}.ds-number{color:var(--scarlet);font:800 1.9rem/.9 'Barlow Condensed',Arial Narrow,sans-serif}.ds-scrap:hover,.ds-scrap[aria-pressed=true]{background:var(--ticket-stock)}.ds-scrap:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}"
+    },
+    {
+      "name": "World Wayfinding",
+      "kind": "nav",
+      "refersTo": "world-navigation-link",
+      "description": "Six route links with a scarlet current marker and a horizontal-scroll compact treatment.",
+      "html": "<nav aria-label=\"Portfolio experiences\"><a class=\"ds-world-link\" href=\"/worlds/dada-contact-sheet/\" aria-current=\"page\">Dada Contact Sheet</a></nav>",
+      "css": ".ds-world-link{position:relative;display:inline-flex;min-height:2.75rem;align-items:center;color:var(--ink);font:600 .72rem/1.4 Barlow,Arial,sans-serif;letter-spacing:.08em;text-decoration:none}.ds-world-link:hover,.ds-world-link[aria-current=page]{color:var(--scarlet-ink)}.ds-world-link[aria-current=page]:after{position:absolute;right:0;bottom:.15rem;left:0;height:2px;background:var(--scarlet);content:''}.ds-world-link:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}"
+    },
+    {
+      "name": "Selected Artifact Mount",
+      "kind": "custom",
+      "refersTo": "selected-artifact-mount",
+      "description": "A square ruled newsprint frame around the selected original demo or catalog image.",
+      "html": "<section class=\"ds-mount\" aria-label=\"Selected project artifact\"><div class=\"ds-mount-inner\">Original project artifact appears here.</div></section>",
+      "css": ".ds-mount{min-width:0;border:1px solid var(--ink);background:var(--newsprint);padding:clamp(.25rem,.55vw,.55rem)}.ds-mount-inner{min-width:0;background:var(--ink)}.ds-mount img{display:block;width:100%;height:auto;max-height:72vh;object-fit:contain;object-position:center}.ds-mount iframe{display:block;width:100%;height:clamp(34rem,68vh,55rem);border:0;background:var(--ticket-stock)}"
+    },
+    {
+      "name": "Artifact Disclosure",
+      "kind": "custom",
+      "refersTo": "artifact-disclosure",
+      "description": "An immediate, high-contrast publication boundary placed just before the artifact it describes.",
+      "html": "<p class=\"ds-disclosure\"><strong>About this artifact</strong> Fictional prototype data. This is not a live Rock connection, a production dashboard, or actual people records.</p>",
+      "css": ".ds-disclosure{margin:0;padding:.68rem .8rem;background:var(--scarlet);color:var(--print-white);font:400 .84rem/1.4 Barlow,Arial,sans-serif}.ds-disclosure strong{margin-right:.3em;font-weight:700;letter-spacing:.035em;text-transform:uppercase}"
+    },
+    {
+      "name": "Artifact Opening Link",
+      "kind": "button",
+      "refersTo": "artifact-open",
+      "description": "A direct route to the original local demo, full-size catalog image, or verified public site.",
+      "html": "<a class=\"ds-artifact-open\" href=\"/assets/demos/people-compiled/favor-people-compiled.html\">Open interactive prototype</a>",
+      "css": ".ds-artifact-open{display:inline-flex;min-height:2.75rem;align-items:center;justify-content:center;padding:.52rem .7rem;border:1px solid var(--scarlet);background:transparent;color:var(--paper-white);font:600 .76rem/1.25 Barlow,Arial,sans-serif;text-decoration:underline;text-underline-offset:.18em;transition:background-color 150ms ease-out,color 150ms ease-out,border-color 150ms ease-out}.ds-artifact-open:hover,.ds-artifact-open:focus-visible{background:var(--scarlet);color:var(--print-white)}.ds-artifact-open:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}"
+    },
+    {
+      "name": "Full-Size Image Plate",
+      "kind": "custom",
+      "refersTo": "selected-artifact-mount",
+      "description": "A source-backed project raster displayed at natural proportions with its catalog alt text and caption.",
+      "html": "<figure class=\"ds-image-plate\"><a href=\"/assets/media/01-overview.webp\" target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"/assets/media/01-overview.webp\" width=\"1440\" height=\"900\" alt=\"Static overview-screen prototype with six status panels and review-queue and manual-merge actions; the pictured connection state is illustrative.\"></a><figcaption>Static interface capture only; the pictured connection state is not a live status.</figcaption></figure>",
+      "css": ".ds-image-plate{margin:0;background:var(--ink)}.ds-image-plate>a{display:block;line-height:0}.ds-image-plate img{display:block;width:100%;height:auto;object-fit:contain}.ds-image-plate figcaption{padding:.65rem .8rem;border-top:1px solid var(--rule);color:var(--paper-white);font:400 .78rem/1.45 Barlow,Arial,sans-serif}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The movable typeset plate.",
+    "overview": "The archive behaves like an arranged contact sheet: a visitor picks a clearly named scrap and brings its complete project into a steady reading position. The visual language is a controlled Merz collage—measured type, ruled paper, printer-color fragments, and crisp registration—not a thumbnail grid or a photographed paper desk. The published scene is built from CSS/HTML geometry and the project's self-hosted Barlow files. Project images and demos come only from the shared reviewed catalog and keep their own context and disclosure. The featured People, compiled record is the actual restricted HTML prototype, not the dashboard pixels depicted in the development comp.",
+    "keyCharacteristics": [
+      "Newsprint, ticket stock, charcoal, scarlet, and cobalt create distinct paper and ink roles.",
+      "One selected project sits beside a real named index; selecting an entry preserves the full artifact, its caption, and its publication boundary.",
+      "The index and featured plate reflow into a vertical, non-overlapping reading order on narrow screens."
+    ],
+    "rules": [
+      { "name": "The Ink Contrast Rule", "body": "Large scarlet marks may keep the bright registration ink; small scarlet text on paper uses the deeper scarlet ink. White disclosure text stays on scarlet, and secondary copy must retain readable contrast on its actual ground.", "section": "colors" },
+      { "name": "The Named Work Rule", "body": "The shared project title and kind remain visible in the contact sheet, and a selected project keeps its own catalog copy rather than receiving invented case-study language.", "section": "typography" },
+      { "name": "The Intact Plate Rule", "body": "A catalog screenshot stays whole and legible, with its exact alt text, caption, disclosure, and original-artifact link; no collage edge may remove pixels from the work.", "section": "components" }
+    ],
+    "dos": [
+      "Do use `data/projects.json` as the sole source for project titles, summaries, paths, alt text, captions, and disclosures.",
+      "Do keep each source screenshot intact and keep its disclosure immediately adjacent to the artifact.",
+      "Do keep the no-JavaScript named archive, focusable skip destination, visible focus, 44px targets, and reduced-motion behavior.",
+      "Do use the existing self-hosted font files and the CSS/HTML paper geometry; route-specific raster assets are not needed."
+    ],
+    "donts": [
+      "Don't copy, crop, or trace pixels from the generated direction comp into published files.",
+      "Don't reproduce the comp's invented “Connect Field” labels or dashboard values as portfolio evidence.",
+      "Don't add remote fonts or external-site embeds.",
+      "Don't invent a local preview for a record whose catalog has no media or demo.",
+      "Don't let paper cuts, lettering, or index decoration overlap the source artifacts."
+    ]
+  }
+}
