@@ -350,7 +350,7 @@ button { font: inherit; }
   gap: 0.5rem;
   padding: 0.48rem 0.25rem 0.48rem 0;
   border: 0;
-  background: transparent;
+  background: var(--ticket-stock);
   color: var(--ink);
   cursor: pointer;
   text-align: left;
@@ -358,10 +358,23 @@ button { font: inherit; }
 }
 
 .project-index a[data-project-link]:hover,
-.scrap-button:hover,
-.scrap-button[aria-pressed="true"] {
-  background: var(--ticket-stock);
+.scrap-button:hover {
+  background: var(--paper-white);
   color: var(--ink);
+}
+
+.scrap-button[aria-pressed="true"] {
+  background: var(--newsprint);
+  color: var(--ink);
+}
+
+.scrap-button[aria-pressed="true"]:hover { background: var(--paper-white); }
+
+.scrap-button[aria-pressed="true"] .scrap-title {
+  text-decoration: underline;
+  text-decoration-color: var(--scarlet);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.16em;
 }
 
 .index-pin,

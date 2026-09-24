@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-24T06:15:23Z",
+  "generatedAt": "2026-09-24T06:59:01Z",
   "title": "Design System: Dada Contact Sheet",
   "extensions": {
     "colorMeta": {
@@ -39,9 +39,9 @@
       "name": "Named Scrap Selector",
       "kind": "button",
       "refersTo": "project-scrap",
-      "description": "A numbered, named project row; the selected paper slip has explicit pressed state.",
-      "html": "<button class=\"ds-scrap\" type=\"button\" aria-pressed=\"true\"><span class=\"ds-number\" aria-hidden=\"true\">01</span><span>People, compiled</span></button>",
-      "css": ".ds-scrap{display:grid;grid-template-columns:2.5rem minmax(0,1fr);align-items:center;gap:.5rem;width:100%;min-height:3.65rem;padding:.48rem .25rem .48rem 0;border:0;border-bottom:1px solid var(--rule);background:transparent;color:var(--ink);text-align:left;font:700 .94rem/1.1 Barlow,Arial,sans-serif}.ds-number{color:var(--scarlet);font:800 1.9rem/.9 'Barlow Condensed',Arial Narrow,sans-serif}.ds-scrap:hover,.ds-scrap[aria-pressed=true]{background:var(--ticket-stock)}.ds-scrap:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}"
+      "description": "A numbered, named project row with an opaque ticket-stock default and explicit selected state.",
+      "html": "<button class=\"ds-scrap\" type=\"button\" aria-pressed=\"true\"><span class=\"ds-number\" aria-hidden=\"true\">01</span><span class=\"ds-title\">People, compiled</span></button>",
+      "css": ".ds-scrap{display:grid;grid-template-columns:2.5rem minmax(0,1fr);align-items:center;gap:.5rem;width:100%;min-height:3.65rem;padding:.48rem .25rem .48rem 0;border:0;border-bottom:1px solid var(--rule);background:var(--ticket-stock);color:var(--ink);text-align:left;font:700 .94rem/1.1 Barlow,Arial,sans-serif}.ds-number{color:var(--scarlet);font:800 1.9rem/.9 'Barlow Condensed',Arial Narrow,sans-serif}.ds-scrap:hover{background:var(--paper-white)}.ds-scrap[aria-pressed=true]{background:var(--newsprint)}.ds-scrap[aria-pressed=true]:hover{background:var(--paper-white)}.ds-scrap[aria-pressed=true] .ds-title{text-decoration:underline;text-decoration-color:var(--scarlet);text-decoration-thickness:2px;text-underline-offset:.16em}.ds-scrap:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}"
     },
     {
       "name": "World Wayfinding",

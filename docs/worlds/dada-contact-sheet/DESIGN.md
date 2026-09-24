@@ -38,7 +38,7 @@ components:
     textColor: "{colors.ink}"
     height: "2.75rem"
   project-scrap:
-    backgroundColor: "transparent"
+    backgroundColor: "{colors.ticket-stock}"
     textColor: "{colors.ink}"
     height: "3.65rem"
     padding: "0.48rem 0.25rem 0.48rem 0"
@@ -128,7 +128,7 @@ The contact sheet uses square, unrounded edges. Small four-point CSS polygons ma
 ## Components
 
 ### Project index and scrap selector
-Each project begins as a shared-build anchor to its actual archive section. JavaScript enhances those entries to labeled buttons with a printed ordinal, project title, kind, and a clear `aria-pressed` state. Each row remains at least 44px high, visible focus is explicit, and selection announcements use a polite status region. Keyboard arrows, Home, and End are shortcuts; normal tab/Enter/Space behavior remains available.
+Each project begins as a shared-build anchor to its actual archive section. JavaScript enhances those entries to labeled buttons with a printed ordinal, project title, kind, and a clear `aria-pressed` state. Every anchor and button has an opaque ticket-stock backing so index text stays legible over the charcoal cutout. Hover moves to paper white; the selected row uses newsprint and a scarlet title underline; keyboard focus keeps its cobalt outline. Each row remains at least 44px high, and selection announcements use a polite status region. Keyboard arrows, Home, and End are shortcuts; normal tab/Enter/Space behavior remains available.
 
 ### Selected artifact mount
 A square-edged newsprint surround frames one selected record. The People, compiled demo is shown in its original local HTML with `sandbox="allow-scripts allow-downloads"`; its fictional-data boundary is adjacent. Image records use their catalog `alt`, full natural proportions, a caption, and a direct full-size link. Gaia Research has no local image or embed: its local-preview note is honest and its verified live URL is the only destination.
