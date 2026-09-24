@@ -633,7 +633,7 @@ a:hover { text-decoration-color: var(--cyan); }
 
 .cabinet-window > .project-section[hidden] { display: none; }
 
-.arcade-enhanced .cabinet-window > .project-section {
+.arcade-enhanced .cabinet-window > .project-section:not([hidden]) {
   display: block;
   padding: 0;
   border: 0;
