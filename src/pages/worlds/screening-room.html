@@ -1,5 +1,72 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#e6e7df"><meta name="description" content="{{WORLD_NAME}} is being built. Explore the shared work archive in Field Atlas now."><title>{{WORLD_NAME}} — in preparation</title><link rel="stylesheet" href="/styles/lobby.css"></head>
-<body class="lobby preview-page"><a class="skip-link" href="#preview">Skip to preview</a><header class="lobby-header"><a href="/" class="lobby-mark" aria-label="Portfolio home">MRBT<span class="mark-rule"></span>Studio index</a><a href="/">All six worlds</a></header><main id="preview"><div class="preview-intro"><p class="preview-status">In preparation / route reserved</p><h1>{{WORLD_NAME}}</h1><p>{{WORLD_DESCRIPTION}} This independent experience is not yet built. The project archive is already available in Field Atlas.</p><a class="preview-action" href="/worlds/field-atlas/">Explore real work in Field Atlas <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h19m-7-7 7 7-7 7"/></svg></a></div><div class="preview-index"><h2>Work available now</h2><ul>{{PROJECT_LINKS}}</ul></div></main><footer class="lobby-footer"><span>Six ways into one archive</span><nav aria-label="Portfolio experiences">{{WORLD_NAV}}</nav></footer></body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081818">
+  <meta name="description" content="{{WORLD_DESCRIPTION}} Explore the shared portfolio archive through a live interface screening room.">
+  <title>{{WORLD_NAME}} — Marcus Rafael B. Tiongson</title>
+  <link rel="stylesheet" href="/styles/screening-room.css">
+  <script src="/scripts/screening-room.js" defer></script>
+</head>
+<body class="screening-room">
+  <a class="skip-link" href="#main">Skip to the work</a>
+  <header class="room-header">
+    <a class="room-wordmark" href="/" aria-label="Marcus Rafael B. Tiongson portfolio home">
+      <span class="wordmark-mark" aria-hidden="true">MRBT</span>
+      <span class="wordmark-caption">Six ways into<br>one archive</span>
+    </a>
+    <p class="room-label">{{WORLD_NAME}}<span> / portfolio experience</span></p>
+    <nav class="world-nav" aria-label="Portfolio experiences">{{WORLD_NAV}}</nav>
+  </header>
+
+  <main id="main">
+    <div class="screening-grid">
+      <aside class="archive-rail" aria-label="Project filmstrip">
+        <div class="identity">
+          <h1 id="page-title">Marcus<br>Rafael<br>Tiongson</h1>
+          <p class="identity-descriptor">Interfaces <span>/</span> research <span>/</span> systems</p>
+          <span class="identity-rule" aria-hidden="true"></span>
+        </div>
+
+        <div class="archive-heading">
+          <h2>Selected work</h2>
+          <span class="archive-count" id="project-count">Project reel</span>
+        </div>
+        <nav class="filmstrip" aria-label="Project filmstrip">
+          <div class="filmstrip-fallback" id="filmstrip-fallback">
+            <ul>{{PROJECT_INDEX}}</ul>
+          </div>
+          <div class="filmstrip-controls" id="filmstrip-controls" role="group" aria-label="Choose a project" hidden></div>
+        </nav>
+        <p class="rail-note">Real screens.<br>Clear status.</p>
+      </aside>
+
+      <section class="projection" aria-label="Featured project screening area">
+        <div class="screen-frame">
+          <div class="frame-meta">
+            <span class="frame-meta-label"><span class="signal-dot" aria-hidden="true"></span> On screen</span>
+            <span class="frame-meta-rule" aria-hidden="true"></span>
+            <p class="frame-meta-code screen-announce" id="screen-announce" role="status" aria-live="polite">Showing People, compiled — interactive local prototype.</p>
+          </div>
+          <div class="featured-project" id="selected-project">{{PROJECT_LEAD}}</div>
+        </div>
+      </section>
+    </div>
+
+    <section class="archive-fallback" id="project-notes" aria-labelledby="archive-fallback-heading">
+      <div class="fallback-heading">
+        <p>Archive notes</p>
+        <h2 id="archive-fallback-heading">More from the reel</h2>
+      </div>
+      <div class="fallback-projects">{{PROJECT_REST}}</div>
+    </section>
+  </main>
+
+  <footer class="room-footer">
+    <p>Marcus Rafael B. Tiongson<span> / </span>Screening Room</p>
+    <span class="footer-rule" aria-hidden="true"></span>
+    <a href="/">All six worlds <span aria-hidden="true">↗</span></a>
+  </footer>
+</body>
 </html>

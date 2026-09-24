@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-24T06:23:17+08:00",
+  "title": "Design System: Marcus Portfolio — Screening Room",
+  "extensions": {
+    "colorMeta": {
+      "night": { "role": "primary", "displayName": "Electric Midnight", "canonical": "#081818", "tonalRamp": ["#020e0e", "#152525", "#2d3e3e", "#485959", "#637676", "#809493", "#9fb3b2", "#dff3f3"] },
+      "night-deep": { "role": "primary", "displayName": "Deep Stage", "canonical": "#061113", "tonalRamp": ["#040d0f", "#182426", "#303d3f", "#4b585a", "#667577", "#849295", "#a2b1b4", "#e2f2f5"] },
+      "night-panel": { "role": "primary", "displayName": "Panel Midnight", "canonical": "#111c20", "tonalRamp": ["#040d10", "#182428", "#313d41", "#4b585c", "#677479", "#849297", "#a3b1b6", "#e3f1f7"] },
+      "paper": { "role": "neutral", "displayName": "Projection Paper", "canonical": "#f5f0ea", "tonalRamp": ["#0e0b07", "#25211d", "#3e3a35", "#595450", "#75716c", "#938e89", "#b2ada7", "#f3eee8"] },
+      "ink": { "role": "neutral", "displayName": "Stage Ink", "canonical": "#101b1d", "tonalRamp": ["#040d0f", "#192426", "#313d3f", "#4b585a", "#677477", "#849295", "#a3b1b4", "#e3f2f4"] },
+      "mist": { "role": "neutral", "displayName": "Soft Mist", "canonical": "#c0ceca", "tonalRamp": ["#040d0b", "#192421", "#323d3a", "#4c5855", "#687571", "#85938f", "#a4b1ae", "#e4f2ee"] },
+      "muted": { "role": "neutral", "displayName": "Quiet Mist", "canonical": "#9aaba8", "tonalRamp": ["#030e0c", "#172523", "#2f3e3c", "#4a5956", "#657573", "#839390", "#a1b2af", "#e1f3f0"] },
+      "rule": { "role": "neutral", "displayName": "Frame Rule", "canonical": "#526462", "tonalRamp": ["#020e0d", "#152524", "#2d3e3d", "#485957", "#647674", "#819492", "#9fb3b0", "#dff4f1"] },
+      "coral": { "role": "secondary", "displayName": "Signal Coral", "canonical": "#ff684f", "tonalRamp": ["#1c0201", "#420903", "#6e1104", "#9d1c07", "#c8331c", "#ec563e", "#fd8872", "#ffe9e4"] },
+      "mint": { "role": "tertiary", "displayName": "Projection Mint", "canonical": "#65dfb1", "tonalRamp": ["#010f08", "#05291c", "#094532", "#10644a", "#048662", "#1ca77d", "#4bc89b", "#c4fee4"] },
+      "sunflower": { "role": "secondary", "displayName": "Registration Sunflower", "canonical": "#f4d34f", "tonalRamp": ["#0f0b01", "#292103", "#463a03", "#655405", "#85701b", "#a98d04", "#ccac12", "#fdefba"] },
+      "focus": { "role": "neutral", "displayName": "Focus Light", "canonical": "#fff0a3", "tonalRamp": ["#0f0b00", "#282200", "#443b08", "#625510", "#807224", "#9e9045", "#beaf64", "#fdf0ad"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Barlow Condensed 800", "purpose": "Owner identity and large project headings." },
+      "body": { "displayName": "Barlow 400", "purpose": "Project summaries and context." },
+      "label": { "displayName": "Barlow 600", "purpose": "Short navigation, kind, and status labels." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "selection-feedback", "value": "150ms ease-out", "purpose": "Color and border response on filmstrip and action links; transitions are removed under prefers-reduced-motion." },
+      { "name": "reading-scroll", "value": "smooth; reduced-motion: auto", "purpose": "Anchor navigation only; switches do not animate or delay content." }
+    ],
+    "breakpoints": [
+      { "name": "wide", "value": "1600px" },
+      { "name": "compact-header", "value": "1120px" },
+      { "name": "stacked-layout", "value": "800px" },
+      { "name": "phone-filmstrip", "value": "560px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Filmstrip project selector",
+      "kind": "button",
+      "refersTo": "filmstrip-selected",
+      "description": "Chooses a catalog project while keeping its name and state readable independently of color.",
+      "html": "<button class=\"ds-filmstrip\" type=\"button\" aria-pressed=\"true\"><span class=\"ds-film-number\">01</span><span>People, compiled</span></button>",
+      "css": ".ds-filmstrip { display: flex; align-items: center; gap: .5rem; width: 100%; min-height: 3.55rem; padding: .52rem .3rem; border: 0; background: var(--night-panel); color: var(--paper); font: 600 .9rem/1.15 Barlow, Arial, sans-serif; text-align: left; cursor: pointer; transition: background-color 150ms ease-out, color 150ms ease-out; } .ds-filmstrip:hover { color: var(--sunflower); } .ds-film-number { display: grid; width: 1.9rem; height: 1.9rem; place-items: center; border: 1px solid var(--rule); color: var(--muted); font-size: .72rem; } .ds-filmstrip[aria-pressed=true] .ds-film-number { border-color: var(--sunflower); background: var(--sunflower); color: var(--ink); } .ds-filmstrip:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }"
+    },
+    {
+      "name": "Artifact disclosure",
+      "kind": "custom",
+      "refersTo": "artifact-disclosure",
+      "description": "High-contrast publication boundary immediately adjacent to the selected artifact.",
+      "html": "<p class=\"ds-disclosure\"><strong>About this artifact</strong> Fictional prototype data; not a live connection.</p>",
+      "css": ".ds-disclosure { margin: 0; padding: .66rem 1rem; background: var(--sunflower); color: var(--ink); font: 400 .83rem/1.4 Barlow, Arial, sans-serif; } .ds-disclosure strong { font-weight: 700; }"
+    },
+    {
+      "name": "Artifact action link",
+      "kind": "custom",
+      "refersTo": "artifact-open",
+      "description": "Named full-size or public-site action with a clear focus and hover state.",
+      "html": "<a class=\"ds-artifact-link\" href=\"#artifact\">Open the published artifact</a>",
+      "css": ".ds-artifact-link { display: inline-flex; min-height: 2.75rem; align-items: center; justify-content: center; padding: .55rem .75rem; border: 1px solid var(--rule); color: var(--paper); font: 600 .76rem/1.25 Barlow, Arial, sans-serif; text-decoration-thickness: 1px; transition: color 150ms ease-out, border-color 150ms ease-out, background-color 150ms ease-out; } .ds-artifact-link:hover { border-color: var(--sunflower); background: var(--sunflower); color: var(--ink); } .ds-artifact-link:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }"
+    },
+    {
+      "name": "Screen metadata rail",
+      "kind": "custom",
+      "refersTo": "screen-frame",
+      "description": "Names the currently selected projection and announces project changes.",
+      "html": "<div class=\"ds-screen-meta\"><span class=\"ds-screen-signal\"></span><span>On screen</span><span class=\"ds-screen-rule\"></span><span role=\"status\" aria-live=\"polite\">People, compiled · local interactive prototype.</span></div>",
+      "css": ".ds-screen-meta { min-height: 2.25rem; display: grid; grid-template-columns: auto auto minmax(1rem, 1fr) minmax(0, 2fr); align-items: center; gap: .8rem; padding: .4rem .85rem; background: var(--night-deep); color: var(--mist); font: 600 .72rem/1.4 Barlow, Arial, sans-serif; } .ds-screen-signal { width: .48rem; height: .48rem; border-radius: 50%; background: var(--mint); } .ds-screen-rule { height: 1px; background: var(--rule); }"
+    },
+    {
+      "name": "World navigation",
+      "kind": "nav",
+      "refersTo": "world-navigation",
+      "description": "Six real destinations with a distinct active-route rule and a horizontally scrollable compact state.",
+      "html": "<nav class=\"ds-world-nav\" aria-label=\"Portfolio experiences\"><a href=\"/worlds/field-atlas/\">Field Atlas</a><a href=\"/worlds/screening-room/\" aria-current=\"page\">Screening Room</a><a href=\"/worlds/arcade-marquee/\">Arcade Marquee</a><a href=\"/worlds/dada-contact-sheet/\">Dada Contact Sheet</a><a href=\"/worlds/vu-meter-bridge/\">VU Meter Bridge</a><a href=\"/worlds/classic-index/\">Classic Index</a></nav>",
+      "css": ".ds-world-nav { display: flex; overflow-x: auto; align-items: center; gap: 1rem; font: 600 .72rem/1.4 Barlow, Arial, sans-serif; letter-spacing: .09em; text-transform: uppercase; } .ds-world-nav a { position: relative; display: inline-flex; flex: none; min-height: 2.75rem; align-items: center; padding: .35rem 0; color: var(--mist); text-decoration: none; white-space: nowrap; transition: color 150ms ease-out; } .ds-world-nav a:hover, .ds-world-nav a[aria-current=page] { color: var(--sunflower); } .ds-world-nav a[aria-current=page]::after { position: absolute; right: 0; bottom: .12rem; left: 0; height: 2px; background: var(--coral); content: ''; } .ds-world-nav a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }"
+    },
+    {
+      "name": "Link-only artifact state",
+      "kind": "custom",
+      "refersTo": "live-artifact-note",
+      "description": "Makes an external-only project's lack of local media explicit while preserving its verified link.",
+      "html": "<section class=\"ds-live-note\"><p>External public site · no local image or embed</p><h2>Gaia Research</h2><a href=\"https://research.gaiaskilltree.com/\" target=\"_blank\" rel=\"noopener noreferrer\">Visit Gaia Research</a></section>",
+      "css": ".ds-live-note { min-height: 18rem; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: .7rem; padding: clamp(1.5rem, 5vw, 4.5rem); background: var(--night-panel); color: var(--paper); } .ds-live-note p { margin: 0; color: var(--mint); font: 600 .72rem/1.4 Barlow, Arial, sans-serif; } .ds-live-note h2 { max-width: 14ch; margin: 0; font: 800 clamp(2.5rem, 5vw, 5rem)/.9 'Barlow Condensed', Barlow, sans-serif; } .ds-live-note a { display: inline-flex; min-height: 2.75rem; align-items: center; color: var(--sunflower); } .ds-live-note a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The working screening bay",
+    "overview": "This route is an interface critique room: the authentic project artifact is the feature, while the portfolio shell names what is on screen and how it can be inspected. It opens on the actual, sandboxed People, compiled dashboard rather than a device mockup, fabricated case-study image, or promotional hero. The shared archive supplies every title, description, disclosure, image, local demo, and verified public link.\n\nElectric midnight is cut by a precise off-white projection field and small coral, mint, and sunflower registration signals. The signals identify focus, selection, and publication status; they never imply data or performance. Each displayed project keeps its own visual identity inside the screening frame.",
+    "keyCharacteristics": [
+      "A narrow identity-and-filmstrip rail gives the live artifact most of the desktop width.",
+      "The current project's name, type, publication boundary, and real action stay adjacent to its artifact.",
+      "The filmstrip is text-led; it does not invent thumbnails for records without reviewed media.",
+      "The same named archive links work without JavaScript; enhanced buttons add project switching."
+    ],
+    "rules": [
+      { "name": "The Evidence-Signal Rule", "body": "Accent colors mark navigation and disclosure only; they never encode a measurement, outcome, or live connection.", "section": "colors" }
+    ],
+    "dos": [
+      "Do let the shared public project catalog supply every title, kind, description, disclosure, asset, demo, and live link.",
+      "Do keep the real interactive People screen visible first and clearly label its fictional data.",
+      "Do show link-only projects as useful external-site states without inventing a preview.",
+      "Do preserve the project's own identity inside the frame and reflow the archive at narrow widths."
+    ],
+    "donts": [
+      "Don't copy pixels, text, or metrics from a generated development comp into published content.",
+      "Don't embed the Gaia sites or publish the excluded Gaia Research hero artwork.",
+      "Don't turn synthetic data into a real client or outcome claim.",
+      "Don't add fake browser chrome, device mockups, gradients, glass, or an equal-card gallery in place of the working screen."
+    ]
+  }
+}
