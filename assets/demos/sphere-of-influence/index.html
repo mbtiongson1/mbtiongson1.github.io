@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<base href="../_src/workbench/prototypes/sphere-of-influence/">
+<meta name="demo-root" content="../../../../../">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark"><meta name="robots" content="noindex,nofollow">
+  <title>Sphere of Influence · People Pathways study</title>
+  <link rel="stylesheet" href="sphere.css">
+</head>
+<body>
+<!-- THESIS: Leadership is a relationship, not a score. A bounded constellation reveals who builds others.
+WORLD: Extend People Pathways' night-chart, Favor type and orange selection. No new standalone product.
+FORM: Desktop constellation + evidence; mobile list first; Classic shares the exact view model.
+DATA: Fictional demonstration or a locally injected, privately projected structural capture. -->
+<div class="sphere-study">
+  <header class="masthead">
+    <a class="brand" href="./" aria-label="Favor People Pathways study home">FAVOR<span>PEOPLE PATHWAYS</span></a>
+    <nav aria-label="Study pages"><a href="./" id="fictional-link">Fictional study</a><a href="live" id="live-link">Live structural study</a><a href="../../../docs/plans/issue-394-sphere-of-influence.md" id="plan-link">Design plan</a></nav>
+  </header>
+  <main>
+    <div class="heading">
+      <div><h1>Sphere of Influence<span class="period">.</span></h1><p class="question">Are we building leaders who build others?</p></div>
+      <div class="context-note"><p id="data-notice">Fictional prototype data.</p><details><summary>About this study</summary><p>A new reading inside People Pathways—not a separate dashboard or a leadership ranking. Distance means known relationship hops, not maturity. Production integration is planned, not shipped.</p></details></div>
+    </div>
+    <section class="workspace" aria-label="Sphere exploration">
+      <div class="toolbar">
+        <label class="picker">Center on a leader<select id="leader-picker"></select></label>
+        <div class="segmented" role="group" aria-label="Relationship lens"><button id="development" aria-pressed="true">Development</button><button id="structural" aria-pressed="false">Structural sphere</button></div>
+        <div class="segmented mode" role="group" aria-label="Reading mode"><button id="creative" aria-pressed="true">3D sphere</button><button id="classic" aria-pressed="false">Classic</button></div>
+      </div>
+      <div class="fallback" id="fallback" role="status" hidden><h3>The relationships are still here.</h3><p id="fallback-reason"></p><button id="fallback-ledger">Read the relationships</button></div>
+      <div class="scope-bar"><div><h2 id="sphere-title">Selected sphere</h2><p id="scope-caption"></p></div><p class="scope-counts"><strong id="direct-value">—</strong> <span id="direct-label">direct leaders</span><span class="count-divider">/</span><strong id="further-value">—</strong> <span>further in view</span></p></div>
+      <div class="explorer">
+        <div class="field" id="field">
+          <div class="scene-surface" id="scene-surface"><div id="scene"></div><div id="labels" aria-label="Visible leaders"></div></div>
+          <div class="field-footer"><p id="gesture-hint">Drag to orbit · pinch or scroll to zoom · tap to inspect</p><div class="legend"><span class="key explicit">Recorded development</span><span class="key structural">Structural relationship</span><span class="key cohort">Anonymous cohort</span></div></div>
+        </div>
+        <aside class="inspector" aria-label="Selected relationship evidence">
+          <details id="inspection" open>
+            <summary><span id="selection-type">Selected leader</span><span id="selected-name">Choose a leader</span><span class="inspection-hint">Relationship evidence</span></summary>
+            <div class="inspection-body"><p id="selected-role"></p><div class="evidence"><h3 id="evidence-title">What connects them?</h3><p id="evidence-detail">A shared group alone does not establish intentional development.</p></div><div class="selection-actions"><button class="primary" id="follow" disabled>Center this leader</button><button id="collapse" disabled>Collapse this branch</button></div><a id="profile" hidden rel="noreferrer">Open leader profile in Rock</a></div>
+          </details>
+          <div class="depth"><label for="depth">Relationship depth <output id="depth-output">2</output></label><input id="depth" type="range" min="1" max="3" step="1" value="2"><div><span>Direct</span><span>Next branch</span><span>Further</span></div></div>
+          <p class="care-note">A smaller sphere may mean less recorded evidence, not less care.</p>
+          <details class="navigation-help"><summary>Navigation help</summary><p>Drag to orbit. Pinch to zoom; drag with two fingers to pan. With a mouse, scroll to zoom and right-drag to pan. Double-tap empty space to reset.</p><p>Keyboard: focus the sphere, use arrow keys to orbit, + / − to zoom, Shift + arrows to pan, and 0 to reset. Select leaders through the labels or relationship list.</p></details>
+          <a class="ledger-jump" href="#ledger-title">Read every relationship</a>
+        </aside>
+      </div>
+      <div class="summary-line" role="status" id="summary">Loading fictional study…</div>
+    </section>
+    <section class="ledger-section" id="ledger-section" aria-labelledby="ledger-title">
+      <div class="section-heading"><h2 id="ledger-title" tabindex="-1">The relationships, plainly.</h2><p>Same graph. Same filters. No hidden score.</p></div>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable relationship table"><table><caption class="sr-only">Relationships in the selected sphere, equivalent to the 3D scene</caption><thead><tr><th scope="col">From</th><th scope="col">To</th><th scope="col">Relationship</th><th scope="col">Evidence</th><th scope="col">Depth</th></tr></thead><tbody id="ledger"></tbody></table></div>
+      <ol class="relationship-list" id="relationship-list" aria-label="Relationships in the selected sphere"></ol>
+      <p id="empty-ledger" hidden>No recorded relationships in this slice. Not evidence of no influence.</p>
+      <p class="export-note">Person-level graph export is unavailable. Approved aggregate exports are planned.</p>
+    </section>
+    <section class="fruit" aria-labelledby="fruit-title"><h2 id="fruit-title">Growth within the sphere.</h2><p>Outcomes belong alongside relationships—not on a leaderboard.</p><dl><div><dt>Leadership appointments</dt><dd>— <span>Requires verified transition history</span></dd></div><div><dt>People beginning to serve</dt><dd>— <span>Requires time-aligned sphere membership</span></dd></div><div><dt>Restoration stories</dt><dd>— <span>Not included in this dashboard</span></dd></div></dl></section>
+  </main>
+  <footer><span>FAVOR · PEOPLE PATHWAYS · PLANNING STUDY</span><span id="renderer-status">Starting reading</span></footer>
+</div>
+<script type="application/json" id="study-data">null</script>
+<script type="module" src="app.mjs"></script>
+</body></html>

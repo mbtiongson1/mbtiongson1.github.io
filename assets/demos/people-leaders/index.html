@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<base href="../_src/apps/people-shell/">
+<meta name="demo-root" content="../../../../">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>People &amp; Leaders — shell dev harness</title>
+<!--
+  Local harness for the People & Leaders shell (#600, slice A). Fictional prototype data.
+
+  Serve the repository root over loopback and open
+  /apps/people-shell/shell-dev.html — ES modules do not load over file://.
+
+      python3 -m http.server 8600
+
+  This file is development-only and is never part of a production package. The production block
+  is server-rendered and carries the island payloads; here the Pathways bundle is loaded from its
+  committed fictional capture.
+-->
+<link rel="stylesheet" href="../shared/ux-base.css">
+<link rel="stylesheet" href="../shared/classic-base.css">
+<link rel="stylesheet" href="../shared/breadcrumbs-base.css">
+<link rel="stylesheet" href="../shared/markup-base.css">
+<link rel="stylesheet" href="../pathways-island/capture/pathways.css">
+<link rel="stylesheet" href="../leadership-island/capture/leadership.css">
+<link rel="stylesheet" href="../multiplication-island/capture/multiplication.css">
+<link rel="stylesheet" href="./shell.css">
+<style>
+  body { margin: 0; background: var(--background, #fef1e8); }
+  .harness-flag {
+    margin: 0; padding: .5rem 1rem; font: 700 .75rem/1.4 "Favor Sans", Arial, sans-serif;
+    letter-spacing: .08em; text-transform: uppercase; background: #121411; color: #fef1e8;
+  }
+</style>
+</head>
+<body>
+<p class="harness-flag">Fictional prototype data. Development harness, not a production surface.</p>
+<div id="people-shell-root"></div>
+
+<script type="module">
+  import { boot, registerLoader } from "./shell-boot.mjs";
+
+  // Each tab is registered as a lazy loader, so a dashboard's module is only fetched when a
+  // reader actually opens it. Two are mountable as of slice C.
+  registerLoader("pathways", () => import("../pathways-island/capture/pathways-boot.mjs"));
+  registerLoader("leadership", () => import("../leadership-island/capture/leadership-boot.mjs"));
+  registerLoader("multiplication", () => import("../multiplication-island/capture/multiplication-boot.mjs"));
+
+  const [pathways, leadership, servingAreas] = await Promise.all([
+    fetch("../pathways-island/capture/bundle-fictional.json").then((r) => r.json()),
+    fetch("../leadership-island/capture/bundle-fictional.json").then((r) => r.json()),
+    fetch("../../ops/serving-areas.json").then((r) => r.json()),
+  ]);
+  // The reviewed mapping of which status on each serving area means "placed". The production
+  // wrapper embeds it; the harness fetches it, so chapter 3's unresolvable-placement path is
+  // exercised here rather than only in production.
+  leadership.servingAreas = servingAreas;
+
+  await boot(document.getElementById("people-shell-root"), {
+    bundles: { pathways, leadership },
+    announce: (message) => console.info("[shell]", message),
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!--
+THESIS: Grow read batch by batch, not course by course. The page follows one
+batch session by session and answers the only question a Grow pastor asks on a
+Tuesday afternoon: will the room tonight be the same people as last Tuesday, and
+what do I do if it is not. It refuses the KPI-card graveyard, the blended score,
+and the enrolment number that never says who came back.
+OWN-WORLD: the masthead is a Grow poster; everything under the rule is an
+operations desk. Favorvetica caps for the surface name only, one skewed
+highlight behind "coming back", three skewed core marks, halftone in the
+masthead band and never under data. Below the rule: warm paper, hairline rules,
+Favor Sans, Arial tabular numerals, and every reading written as a number beside
+its mark.
+STORY: a pastor sees which batch is running, reads the ladder, finds the cliff,
+reads who finished, checks the two core boards agree with the stage groups, sees
+how big the base that finished both is, and opens the one Rock page where the
+work happens.
+FIRST VIEWPORT: masthead question and stamps, then the season rail; on a desktop
+the top of the continuity ladder as well.
+FORM: eight chapters in one fixed reading order, the ladder as the centrepiece
+and everything else as supporting cast.
+
+BUILD NOTE (favor-exec-grow, issue #332).
+
+  · THE LADDER IS A PERSON READ, ALL THE WAY DOWN. `attended` on a ladder rung is
+    COUNT(DISTINCT PersonId), not a row count of check-ins. That is forced by the
+    ladder's own invariant: `returnedFromPrevious` and `newOrReentry` are person-set
+    cardinalities, so their sum is the session's person set and nothing else. The
+    room read lives in its own query and its own chapter. The contrast between the
+    ladder and Completion shape is therefore per-session against cumulative, and it
+    is NOT rooms against people. Any caption on this page that says otherwise is a
+    bug (BUILD CONTRACT 3.1).
+
+  · SESSION 1 IS BASELINE, NOT ZERO. All four of newOrReentry, droppedSincePrevious,
+    perfectThroughSession and uniqueReachToDate arrive null at session 1. The rung
+    renders the word `baseline`, with no dropped box and no perfect tick. Rendering
+    a 0 there would claim that nobody was new on the first night, which is the
+    opposite of the truth.
+
+  · THREE ABSENCES, THREE RENDERINGS, NEVER INTERCHANGEABLE.
+      baseline      the word, where there is no previous session to compare against
+      ghost `?`     Rock does not carry this yet; a reachable (i) names the reason
+      read failure  named, with its reason and its query id, and never a zero
+    No cell on this page ever reads an em dash or the word Unavailable.
+
+  · HEALTH IS A WORD BEFORE IT IS A COLOUR. The six state words are written out as
+    text everywhere they appear. Course hue is identity only and never a state; a
+    state hue is never a course; and a course hue never appears without the course
+    name in the same section.
+
+This file is a MARKUP FRAGMENT, not a page: no doctype, no <html>, no <head>, no
+<body>, no <link>, no <script>. The Rock block server-renders it, appends the JSON
+data island (#grow-data) and loads grow-boot.mjs, which fills every mount below.
+Nothing in this fragment fetches anything, and neither does the module.
+-->
+<div id="grow-island" data-source="dashboard-prod-read" data-dev-only="false" data-mode="creative">
+
+  <nav class="suite-breadcrumbs" data-ux-host-chrome="suite" aria-label="Executive Suite"><ol class="suite-breadcrumbs__trail"><li class="suite-breadcrumbs__item suite-breadcrumbs__item--root"><a href="/exec" class="suite-breadcrumbs__root-link">Executive Dashboards</a></li><li class="suite-breadcrumbs__divider" aria-hidden="true">/</li><li class="suite-breadcrumbs__item suite-breadcrumbs__item--siblings"><span class="suite-breadcrumbs__peers"><a href="/exec" class="suite-breadcrumbs__link" data-surface="exec-overview">Overview</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><span class="suite-breadcrumbs__nest"><a href="/exec/people" class="suite-breadcrumbs__link" data-surface="pathways">People</a><span class="suite-breadcrumbs__sub" role="group" aria-label="People &amp; Leaders"><a href="/exec/people" class="suite-breadcrumbs__tab" data-tab="pathways"><span class="suite-breadcrumbs__tab-label">Pathways</span><span class="suite-breadcrumbs__tab-question">Who is becoming ready?</span></a><a href="/exec/people?tab=leadership" class="suite-breadcrumbs__tab" data-tab="leadership"><span class="suite-breadcrumbs__tab-label">Leadership</span><span class="suite-breadcrumbs__tab-question">Who carries responsibility now?</span></a><a href="/exec/people?tab=multiplication" class="suite-breadcrumbs__tab" data-tab="multiplication"><span class="suite-breadcrumbs__tab-label">Multiplication</span><span class="suite-breadcrumbs__tab-question">Who are those leaders building?</span></a></span></span><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/connect" class="suite-breadcrumbs__link" data-surface="connect-field">Connect</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/grow" class="suite-breadcrumbs__link is-active" data-surface="grow" aria-current="page">Grow</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/finance" class="suite-breadcrumbs__link" data-surface="finance">Finance</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/events" class="suite-breadcrumbs__link" data-surface="events">Events</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/TechStatsNew" class="suite-breadcrumbs__link" data-surface="sunday-report">Sunday</a></span></li></ol></nav>
+
+  <div class="masthead-card">
+    <header class="masthead">
+      <div class="masthead__row">
+        <div class="masthead__id">          <h1>Grow Continuity <span class="title-beta">(Beta)</span>
+            <details class="info-disc info-disc-h1">
+              <summary aria-label="About this page"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop">Grow, read batch by batch. One batch at a time, session by session. The ladder below is the centrepiece; everything else is there to explain it. Each course is followed session by session: who came, who returned, who is still with the group, and who finished. Every number here is people, not rooms, unless a chapter says otherwise in so many words. Rock stays the record; this page only reads it, through reviewed read-only queries, and never changes anything. The seven colours are a chapter index and nothing more: each chapter carries one, in order, as the spine down its left edge, and the same seven sit under the title as a table of contents. A colour here never means a course and never means a health state. Narrow the page to one course and every chapter takes that course's colour instead.</div>
+            </details>
+          </h1>
+          <p class="subtitle">Are the same people <span class="nowrap"><span class="block">coming back</span>,</span> finishing, and taking the next step?</p>
+          <div class="coremarks" role="group" aria-label="Core pathway">
+            <span class="cm cm--build"><span>Build</span></span>
+            <span class="cm cm--dna"><span>Favor DNA</span></span>
+            <span class="cm cm--ink"><span>UPNext</span></span>
+          </div>
+        </div>
+        <nav class="chapterindex" aria-label="Chapters">
+          <span class="chapterindex__title" id="chapterindex-title">Chapters, in reading order</span>
+          <ol aria-labelledby="chapterindex-title">
+            <li><a class="chapterindex__item" data-chapter="1" href="#station-season"><i class="chapterindex__tick" aria-hidden="true"></i><span class="chapterindex__no">1</span><span>This season</span></a></li>
+            <li><a class="chapterindex__item" data-chapter="2" href="#station-batch"><i class="chapterindex__tick" aria-hidden="true"></i><span class="chapterindex__no">2</span><span>The batch</span></a></li>
+            <li><a class="chapterindex__item" data-chapter="3" href="#station-completion"><i class="chapterindex__tick" aria-hidden="true"></i><span class="chapterindex__no">3</span><span>Completion shape</span></a></li>
+            <li><a class="chapterindex__item" data-chapter="4" href="#station-pipelines"><i class="chapterindex__tick" aria-hidden="true"></i><span class="chapterindex__no">4</span><span>Core pathway</span></a></li>
+            <li><a class="chapterindex__item" data-chapter="5" href="#station-bridge"><i class="chapterindex__tick" aria-hidden="true"></i><span class="chapterindex__no">5</span><span>Graduation to next step</span></a></li>
+            <li><a class="chapterindex__item" data-chapter="6" href="#station-courses"><i class="chapterindex__tick" aria-hidden="true"></i><span class="chapterindex__no">6</span><span>Every course this season</span></a></li>
+            <li><a class="chapterindex__item" data-chapter="7" href="#station-colophon"><i class="chapterindex__tick" aria-hidden="true"></i><span class="chapterindex__no">7</span><span>How to read this page</span></a></li>
+          </ol>
+        </nav>
+        <div class="masthead__aside">
+          <dl class="stamps" id="stamps">
+            <dt>Scope</dt><dd id="stamp-scope">?</dd>
+            <dt>Attendance read</dt><dd id="stamp-attendance">?</dd>
+            <dt>Board read</dt><dd id="stamp-board">?</dd>
+            <dt>Calendar source</dt><dd id="stamp-calendar">?</dd>
+          </dl>
+          <div class="masthead__tools" id="masthead-tools"></div>
+        </div>
+      </div>
+      <p class="flag-provenance" id="flag-provenance"></p>
+    </header>
+
+    <div class="scopebar" id="scopebar">
+      <span class="scopebar-lead">Slice</span>
+      <span class="scopebar-summary" id="scope-summary">?</span>
+      <button type="button" class="scopebar-reset" id="btn-reset-filters" hidden>Show the whole season</button>
+    </div>
+  </div>
+
+  <div class="sidebar-toggle-bar">
+    <button type="button" class="toggle-btn" id="btn-toggle-sidebar" aria-expanded="true" aria-controls="filter-sidebar">Filter console <span class="arrow" aria-hidden="true">&#9656;</span></button>
+  </div>
+
+  <div class="dashboard-layout" id="app-layout">
+
+    <main class="main-column">
+
+      <!-- CLASSIC · the second reading of the same filtered slice. Empty in
+           Creative mode; one buildSections() feeds both, and CSS shows one
+           composition or the other. Creative stations are never torn down. -->
+      <div class="classic-mount" id="classic-mount"></div>
+
+      <!-- CHAPTER 1 · THIS SEASON -->
+      <section class="station" data-chapter="1" id="station-season" aria-labelledby="h-season">
+        <div class="station-head">
+          <h2 id="h-season">This season
+            <details class="info-disc"><summary aria-label="How to read This season"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop">Rock is the only source of a date on this rail: schedules in the Grow category, and attendance occurrences. A course Rock holds neither for draws a ghost card with a question mark, and the card says which of the two is missing rather than offering a plausible date nobody entered. Today is outlined. The tag carries the course hue and the course name together, because a hue on its own says nothing. Choosing a card scopes the ladder below to that batch.</div>
+            </details>
+          </h2>
+          <p class="station-question">What is running now, and what opens next?</p>
+          <p class="station-note" id="season-note">?</p>
+        </div>
+        <!-- HAPPENING NOW · the same cards as the rail below, read as tonight
+             rather than as the season. A course is running when Rock holds a
+             session on or before today and another after it; the rail keeps the
+             whole year in date order underneath. -->
+        <div class="nowstrip" id="season-now"></div>
+        <div class="rail" id="season-rail" role="group" aria-label="Grow sessions this season, in date order"></div>
+        <div class="station-unavailable" id="season-unavailable" hidden></div>
+      </section>
+
+      <!-- CHAPTER 2 · THE BATCH · the centrepiece -->
+      <section class="station station--lead" data-chapter="2" id="station-batch" aria-labelledby="h-batch">
+        <div class="station-head">
+          <h2 id="h-batch"><span id="batch-title">The batch</span>
+            <details class="info-disc"><summary aria-label="How to read the continuity ladder"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop"><strong>Every number on this ladder is people.</strong> One person who checked in twice on one night counts once, which is why returned plus new is exactly what attended. The solid bar is the people who were also in the previous session. The hatched bar beside it is people who are new, or who came before, missed a session, and came back. The dashed hollow box after the bar is the people who were in the previous session and not this one: it is drawn as absence, not as a bar, because they are not in the room. The ink tick with the caret marks how many people have been in every session so far. Session 1 reads <em>baseline</em>: there is no previous session to compare it against, so it has no dropped box and no tick, and it is never written as a zero.</div>
+            </details>
+          </h2>
+          <p class="station-question">Did the people in session 2 come from session 1? Who is still with the group?</p>
+          <p class="station-note" id="batch-note">?</p>
+        </div>
+        <div class="ladder" id="ladder"></div>
+        <div class="legend" id="ladder-legend" role="group" aria-label="How to read the ladder"></div>
+        <div class="station-unavailable" id="batch-unavailable" hidden></div>
+      </section>
+
+      <!-- CHAPTER 3 · COMPLETION SHAPE -->
+      <section class="station" data-chapter="3" id="station-completion" aria-labelledby="h-completion">
+        <div class="station-head">
+          <h2 id="h-completion">Completion shape
+            <details class="info-disc"><summary aria-label="How to read Completion shape"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop">One person counts once here. This chapter and the ladder above both count people; what changes is the grain. The ladder reads one session at a time, and this reads the whole batch at once, so a person who came to three of four sessions appears on three rungs above and in exactly one bar here. Shares divide by the people the batch reached, never by attendance. A batch still running labels its top tier <em>all so far</em>, because nobody can have finished a session that has not happened.</div>
+            </details>
+          </h2>
+          <p class="station-question">How many people finished most or all of it?</p>
+          <p class="station-note" id="completion-note">?</p>
+        </div>
+        <div class="tiers" id="completion-tiers"></div>
+        <div class="station-unavailable" id="completion-unavailable" hidden></div>
+      </section>
+
+      <!-- CHAPTER 4 · CORE PATHWAY RIGHT NOW -->
+      <section class="station" data-chapter="4" id="station-pipelines" aria-labelledby="h-pipelines">
+        <div class="station-head">
+          <h2 id="h-pipelines">Core pathway, right now
+            <details class="info-disc"><summary aria-label="How to read Core pathway"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop">Build and Favor DNA sessions record no attendance, so this is not attendance against the board. It is the two places the same workflows write the same fact: the stage of a person's open request on the board, and the highest stage group they are an active member of. The two are meant to agree. A gap is a workflow that did not finish, not a person who did not come. A stage a pipeline does not have is a ghost question mark rather than an empty box, and never a zero. The two pipelines are never merged into one: they are different journeys with different stages.</div>
+            </details>
+          </h2>
+          <p class="station-question">Where are people on the Build and Favor DNA boards, and do the two records agree?</p>
+          <p class="station-note" id="pipelines-note">?</p>
+        </div>
+        <div class="pipes" id="pipelines"></div>
+        <div class="station-unavailable" id="pipelines-unavailable" hidden></div>
+      </section>
+
+      <!-- CHAPTER 5 · GRADUATION TO NEXT STEP -->
+      <section class="station" data-chapter="5" id="station-bridge" aria-labelledby="h-bridge">
+        <div class="station-head">
+          <h2 id="h-bridge">Graduation to next step
+            <details class="info-disc"><summary aria-label="How to read the bridge"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop">Two different grains, on purpose, and both are labelled on the nodes. Build graduates, Favor DNA graduates and the people who completed both are all-time records held on the person. UPNext open requests is today's board. Graduation is read from the two graduate attributes because no person Step records exist in Rock yet; when they do, this chapter reads them instead and says so.</div>
+            </details>
+          </h2>
+          <p class="station-question">How big is the base that has finished both, and who is moving on?</p>
+          <p class="station-note" id="bridge-note">?</p>
+        </div>
+        <div class="bridge" id="bridge"></div>
+        <div class="station-unavailable" id="bridge-unavailable" hidden></div>
+      </section>
+
+      <!-- CHAPTER 6 · EVERY COURSE THIS SEASON -->
+      <section class="station" data-chapter="6" id="station-courses" aria-labelledby="h-courses">
+        <div class="station-head">
+          <h2 id="h-courses">Every course this season
+            <details class="info-disc"><summary aria-label="How the state is decided"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop" id="health-info">No threshold on this page is hand-set.</div>
+            </details>
+          </h2>
+          <p class="station-question">Which batches are holding, and which need a call this week?</p>
+          <p class="station-note" id="courses-note">?</p>
+        </div>
+        <div class="table-scroll" id="courses-table" tabindex="0" role="region" aria-label="Course scoreboard; scrolls sideways when the screen is narrow"></div>
+        <div class="station-unavailable" id="courses-unavailable" hidden></div>
+      </section>
+
+      <!-- CHAPTER 7 · COLOPHON -->
+      <footer class="colophon" data-chapter="7" id="station-colophon">
+        <details class="colophon-disclosure">
+          <summary class="colophon-summary">
+            <span class="colophon-title">How to read this page and where every number comes from</span>
+            <span class="colophon-toggle-hint">Open</span>
+          </summary>
+          <div class="colophon-body" id="colophon-body"></div>
+        </details>
+      </footer>
+    </main>
+
+    <aside class="filter-sidebar" id="filter-sidebar" role="region" aria-label="Grow filters">
+      <div id="mode-switch-mount"></div>
+      <div class="sidebar-head">
+        <button type="button" class="sidebar-back-btn" id="btn-sidebar-back" aria-label="Close console"><span class="back-arrow" aria-hidden="true">&#8592;</span> Back</button>
+        <h2>Console</h2>
+        <span class="active-summary-pill" id="active-summary">All</span>
+      </div>
+      <form class="filter-form" id="filter-form" role="search" aria-label="Grow filters">
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend"><span>Campus</span><span class="sub">scope</span></legend>
+          <div class="campus-acronym-row" id="campus-row"></div>
+        </fieldset>
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend"><span>Season</span><span class="sub">which year</span></legend>
+          <div class="chip-grid-2" id="season-btns"></div>
+        </fieldset>
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend"><span>Course</span><span class="sub">core first, then electives</span></legend>
+          <div class="course-filter-group" id="course-btns"></div>
+        </fieldset>
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend"><span>Batch</span><span class="sub">runs of the chosen course, newest first</span></legend>
+          <select class="field-select" id="sel-batch" aria-label="Batch"></select>
+        </fieldset>
+        <p class="filter-count-note" id="filter-count-note">?</p>
+        <fieldset class="filter-fieldset" data-demographic="lifecycle">
+          <legend class="filter-legend"><span>Lifecycle</span><span class="sub">not measured</span></legend>
+          <select class="field-select" id="sel-lifecycle" disabled aria-label="Lifecycle">
+            <option value="" selected>Not measured on Grow batches</option>
+          </select>
+        </fieldset>
+        <fieldset class="filter-fieldset" data-demographic="age">
+          <legend class="filter-legend"><span>Age</span><span class="sub">not measured</span></legend>
+          <select class="field-select" id="sel-age" disabled aria-label="Age">
+            <option value="" selected>Not measured on Grow batches</option>
+          </select>
+        </fieldset>
+        <fieldset class="filter-fieldset" data-demographic="gender">
+          <legend class="filter-legend"><span>Gender</span><span class="sub">not measured</span></legend>
+          <select class="field-select" id="sel-gender" disabled aria-label="Gender">
+            <option value="" selected>Not measured on Grow batches</option>
+          </select>
+        </fieldset>
+      </form>
+    </aside>
+
+  </div>
+
+  <div class="filter-backdrop" id="filter-backdrop" aria-hidden="true"></div>
+  <div class="srlive" id="grow-live" aria-live="polite"></div>
+</div>

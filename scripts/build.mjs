@@ -31,7 +31,7 @@ for (const [, url] of page.matchAll(/(?:href|src)="([^"#][^"]*)"/g)) {
 
 await rm(out, { recursive: true, force: true });
 await mkdir(out, { recursive: true });
-for (const dir of ['fonts', 'media', 'chart']) await cp(path.join(root, 'assets', dir), path.join(out, 'assets', dir), { recursive: true });
+for (const dir of ['fonts', 'media', 'chart', 'demos']) await cp(path.join(root, 'assets', dir), path.join(out, 'assets', dir), { recursive: true });
 await cp(path.join(root, 'assets', 'mark.svg'), path.join(out, 'assets', 'mark.svg'));
 await cp(path.join(root, 'src', 'styles'), path.join(out, 'styles'), { recursive: true });
 await cp(path.join(root, 'src', 'scripts'), path.join(out, 'scripts'), { recursive: true });

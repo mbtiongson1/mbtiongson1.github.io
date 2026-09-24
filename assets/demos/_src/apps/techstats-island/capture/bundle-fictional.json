@@ -1,0 +1,65 @@
+{
+  "Report": {
+    "Campus": "MNL",
+    "ServiceDate": "2026-09-06T00:00:00",
+    "ReportDate": "2026-09-07T00:00:00",
+    "Status": "published",
+    "TemplateVersionId": 1,
+    "Id": 1,
+    "Guid": "00000000-0000-0000-0000-000000000001"
+  },
+  "Revision": {
+    "WeeklyTechReportId": 1,
+    "RevisionNumber": 1,
+    "PublishedUtc": "2026-02-23T00:00:00Z",
+    "PublishedBy": "Sample Author",
+    "Id": 1,
+    "Guid": "00000000-0000-0000-0000-000000000002"
+  },
+  "Sections": [
+    { "Key": "cover", "Type": "report-cover", "Order": 1, "Optional": false },
+    { "Key": "attendance", "Type": "attendance-feature", "Order": 2, "Optional": false },
+    { "Key": "sunday_dashboard", "Type": "metric-dashboard", "Order": 3, "Optional": false },
+    { "Key": "volunteer_comparison", "Type": "time-series-chart", "Order": 4, "Optional": false },
+    { "Key": "live_signups", "Type": "signup-table", "Order": 5, "Optional": false }
+  ],
+  "Narratives": [],
+  "Media": [],
+  "Metrics": [
+    { "MetricKey": "total_attendance", "Value": "2794", "Guid": "00000000-0000-0000-0000-000000000010" },
+    { "MetricKey": "seated_adults", "Value": "2490", "Guid": "00000000-0000-0000-0000-000000000011" },
+    { "MetricKey": "kids_attended", "Value": "208", "Guid": "00000000-0000-0000-0000-000000000012" },
+    { "MetricKey": "kids_leaders", "Value": "96", "MetricGuid": "cbcd6516-a471-5da9-b412-018b9877c233", "Dimensions": { "calculationKind": "verified-unique" } },
+    { "MetricKey": "volunteers", "Value": "318", "MetricGuid": "3bbe7ee5-dd7f-5988-8246-740f56265698" },
+    { "MetricKey": "new_people_bags", "Value": "45", "Guid": "00000000-0000-0000-0000-000000000015" },
+    { "MetricKey": "orange_cards", "Value": "14", "Guid": "00000000-0000-0000-0000-000000000016" },
+    { "MetricKey": "talked_to", "Value": "21", "Guid": "00000000-0000-0000-0000-000000000017" },
+    { "MetricKey": "hands_raised", "Value": "13", "Guid": "00000000-0000-0000-0000-000000000018" },
+    { "MetricKey": "response_lounge", "Value": "6", "Guid": "00000000-0000-0000-0000-000000000019" },
+    { "MetricKey": "connect", "Value": "48", "Guid": "00000000-0000-0000-0000-000000000020" },
+    { "MetricKey": "serve", "Value": "12", "Guid": "00000000-0000-0000-0000-000000000021" },
+    { "MetricKey": "build", "Value": "22", "Guid": "00000000-0000-0000-0000-000000000022" },
+    { "MetricKey": "favor_dna", "Value": "18", "Guid": "00000000-0000-0000-0000-000000000023" }
+  ],
+  "ChartSeries": {
+    "Combo": {
+      "labels": ["2026-08-16", "2026-08-23", "2026-08-30", "2026-09-06"],
+      "seated_adults": [2310, 2380, 2440, 2490],
+      "kids_attended": [184, 192, 201, 208],
+      "kids_leaders": [142, 151, 92, 96],
+      "kids_leaders_lower": [47, 51, 92, 96],
+      "kids_leaders_upper": [142, 151, 92, 96],
+      "new_people": [35, 39, 42, 45],
+      "hands_raised": [8, 11, 9, 13],
+      "response_lounge": [4, 5, 4, 6]
+    }
+  },
+  "VolunteerHistory": [
+    { "Date": "2026-08-16", "Value": 276, "LowerBound": 44, "UpperBound": 276, "CalculationKind": "reconstructed-team-sum" },
+    { "Date": "2026-08-23", "Value": 294, "LowerBound": 49, "UpperBound": 294, "CalculationKind": "reconstructed-team-sum" },
+    { "Date": "2026-08-30", "Value": 306, "LowerBound": 306, "UpperBound": 306, "CalculationKind": "verified-rollup" },
+    { "Date": "2026-09-06", "Value": 318, "LowerBound": 318, "UpperBound": 318, "CalculationKind": "verified-rollup" }
+  ],
+  "FixtureNotice": "Fictional prototype data. Values are illustrative and are not production observations.",
+  "Discrepancies": []
+}

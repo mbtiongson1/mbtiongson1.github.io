@@ -1,0 +1,285 @@
+/* ==========================================================================
+   Classic mode -- token-agnostic composition block (#214).
+   Spec: docs/design/classic-grammar.md. Builders: apps/shared/classic-widgets.mjs.
+
+   Each island merges this block into its own stylesheet under its own scope
+   prefix (#exec-overview-island / .pathways / #connect-field). Every selector
+   here starts with "." "[" or "#" so a prefixing pass can wrap it verbatim;
+   there is no :root, no bare element, no *, and no @keyframes.
+
+   An island sets these on its root (under [data-mode="classic"] or always):
+     --classic-surface        widget / tile ground
+     --classic-surface-2      table head band, hover band, bar track, switch well
+     --classic-ink            all text, all numerals
+     --classic-muted          labels, units, captions, deltas, the (i) glyph
+     --classic-rule           hairlines
+     --classic-accent         open (i), copied state, current-mode rule
+     --classic-focus          the focus ring
+     --classic-wash-healthy | -watch | -thin | -neutral | -unknown   backgrounds only
+     --classic-bar            inline bars and sparklines (one data hue, never state)
+     --classic-heading-font   widget titles
+     --classic-body-font      everything else
+   Optional: --classic-shadow (popover shadow), --classic-num-font (defaults to Arial).
+
+   Every color below is a bare var(--classic-*) with NO fallback. It used to carry a
+   var(--classic-x, var(--y, #creamHex)) chain ending in a literal, on the theory that a
+   widget should render sanely before an island had mapped a value. Under a theme switch
+   that theory inverts: a broken chain no longer degrades, it paints cream into a dark
+   theme and looks like a rendering bug rather than a missing token. Every island now
+   receives the whole map from its generated theme blocks
+   (tools/build_theme_blocks.py), in all four themes, so there is nothing left to fall
+   back to and an unmapped token must fail visibly instead of quietly.
+   ========================================================================== */
+
+/* ---------- layout ---------- */
+.classic-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; align-items: start; }
+.classic-grid > .kpi-strip, .classic-grid > .cw { grid-column: 1 / -1; min-width: 0; }
+@media (min-width: 48rem) {
+  .classic-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.1rem; }
+  .classic-grid > .cw--half { grid-column: span 6; }
+  .classic-grid > .cw--expanded { grid-column: 1 / -1; }
+}
+
+/* ---------- widget (cw) ---------- */
+.cw { display: flex; flex-direction: column; min-width: 0; background: var(--classic-surface); border: 1px solid var(--classic-rule); color: var(--classic-ink); font-family: var(--classic-body-font); }
+.cw__head { display: flex; flex-wrap: wrap; align-items: flex-start; gap: .5rem .9rem; padding: .8rem .9rem .6rem; border-bottom: 1px solid var(--classic-rule); }
+.cw__lead { flex: 1 1 20rem; min-width: 0; display: flex; flex-direction: column; gap: .15rem; }
+.cw__titlerow { display: flex; align-items: center; gap: .3rem; min-width: 0; }
+.cw__title { margin: 0; font-family: var(--classic-heading-font); font-size: 1.05rem; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; text-transform: none; color: var(--classic-ink); text-wrap: balance; }
+.cw__question { margin: 0; font-size: .84rem; line-height: 1.4; color: var(--classic-muted); }
+.cw__info { margin-left: .1rem; }
+.cw__tools { display: flex; align-items: center; gap: .4rem; margin-left: auto; flex: none; }
+.cw__rail { display: flex; align-items: center; }
+.cw__expand { position: relative; display: inline-grid; place-items: center; width: 2rem; height: 2rem; padding: 0; border: 1px solid var(--classic-rule); background: transparent; color: var(--classic-muted); cursor: pointer; }
+.cw__expand::after { content: ""; position: absolute; inset: -.4rem; }
+.cw__expand svg { width: 14px; height: 14px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.cw__expand:hover { color: var(--classic-ink); border-color: var(--classic-ink); }
+.cw__expand[aria-pressed="true"] { background: var(--classic-ink); color: var(--classic-surface); border-color: var(--classic-ink); }
+/* No padding at the top of the scroll container. The scrollport is the padding box, so a
+   top inset here leaves a band the sticky <thead> cannot cover and rows slide visibly
+   through it; the head rule and the cells' own padding carry the breathing room instead. */
+.cw__body { position: relative; padding: 0 .9rem .8rem; overflow: auto; max-height: 28rem; min-width: 0; }
+.cw--expanded .cw__body { max-height: none; }
+/* A body showing readings rather than a table has nothing to scroll, and capping it clips
+   the (i) popovers its tiles open. Any table in the body means the cap is doing real work. */
+.cw__body:has(.kpi-strip):not(:has(.ct)) { overflow: visible; max-height: none; }
+.cw__aid { display: flex; align-items: flex-start; justify-content: center; padding: .5rem 0; min-width: 0; }
+.cw__aid svg { display: block; max-width: 100%; height: auto; }
+.cw__aid:empty { display: none; }
+.cw__note { margin: 0; padding: .55rem .9rem .7rem; border-top: 1px solid var(--classic-rule); font-size: .82rem; line-height: 1.45; color: var(--classic-ink); }
+.cw__note strong { font-weight: 700; }
+/* Beside the table only where the widget's own column can hold both. A half-width widget
+   has room for one or the other, so its aid stays under the table until the widget is
+   expanded back to full width. Below that the body is a plain block and the aid follows
+   the table because it follows it in the DOM (classic-widgets.mjs keeps it last). */
+@media (min-width: 64rem) {
+  .cw--has-aid:not(.cw--half) .cw__body,
+  .cw--has-aid.cw--half.cw--expanded .cw__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, 18rem); gap: 1rem; align-items: start; }
+  .cw--has-aid:not(.cw--half) .cw__aid,
+  .cw--has-aid.cw--half.cw--expanded .cw__aid { grid-column: 2; grid-row: 1; position: sticky; top: 0; }
+}
+
+/* ---------- unavailable (a refusal is never a zero) ---------- */
+.cw__unavail { display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; margin: .45rem 0 .2rem; padding: 1rem 1rem 1.05rem; border: 1px dashed var(--classic-muted); background: transparent; color: var(--classic-ink); }
+.cw__unavail-label { font-size: .74rem; font-weight: 700; letter-spacing: .02em; color: var(--classic-muted); }
+.cw__unavail-reason { margin: 0; font-size: .84rem; line-height: 1.5; max-width: 52ch; }
+
+/* ---------- classic table (ct) ---------- */
+.ct { width: 100%; border-collapse: collapse; border-spacing: 0; font-size: .86rem; line-height: 1.35; color: var(--classic-ink); font-family: var(--classic-body-font); }
+.ct caption { caption-side: bottom; text-align: left; padding: .5rem 0 0; font-size: .74rem; line-height: 1.45; color: var(--classic-muted); }
+.ct th, .ct td { padding: .42rem .55rem; text-align: left; vertical-align: baseline; border-bottom: 1px solid var(--classic-rule); white-space: nowrap; }
+.ct th:first-child, .ct td:first-child { padding-left: 0; white-space: normal; }
+.ct th:last-child, .ct td:last-child { padding-right: 0; }
+.ct thead th { position: sticky; top: 0; z-index: 1; font-size: .74rem; font-weight: 700; color: var(--classic-muted); background: var(--classic-surface); border-bottom: 1px solid var(--classic-ink); text-transform: none; letter-spacing: 0; }
+.ct tbody th { font-weight: 600; }
+/* Row headers stay put while a wide pivot scrolls sideways inside .cw__body. */
+.ct thead th:first-child, .ct tbody th[scope="row"] { position: sticky; left: 0; background-color: var(--classic-surface); }
+.ct thead th:first-child { z-index: 2; }
+.ct tbody tr:hover > th, .ct tbody tr:hover > td { background-color: var(--classic-surface-2); }
+.ct__num { font-family: var(--classic-num-font, Arial, sans-serif); font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+.ct td.ct__num, .ct th.ct__num { text-align: right; }
+.ct__share { color: var(--classic-muted); }
+.ct__unavail { color: var(--classic-muted); }
+.ct__group > th { padding-top: .95rem; font-size: .74rem; font-weight: 700; color: var(--classic-muted); border-bottom: 1px solid var(--classic-ink); }
+.ct tbody:first-of-type .ct__group > th { padding-top: .5rem; }
+.ct tbody tr.ct__group:hover > th { background: transparent; }
+.ct__total > th, .ct__total > td { border-top: 2px solid var(--classic-ink); border-bottom: 0; font-weight: 700; }
+.ct__total .ct__share { color: var(--classic-ink); }
+.ct__bar { width: 7.5rem; min-width: 5rem; vertical-align: middle; }
+.ct__bar-track { display: block; height: .55rem; width: 100%; background: var(--classic-surface-2); }
+.ct__bar-fill { display: block; height: 100%; max-width: 100%; background: var(--classic-bar); }
+.ct__spark { width: 8.5rem; vertical-align: middle; }
+.ct__spark svg { display: block; overflow: visible; }
+.spark__base { stroke: var(--classic-rule); stroke-width: 1; }
+.spark__line { fill: none; stroke: var(--classic-bar); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+.spark__dot { fill: var(--classic-bar); }
+/* Sorting is the primary interaction in a Classic table, and on a phone the control is the
+   column label -- about 28px tall, under the 44px a thumb needs. Every other control in this
+   grammar already carries the same invisible hit expander (.cw__expand, .info-disc > summary,
+   .xrail__btn); this one was the exception. Vertical only, so neighbouring column headers
+   keep their own horizontal edges. */
+.ct__sort { position: relative; display: inline-flex; align-items: center; gap: .25rem; min-height: 1.75rem; margin: -.3rem 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; text-align: inherit; }
+.ct__sort::after { content: ""; position: absolute; inset: -.5rem 0; }
+.ct__sort svg { width: 10px; height: 10px; fill: none; stroke: currentColor; stroke-width: 1.5; opacity: .45; }
+.ct__sort:hover { color: var(--classic-ink); }
+.ct th[aria-sort="ascending"] .ct__sort svg, .ct th[aria-sort="descending"] .ct__sort svg { opacity: 1; }
+.ct th[aria-sort="ascending"] .ct__sort-down, .ct th[aria-sort="descending"] .ct__sort-up { display: none; }
+.ct__sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ---------- quiet KPI strip ---------- */
+.kpi-strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 0; list-style: none; background: var(--classic-rule); border: 1px solid var(--classic-rule); }
+@media (min-width: 48rem) { .kpi-strip { grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); } }
+@media (max-width: 47.98rem) { .kpi-tile:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+.kpi-tile { display: flex; flex-direction: column; gap: .2rem; min-width: 0; min-height: 5.6rem; padding: .7rem .8rem .65rem; background-color: var(--classic-surface); color: var(--classic-ink); font-family: var(--classic-body-font); }
+.kpi-tile[data-state="healthy"] { background-image: linear-gradient(var(--classic-wash-healthy), var(--classic-wash-healthy)); }
+.kpi-tile[data-state="watch"] { background-image: linear-gradient(var(--classic-wash-watch), var(--classic-wash-watch)); }
+.kpi-tile[data-state="thin"] { background-image: linear-gradient(var(--classic-wash-thin), var(--classic-wash-thin)); }
+.kpi-tile[data-state="neutral"] { background-image: linear-gradient(var(--classic-wash-neutral), var(--classic-wash-neutral)); }
+.kpi-tile[data-state="unknown"] { background-image: linear-gradient(var(--classic-wash-unknown), var(--classic-wash-unknown)); }
+.kpi-tile__top { display: flex; align-items: center; justify-content: space-between; gap: .3rem; min-width: 0; }
+.kpi-tile__label { font-size: .74rem; line-height: 1.3; color: var(--classic-muted); overflow-wrap: anywhere; }
+.kpi-tile__reading { display: flex; align-items: baseline; flex-wrap: wrap; gap: .3rem; margin-top: auto; }
+.kpi-tile__value { font-family: var(--classic-num-font, Arial, sans-serif); font-size: 1.45rem; font-weight: 700; line-height: 1.1; letter-spacing: -.01em; font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; color: var(--classic-ink); }
+.kpi-tile__value.is-unavail { font-weight: 400; color: var(--classic-muted); }
+.kpi-tile__unit { font-size: .78rem; color: var(--classic-muted); }
+.kpi-tile__delta { font-size: .74rem; line-height: 1.3; font-variant-numeric: tabular-nums; color: var(--classic-muted); }
+.kpi-tile__delta:empty { display: none; }
+
+/* ---------- mode switch (contract §3 markup) ---------- */
+.mode-switch { display: inline-flex; width: 100%; gap: 2px; padding: 2px; border: 1px solid var(--classic-rule); background: var(--classic-surface-2); }
+.mode-switch__btn { flex: 1 1 0; min-height: 2.75rem; padding: 0 1rem; border: 0; background: transparent; color: var(--classic-muted); font-family: var(--classic-body-font); font-size: .82rem; font-weight: 700; letter-spacing: .01em; cursor: pointer; }
+.mode-switch__btn:hover { color: var(--classic-ink); }
+.mode-switch__btn[aria-pressed="true"] { background: var(--classic-ink); color: var(--classic-surface); cursor: default; }
+
+/* ---------- (i) disclosure ---------- */
+.info-disc { display: inline-block; position: relative; vertical-align: middle; flex: none; }
+.info-disc > summary { position: relative; list-style: none; cursor: pointer; display: inline-grid; place-items: center; width: 1.75rem; height: 1.75rem; }
+.info-disc > summary::-webkit-details-marker { display: none; }
+.info-disc > summary::after { content: ""; position: absolute; inset: -.5rem; }
+.info-disc > summary svg { width: 15px; height: 15px; display: block; }
+.info-disc > summary svg circle, .info-disc > summary svg line { fill: none; stroke: var(--classic-muted); stroke-width: 1.4; }
+.info-disc > summary svg .dotcap { fill: var(--classic-muted); stroke: none; }
+.info-disc > summary:hover svg circle, .info-disc > summary:hover svg line { stroke: var(--classic-ink); }
+.info-disc > summary:hover svg .dotcap { fill: var(--classic-ink); }
+.info-disc[open] > summary svg circle, .info-disc[open] > summary svg line { stroke: var(--classic-accent); }
+.info-disc[open] > summary svg .dotcap { fill: var(--classic-accent); }
+.info-pop { position: absolute; z-index: 40; top: calc(100% + 6px); left: -8px; width: min(28rem, calc(100vw - 3rem)); padding: .75rem .9rem; background: var(--classic-surface); border: 1px solid var(--classic-rule); color: var(--classic-ink); box-shadow: var(--classic-shadow); font-family: var(--classic-body-font); font-size: .8rem; font-weight: 400; line-height: 1.5; letter-spacing: 0; text-transform: none; text-align: left; white-space: normal; }
+.info-disc--end .info-pop { left: auto; right: -8px; }
+
+/* ---------- tooltip (mounted by dashboard-tooltip.mjs, #236/#252) ---------- */
+/* One bubble per document, positioned fixed by dashboard-tooltip.mjs's placeNear() -- fixed
+   positioning leaves every ancestor's overflow box, the same reason .info-pop above nudges
+   itself back on screen instead of relying on z-index.
+
+   THE z-index IS MEASURED AGAINST ROCK'S CHROME, not chosen. Every dashboard here renders
+   inside a Rock page whose left nav is `z-index: 1025` and whose top header is `1030`
+   (read off staging, 2026-09-18). At 60 the bubble lost to both: hovering any mark in
+   the left third of the page opened a tooltip UNDER the sidebar, on every Classic surface in
+   the repo, not just Leadership. 1040 clears Rock's highest layer with room to spare and
+   still sits under a Rock modal backdrop, which is the one thing that should cover us. */
+.dashboard-tip { position: fixed; z-index: 1040; top: 0; left: 0; max-width: 18rem; padding: .6rem .75rem; background: var(--classic-surface); border: 1px solid var(--classic-rule); color: var(--classic-ink); box-shadow: var(--classic-shadow); font-family: var(--classic-body-font); font-size: .8rem; line-height: 1.45; pointer-events: none; }
+/* The closed state belongs to the shared contract, not to each island.
+   dashboard-tooltip.mjs only ever flips `data-open`; it deliberately does not touch
+   the `hidden` attribute, because `display: none` cannot be transitioned. An island
+   that never defined the closed half of that pair therefore left the bubble on screen
+   forever: hover filled it, "close" set an attribute nothing read, and the last thing
+   hovered stood there over a pointer that had moved on. That is the "tooltips are too
+   sticky, they still show when you are not hovering" report, and it was never in the
+   JavaScript. Connect Field had carried its own copy of these two rules; every other
+   island shipped the bubble permanently visible. */
+.dashboard-tip { opacity: 0; visibility: hidden; transition: opacity .12s ease, visibility .12s; }
+.dashboard-tip[data-open="true"] { opacity: 1; visibility: visible; }
+.dashboard-tip__head { display: flex; align-items: center; gap: .4rem; margin-bottom: .15rem; }
+.dashboard-tip__swatch { flex: none; width: .6rem; height: .6rem; background: currentColor; }
+.dashboard-tip__label { font-weight: 700; color: var(--classic-muted); }
+.dashboard-tip__value { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+.dashboard-tip__compare { margin: .1rem 0 0; color: var(--classic-muted); }
+.dashboard-tip__unit { margin-left: .3rem; color: var(--classic-muted); }
+.spark__hit { fill: transparent; cursor: pointer; }
+
+/* ---------- export rail (mounted by dashboard-export.mjs) ---------- */
+.xrail { display: inline-flex; align-items: center; gap: .3rem; }
+.xrail__btn { position: relative; display: inline-flex; align-items: center; gap: .35rem; min-height: 2rem; padding: 0 .55rem; border: 1px solid var(--classic-rule); border-radius: 4px; background: transparent; color: var(--classic-ink); font-family: var(--classic-body-font); font-size: .72rem; font-weight: 700; line-height: 1; letter-spacing: .01em; cursor: pointer; white-space: nowrap; }
+.xrail__btn::after { content: ""; position: absolute; inset: -.4rem 0; }
+.xrail__btn svg { width: 14px; height: 14px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.xrail__icon { display: inline-flex; align-items: center; }
+.xrail__label { display: inline-block; }
+.xrail__suffix { display: inline-block; font-size: .68rem; font-weight: 500; opacity: .75; padding: 1px 4px; border-radius: 3px; background: color-mix(in srgb, currentColor 10%, transparent); margin-left: .25rem; }
+.xrail__btn:hover { border-color: var(--classic-ink); background: var(--classic-surface-2); }
+.xrail__btn:active { background: var(--classic-rule); }
+.xrail__btn.is-busy { cursor: progress; opacity: .65; }
+.xrail__btn.is-copied, .xrail__btn.is-done { border-color: var(--classic-accent); color: var(--classic-accent); background: transparent; }
+.xrail__btn--package { min-height: 2.25rem; padding: 0 .85rem; border-radius: 6px; font-size: .78rem; }
+.package-control { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; gap: .3rem; }
+.how-to-tip { margin: 0; font-size: .7rem; line-height: 1.35; color: var(--classic-muted); }
+.how-to-tip a, .how-to-tip__link { position: relative; color: inherit; text-decoration: underline; text-underline-offset: .15em; }
+.how-to-tip a::after, .how-to-tip__link::after { content: ""; position: absolute; inset: -.6rem -.2rem; }
+/* Honest disabled form: dashed, muted, no hover, still readable, title says why. */
+.tool__off, .xrail__btn:disabled, .xrail__btn[aria-disabled="true"] { border-style: dashed; border-color: var(--classic-rule); color: var(--classic-muted); background: transparent; cursor: not-allowed; opacity: 1; }
+.tool__off:hover, .xrail__btn:disabled:hover, .xrail__btn[aria-disabled="true"]:hover { border-color: var(--classic-rule); background: transparent; color: var(--classic-muted); }
+
+/* ---------- copy prompt (mounted by dashboard-prompt.mjs) ---------- */
+.copy-prompt { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; gap: .3rem; }
+.copy-prompt-btn { position: relative; display: inline-flex; align-items: center; gap: .45rem; min-height: 2.25rem; padding: 0 .85rem; border: 1px solid var(--classic-ink); border-radius: 6px; background: transparent; color: var(--classic-ink); font-family: var(--classic-body-font); font-size: .78rem; font-weight: 700; line-height: 1; cursor: pointer; white-space: nowrap; }
+.copy-prompt-btn svg { width: 15px; height: 15px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.copy-prompt-btn svg.copy-prompt-btn__caret { width: 11px; height: 11px; stroke-width: 2; opacity: .7; margin-left: .1rem; }
+.copy-prompt-btn:hover, .copy-prompt-btn[aria-expanded="true"] { background: var(--classic-ink); color: var(--classic-surface); }
+.copy-prompt-btn.is-copied { background: transparent; border-color: var(--classic-accent); color: var(--classic-accent); }
+/* dashboard-prompt.mjs emits .copy-prompt-popover / .copy-prompt-option(__body|__label|__hint) /
+   .ai-guidelines-tip(__link); the shorter names are the contract's aliases. Both are styled. */
+.copy-prompt-tip, .ai-guidelines-tip { margin: 0; font-size: .7rem; line-height: 1.35; color: var(--classic-muted); }
+/* The tip link is set in .72rem type, so its own box is about 11px tall -- readable, but not
+   a thumb target. It gets the same expander, wide enough to be tappable without covering the
+   sentence around it. */
+.copy-prompt-tip a, .ai-guidelines-tip__link { position: relative; color: inherit; text-decoration: underline; text-underline-offset: .15em; }
+.copy-prompt-tip a::after, .ai-guidelines-tip__link::after { content: ""; position: absolute; inset: -.6rem -.2rem; }
+/* The drawn "opens in a new tab" mark dashboard-prompt.mjs appends to the tip link. Sized in
+   em so it tracks the tip's type, and painted in currentColor so it is the link's own ink. */
+.ai-guidelines-tip__mark { width: 1em; height: 1em; margin-left: .2em; vertical-align: -.12em; flex: none; }
+/* The popover hangs off the control, and the control is not always on the same side of a
+   masthead. Anchoring therefore follows it: from the start edge by default, from the end
+   edge when the mount says so -- rather than assuming a right-hand control and running off
+   the left of the screen everywhere the control sits at the start. */
+.copy-prompt-pop, .copy-prompt-popover { position: absolute; z-index: 50; top: calc(2.25rem + 6px); left: 0; right: auto; display: grid; gap: .2rem; min-width: 18rem; max-width: min(24rem, calc(100vw - 2rem)); padding: .35rem; background: var(--classic-surface); border: 1px solid var(--classic-rule); border-radius: 6px; box-shadow: var(--classic-shadow); }
+.copy-prompt--end .copy-prompt-pop, .copy-prompt--end .copy-prompt-popover { left: auto; right: 0; }
+.copy-prompt-pop[hidden], .copy-prompt-popover[hidden] { display: none; }
+@media (max-width: 47.98rem) {
+  .copy-prompt-pop, .copy-prompt-popover,
+  .copy-prompt--end .copy-prompt-pop, .copy-prompt--end .copy-prompt-popover { left: 0; right: auto; min-width: 0; width: min(24rem, calc(100vw - 2rem)); }
+}
+.copy-prompt-opt, .copy-prompt-option { display: flex; align-items: flex-start; gap: .7rem; width: 100%; min-height: 2.75rem; padding: .5rem .7rem; border: 1px solid transparent; border-radius: 4px; background: transparent; color: var(--classic-ink); font-family: var(--classic-body-font); text-align: left; cursor: pointer; }
+.copy-prompt-opt svg, .copy-prompt-option svg { flex: none; width: 18px; height: 18px; margin-top: .1rem; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.copy-prompt-opt:hover, .copy-prompt-option:hover { background: var(--classic-surface-2); border-color: var(--classic-rule); }
+.copy-prompt-option__body { display: flex; flex-direction: column; gap: .1rem; min-width: 0; }
+.copy-prompt-opt__title, .copy-prompt-option__label { font-size: .82rem; font-weight: 700; line-height: 1.3; }
+.copy-prompt-opt__desc, .copy-prompt-option__hint { font-size: .74rem; line-height: 1.35; color: var(--classic-muted); white-space: normal; }
+.copy-prompt-error { margin: 0; padding: .45rem .65rem; border: 1px solid var(--classic-rule); border-radius: 4px; background-color: var(--classic-surface); background-image: linear-gradient(var(--classic-wash-thin), var(--classic-wash-thin)); color: var(--classic-ink); font-size: .76rem; line-height: 1.4; }
+.copy-prompt-error:empty { display: none; }
+
+/* ---------- focus: one ring, everywhere ---------- */
+.cw__expand:focus-visible, .xrail__btn:focus-visible, .mode-switch__btn:focus-visible, .copy-prompt-btn:focus-visible, .copy-prompt-opt:focus-visible, .copy-prompt-option:focus-visible, .ai-guidelines-tip__link:focus-visible, .ct__sort:focus-visible, .info-disc > summary:focus-visible, .kpi-tile__reading:focus-visible, .ct__unavail:focus-visible, .arc-chart path:focus-visible, .spark__hit:focus-visible { outline: 2px solid var(--classic-focus); outline-offset: 2px; }
+
+/* ---------- motion: state communication only ---------- */
+.cw, .kpi-strip { transition: opacity 180ms cubic-bezier(.2, .7, .2, 1), transform 180ms cubic-bezier(.2, .7, .2, 1); }
+/* `is-mode-switching` lands on the island ROOT, and §19's prefixing pass turns a descendant
+   selector into `<scope> .is-mode-switching .cw` -- a rule nothing can match, because the
+   scope element is the element carrying the class. Naming the ancestor from inside the
+   subject keeps the rule true both unprefixed and after prefixing. */
+.cw:is(.is-mode-switching *), .kpi-strip:is(.is-mode-switching *) { opacity: 0; transform: translateY(4px); }
+.xrail__btn, .cw__expand, .mode-switch__btn, .copy-prompt-btn, .copy-prompt-opt, .copy-prompt-option { transition: background-color 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .cw, .kpi-strip, .xrail__btn, .cw__expand, .mode-switch__btn, .copy-prompt-btn, .copy-prompt-opt, .copy-prompt-option { transition: none; }
+  .cw:is(.is-mode-switching *), .kpi-strip:is(.is-mode-switching *) { opacity: 1; transform: none; }
+}
+
+/* ---------- print: tables print, chrome does not ---------- */
+@media print {
+  .cw__rail, .xrail, .cw__expand, .mode-switch, .copy-prompt, .copy-prompt-btn, .copy-prompt-pop, .copy-prompt-popover, .copy-prompt-tip, .ai-guidelines-tip, .info-disc, .dashboard-tip { display: none !important; }
+  .classic-grid { display: block; }
+  .cw, .kpi-strip { break-inside: avoid; margin-bottom: 1rem; border-color: var(--classic-ink); }
+  .cw__body { max-height: none; overflow: visible; }
+  .cw--has-aid .cw__body { display: block; }
+  .ct thead th, .ct thead th:first-child, .ct tbody th[scope="row"] { position: static; }
+  .ct th, .ct td { border-color: var(--classic-ink); white-space: normal; }
+  .kpi-tile { border: 1px solid var(--classic-rule); }
+}

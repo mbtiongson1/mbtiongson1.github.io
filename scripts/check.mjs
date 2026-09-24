@@ -18,12 +18,12 @@ const js = await readFile(path.join(dist, 'scripts/site.js'), 'utf8');
 const visible = html.replace(/<head>[\s\S]*?<\/head>/, '').replace(/<[^>]+>/g, ' ');
 
 // Hierarchy: identity, then Favor Home, Favor Dashboards, Gaia, then the quiet archive.
-const order = ['id="top"', 'id="favor-home"', 'id="favor-dashboards"', 'id="gaia"', 'id="earlier"', 'id="about"'].map((id) => html.indexOf(id));
+const order = ['id="top"', 'id="favor-home"', 'id="favor-dashboards"', 'id="gaia"', 'id="ml"', 'id="earlier"', 'id="about"'].map((id) => html.indexOf(id));
 assert(order.every((index) => index > 0), 'A primary section is missing');
-assert(order.every((index, i) => i === 0 || index > order[i - 1]), 'Sections are out of order: opening → Favor Home → Dashboards → Gaia → earlier work → about');
+assert(order.every((index, i) => i === 0 || index > order[i - 1]), 'Sections are out of order: opening → Favor Home → Dashboards → Gaia → machine learning → tools → about');
 assert(/<section class="opening"[\s\S]*?class="home-stage"[\s\S]*?<\/section>/.test(html), 'The Favor Home artifact must sit in the opening viewport');
 assert(/<section class="chapter chapter--home"[\s\S]*?data-lens-stage[\s\S]*?<\/section>/.test(html), 'The Favor, by People island belongs inside the Favor Home chapter');
-assert.equal((html.match(/class="chapter /g) || []).length, 3, 'Exactly three primary bodies of work');
+assert.equal((html.match(/class="chapter /g) || []).length, 4, 'Exactly four primary bodies of work');
 for (const layer of ['Research', 'Registry', 'Runtime']) assert(html.includes(`<span class="p-step">${layer}.</span>`), `Gaia must read as Research → Registry → Runtime (${layer})`);
 assert(html.indexOf('>Research.<') < html.indexOf('>Registry.<') && html.indexOf('>Registry.<') < html.indexOf('>Runtime.<'), 'Gaia layers out of order');
 for (const step of ['Truth', 'Legibility', 'Action', 'Proof']) assert(html.includes(`<span class="p-step">${step}.</span>`), `Dashboards principle missing: ${step}`);
@@ -42,7 +42,14 @@ for (const slug of ['field-atlas', 'screening-room', 'arcade-marquee', 'dada-con
   assert(!(await exists(path.join(dist, 'styles', `${slug}.css`))), `Retired stylesheet shipped: ${slug}`);
 }
 assert(await exists(path.join(root, 'archive/experimental-worlds/pages/field-atlas.html')), 'Archived source for the earlier explorations should remain in the repository');
-assert(!(await exists(path.join(dist, 'data'))) && !(await exists(path.join(dist, 'assets/demos'))), 'No catalogue data or compiled demos ship');
+assert(!(await exists(path.join(dist, 'data'))), 'No catalogue data ships');
+// Live demos: static fictional-data builds only, never a production host or a remote request.
+const demoFiles = (await walk(path.join(dist, 'assets/demos'))).filter((file) => /\.(html|js|css|json)$/i.test(file));
+for (const file of demoFiles) {
+  const text = await readFile(file, 'utf8');
+  assert(!/rock-preview|rock\.favor\.church|connect\.favor\.church|ROCKPROD|dashboard_prod_read/i.test(text), `Demo leaks internal infrastructure: ${path.relative(dist, file)}`);
+}
+for (const [, slug] of html.matchAll(/data-demo="([^"]+)"/g)) assert(await exists(path.join(dist, 'assets/demos', slug, 'index.html')), `Missing demo: ${slug}`);
 
 // Links: https only, new tabs isolated, and nothing pointing into private Favor repositories.
 for (const [tag] of html.matchAll(/<a\b[^>]*>/g)) {
@@ -53,7 +60,7 @@ for (const [tag] of html.matchAll(/<a\b[^>]*>/g)) {
   assert(!/github\.com\/favorchurch/i.test(href), `Private repository linked (404s for visitors): ${href}`);
   if (href.startsWith('#')) assert(html.includes(`id="${href.slice(1)}"`), `Broken fragment: ${href}`);
 }
-assert(!/<iframe/i.test(html), 'No embedded frames: artifacts are captures, never live production or external sites');
+assert(!/<iframe/i.test(html), 'No static frames: live demos load only on request, from local fictional builds');
 
 // Publication boundary: no production hosts, internal identifiers or network calls.
 for (const [label, text] of [['index.html', html], ['site.js', js]]) {
@@ -94,7 +101,7 @@ assert(await exists(path.join(dist, '404.html')), '404 page missing');
 if (release) {
   // Release: nothing provisional, and the page stays light.
   assert(!/\b(TODO|TBD|FIXME|lorem ipsum)\b|\[placeholder\]/i.test(visible), 'Release blocked: provisional copy');
-  const total = (await Promise.all((await walk(dist)).map(async (file) => (await stat(file)).size))).reduce((a, b) => a + b, 0);
+  const total = (await Promise.all((await walk(dist)).filter((file) => !file.includes(`${path.sep}demos${path.sep}`)).map(async (file) => (await stat(file)).size))).reduce((a, b) => a + b, 0);
   assert(total < 4_500_000, `Release blocked: dist is ${(total / 1e6).toFixed(2)} MB (budget 4.5 MB)`);
   for (const file of rasters) assert((await stat(file)).size < 300_000, `Release blocked: oversized raster ${path.relative(dist, file)}`);
   const design = await readFile(path.join(root, 'DESIGN.md'), 'utf8');

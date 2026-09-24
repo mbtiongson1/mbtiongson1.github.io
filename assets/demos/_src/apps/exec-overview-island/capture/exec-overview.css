@@ -1,0 +1,2584 @@
+/* >>> GENERATED THEME BLOCKS -- tools/build_theme_blocks.py from themes/favor-*.json. Do not hand-edit. <<< */
+
+/* The palette #exec-overview-island ships today. A page that sets no data-theme is unchanged. */
+#exec-overview-island {
+  --accent: #f45500;
+  --accent-deep: #c23f00;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #fef1e8;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #ded8d1;
+  --edge-strong: #8d8880;
+  --faint-ink: #726f65;
+  --focus: #0077a4;
+  --gap-wash: #f2ece5;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #ece6e2;
+  --hover-wash: #fff2e8;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #121411;
+  --rule: #d8cec6;
+  --secondary: #0077a4;
+  --selected-wash: #ffebd8;
+  --shadow-ink: #121411;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fffaf6;
+  --surface-lit: #fffdfa;
+  --surface-raised: #fdf6f1;
+  --surface-sunken: #fef1e8;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #2f4553;
+  --trajectory-line-edge: #3d5a68;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+#exec-overview-island[data-theme="favor-cream"] {
+  --accent: #f45500;
+  --accent-deep: #c23f00;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #fef1e8;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #ded8d1;
+  --edge-strong: #8d8880;
+  --faint-ink: #726f65;
+  --focus: #0077a4;
+  --gap-wash: #f2ece5;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #ece6e2;
+  --hover-wash: #fff2e8;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #121411;
+  --rule: #d8cec6;
+  --secondary: #0077a4;
+  --selected-wash: #ffebd8;
+  --shadow-ink: #121411;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fffaf6;
+  --surface-lit: #fffdfa;
+  --surface-raised: #fdf6f1;
+  --surface-sunken: #fef1e8;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #2f4553;
+  --trajectory-line-edge: #3d5a68;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+#exec-overview-island[data-theme="favor-dark"] {
+  --accent: #ff7a33;
+  --accent-deep: #ff9459;
+  --age-all-ages: #7b8b93;
+  --age-deaf: #d9675e;
+  --age-adults: #ffc24d;
+  --age-kids: #35b0dc;
+  --age-mature: #a78bfa;
+  --age-seasoned: #b487b6;
+  --age-young-adults: #7fae8c;
+  --age-youth: #ff7a33;
+  --background: #070b0e;
+  --brand-gold: #ffc24d;
+  --cohort-core: #35b0dc;
+  --cohort-crowd: #ffc24d;
+  --cohort-leader: #ff7a33;
+  --cohort-new: #b487b6;
+  --edge-lit: #35505f;
+  --edge-strong: #5c7788;
+  --faint-ink: #7b8b93;
+  --focus: #7fd2f0;
+  --gap-wash: #1a252f;
+  --gender-men: #35b0dc;
+  --gender-unknown: #7b8b93;
+  --gender-women: #ff7a33;
+  --ghost-wash: #16202a;
+  --hover-wash: #1a232d;
+  --ink: #e2edf2;
+  --move-gain: #3fbf8e;
+  --move-gain-text: #5fd0a5;
+  --move-loss: #ff6a3d;
+  --move-loss-text: #ff8a65;
+  --move-neutral: #7b8b93;
+  --move-neutral-text: #9aa8af;
+  --move-stalled: #e8973a;
+  --move-stalled-text: #f0ac5c;
+  --muted-ink: #93a8b3;
+  --on-accent: #131e26;
+  --rule: #1e2c35;
+  --secondary: #56c2e8;
+  --selected-wash: #273039;
+  --shadow-ink: #02050a;
+  --soft-critical: #342325;
+  --soft-gain: #153132;
+  --soft-healthy: #153132;
+  --soft-loss: #342325;
+  --soft-neutral: #1f2932;
+  --soft-stalled: #302b24;
+  --soft-thin: #2e2726;
+  --soft-watch: #302b24;
+  --state-critical: #ff6a3d;
+  --state-critical-text: #ff8a65;
+  --state-healthy: #3fbf8e;
+  --state-healthy-text: #5fd0a5;
+  --state-thin: #d98243;
+  --state-thin-text: #e79a63;
+  --state-unknown: #7b8b93;
+  --state-unknown-text: #9aa8af;
+  --state-watch: #e8973a;
+  --state-watch-text: #f0ac5c;
+  --surface: #0d1620;
+  --surface-lit: #131e26;
+  --surface-raised: #101a21;
+  --surface-sunken: #0c1319;
+  --trajectory-ground: #000000;
+  --trajectory-line: #4a6b7c;
+  --trajectory-line-edge: #a0becd;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+#exec-overview-island[data-theme="favor-indigo"] {
+  --accent: #8796fc;
+  --accent-deep: #b1bdfc;
+  --age-all-ages: #8b8e9e;
+  --age-deaf: #c4503d;
+  --age-adults: #538059;
+  --age-kids: #ffb42a;
+  --age-mature: #a78bfa;
+  --age-seasoned: #95969d;
+  --age-young-adults: #646cff;
+  --age-youth: #f45500;
+  --background: #0f111c;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #c4503d;
+  --cohort-leader: #f45500;
+  --cohort-new: #8796fc;
+  --edge-lit: #4a5175;
+  --edge-strong: #686f92;
+  --faint-ink: #8b8e9e;
+  --focus: #8796fc;
+  --gap-wash: #262836;
+  --gender-men: #8796fc;
+  --gender-unknown: #73757b;
+  --gender-women: #f45500;
+  --ghost-wash: #202337;
+  --hover-wash: #242632;
+  --ink: #f4efe6;
+  --move-gain: #538059;
+  --move-gain-text: #74a279;
+  --move-loss: #c4503d;
+  --move-loss-text: #eb735e;
+  --move-neutral: #73757b;
+  --move-neutral-text: #95969d;
+  --move-stalled: #bc5915;
+  --move-stalled-text: #e17c3f;
+  --muted-ink: #afb2c1;
+  --on-accent: #23273b;
+  --rule: #2b3047;
+  --secondary: #b1bdfc;
+  --selected-wash: #32333d;
+  --shadow-ink: #060725;
+  --soft-critical: #39272f;
+  --soft-gain: #262f33;
+  --soft-healthy: #262f33;
+  --soft-loss: #39272f;
+  --soft-neutral: #2b2d39;
+  --soft-stalled: #37292a;
+  --soft-thin: #37292a;
+  --soft-watch: #3c2525;
+  --state-critical: #f25852;
+  --state-critical-text: #fa7d73;
+  --state-healthy: #538059;
+  --state-healthy-text: #74a279;
+  --state-thin: #d7712e;
+  --state-thin-text: #e68a54;
+  --state-unknown: #73757b;
+  --state-unknown-text: #95969d;
+  --state-watch: #b7831f;
+  --state-watch-text: #ca9842;
+  --surface: #171926;
+  --surface-lit: #23273b;
+  --surface-raised: #1d2030;
+  --surface-sunken: #12141f;
+  --trajectory-ground: #000000;
+  --trajectory-line: #4a6b7c;
+  --trajectory-line-edge: #a0becd;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+#exec-overview-island[data-theme="favor-grow-multicolor"] {
+  --accent: #4f3ad0;
+  --accent-deep: #4130b3;
+  --age-all-ages: #66656e;
+  --age-deaf: #2653c2;
+  --age-adults: #2a7f46;
+  --age-kids: #e9b62c;
+  --age-mature: #6a44c4;
+  --age-seasoned: #b8356c;
+  --age-young-adults: #0f8489;
+  --age-youth: #bf5f12;
+  --background: #fbfbfd;
+  --brand-gold: #e9b62c;
+  --cohort-core: #e9b62c;
+  --cohort-crowd: #2653c2;
+  --cohort-leader: #c3441f;
+  --cohort-new: #0a9aa1;
+  --edge-lit: #e3e3ea;
+  --edge-strong: #85848f;
+  --faint-ink: #66656e;
+  --focus: #4130b3;
+  --gap-wash: #ececf2;
+  --gender-men: #2653c2;
+  --gender-unknown: #a5a4ad;
+  --gender-women: #b8356c;
+  --ghost-wash: #e8e8ee;
+  --hover-wash: #f1eefc;
+  --ink: #121411;
+  --move-gain: #2a7f46;
+  --move-gain-text: #256a3d;
+  --move-loss: #a82c1c;
+  --move-loss-text: #922719;
+  --move-neutral: #a5a4ad;
+  --move-neutral-text: #63626b;
+  --move-stalled: #a55e07;
+  --move-stalled-text: #84480a;
+  --muted-ink: #57565f;
+  --on-accent: #fffdfa;
+  --rule: #dcdce4;
+  --secondary: #a8391a;
+  --selected-wash: #e4defa;
+  --shadow-ink: #121411;
+  --soft-critical: #fbe3df;
+  --soft-gain: #e3f2e8;
+  --soft-healthy: #e3f2e8;
+  --soft-loss: #fbe3df;
+  --soft-neutral: #f3f3f7;
+  --soft-stalled: #fbecd8;
+  --soft-thin: #fce8dc;
+  --soft-watch: #fcefd6;
+  --state-critical: #a82c1c;
+  --state-critical-text: #922719;
+  --state-healthy: #2a7f46;
+  --state-healthy-text: #256a3d;
+  --state-thin: #b04f18;
+  --state-thin-text: #8d3f0e;
+  --state-unknown: #c5c5cd;
+  --state-unknown-text: #63626b;
+  --state-watch: #a55e07;
+  --state-watch-text: #84480a;
+  --surface: #ffffff;
+  --surface-lit: #ffffff;
+  --surface-raised: #f6f6f9;
+  --surface-sunken: #f0f0f5;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #3b2f7a;
+  --trajectory-line-edge: #4f3ad0;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+#exec-overview-island[data-theme="favor-leadership"] {
+  --accent: #95610f;
+  --accent-deep: #6f4809;
+  --age-all-ages: #5d6a72;
+  --age-deaf: #bd5348;
+  --age-adults: #2c5a8b;
+  --age-kids: #ad7b21;
+  --age-mature: #78508d;
+  --age-seasoned: #78508d;
+  --age-young-adults: #2a8878;
+  --age-youth: #ad7b21;
+  --background: #edf0ef;
+  --brand-gold: #ad7b21;
+  --cohort-core: #ad7b21;
+  --cohort-crowd: #bd5348;
+  --cohort-leader: #116a60;
+  --cohort-new: #2c5a8b;
+  --edge-lit: #eaeeec;
+  --edge-strong: #748791;
+  --faint-ink: #5d6a72;
+  --focus: #14202a;
+  --gap-wash: #eef1f0;
+  --gender-men: #41598a;
+  --gender-unknown: #7a868d;
+  --gender-women: #4f8676;
+  --ghost-wash: #e6ebe9;
+  --hover-wash: #f0f4f3;
+  --ink: #14202a;
+  --move-gain: #116a60;
+  --move-gain-text: #0e574f;
+  --move-loss: #a03227;
+  --move-loss-text: #8f2b22;
+  --move-neutral: #7a868d;
+  --move-neutral-text: #5b6a73;
+  --move-stalled: #8a5d0c;
+  --move-stalled-text: #7a520a;
+  --muted-ink: #41535e;
+  --on-accent: #ffffff;
+  --rule: #d7dedc;
+  --secondary: #116a60;
+  --selected-wash: #dfe8e5;
+  --shadow-ink: #14202a;
+  --soft-critical: #fbe9e7;
+  --soft-gain: #e7f2ee;
+  --soft-healthy: #e7f2ee;
+  --soft-loss: #fbe9e7;
+  --soft-neutral: #f0f4f3;
+  --soft-stalled: #fdf1dc;
+  --soft-thin: #fdf1dc;
+  --soft-watch: #fdf1dc;
+  --state-critical: #a03227;
+  --state-critical-text: #8f2b22;
+  --state-healthy: #116a60;
+  --state-healthy-text: #0e574f;
+  --state-thin: #95610f;
+  --state-thin-text: #7d5009;
+  --state-unknown: #768884;
+  --state-unknown-text: #5b6a73;
+  --state-watch: #8a5d0c;
+  --state-watch-text: #7a520a;
+  --surface: #f8faf9;
+  --surface-lit: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #e3e9e7;
+  --swatch-mark: #116a60;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #41598a;
+  --trajectory-line-edge: #2c5a8b;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+#exec-overview-island[data-theme="favor-watershed"] {
+  --accent: #0077a4;
+  --accent-deep: #005a7d;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #f6fbfd;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #dbe6ec;
+  --edge-strong: #79868e;
+  --faint-ink: #726f65;
+  --focus: #005a7d;
+  --gap-wash: #e6eef2;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #e2e9ee;
+  --hover-wash: #e9f5fb;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #ffffff;
+  --rule: #cfdde5;
+  --secondary: #00607f;
+  --selected-wash: #d8ecf7;
+  --shadow-ink: #0d2028;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fcfeff;
+  --surface-lit: #fdffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #eaf4f9;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #1f4a5e;
+  --trajectory-line-edge: #2e6076;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+/* A pinned surface keeps its own ground in every theme, because the ground carries
+   meaning. It resolves the whole contract from favor-cream, which is what replaced
+   Connect Health's twelve -deep / -mark-cream tokens. */
+#exec-overview-island .pinned-cream {
+  --accent: #f45500;
+  --accent-deep: #c23f00;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #fef1e8;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #ded8d1;
+  --edge-strong: #8d8880;
+  --faint-ink: #726f65;
+  --focus: #0077a4;
+  --gap-wash: #f2ece5;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #ece6e2;
+  --hover-wash: #fff2e8;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #121411;
+  --rule: #d8cec6;
+  --secondary: #0077a4;
+  --selected-wash: #ffebd8;
+  --shadow-ink: #121411;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fffaf6;
+  --surface-lit: #fffdfa;
+  --surface-raised: #fdf6f1;
+  --surface-sunken: #fef1e8;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #2f4553;
+  --trajectory-line-edge: #3d5a68;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+/* The #469 spectrum: Favor Grow Multicolor's non-semantic hue ladder, rotated across the
+   page and locked to one hue when a reader narrows to one item (--spectrum-lock). */
+@property --sp { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --sp-ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --sp-band { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --sp-band-ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --background { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --surface { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --surface-raised { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --surface-sunken { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --muted-ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --rule { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --accent-deep { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --secondary { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --focus { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --hover-wash { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --selected-wash { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@media (prefers-reduced-motion: no-preference) {
+  #exec-overview-island { transition: --background .2s cubic-bezier(.16,1,.3,1), --surface .2s cubic-bezier(.16,1,.3,1), --surface-raised .2s cubic-bezier(.16,1,.3,1), --surface-sunken .2s cubic-bezier(.16,1,.3,1), --ink .2s cubic-bezier(.16,1,.3,1), --muted-ink .2s cubic-bezier(.16,1,.3,1), --rule .2s cubic-bezier(.16,1,.3,1), --accent .2s cubic-bezier(.16,1,.3,1), --accent-deep .2s cubic-bezier(.16,1,.3,1), --secondary .2s cubic-bezier(.16,1,.3,1), --focus .2s cubic-bezier(.16,1,.3,1), --hover-wash .2s cubic-bezier(.16,1,.3,1), --selected-wash .2s cubic-bezier(.16,1,.3,1); }
+  #exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard) { transition: --sp .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s), --sp-ink .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s), --sp-band .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s), --sp-band-ink .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s); }
+}
+#exec-overview-island[data-theme="favor-grow-multicolor"] { --spectrum-1: #5b3ee0; --spectrum-1-text: #3f2aa8; --spectrum-1-on: #ffffff; --spectrum-2: #d6560b; --spectrum-2-text: #9a3a06; --spectrum-2-on: #121411; --spectrum-3: #2f62e0; --spectrum-3-text: #1f45a3; --spectrum-3-on: #ffffff; --spectrum-4: #078f94; --spectrum-4-text: #0b6b70; --spectrum-4-on: #121411; --spectrum-5: #c93b78; --spectrum-5-text: #8f2a55; --spectrum-5-on: #ffffff; --spectrum-6: #2f9a52; --spectrum-6-text: #1f6436; --spectrum-6-on: #121411; --spectrum-7: #1686bf; --spectrum-7-text: #0b5c85; --spectrum-7-on: #121411;
+  --spectrum-band: linear-gradient(90deg, #5b3ee0 0.00% 14.29%, #d6560b 14.29% 28.57%, #2f62e0 28.57% 42.86%, #078f94 42.86% 57.14%, #c93b78 57.14% 71.43%, #2f9a52 71.43% 85.71%, #1686bf 85.71% 100.00%);
+  --sp-own: var(--spectrum-1); --sp-ink-own: var(--spectrum-1-text); --sp-on-own: var(--spectrum-1-on);
+  --sp: var(--spectrum-lock, var(--sp-own)); --sp-ink: var(--sp-ink-own);
+  --sp-band: var(--spectrum-lock-wash, var(--sp-own)); --sp-band-ink: var(--spectrum-lock-ink, var(--sp-on-own)); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard) { --sp: var(--spectrum-lock, var(--sp-own)); --sp-ink: var(--sp-ink-own); --sp-band: var(--spectrum-lock-wash, var(--sp-own)); --sp-band-ink: var(--spectrum-lock-ink, var(--sp-on-own)); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.xrail__btn, .filter-fieldset) { --sp: var(--sp-own); --sp-ink: var(--sp-ink-own); --sp-band: var(--sp-own); --sp-band-ink: var(--sp-on-own); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+1) { --sp-own: var(--spectrum-1); --sp-ink-own: var(--spectrum-1-text); --sp-on-own: var(--spectrum-1-on); --sp-delay: 0ms; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+2) { --sp-own: var(--spectrum-2); --sp-ink-own: var(--spectrum-2-text); --sp-on-own: var(--spectrum-2-on); --sp-delay: 10ms; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+3) { --sp-own: var(--spectrum-3); --sp-ink-own: var(--spectrum-3-text); --sp-on-own: var(--spectrum-3-on); --sp-delay: 20ms; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+4) { --sp-own: var(--spectrum-4); --sp-ink-own: var(--spectrum-4-text); --sp-on-own: var(--spectrum-4-on); --sp-delay: 30ms; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+5) { --sp-own: var(--spectrum-5); --sp-ink-own: var(--spectrum-5-text); --sp-on-own: var(--spectrum-5-on); --sp-delay: 40ms; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+6) { --sp-own: var(--spectrum-6); --sp-ink-own: var(--spectrum-6-text); --sp-on-own: var(--spectrum-6-on); --sp-delay: 50ms; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+7) { --sp-own: var(--spectrum-7); --sp-ink-own: var(--spectrum-7-text); --sp-on-own: var(--spectrum-7-on); --sp-delay: 60ms; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] { accent-color: var(--spectrum-1); caret-color: var(--spectrum-1); scrollbar-color: var(--spectrum-1) color-mix(in srgb, var(--spectrum-1) 10%, var(--surface)); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] ::selection { background: color-mix(in srgb, var(--sp) 30%, var(--surface)); color: var(--ink); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :focus-visible { outline-color: var(--sp); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.title-beta, .masthead h1 .beta) { color: var(--spectrum-1-text); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] .status-beta { background: var(--spectrum-1); border-color: var(--spectrum-1); color: var(--spectrum-1-on); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] .sidebar-head { background-image: var(--spectrum-band); background-size: 100% 6px; background-repeat: no-repeat; background-position: 0 100%; border-bottom-color: transparent; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) { background: var(--sp-band); color: var(--sp-band-ink); border-color: var(--sp); padding: .65rem .95rem; box-shadow: none; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) :is(h2, h3, .chapter__meta, .chapter__no, .chapter__title-group, .sub, .station-tag, .cw__question, .cw__lead, .cw__title, .combo-card__source, .pathway-section__count, .station-question, .station-note, .station-note strong, .station-note em, .prosemark, .info-disc > summary, .info-tip, .info-disc, .cw__info, .cw__expand) { color: inherit; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) :is(.station-tag, .prosemark, .info-tip, .info-disc, .cw__info, .cw__expand) { border-color: currentColor; background: transparent; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .state-badge { background-color: var(--surface); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .xrail__btn:not(:disabled, [aria-disabled="true"], .tool__off) { background: var(--surface); border-color: var(--surface); color: var(--sp-ink-own); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .xrail__btn:not(:disabled, [aria-disabled="true"], .tool__off):is(:hover, :focus-visible) { background: var(--sp-ink-own); border-color: var(--surface); color: #ffffff; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .tool__off { background: transparent; border-color: currentColor; color: inherit; opacity: .8; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.pulse-card, .combo-card, .dir-card, .cw, .kpi-tile, .stack-tile, .mode-panel, .groupcard) { background-color: color-mix(in srgb, var(--sp) 7%, var(--surface)); box-shadow: inset 0 6px 0 var(--sp); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.pulse-kpi, .kpi-tile__value, .queue-rank, .donut-center-total):not(.hero-card *) { color: var(--sp-ink); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] .pulse-grid { background: repeating-linear-gradient(135deg, var(--rule) 0 1px, var(--surface-raised) 1px 10px); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.pulse-track, .combo-row__track) { background-color: color-mix(in srgb, var(--sp) 20%, var(--surface)); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] .hero-card { --invert-surface: var(--spectrum-1); --invert-ink: var(--spectrum-1-on); background-color: var(--spectrum-1); box-shadow: none; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] .hero-card .pulse-card__head { background: none; color: var(--invert-ink); padding-inline: 0; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] .hero-card :is(.info-tip, .info-disc, .cw__info, .cw__expand, a, .pulse-cta) { color: var(--invert-ink); border-color: var(--invert-ink); text-decoration-color: currentColor; opacity: 1; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .combo-card, .dir-card) a:not(.xrail__btn, .copy-prompt-btn, .combo-row, .hero-card *) { color: var(--sp-ink); text-decoration-color: var(--sp); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.info-tip, .info-disc, .cw__info, .cw__expand) { color: var(--sp-ink); border-color: var(--sp); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] thead th { background-color: var(--sp-band); color: var(--sp-band-ink); border-bottom-color: var(--sp); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.combo-row, .queue-row, .cohort-row, .rhythm-row, .modes-row, .swarmrow, tbody tr):nth-child(even) { background-color: color-mix(in srgb, var(--sp) 9%, var(--surface)); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] :is(.combo-row, .queue-row, .cohort-row, .rhythm-row, .modes-row, .swarmrow, tbody tr):hover { background-color: color-mix(in srgb, var(--sp) 20%, var(--surface)); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] .xrail__btn:not(:disabled, [aria-disabled="true"]) { background: var(--sp); border-color: var(--sp); color: var(--sp-on-own); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] .xrail__btn:not(:disabled, [aria-disabled="true"]):is(:hover, :focus-visible) { background: var(--sp-ink-own); border-color: var(--sp-ink-own); color: #ffffff; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] .xrail__btn:is(:disabled, [aria-disabled="true"]) { background: color-mix(in srgb, var(--sp) 10%, var(--surface)); border-color: color-mix(in srgb, var(--sp) 45%, var(--surface)); color: var(--sp-ink-own); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] .filter-legend { color: var(--sp-ink); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] .filter-fieldset :is(button, [role="button"]):not([aria-pressed="true"]):hover { background-color: color-mix(in srgb, var(--sp) 14%, var(--surface)); border-color: var(--sp); }
+#exec-overview-island[data-theme="favor-grow-multicolor"] .filter-fieldset :is(button, [role="button"])[aria-pressed="true"] { background: var(--sp); border-color: var(--sp); color: var(--sp-on-own); box-shadow: none; }
+#exec-overview-island[data-theme="favor-grow-multicolor"] .filter-fieldset :is(button, [role="button"])[aria-pressed="true"] * { color: inherit; }
+
+/* The #248 theme swatch. Every rule but the disc colours reads the contract, so the
+   control re-themes with the page it sits in. The disc colours are literal on purpose:
+   a swatch has to show the palette it offers, not the one already showing. */
+#exec-overview-island .theme-swatch { position: sticky; bottom: 3.25rem; margin-left: 1.25rem; z-index: 100;
+  display: inline-flex; align-items: center; gap: .1rem; padding: .1rem .3rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--rule); border-radius: 999px;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+  opacity: .85; transition: opacity .18s ease, border-color .18s ease, box-shadow .18s ease; }
+#exec-overview-island .theme-swatch:hover, #exec-overview-island .theme-swatch:focus-within { opacity: 1; border-color: var(--edge-strong);
+  box-shadow: 0 6px 22px color-mix(in srgb, var(--shadow-ink) 28%, transparent); }
+/* The open menu must be fully opaque whatever the resting pill's opacity is: opacity on a
+   parent applies to its children, and a palette list you can read the page through is not a
+   list (#611). */
+#exec-overview-island .theme-swatch[data-open="true"] { opacity: 1; }
+#exec-overview-island .theme-swatch__btn { position: relative; display: inline-flex; align-items: center; justify-content: center;
+  padding: 0; background: transparent; border: 0; color: var(--muted-ink); font: inherit;
+  cursor: pointer; line-height: 0; }
+#exec-overview-island .theme-swatch__btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 999px; }
+#exec-overview-island .theme-swatch__disc { width: 1.25rem; height: 1.25rem; border-radius: 50%; flex: none;
+  /* the dual-colour split: ground on one half, accent on the other */
+  background: linear-gradient(115deg, var(--a) 0 50%, var(--b) 50% 100%);
+  box-shadow: inset 0 0 0 1px var(--edge-strong);
+  transition: box-shadow .18s ease, transform .18s cubic-bezier(.16,1,.3,1); }
+#exec-overview-island .theme-swatch__btn[aria-pressed="true"] .theme-swatch__disc { box-shadow: inset 0 0 0 1px var(--c), 0 0 0 2px var(--ink); }
+#exec-overview-island .theme-swatch__btn:hover .theme-swatch__disc { transform: scale(1.12); }
+/* THE MENU IS MINIMAL (#611): the other palettes as a row of discs, the same discs the control
+   has always used, with each one's name on its own hover. A list of words would be a second
+   vocabulary for something a reader picks by colour. */
+#exec-overview-island .theme-swatch__menu .theme-swatch__btn { padding: .1rem; border-radius: 999px; }
+/* The name outside the menu stays the floating label the resting control has always had. */
+#exec-overview-island .theme-swatch__name { position: absolute; bottom: calc(100% + .65rem); left: 0; z-index: 120;
+  transform: translateY(.25rem); opacity: 0; pointer-events: none; white-space: nowrap;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--edge-strong);
+  padding: .35rem .6rem; border-radius: .35rem; box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink) 30%, transparent);
+  transition: opacity .16s ease, transform .2s cubic-bezier(.16,1,.3,1);
+  display: flex; flex-direction: column; gap: .15rem; text-align: left; }
+#exec-overview-island .theme-swatch__title { font-size: .74rem; font-weight: 700; line-height: 1.25; color: var(--ink); }
+#exec-overview-island .theme-swatch__sub { font-size: .65rem; font-weight: 400; line-height: 1.2; color: var(--muted-ink); letter-spacing: .01em; }
+#exec-overview-island .theme-swatch__btn:hover .theme-swatch__name, #exec-overview-island .theme-swatch__btn:focus-visible .theme-swatch__name { opacity: 1; transform: translateY(0); }
+/* No stored choice means the palette the stylesheet ships, and the trigger says so by drawing
+   the page's own ground and accent rather than an empty ring. */
+#exec-overview-island .theme-swatch__trigger[data-theme-pick=""] .theme-swatch__disc { --a: var(--background); --b: var(--swatch-mark, var(--accent)); }
+/* The menu itself is opaque, and its own box: see the structure in apps/shared/ux-base.css. */
+#exec-overview-island .theme-swatch__menu { background: var(--surface); }
+#exec-overview-island .theme-swatch__btn[data-theme-pick="favor-cream"] .theme-swatch__disc { --a: #fef1e8; --b: #f45500; --c: #121411; }
+#exec-overview-island .theme-swatch__btn[data-theme-pick="favor-dark"] .theme-swatch__disc { --a: #070b0e; --b: #ff7a33; --c: #e2edf2; }
+#exec-overview-island .theme-swatch__btn[data-theme-pick="favor-indigo"] .theme-swatch__disc { --a: #0f111c; --b: #8796fc; --c: #f4efe6; }
+#exec-overview-island .theme-swatch__btn[data-theme-pick="favor-grow-multicolor"] .theme-swatch__disc { --a: #fbfbfd; --b: #4f3ad0; --c: #121411; }
+#exec-overview-island .theme-swatch__btn[data-theme-pick="favor-grow-multicolor"] .theme-swatch__disc { background: conic-gradient(#5b3ee0 0% 25%, #d6560b 25% 50%, #078f94 50% 75%, #c93b78 75% 100%); }
+#exec-overview-island .theme-swatch__btn[data-theme-pick="favor-leadership"] .theme-swatch__disc { --a: #edf0ef; --b: #116a60; --c: #14202a; }
+#exec-overview-island .theme-swatch__btn[data-theme-pick="favor-watershed"] .theme-swatch__disc { --a: #f6fbfd; --b: #0077a4; --c: #121411; }
+@media (prefers-reduced-motion: reduce) {
+  #exec-overview-island .theme-swatch__disc { transition: box-shadow .18s ease; }
+  #exec-overview-island .theme-swatch__btn:hover .theme-swatch__disc { transform: none; }
+  #exec-overview-island .theme-swatch__name { transform: translateY(0); }
+}
+@media print {
+  #exec-overview-island .theme-swatch { display: none; }
+}
+
+/* >>> END GENERATED THEME BLOCKS <<< */
+
+/* T4 -- the notebook card look, ported from Grow, scoped to the multicolor theme only.
+   Token names match Grow's verbatim; the page ground stays white, dots and beige live
+   on the card. Accent varies by island: Exec Overview takes a corner notch in the chapter hue.
+   Kept OUTSIDE the generated theme block above (tools/build_theme_blocks.py) so it is not
+   wiped the next time that block regenerates. */
+#exec-overview-island[data-theme="favor-grow-multicolor"] {
+  --notebook-page: #ffffff;
+  --notebook-ground: #f5e6d2;
+  --notebook-surface: #fdf6ec;
+  --notebook-rule: #dccbb5;
+  --notebook-radius: 10px;
+  --notebook-card-shadow: 0 16px 40px -12px color-mix(in srgb, var(--shadow-ink) 14%, transparent), 0 2px 6px -1px color-mix(in srgb, var(--shadow-ink) 6%, transparent);
+  --dot-ink: color-mix(in srgb, #7d6f5e 14%, transparent);
+  --dot-pitch: 18px;
+}
+#exec-overview-island[data-theme="favor-grow-multicolor"] .cw {
+  background-color: var(--notebook-surface);
+  background-image: radial-gradient(circle, var(--dot-ink) .75px, transparent .85px);
+  background-size: var(--dot-pitch) var(--dot-pitch);
+  border: 1px solid var(--notebook-rule);
+  border-radius: var(--notebook-radius);
+  box-shadow: var(--notebook-card-shadow), inset -3px 3px 0 0 var(--sp, var(--accent));
+}
+
+#exec-overview-island {
+    --background: #fef1e8;
+    --surface: #fffaf6;
+    --ink: #121411;
+    --muted-ink: #625f59;
+    --rule: rgba(18,20,17,.16);
+    --accent: #f45500;
+    --accent-deep: #c23f00;  /* the accent, dark enough to carry small text on cream: 5.06:1 on --surface, 4.73:1 on --background */
+    --secondary: #007fae;
+    --focus: #007fae;
+    --cohort-leader: #47734d;
+    --cohort-core: #ffb42a;
+    --cohort-crowd: #b3402f;
+    --cohort-new: #5b9bd5;
+    --age-kids: #ffb42a;
+    --age-youth: #f45500;
+    --age-young-adults: #007fae;
+    --age-adults: #47734d;
+    --age-mature: #6b46c1;
+    --age-seasoned: #625f59;
+    --state-healthy: #47734d;
+    --state-watch: #f45500;
+    --state-thin: #b45309;
+    --state-unknown: #c9c2bc;
+    --pale: #eaded5;
+    --sidebar-w: 320px;
+
+    /* Classic-mode token map (docs/design/classic-grammar.md §13). Set unconditionally rather
+       than under [data-mode="classic"]: the mode switch, the export rails and the copy prompt
+       are composed from these tokens in both modes. Washes are backgrounds only -- ink is never
+       coloured by state -- and one data hue carries every bar. */
+    --classic-surface: var(--surface);
+    --classic-surface-2: var(--background);
+    --classic-ink: var(--ink);
+    --classic-muted: var(--muted-ink);
+    --classic-rule: var(--rule);
+    --classic-accent: var(--accent);
+    --classic-focus: var(--focus);
+    --classic-wash-healthy: rgba(71,115,77,.12);
+    --classic-wash-watch: rgba(244,85,0,.12);
+    --classic-wash-thin: rgba(180,83,9,.12);
+    --classic-wash-neutral: rgba(98,95,89,.06);
+    --classic-wash-unknown: rgba(201,194,188,.35);
+    --classic-bar: var(--secondary);
+    --classic-heading-font: Favorvetica, Arial, sans-serif;
+    --classic-body-font: FavorSans, Arial, sans-serif;
+    --classic-shadow: 0 10px 28px rgba(18,20,17,.16);
+  }
+
+  /* Role-stable inversion pair. Every theme decides for itself which end of the palette is
+     light, so an inverted panel cannot be written as `background: var(--ink)` with cream
+     literals for the text inside it: under favor-dark --ink IS the light end, so that rule
+     painted cream text on a near-white panel and the hero card, the tooltips and the beta
+     chip went white-on-white the moment anyone picked a palette. These two tokens name the
+     ROLE -- "the panel that contrasts with the page", "the text that sits on it" -- so one
+     rule reads correctly in all three themes. In the light themes the inverted panel is the
+     near-black ink, as it has always been; in the two dark themes it is a lifted dark wash
+     rather than a searing white block, which is the same intent expressed for a dark page.
+     --on-gold is fixed because gold is the one hue that does not move between themes. */
+  #exec-overview-island {
+    --invert-surface: var(--ink);
+    --invert-ink: var(--background);
+    --on-gold: #121411;
+  }
+
+  /* --pale predates the theme contract and is declared once, above, where no [data-theme]
+     block can reach it -- so every --pale surface stayed cream on a dark page. --gap-wash is
+     the contract's themed equivalent. */
+  #exec-overview-island[data-theme="favor-dark"], #exec-overview-island[data-theme="favor-indigo"] {
+    --invert-surface: var(--ghost-wash);
+    --invert-ink: var(--ink);
+    --pale: var(--gap-wash);
+  }
+
+  #exec-overview-island * { box-sizing: border-box; }
+
+  #exec-overview-island {
+    margin: 0;
+    background: var(--background);
+    color: var(--ink);
+    font-family: FavorSans, Arial, sans-serif;
+    font-size: 100%;
+    line-height: 1.45;
+    padding: 0 0 3.5rem;
+    /* No overflow here: this div is embedded in Rock's page, not the document root
+       (see PR #129). overflow-x here with overflow-y left unset gets auto-computed to
+       overflow-y: auto by the browser, which turns this div into a scroll container --
+       and .filter-sidebar's position: sticky then sticks relative to THIS div instead of
+       the real page, so it never visibly sticks. Pathways' island root has no overflow
+       for the same reason. */
+  }
+
+  #exec-overview-island h1 { margin: 0; font-family: Favorvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.05; letter-spacing: -0.03em; }
+  #exec-overview-island h2 { margin: 0; font-family: Favorvetica, Arial, sans-serif; font-weight: 700; font-size: clamp(1.2rem, 2vw, 1.65rem); line-height: 1.15; letter-spacing: -0.02em; }
+  #exec-overview-island h3 { margin: 0; font-family: FavorSans, Arial, sans-serif; font-size: .82rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-ink); }
+  #exec-overview-island p { margin: 0; }
+  #exec-overview-island a { color: var(--secondary); text-decoration: none; }
+  #exec-overview-island svg { display: block; }
+
+  #exec-overview-island .shell { max-width: 96rem; margin: 0 auto; padding: 0 1.25rem; }
+
+  /* Masthead */
+  #exec-overview-island .masthead { padding: 1.5rem 0 1.2rem; border-bottom: 2px solid var(--ink); margin-bottom: 1.25rem; }
+  #exec-overview-island .masthead__top { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1.25rem; justify-content: space-between; }
+  #exec-overview-island .masthead__title { display: flex; align-items: center; gap: .75rem; }
+  #exec-overview-island .masthead__mark { flex: none; width: 2.2rem; height: 2.2rem; color: var(--accent); }
+  #exec-overview-island .title-beta { display: inline-block; font-size: .58em; letter-spacing: 0; white-space: nowrap; }
+  #exec-overview-island .masthead__meta { display: flex; flex-direction: column; gap: .2rem; }
+  #exec-overview-island .masthead__flags { display: flex; gap: .75rem; align-items: baseline; margin-top: .6rem; flex-wrap: wrap; }
+  #exec-overview-island .stamp { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-ink); }
+  #exec-overview-island .stamp strong { color: var(--ink); }
+  #exec-overview-island .status-beta { display: inline-flex; align-items: baseline; gap: .45rem; padding: .3rem .6rem; border: 1px solid var(--invert-surface); background: var(--invert-surface); color: var(--invert-ink); font-size: .72rem; letter-spacing: .04em; }
+  #exec-overview-island .status-beta strong { text-transform: uppercase; letter-spacing: .12em; }
+  #exec-overview-island .status-beta span { opacity: .82; }
+  #exec-overview-island .fixture-label { display: inline-block; padding: .3rem .6rem; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  #exec-overview-island .variant { font-size: .8rem; color: var(--muted-ink); }
+
+  /* Two-column Layout: Main Content + Sleek Collapsible Right Sidebar */
+  #exec-overview-island .dashboard-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--sidebar-w);
+    gap: 1.75rem;
+    align-items: start;
+    transition: grid-template-columns .25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  #exec-overview-island .dashboard-layout.is-collapsed {
+    grid-template-columns: minmax(0, 1fr) 0px;
+    gap: 0;
+  }
+  #exec-overview-island .main-column { min-width: 0; }
+
+  /* Collapsible Toggle Bar */
+  /* The toggle travels with the console it controls. The console is sticky, so on
+     a long page it is still there at scroll depth -- but the button that closes it
+     sat in normal flow at the top of the document, so you could open the console,
+     scroll, and then have no way to close it without scrolling back up. The bar now
+     sticks to the same --console-top the sidebar uses. It spans the full column but
+     is transparent, so only the button takes pointer events; everything else passes
+     through to the chart underneath. */
+  #exec-overview-island .sidebar-toggle-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: .75rem;
+    position: sticky;
+    top: var(--console-top, 1rem);
+    z-index: 30;
+    pointer-events: none;
+  }
+  #exec-overview-island .sidebar-toggle-bar > * { pointer-events: auto; }
+  #exec-overview-island .toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .35rem .8rem;
+    border: 2px solid var(--ink);
+    background: var(--surface);
+    color: var(--ink);
+    font-size: .8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--ink);
+    transition: background-color var(--motion-feedback) linear, border-color var(--motion-feedback) linear, color var(--motion-feedback) linear, box-shadow var(--motion-feedback) linear, transform var(--motion-feedback) var(--motion-ease);
+    user-select: none;
+  }
+  #exec-overview-island .toggle-btn:hover { background: var(--hover-wash); }
+  #exec-overview-island .toggle-btn .arrow { font-size: .75rem; transition: transform .2s ease; }
+  /* Keyed off the island root, not off .is-collapsed. The toggle bar is a SIBLING of
+     .dashboard-layout, which is the element that carries .is-collapsed -- so a
+     descendant selector on that class never matched and the mark never turned. The
+     runtime already writes data-console on the root for the mobile bottom sheet, and
+     the root is an ancestor of both, so one attribute drives both breakpoints.
+     Closed points left, at the console it will pull open; open points right, back at
+     the edge it folds into. All three islands now read the same way. */
+  #exec-overview-island[data-console="closed"] .toggle-btn .arrow { transform: rotate(180deg); }
+
+  /* Sleek Sticky Filter Sidebar */
+  #exec-overview-island .filter-sidebar {
+    /* --console-top is measured at runtime: it clears Rock's fixed nav in
+       production and falls back to a plain 1rem inset in the workbench. */
+    /* Clears the sticky toggle bar above it -- see .sidebar-toggle-bar. */
+    position: sticky;
+    top: calc(var(--console-top, 1rem) + 2.3rem);
+    background: var(--surface);
+    border: 2px solid var(--ink);
+    padding: 1.1rem 1.15rem;
+    box-shadow: 4px 4px 0 var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  #exec-overview-island .is-collapsed .filter-sidebar {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(20px);
+    display: none;
+  }
+
+  /* Back button inside console head (mobile bottom sheet) */
+  #exec-overview-island .sidebar-back-btn {
+    display: none;
+    align-items: center;
+    gap: .35rem;
+    background: transparent;
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    font-family: inherit;
+    font-size: .8rem;
+    font-weight: 700;
+    padding: .35rem .7rem;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 4px;
+    min-height: 44px;
+  }
+  #exec-overview-island .sidebar-back-btn:hover, #exec-overview-island .sidebar-back-btn:focus-visible {
+    background: var(--hover-wash);
+    border-color: var(--ink);
+  }
+  #exec-overview-island .filter-backdrop {
+    display: none;
+  }
+
+  /* Mode switch (Classic mode, #215/#217). The control itself is composed by the Classic block
+     pasted at the end of this stylesheet (grammar §5): full width of the console, 44px
+     segments, muted on the well when unpressed and ink-filled when pressed. Only its seat in
+     the console is the island's business, so only the seat is set here. */
+  #exec-overview-island #filter-sidebar > .mode-switch { margin-bottom: .5rem; } /* + the console's 1rem gap = 24px, matching the room under the Filters head */
+
+  /* Flipping Creative/Classic re-renders the same DOM in place (D1: a second renderer
+     over the same slice, not a route change). The Classic block already gives the arriving
+     .cw widgets the one authored moment (grammar §14: opacity 0 / 4px down while the root
+     carries is-mode-switching, easing in when it drops); the Creative chapters get the same
+     treatment for the return trip, so both directions read as one state change and nothing
+     else -- no dim on the root, no transform on an ancestor of the sticky console.
+     prefers-reduced-motion is honored twice over: the runtime never adds the class under
+     reduced motion, and the rule collapses to an instant swap if it ever were.
+
+     is-mode-switching lands on the island ROOT, which is this scope, so the class has to be
+     compounded onto the scope rather than sought below it -- `#exec-overview-island
+     .is-mode-switching .chapter` asks for a descendant carrying the class and matches
+     nothing, which is how the Creative chapters shipped without their half of the moment. */
+  #exec-overview-island .chapter { transition: opacity 180ms cubic-bezier(.2, .7, .2, 1), transform 180ms cubic-bezier(.2, .7, .2, 1); }
+  #exec-overview-island.is-mode-switching .chapter { opacity: 0; transform: translateY(4px); }
+  @media (prefers-reduced-motion: reduce) {
+    #exec-overview-island .chapter { transition: none; }
+    #exec-overview-island.is-mode-switching .chapter { opacity: 1; transform: none; }
+  }
+
+  #exec-overview-island .sidebar-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: .5rem;
+  }
+  #exec-overview-island .sidebar-head h2 { font-size: 1.1rem; }
+  #exec-overview-island .reset-btn {
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--accent);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  #exec-overview-island .reset-btn:hover { text-decoration: underline; }
+
+  /* Form & Fieldsets */
+  #exec-overview-island .filter-form { display: flex; flex-direction: column; gap: 1rem; }
+  #exec-overview-island .filter-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+  }
+  #exec-overview-island .filter-legend {
+    font-size: .74rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted-ink);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: .2rem;
+  }
+  #exec-overview-island .filter-legend .sub { font-weight: 600; color: var(--muted-ink); font-size: .7rem; }
+
+  /* 1. Sleek Campus Acronym Row (No Bars) */
+  #exec-overview-island .campus-acronym-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+  #exec-overview-island .acronym-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 0;
+    border: 1px solid var(--rule);
+    background: var(--background);
+    color: var(--ink);
+    font-size: .84rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    cursor: pointer;
+    transition: background-color var(--motion-feedback) linear, border-color var(--motion-feedback) linear, color var(--motion-feedback) linear, box-shadow var(--motion-feedback) linear, transform var(--motion-feedback) var(--motion-ease);
+    user-select: none;
+  }
+  #exec-overview-island .acronym-btn:hover { border-color: var(--ink); background: var(--hover-wash); }
+  #exec-overview-island .acronym-btn[aria-pressed="true"], #exec-overview-island .acronym-btn.is-active {
+    border: 2px solid var(--ink);
+    background: var(--surface);
+    color: var(--accent);
+    box-shadow: 2px 2px 0 var(--ink);
+    font-weight: 800;
+  }
+
+  /* 2. Sleek Gender Pill Row with In-Button Micro Meters */
+  #exec-overview-island .gender-pill-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  #exec-overview-island .gender-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 6px 4px;
+    border: 1px solid var(--rule);
+    background: var(--background);
+    color: var(--ink);
+    font-size: .78rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color var(--motion-feedback) linear, border-color var(--motion-feedback) linear, color var(--motion-feedback) linear, box-shadow var(--motion-feedback) linear, transform var(--motion-feedback) var(--motion-ease);
+    user-select: none;
+    text-align: center;
+  }
+  #exec-overview-island .gender-btn:hover { border-color: var(--ink); background: var(--hover-wash); }
+  #exec-overview-island .gender-btn[aria-pressed="true"], #exec-overview-island .gender-btn.is-active {
+    border: 2px solid var(--ink);
+    background: var(--surface);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  #exec-overview-island .gender-btn-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: .74rem;
+  }
+  #exec-overview-island .btn-meter {
+    height: 3px;
+    width: 100%;
+    background: var(--pale);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+  #exec-overview-island .btn-meter-fill {
+    height: 100%;
+    border-radius: 1px;
+
+  }
+
+  /* 3. Sleek Ratio Table */
+  #exec-overview-island .ratio-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .75rem;
+    margin-top: .15rem;
+  }
+  #exec-overview-island .ratio-table th {
+    font-size: .66rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted-ink);
+    border-bottom: 1px solid var(--ink);
+    padding: .25rem .3rem;
+    text-align: right;
+  }
+  #exec-overview-island .ratio-table th:first-child { text-align: left; }
+  #exec-overview-island .ratio-table td {
+    padding: .24rem .3rem;
+    border-bottom: 1px solid var(--rule);
+    text-align: right;
+    cursor: pointer;
+    font-variant-numeric: tabular-nums;
+  }
+  #exec-overview-island .ratio-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    white-space: nowrap;
+  }
+  #exec-overview-island .ratio-table tr:hover td { background: var(--hover-wash); }
+  #exec-overview-island .ratio-table tr.is-selected td {
+    background: var(--selected-wash);
+    font-weight: 700;
+    border-color: var(--ink);
+  }
+  #exec-overview-island .swatch-dot { width: .55rem; height: .55rem; display: inline-block; border-radius: 1px; flex: none; }
+  #exec-overview-island .ratio-idx { font-family: FavorHelvetica, Arial, sans-serif; font-size: .72rem; font-weight: 700; }
+  #exec-overview-island .ratio-idx.over { color: var(--accent); }
+  #exec-overview-island .ratio-idx.under { color: var(--secondary); }
+
+  /* 4. Compact Chapter Jump Strip */
+  #exec-overview-island .chapter-jump-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .4rem;
+    padding-top: .6rem;
+    border-top: 1px solid var(--rule);
+    font-size: .74rem;
+  }
+  #exec-overview-island .jump-title { font-weight: 800; text-transform: uppercase; color: var(--muted-ink); font-size: .68rem; letter-spacing: .06em; }
+  #exec-overview-island .jump-chip {
+    padding: .22rem .45rem;
+    border: 1px solid var(--rule);
+    background: var(--background);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: .72rem;
+  }
+  #exec-overview-island .jump-chip:hover { border-color: var(--ink); background: var(--hover-wash); }
+
+  /* Chapters */
+  #exec-overview-island .chapter { padding: 1.25rem 0 2rem; }
+  #exec-overview-island .chapter__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 1rem; justify-content: space-between; border-bottom: 2px solid var(--ink); padding-bottom: .5rem; margin-bottom: 1.15rem; }
+  #exec-overview-island .chapter__title-group { display: flex; align-items: baseline; gap: .75rem; }
+  #exec-overview-island .chapter__no { font-family: Favorvetica, Arial, sans-serif; font-size: 2rem; color: var(--accent); line-height: .9; }
+  #exec-overview-island .chapter__meta { font-size: .82rem; color: var(--muted-ink); }
+  #exec-overview-island .chapter__what { max-width: 68ch; color: var(--muted-ink); font-size: .92rem; margin-bottom: 1.15rem; }
+
+  /* Chapter 1: Pulse Grid */
+  #exec-overview-island .pulse-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--ink); border: 2px solid var(--ink); }
+  #exec-overview-island .pulse-card { background: var(--surface); padding: 1.15rem; display: flex; flex-direction: column; justify-content: space-between; min-height: 175px; }
+  #exec-overview-island .pulse-card.hero-card { grid-column: span 2; background: var(--invert-surface); color: var(--invert-ink); }
+  #exec-overview-island .pulse-card.hero-card h3 { color: color-mix(in srgb, var(--invert-ink) 70%, transparent); }
+  #exec-overview-island .pulse-card__head { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; }
+  #exec-overview-island .state-badge { font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: .15rem .45rem; border: 1px solid var(--rule); }
+  #exec-overview-island .state-badge.watch { background: rgba(244,85,0,0.12); color: var(--accent); border-color: var(--accent); }
+  #exec-overview-island .state-badge.healthy { background: rgba(71,115,77,0.12); color: var(--state-healthy); border-color: var(--state-healthy); }
+  #exec-overview-island .state-badge.unavail { background: rgba(98,95,89,0.14); color: var(--muted-ink); border-color: var(--muted-ink); }
+  #exec-overview-island .hero-card .state-badge.watch { background: var(--brand-gold); color: var(--on-gold); border-color: var(--brand-gold); }
+
+  #exec-overview-island .pulse-card__body { margin: 1rem 0 .35rem; }
+  #exec-overview-island .pulse-kpi { font-family: Favorvetica, Arial, sans-serif; font-size: clamp(2.2rem, 3.5vw, 3.6rem); line-height: .9; }
+
+  /* Pulse Mini Combo Bar */
+  #exec-overview-island .pulse-combo-bar { display: flex; flex-direction: column; gap: .35rem; margin-top: .75rem; }
+  #exec-overview-island .pulse-track { height: 8px; background: var(--pale); position: relative; overflow: hidden; }
+  #exec-overview-island .hero-card .pulse-track { background: color-mix(in srgb, var(--invert-ink) 20%, transparent); }
+  #exec-overview-island .pulse-fill { height: 100%; background: var(--accent); }
+  #exec-overview-island .pulse-fill.healthy { background: var(--state-healthy); }
+  #exec-overview-island .hero-card .pulse-fill { background: var(--brand-gold); }
+  #exec-overview-island .pulse-card__foot { font-size: .8rem; color: var(--muted-ink); margin-top: .35rem; }
+  #exec-overview-island .hero-card .pulse-card__foot { color: color-mix(in srgb, var(--invert-ink) 75%, transparent); }
+
+  /* Chapter 2: Demographics Mega Atlas */
+  #exec-overview-island .atlas-hero { border: 2px solid var(--ink); background: var(--surface); padding: 1.25rem 1.4rem; margin-bottom: 1.15rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem; }
+  #exec-overview-island .atlas-hero__kpi { font-family: Favorvetica, Arial, sans-serif; font-size: clamp(3rem, 6vw, 5.2rem); line-height: .85; }
+  #exec-overview-island .atlas-hero__desc { max-width: 52ch; font-size: .9rem; color: var(--muted-ink); }
+  #exec-overview-island .atlas-hero__desc strong { color: var(--ink); }
+
+  /* Combo Chart Cards */
+  #exec-overview-island .combo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.15rem; }
+  #exec-overview-island .combo-card { border: 2px solid var(--ink); background: var(--surface); padding: 1.25rem; display: flex; flex-direction: column; justify-content: space-between; }
+  #exec-overview-island .combo-card__head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--rule); padding-bottom: .6rem; margin-bottom: 1rem; }
+  #exec-overview-island .combo-card__head h2 { font-size: 1.15rem; }
+  #exec-overview-island .combo-card__source { font-size: .74rem; color: var(--muted-ink); letter-spacing: .06em; text-transform: uppercase; font-weight: 700; }
+
+  /* Quiet active-filter tags: a small neutral pill per selection, reusing the
+     state-badge vocabulary instead of a bordered alert banner. Age and gender
+     are multi-select, so a full-sentence callout does not scale past one pick. */
+  #exec-overview-island .filter-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .6rem; }
+  #exec-overview-island .filter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    padding: .12rem .3rem .12rem .45rem;
+    border: 1px solid var(--rule);
+    background: var(--pale);
+    color: var(--muted-ink);
+    font-size: .66rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+  #exec-overview-island .filter-tag__remove {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    color: var(--muted-ink);
+    font-size: .8rem;
+    cursor: pointer;
+  }
+  #exec-overview-island .filter-tag__remove:hover, #exec-overview-island .filter-tag__remove:focus-visible { color: var(--accent); }
+
+  /* Combo Layout: Donut on Left, Benchmarks/Bars on Right */
+  #exec-overview-island .combo-stage { display: grid; grid-template-columns: 165px minmax(0, 1fr); gap: 1.25rem; align-items: center; }
+  #exec-overview-island .donut-box { position: relative; width: 165px; height: 165px; margin: 0 auto; flex: none; }
+  #exec-overview-island .donut-svg { width: 100%; height: 100%; transform: rotate(-90deg); overflow: visible; }
+  #exec-overview-island .donut-circle { fill: none; stroke-width: 24; transition: stroke-dasharray .35s ease, stroke-dashoffset .35s ease, stroke-width .18s ease-out, filter .18s ease-out; }
+  #exec-overview-island .donut-circle:not(.donut-track):hover { stroke-width: 28; filter: drop-shadow(0 2px 5px rgba(18, 20, 17, 0.18)); }
+  #exec-overview-island .donut-track { stroke: var(--pale); }
+  #exec-overview-island .donut-center-label { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; pointer-events: none; }
+  #exec-overview-island .donut-center-total { font-family: Favorvetica, Arial, sans-serif; font-size: 1.4rem; line-height: 1; }
+  #exec-overview-island .donut-center-unit { font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-ink); font-weight: 700; margin-top: 2px; }
+
+  /* Combo Bar List & Benchmarks with Hover Animations */
+  #exec-overview-island .combo-bars { display: flex; flex-direction: column; gap: .55rem; width: 100%; }
+  #exec-overview-island .combo-row { display: grid; grid-template-columns: minmax(75px, auto) 1fr 42px 36px 14px; gap: .45rem; align-items: center; font-size: .82rem; padding: .25rem .45rem; border-radius: 3px; color: inherit; text-decoration: none; cursor: pointer; transition: background-color .15s ease-out, transform .15s ease-out, box-shadow .15s ease-out; }
+  #exec-overview-island .combo-row.is-unlinked { grid-template-columns: minmax(75px, auto) 1fr 42px 36px; cursor: default; }
+  #exec-overview-island .combo-row:not(.is-unlinked):hover { background: var(--hover-wash); transform: translateX(3px); box-shadow: 0 1px 4px rgba(18, 20, 17, 0.08); }
+  #exec-overview-island .combo-row:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  #exec-overview-island .combo-row__name { font-weight: 700; display: flex; align-items: center; gap: .35rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #exec-overview-island .combo-row__swatch { width: .7rem; height: .7rem; flex: none; border: 1px solid var(--rule); display: inline-block; transition: transform .15s ease-out; }
+  #exec-overview-island .combo-row__track { height: 14px; background: var(--pale); position: relative; overflow: hidden; border-radius: 1px; }
+  #exec-overview-island .combo-row__fill { height: 100%; display: block; transition: width .25s ease-out; }
+  #exec-overview-island .combo-row__count { font-size: .78rem; color: var(--muted-ink); text-align: right; }
+  #exec-overview-island .combo-row__pct { font-family: Favorvetica, Arial, sans-serif; font-size: 1rem; text-align: right; line-height: 1; }
+  #exec-overview-island .combo-row__arrow { color: var(--accent); font-family: FavorSans, Arial, sans-serif; font-weight: 700; font-size: .75rem; line-height: 1; opacity: 0; transform: translateX(-3px); transition: opacity .15s ease-out, transform .15s ease-out; }
+  #exec-overview-island .combo-row:hover .combo-row__arrow, #exec-overview-island .combo-row:focus-visible .combo-row__arrow { opacity: 1; transform: translateX(0); }
+  #exec-overview-island .combo-row.unknown { opacity: .75; }
+
+  /* Connection Status Semantic Indicators & Hover Effects */
+  #exec-overview-island .semantic-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-left: .25rem; flex: none; transition: transform .18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .18s ease-out; }
+  #exec-overview-island .semantic-dot.semantic--healthy { background: var(--state-healthy); box-shadow: 0 0 0 1.5px rgba(71, 115, 77, 0.35); }
+  #exec-overview-island .semantic-dot.semantic--watch { background: #ffb42a; box-shadow: 0 0 0 1.5px rgba(255, 180, 42, 0.45); }
+  #exec-overview-island .semantic-dot.semantic--attention { background: var(--accent); box-shadow: 0 0 0 1.5px rgba(194, 63, 0, 0.4); }
+  #exec-overview-island .combo-row:hover .semantic-dot { transform: scale(1.45); }
+  #exec-overview-island .combo-row:hover .combo-row__swatch { transform: scale(1.2); }
+
+  #exec-overview-island .combo-card__foot { border-top: 1px solid var(--rule); margin-top: 1rem; padding-top: .6rem; font-size: .78rem; color: var(--muted-ink); display: flex; justify-content: space-between; align-items: baseline; }
+
+  /* Chapter 3: Go Deeper Directory */
+  #exec-overview-island .dir-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--ink); border: 2px solid var(--ink); }
+  #exec-overview-island .dir-card { background: var(--surface); padding: 1.15rem 1.35rem; display: flex; justify-content: space-between; align-items: center; text-decoration: none; color: inherit; transition: background .15s; }
+  #exec-overview-island .dir-card:hover { background: var(--hover-wash); }
+  #exec-overview-island .dir-card h3 { font-size: 1.1rem; color: var(--ink); text-transform: none; letter-spacing: normal; font-family: Favorvetica, Arial, sans-serif; }
+  #exec-overview-island .dir-card p { font-size: .82rem; color: var(--muted-ink); margin-top: .2rem; }
+  #exec-overview-island .dir-arrow { font-family: Favorvetica, Arial, sans-serif; font-size: 1.8rem; color: var(--accent); line-height: 1; }
+
+  /* Footer */
+  #exec-overview-island .footer { border-top: 2px solid var(--ink); margin-top: 2.75rem; padding: 1.25rem 0; font-size: .8rem; color: var(--muted-ink); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+
+  @media(max-width: 768px) {
+    #exec-overview-island {
+      overflow-x: clip;
+      max-width: 100vw;
+      --console-h: min(38vh, 320px);
+    }
+
+    /* The fixed bottom sheet is outside grid flow. Keep its former desktop track out of
+       the layout too, or opening it reserves the 320px console column and squeezes the board. */
+    #exec-overview-island .dashboard-layout,
+    #exec-overview-island .dashboard-layout.is-collapsed {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+    }
+
+    /* ---- the bottom edge: one object, in two parts ----
+       The handle docks to the sheet's top edge when open and to the viewport's
+       bottom edge when closed. Full width, 48px, one hairline on top. */
+    #exec-overview-island .sidebar-toggle-bar {
+      position: fixed;
+      top: auto;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 991;
+      margin: 0;
+      padding: .5rem 1rem max(.5rem, env(safe-area-inset-bottom, .5rem));
+      background: var(--panel-2, var(--surface));
+      border-top: 1px solid var(--rule);
+      pointer-events: auto;
+    }
+    #exec-overview-island[data-console="open"] .sidebar-toggle-bar {
+      bottom: var(--console-h);
+      padding-bottom: .5rem;
+    }
+    #exec-overview-island .toggle-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      width: 100%;
+      min-height: 48px;
+      padding: 0 .5rem;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      font-size: .8rem;
+      color: var(--ink);
+    }
+    /* The closed selector is spelled out at the same weight the desktop rule uses. A media
+       query adds no specificity, so the bare selectors on their own would lose to it and the
+       sheet's handle would point sideways-wrong. `.is-collapsed .toggle-btn` used to be in
+       this list; it was dead, because .is-collapsed sits on .dashboard-layout and the toggle
+       bar is its sibling. */
+    #exec-overview-island .toggle-btn .chevron,
+    #exec-overview-island .toggle-btn .arrow,
+    #exec-overview-island[data-console="closed"] .toggle-btn .chevron,
+    #exec-overview-island[data-console="closed"] .toggle-btn .arrow {
+      transform: rotate(-90deg);
+    }
+    #exec-overview-island[data-console="open"] .toggle-btn .chevron,
+    #exec-overview-island[data-console="open"] .toggle-btn .arrow {
+      transform: rotate(90deg);
+    }
+
+    /* Bottom sheet filter console: docked firmly at the bottom */
+    #exec-overview-island .filter-sidebar {
+      position: fixed;
+      top: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: var(--console-h);
+      max-height: min(40vh, 340px);
+      min-height: 200px;
+      margin: 0;
+      order: initial;
+      z-index: 990;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      border: 2px solid var(--ink);
+      border-bottom: none;
+      box-shadow: 0 -4px 20px rgba(18, 20, 17, .25);
+      padding: .85rem 1rem max(1rem, env(safe-area-inset-bottom, 1rem));
+      transform: translateY(0);
+    }
+    #exec-overview-island .dashboard-layout.is-collapsed .filter-sidebar,
+    #exec-overview-island .is-collapsed .filter-sidebar {
+      display: none;
+      transform: translateY(100%);
+    }
+
+    /* Back button inside header */
+    #exec-overview-island .sidebar-back-btn {
+      display: inline-flex;
+    }
+
+    /* Touch outside backdrop: NO BLUR, transparent so graphs are fully visible for real-time comparison */
+    #exec-overview-island .filter-backdrop {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      z-index: 980;
+      opacity: 0;
+      pointer-events: none;
+    }
+    #exec-overview-island .dashboard-layout:not(.is-collapsed) ~ .filter-backdrop,
+    #exec-overview-island .filter-backdrop.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* The shared markup rail clears the handle */
+    #exec-overview-island .mk-rail {
+      bottom: calc(48px + .75rem);
+    }
+
+    /* ---- the palette, as the console's last row ---- */
+    #exec-overview-island .palette-slot {
+      margin-top: .75rem;
+      padding-top: .6rem;
+      border-top: 1px solid var(--rule);
+    }
+    #exec-overview-island .theme-swatch {
+      position: static;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      gap: .25rem;
+      background: transparent;
+      border: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      box-shadow: none;
+      opacity: 1;
+    }
+    #exec-overview-island .theme-swatch__btn {
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+    }
+
+    /* ---- 44px touch target floor ---- */
+    #exec-overview-island .reset-btn {
+      min-height: 44px;
+      padding: 0 .5rem;
+      display: inline-flex;
+      align-items: center;
+    }
+    #exec-overview-island .acronym-btn {
+      min-height: 44px;
+    }
+    #exec-overview-island .gender-btn {
+      min-height: 44px;
+      justify-content: center;
+    }
+    #exec-overview-island .jump-chip {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #exec-overview-island .ratio-table td {
+      padding: .85rem .3rem;
+    }
+    #exec-overview-island .info-tip {
+      min-width: 44px;
+      min-height: 44px;
+    }
+    #exec-overview-island .copy-prompt-btn,
+    #exec-overview-island .masthead__tools .copy-prompt-btn {
+      min-height: 44px;
+    }
+  }
+  @media(max-width: 820px) {
+    #exec-overview-island .pulse-grid { grid-template-columns: 1fr; }
+    #exec-overview-island .pulse-card.hero-card { grid-column: span 1; }
+    #exec-overview-island .combo-grid { grid-template-columns: 1fr; }
+    #exec-overview-island .combo-stage { grid-template-columns: 1fr; justify-items: center; gap: 1rem; }
+    #exec-overview-island .combo-bars { width: 100%; }
+    #exec-overview-island .dir-grid { grid-template-columns: 1fr; }
+  }
+
+#exec-overview-island .skeleton-value {display:inline-block;min-width:5rem;color:var(--muted-ink)!important;background:repeating-linear-gradient(-45deg,var(--pale),var(--pale) 6px,var(--surface) 6px,var(--surface) 12px);border-radius:.2rem}#exec-overview-island .ratio-table tbody tr {cursor:pointer}#exec-overview-island .pulse-card .state-badge.unavail {background:var(--pale);color:var(--muted-ink);border-color:var(--rule)}
+#exec-overview-island .metric-actions {display:flex;align-items:center;gap:.4rem}#exec-overview-island .info-tip {position:relative;display:inline-grid;place-items:center;width:2.5rem;height:2.5rem;padding:0;border:1px solid var(--rule);border-radius:50%;background:transparent;color:var(--muted-ink);font:700 .78rem/1 FavorSans,Arial,sans-serif;cursor:help}#exec-overview-island .info-tip:hover, #exec-overview-island .info-tip:focus-visible {border-color:var(--secondary);color:var(--secondary);outline:2px solid transparent}/* One shared bubble, positioned fixed by the runtime.
+   The previous tooltip was an ::after inside the card, so any ancestor that scrolls or
+   clips -- the filter sidebar most visibly -- cut it in half, and no z-index fixes that,
+   because clipping happens before stacking is considered. A fixed-position element escapes
+   every ancestor's overflow, leaving only which side of the trigger it should open on. */
+#exec-overview-island .tip-bubble {position:fixed;z-index:2147483000;top:0;left:0;max-width:16rem;padding:.5rem .6rem;border:1px solid var(--invert-surface);background:var(--invert-surface);color:var(--invert-ink);font:.72rem/1.4 FavorSans,Arial,sans-serif;font-weight:400;letter-spacing:normal;text-transform:none;text-align:left;pointer-events:none;opacity:0;visibility:hidden;transform:translateY(-.2rem);transition:opacity .12s ease,transform .12s ease,visibility .12s;box-shadow:2px 2px 0 rgba(18,20,17,.25)}
+#exec-overview-island .tip-bubble[data-open="true"] {opacity:1;visibility:visible;transform:translateY(0)}#exec-overview-island .hero-card .info-tip {border-color:color-mix(in srgb, var(--invert-ink) 45%, transparent);color:var(--invert-ink)}#exec-overview-island .tip-bubble[data-tone="hero"] {background:var(--invert-ink);color:var(--invert-surface);border-color:var(--invert-surface)}
+#exec-overview-island .pulse-card__foot {display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.45rem 1rem}#exec-overview-island .pulse-cta {font-weight:700;color:var(--secondary);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em;white-space:nowrap}#exec-overview-island .pulse-cta:hover, #exec-overview-island .pulse-cta:focus-visible {color:var(--accent)}#exec-overview-island .hero-card .pulse-cta {color:var(--invert-ink)}
+#exec-overview-island .dir-status {display:inline-block;margin-bottom:.4rem;font-size:.67rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted-ink)}#exec-overview-island .dir-status--live {color:var(--state-healthy)}#exec-overview-island .dir-status--progress {color:var(--state-watch)}#exec-overview-island .dir-card.is-planned {background:var(--pale);color:var(--muted-ink);cursor:not-allowed;opacity:.72}#exec-overview-island .dir-card.is-planned:hover {background:var(--pale)}#exec-overview-island .dir-card.is-planned h3, #exec-overview-island .dir-card.is-planned p {color:var(--muted-ink)}
+#exec-overview-island a:focus-visible, #exec-overview-island button:focus-visible, #exec-overview-island [tabindex]:focus-visible {outline:3px solid var(--focus);outline-offset:3px}@media(max-width:680px){#exec-overview-island .pulse-card__head {align-items:flex-start}#exec-overview-island .pulse-card__foot {align-items:flex-start;flex-direction:column}#exec-overview-island .pulse-cta {white-space:normal}}
+
+/* ============================================================================================
+   BEGIN merged Classic block.
+   Source: apps/shared/classic-base.css (canonical; never edit the copy below by hand).
+   Refreshed: 2026-09-05, per docs/design/classic-grammar.md §19 -- the whole block is now the
+   verbatim output of tools/scope_island_css.py over classic-base.css under this island's scope,
+   with no hand edits at all. The `print` section comment sits outside its @media block, where
+   the prefixing pass puts it; the confinement test reads at-rules from the parsed rule preludes
+   and does not depend on where that comment sits. To refresh: re-run the prefixing pass, paste
+   the output between these two delimiters, and rebuild the block with
+   tools/build_exec_overview_block.py. Keep it contiguous.
+   ============================================================================================ */
+
+/* ==========================================================================
+   Classic mode -- token-agnostic composition block (#214).
+   Spec: docs/design/classic-grammar.md. Builders: apps/shared/classic-widgets.mjs.
+
+   Each island merges this block into its own stylesheet under its own scope
+   prefix (#exec-overview-island / .pathways / #connect-field). Every selector
+   here starts with "." "[" or "#" so a prefixing pass can wrap it verbatim;
+   there is no :root, no bare element, no *, and no @keyframes.
+
+   An island sets these on its root (under [data-mode="classic"] or always):
+     --classic-surface        widget / tile ground
+     --classic-surface-2      table head band, hover band, bar track, switch well
+     --classic-ink            all text, all numerals
+     --classic-muted          labels, units, captions, deltas, the (i) glyph
+     --classic-rule           hairlines
+     --classic-accent         open (i), copied state, current-mode rule
+     --classic-focus          the focus ring
+     --classic-wash-healthy | -watch | -thin | -neutral | -unknown   backgrounds only
+     --classic-bar            inline bars and sparklines (one data hue, never state)
+     --classic-heading-font   widget titles
+     --classic-body-font      everything else
+   Optional: --classic-shadow (popover shadow), --classic-num-font (defaults to Arial).
+
+   Every color below is a bare var(--classic-*) with NO fallback. It used to carry a
+   var(--classic-x, var(--y, #creamHex)) chain ending in a literal, on the theory that a
+   widget should render sanely before an island had mapped a value. Under a theme switch
+   that theory inverts: a broken chain no longer degrades, it paints cream into a dark
+   theme and looks like a rendering bug rather than a missing token. Every island now
+   receives the whole map from its generated theme blocks
+   (tools/build_theme_blocks.py), in all three themes, so there is nothing left to fall
+   back to and an unmapped token must fail visibly instead of quietly.
+   ========================================================================== */
+
+/* ---------- layout ---------- */
+#exec-overview-island .classic-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; align-items: start; }
+#exec-overview-island .classic-grid > .kpi-strip, #exec-overview-island .classic-grid > .cw { grid-column: 1 / -1; min-width: 0; }
+@media (min-width: 48rem) {
+  #exec-overview-island .classic-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.1rem; }
+  #exec-overview-island .classic-grid > .cw--half { grid-column: span 6; }
+  #exec-overview-island .classic-grid > .cw--expanded { grid-column: 1 / -1; }
+}
+
+/* ---------- widget (cw) ---------- */
+#exec-overview-island .cw { display: flex; flex-direction: column; min-width: 0; background: var(--classic-surface); border: 1px solid var(--classic-rule); color: var(--classic-ink); font-family: var(--classic-body-font); }
+#exec-overview-island .cw__head { display: flex; flex-wrap: wrap; align-items: flex-start; gap: .5rem .9rem; padding: .8rem .9rem .6rem; border-bottom: 1px solid var(--classic-rule); }
+#exec-overview-island .cw__lead { flex: 1 1 20rem; min-width: 0; display: flex; flex-direction: column; gap: .15rem; }
+#exec-overview-island .cw__titlerow { display: flex; align-items: center; gap: .3rem; min-width: 0; }
+#exec-overview-island .cw__title { margin: 0; font-family: var(--classic-heading-font); font-size: 1.05rem; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; text-transform: none; color: var(--classic-ink); text-wrap: balance; }
+#exec-overview-island .cw__question { margin: 0; font-size: .84rem; line-height: 1.4; color: var(--classic-muted); }
+#exec-overview-island .cw__info { margin-left: .1rem; }
+#exec-overview-island .cw__tools { display: flex; align-items: center; gap: .4rem; margin-left: auto; flex: none; }
+#exec-overview-island .cw__rail { display: flex; align-items: center; }
+#exec-overview-island .cw__expand { position: relative; display: inline-grid; place-items: center; width: 2rem; height: 2rem; padding: 0; border: 1px solid var(--classic-rule); background: transparent; color: var(--classic-muted); cursor: pointer; }
+#exec-overview-island .cw__expand::after { content: ""; position: absolute; inset: -.4rem; }
+#exec-overview-island .cw__expand svg { width: 14px; height: 14px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+#exec-overview-island .cw__expand:hover { color: var(--classic-ink); border-color: var(--classic-ink); }
+#exec-overview-island .cw__expand[aria-pressed="true"] { background: var(--classic-ink); color: var(--classic-surface); border-color: var(--classic-ink); }
+/* No padding at the top of the scroll container. The scrollport is the padding box, so a
+   top inset here leaves a band the sticky <thead> cannot cover and rows slide visibly
+   through it; the head rule and the cells' own padding carry the breathing room instead. */
+#exec-overview-island .cw__body { position: relative; padding: 0 .9rem .8rem; overflow: auto; max-height: 28rem; min-width: 0; }
+#exec-overview-island .cw--expanded .cw__body { max-height: none; }
+/* A body showing readings rather than a table has nothing to scroll, and capping it clips
+   the (i) popovers its tiles open. Any table in the body means the cap is doing real work. */
+#exec-overview-island .cw__body:has(.kpi-strip):not(:has(.ct)) { overflow: visible; max-height: none; }
+#exec-overview-island .cw__aid { display: flex; align-items: flex-start; justify-content: center; padding: .5rem 0; min-width: 0; }
+#exec-overview-island .cw__aid svg { display: block; max-width: 100%; height: auto; }
+#exec-overview-island .cw__aid:empty { display: none; }
+#exec-overview-island .cw__note { margin: 0; padding: .55rem .9rem .7rem; border-top: 1px solid var(--classic-rule); font-size: .82rem; line-height: 1.45; color: var(--classic-ink); }
+#exec-overview-island .cw__note strong { font-weight: 700; }
+/* Beside the table only where the widget's own column can hold both. A half-width widget
+   has room for one or the other, so its aid stays under the table until the widget is
+   expanded back to full width. Below that the body is a plain block and the aid follows
+   the table because it follows it in the DOM (classic-widgets.mjs keeps it last). */
+@media (min-width: 64rem) {
+  #exec-overview-island .cw--has-aid:not(.cw--half) .cw__body, #exec-overview-island .cw--has-aid.cw--half.cw--expanded .cw__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, 18rem); gap: 1rem; align-items: start; }
+  #exec-overview-island .cw--has-aid:not(.cw--half) .cw__aid, #exec-overview-island .cw--has-aid.cw--half.cw--expanded .cw__aid { grid-column: 2; grid-row: 1; position: sticky; top: 0; }
+}
+
+/* ---------- unavailable (a refusal is never a zero) ---------- */
+#exec-overview-island .cw__unavail { display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; margin: .45rem 0 .2rem; padding: 1rem 1rem 1.05rem; border: 1px dashed var(--classic-muted); background: transparent; color: var(--classic-ink); }
+#exec-overview-island .cw__unavail-label { font-size: .74rem; font-weight: 700; letter-spacing: .02em; color: var(--classic-muted); }
+#exec-overview-island .cw__unavail-reason { margin: 0; font-size: .84rem; line-height: 1.5; max-width: 52ch; }
+
+/* ---------- classic table (ct) ---------- */
+#exec-overview-island .ct { width: 100%; border-collapse: collapse; border-spacing: 0; font-size: .86rem; line-height: 1.35; color: var(--classic-ink); font-family: var(--classic-body-font); }
+#exec-overview-island .ct caption { caption-side: bottom; text-align: left; padding: .5rem 0 0; font-size: .74rem; line-height: 1.45; color: var(--classic-muted); }
+#exec-overview-island .ct th, #exec-overview-island .ct td { padding: .42rem .55rem; text-align: left; vertical-align: baseline; border-bottom: 1px solid var(--classic-rule); white-space: nowrap; }
+#exec-overview-island .ct th:first-child, #exec-overview-island .ct td:first-child { padding-left: 0; white-space: normal; }
+#exec-overview-island .ct th:last-child, #exec-overview-island .ct td:last-child { padding-right: 0; }
+#exec-overview-island .ct thead th { position: sticky; top: 0; z-index: 1; font-size: .74rem; font-weight: 700; color: var(--classic-muted); background: var(--classic-surface); border-bottom: 1px solid var(--classic-ink); text-transform: none; letter-spacing: 0; }
+#exec-overview-island .ct tbody th { font-weight: 600; }
+/* Row headers stay put while a wide pivot scrolls sideways inside .cw__body. */
+#exec-overview-island .ct thead th:first-child, #exec-overview-island .ct tbody th[scope="row"] { position: sticky; left: 0; background-color: var(--classic-surface); }
+#exec-overview-island .ct thead th:first-child { z-index: 2; }
+#exec-overview-island .ct tbody tr:hover > th, #exec-overview-island .ct tbody tr:hover > td { background-color: var(--classic-surface-2); }
+#exec-overview-island .ct__num { font-family: var(--classic-num-font, Arial, sans-serif); font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+#exec-overview-island .ct td.ct__num, #exec-overview-island .ct th.ct__num { text-align: right; }
+#exec-overview-island .ct__share { color: var(--classic-muted); }
+#exec-overview-island .ct__unavail { color: var(--classic-muted); }
+#exec-overview-island .ct__group > th { padding-top: .95rem; font-size: .74rem; font-weight: 700; color: var(--classic-muted); border-bottom: 1px solid var(--classic-ink); }
+#exec-overview-island .ct tbody:first-of-type .ct__group > th { padding-top: .5rem; }
+#exec-overview-island .ct tbody tr.ct__group:hover > th { background: transparent; }
+#exec-overview-island .ct__total > th, #exec-overview-island .ct__total > td { border-top: 2px solid var(--classic-ink); border-bottom: 0; font-weight: 700; }
+#exec-overview-island .ct__total .ct__share { color: var(--classic-ink); }
+#exec-overview-island .ct__bar { width: 7.5rem; min-width: 5rem; vertical-align: middle; }
+#exec-overview-island .ct__bar-track { display: block; height: .55rem; width: 100%; background: var(--classic-surface-2); }
+#exec-overview-island .ct__bar-fill { display: block; height: 100%; max-width: 100%; background: var(--classic-bar); }
+#exec-overview-island .ct__spark { width: 8.5rem; vertical-align: middle; }
+#exec-overview-island .ct__spark svg { display: block; overflow: visible; }
+#exec-overview-island .spark__base { stroke: var(--classic-rule); stroke-width: 1; }
+#exec-overview-island .spark__line { fill: none; stroke: var(--classic-bar); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+#exec-overview-island .spark__dot { fill: var(--classic-bar); }
+/* Sorting is the primary interaction in a Classic table, and on a phone the control is the
+   column label -- about 28px tall, under the 44px a thumb needs. Every other control in this
+   grammar already carries the same invisible hit expander (.cw__expand, .info-disc > summary,
+   .xrail__btn); this one was the exception. Vertical only, so neighbouring column headers
+   keep their own horizontal edges. */
+#exec-overview-island .ct__sort { position: relative; display: inline-flex; align-items: center; gap: .25rem; min-height: 1.75rem; margin: -.3rem 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; text-align: inherit; }
+#exec-overview-island .ct__sort::after { content: ""; position: absolute; inset: -.5rem 0; }
+#exec-overview-island .ct__sort svg { width: 10px; height: 10px; fill: none; stroke: currentColor; stroke-width: 1.5; opacity: .45; }
+#exec-overview-island .ct__sort:hover { color: var(--classic-ink); }
+#exec-overview-island .ct th[aria-sort="ascending"] .ct__sort svg, #exec-overview-island .ct th[aria-sort="descending"] .ct__sort svg { opacity: 1; }
+#exec-overview-island .ct th[aria-sort="ascending"] .ct__sort-down, #exec-overview-island .ct th[aria-sort="descending"] .ct__sort-up { display: none; }
+#exec-overview-island .ct__sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ---------- quiet KPI strip ---------- */
+#exec-overview-island .kpi-strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 0; list-style: none; background: var(--classic-rule); border: 1px solid var(--classic-rule); }
+@media (min-width: 48rem) { #exec-overview-island .kpi-strip { grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); } }
+@media (max-width: 47.98rem) { #exec-overview-island .kpi-tile:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+#exec-overview-island .kpi-tile { display: flex; flex-direction: column; gap: .2rem; min-width: 0; min-height: 5.6rem; padding: .7rem .8rem .65rem; background-color: var(--classic-surface); color: var(--classic-ink); font-family: var(--classic-body-font); }
+#exec-overview-island .kpi-tile[data-state="healthy"] { background-image: linear-gradient(var(--classic-wash-healthy), var(--classic-wash-healthy)); }
+#exec-overview-island .kpi-tile[data-state="watch"] { background-image: linear-gradient(var(--classic-wash-watch), var(--classic-wash-watch)); }
+#exec-overview-island .kpi-tile[data-state="thin"] { background-image: linear-gradient(var(--classic-wash-thin), var(--classic-wash-thin)); }
+#exec-overview-island .kpi-tile[data-state="neutral"] { background-image: linear-gradient(var(--classic-wash-neutral), var(--classic-wash-neutral)); }
+#exec-overview-island .kpi-tile[data-state="unknown"] { background-image: linear-gradient(var(--classic-wash-unknown), var(--classic-wash-unknown)); }
+#exec-overview-island .kpi-tile__top { display: flex; align-items: center; justify-content: space-between; gap: .3rem; min-width: 0; }
+#exec-overview-island .kpi-tile__label { font-size: .74rem; line-height: 1.3; color: var(--classic-muted); overflow-wrap: anywhere; }
+#exec-overview-island .kpi-tile__reading { display: flex; align-items: baseline; flex-wrap: wrap; gap: .3rem; margin-top: auto; }
+#exec-overview-island .kpi-tile__value { font-family: var(--classic-num-font, Arial, sans-serif); font-size: 1.45rem; font-weight: 700; line-height: 1.1; letter-spacing: -.01em; font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; color: var(--classic-ink); }
+#exec-overview-island .kpi-tile__value.is-unavail { font-weight: 400; color: var(--classic-muted); }
+#exec-overview-island .kpi-tile__unit { font-size: .78rem; color: var(--classic-muted); }
+#exec-overview-island .kpi-tile__delta { font-size: .74rem; line-height: 1.3; font-variant-numeric: tabular-nums; color: var(--classic-muted); }
+#exec-overview-island .kpi-tile__delta:empty { display: none; }
+
+/* ---------- mode switch (contract §3 markup) ---------- */
+#exec-overview-island .mode-switch { display: inline-flex; width: 100%; gap: 2px; padding: 2px; border: 1px solid var(--classic-rule); background: var(--classic-surface-2); }
+#exec-overview-island .mode-switch__btn { flex: 1 1 0; min-height: 2.75rem; padding: 0 1rem; border: 0; background: transparent; color: var(--classic-muted); font-family: var(--classic-body-font); font-size: .82rem; font-weight: 700; letter-spacing: .01em; cursor: pointer; }
+#exec-overview-island .mode-switch__btn:hover { color: var(--classic-ink); }
+#exec-overview-island .mode-switch__btn[aria-pressed="true"] { background: var(--classic-ink); color: var(--classic-surface); cursor: default; }
+
+/* ---------- (i) disclosure ---------- */
+#exec-overview-island .info-disc { display: inline-block; position: relative; vertical-align: middle; flex: none; }
+#exec-overview-island .info-disc > summary { position: relative; list-style: none; cursor: pointer; display: inline-grid; place-items: center; width: 1.75rem; height: 1.75rem; }
+#exec-overview-island .info-disc > summary::-webkit-details-marker { display: none; }
+#exec-overview-island .info-disc > summary::after { content: ""; position: absolute; inset: -.5rem; }
+#exec-overview-island .info-disc > summary svg { width: 15px; height: 15px; display: block; }
+#exec-overview-island .info-disc > summary svg circle, #exec-overview-island .info-disc > summary svg line { fill: none; stroke: var(--classic-muted); stroke-width: 1.4; }
+#exec-overview-island .info-disc > summary svg .dotcap { fill: var(--classic-muted); stroke: none; }
+#exec-overview-island .info-disc > summary:hover svg circle, #exec-overview-island .info-disc > summary:hover svg line { stroke: var(--classic-ink); }
+#exec-overview-island .info-disc > summary:hover svg .dotcap { fill: var(--classic-ink); }
+#exec-overview-island .info-disc[open] > summary svg circle, #exec-overview-island .info-disc[open] > summary svg line { stroke: var(--classic-accent); }
+#exec-overview-island .info-disc[open] > summary svg .dotcap { fill: var(--classic-accent); }
+#exec-overview-island .info-pop { position: absolute; z-index: 40; top: calc(100% + 6px); left: -8px; width: min(28rem, calc(100vw - 3rem)); padding: .75rem .9rem; background: var(--classic-surface); border: 1px solid var(--classic-rule); color: var(--classic-ink); box-shadow: var(--classic-shadow); font-family: var(--classic-body-font); font-size: .8rem; font-weight: 400; line-height: 1.5; letter-spacing: 0; text-transform: none; text-align: left; white-space: normal; }
+#exec-overview-island .info-disc--end .info-pop { left: auto; right: -8px; }
+
+/* ---------- tooltip (mounted by dashboard-tooltip.mjs, #236/#252) ---------- */
+/* One bubble per document, positioned fixed by dashboard-tooltip.mjs's placeNear() -- fixed
+   positioning leaves every ancestor's overflow box, the same reason .info-pop above nudges
+   itself back on screen instead of relying on z-index. */
+#exec-overview-island .dashboard-tip { position: fixed; z-index: 1040; top: 0; left: 0; max-width: 18rem; padding: .6rem .75rem; background: var(--classic-surface); border: 1px solid var(--classic-rule); color: var(--classic-ink); box-shadow: var(--classic-shadow); font-family: var(--classic-body-font); font-size: .8rem; line-height: 1.45; pointer-events: none; }
+/* The closed state belongs to the shared contract, not to each island.
+   dashboard-tooltip.mjs only ever flips `data-open`; it deliberately does not touch
+   the `hidden` attribute, because `display: none` cannot be transitioned. An island
+   that never defined the closed half of that pair therefore left the bubble on screen
+   forever: hover filled it, "close" set an attribute nothing read, and the last thing
+   hovered stood there over a pointer that had moved on. That is the "tooltips are too
+   sticky, they still show when you are not hovering" report, and it was never in the
+   JavaScript. Connect Field had carried its own copy of these two rules; every other
+   island shipped the bubble permanently visible. */
+#exec-overview-island .dashboard-tip { opacity: 0; visibility: hidden; transition: opacity .12s ease, visibility .12s; }
+#exec-overview-island .dashboard-tip[data-open="true"] { opacity: 1; visibility: visible; }
+#exec-overview-island .dashboard-tip__head { display: flex; align-items: center; gap: .4rem; margin-bottom: .15rem; }
+#exec-overview-island .dashboard-tip__swatch { flex: none; width: .6rem; height: .6rem; background: currentColor; }
+#exec-overview-island .dashboard-tip__label { font-weight: 700; color: var(--classic-muted); }
+#exec-overview-island .dashboard-tip__value { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+#exec-overview-island .dashboard-tip__compare { margin: .1rem 0 0; color: var(--classic-muted); }
+#exec-overview-island .dashboard-tip__unit { margin-left: .3rem; color: var(--classic-muted); }
+#exec-overview-island .spark__hit { fill: transparent; cursor: pointer; }
+
+/* ---------- export rail (mounted by dashboard-export.mjs) ---------- */
+#exec-overview-island .xrail { display: inline-flex; align-items: center; gap: .3rem; }
+#exec-overview-island .xrail__btn { position: relative; display: inline-flex; align-items: center; gap: .35rem; min-height: 2rem; padding: 0 .55rem; border: 1px solid var(--classic-rule); border-radius: 4px; background: transparent; color: var(--classic-ink); font-family: var(--classic-body-font); font-size: .72rem; font-weight: 700; line-height: 1; letter-spacing: .01em; cursor: pointer; white-space: nowrap; }
+#exec-overview-island .xrail__btn::after { content: ""; position: absolute; inset: -.4rem 0; }
+#exec-overview-island .xrail__btn svg { width: 14px; height: 14px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; }
+#exec-overview-island .xrail__icon { display: inline-flex; align-items: center; }
+#exec-overview-island .xrail__label { display: inline-block; }
+#exec-overview-island .xrail__suffix { display: inline-block; font-size: .68rem; font-weight: 500; opacity: .75; padding: 1px 4px; border-radius: 3px; background: color-mix(in srgb, currentColor 10%, transparent); margin-left: .25rem; }
+#exec-overview-island .xrail__btn:hover { border-color: var(--classic-ink); background: var(--classic-surface-2); }
+#exec-overview-island .xrail__btn:active { background: var(--classic-rule); }
+#exec-overview-island .xrail__btn.is-busy { cursor: progress; opacity: .65; }
+#exec-overview-island .xrail__btn.is-copied, #exec-overview-island .xrail__btn.is-done { border-color: var(--classic-accent); color: var(--classic-accent); background: transparent; }
+#exec-overview-island .xrail__btn--package { min-height: 2.25rem; padding: 0 .85rem; border-radius: 6px; font-size: .78rem; }
+#exec-overview-island .package-control { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; gap: .3rem; }
+#exec-overview-island .how-to-tip { margin: 0; font-size: .7rem; line-height: 1.35; color: var(--classic-muted); }
+#exec-overview-island .how-to-tip a, #exec-overview-island .how-to-tip__link { position: relative; color: inherit; text-decoration: underline; text-underline-offset: .15em; }
+#exec-overview-island .how-to-tip a::after, #exec-overview-island .how-to-tip__link::after { content: ""; position: absolute; inset: -.6rem -.2rem; }
+/* Honest disabled form: dashed, muted, no hover, still readable, title says why. */
+#exec-overview-island .tool__off, #exec-overview-island .xrail__btn:disabled, #exec-overview-island .xrail__btn[aria-disabled="true"] { border-style: dashed; border-color: var(--classic-rule); color: var(--classic-muted); background: transparent; cursor: not-allowed; opacity: 1; }
+#exec-overview-island .tool__off:hover, #exec-overview-island .xrail__btn:disabled:hover, #exec-overview-island .xrail__btn[aria-disabled="true"]:hover { border-color: var(--classic-rule); background: transparent; color: var(--classic-muted); }
+
+/* ---------- copy prompt (mounted by dashboard-prompt.mjs) ---------- */
+#exec-overview-island .copy-prompt { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; gap: .3rem; }
+#exec-overview-island .copy-prompt-btn { position: relative; display: inline-flex; align-items: center; gap: .45rem; min-height: 2.25rem; padding: 0 .85rem; border: 1px solid var(--classic-ink); border-radius: 6px; background: transparent; color: var(--classic-ink); font-family: var(--classic-body-font); font-size: .78rem; font-weight: 700; line-height: 1; cursor: pointer; white-space: nowrap; }
+#exec-overview-island .copy-prompt-btn svg { width: 15px; height: 15px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; }
+#exec-overview-island .copy-prompt-btn svg.copy-prompt-btn__caret { width: 11px; height: 11px; stroke-width: 2; opacity: .7; margin-left: .1rem; }
+#exec-overview-island .copy-prompt-btn:hover, #exec-overview-island .copy-prompt-btn[aria-expanded="true"] { background: var(--classic-ink); color: var(--classic-surface); }
+#exec-overview-island .copy-prompt-btn.is-copied { background: transparent; border-color: var(--classic-accent); color: var(--classic-accent); }
+/* dashboard-prompt.mjs emits .copy-prompt-popover / .copy-prompt-option(__body|__label|__hint) /
+   .ai-guidelines-tip(__link); the shorter names are the contract's aliases. Both are styled. */
+#exec-overview-island .copy-prompt-tip, #exec-overview-island .ai-guidelines-tip { margin: 0; font-size: .7rem; line-height: 1.35; color: var(--classic-muted); }
+/* The tip link is set in .72rem type, so its own box is about 11px tall -- readable, but not
+   a thumb target. It gets the same expander, wide enough to be tappable without covering the
+   sentence around it. */
+#exec-overview-island .copy-prompt-tip a, #exec-overview-island .ai-guidelines-tip__link { position: relative; color: inherit; text-decoration: underline; text-underline-offset: .15em; }
+#exec-overview-island .copy-prompt-tip a::after, #exec-overview-island .ai-guidelines-tip__link::after { content: ""; position: absolute; inset: -.6rem -.2rem; }
+/* The drawn "opens in a new tab" mark dashboard-prompt.mjs appends to the tip link. Sized in
+   em so it tracks the tip's type, and painted in currentColor so it is the link's own ink. */
+#exec-overview-island .ai-guidelines-tip__mark { width: 1em; height: 1em; margin-left: .2em; vertical-align: -.12em; flex: none; }
+/* The popover hangs off the control, and the control is not always on the same side of a
+   masthead. Anchoring therefore follows it: from the start edge by default, from the end
+   edge when the mount says so -- rather than assuming a right-hand control and running off
+   the left of the screen everywhere the control sits at the start. */
+#exec-overview-island .copy-prompt-pop, #exec-overview-island .copy-prompt-popover { position: absolute; z-index: 50; top: calc(2.25rem + 6px); left: 0; right: auto; display: grid; gap: .2rem; min-width: 18rem; max-width: min(24rem, calc(100vw - 2rem)); padding: .35rem; background: var(--classic-surface); border: 1px solid var(--classic-rule); border-radius: 6px; box-shadow: var(--classic-shadow); }
+#exec-overview-island .copy-prompt--end .copy-prompt-pop, #exec-overview-island .copy-prompt--end .copy-prompt-popover { left: auto; right: 0; }
+#exec-overview-island .copy-prompt-pop[hidden], #exec-overview-island .copy-prompt-popover[hidden] { display: none; }
+@media (max-width: 47.98rem) {
+  #exec-overview-island .copy-prompt-pop, #exec-overview-island .copy-prompt-popover, #exec-overview-island .copy-prompt--end .copy-prompt-pop, #exec-overview-island .copy-prompt--end .copy-prompt-popover { left: 0; right: auto; min-width: 0; width: min(24rem, calc(100vw - 2rem)); }
+}
+#exec-overview-island .copy-prompt-opt, #exec-overview-island .copy-prompt-option { display: flex; align-items: flex-start; gap: .7rem; width: 100%; min-height: 2.75rem; padding: .5rem .7rem; border: 1px solid transparent; border-radius: 4px; background: transparent; color: var(--classic-ink); font-family: var(--classic-body-font); text-align: left; cursor: pointer; }
+#exec-overview-island .copy-prompt-opt svg, #exec-overview-island .copy-prompt-option svg { flex: none; width: 18px; height: 18px; margin-top: .1rem; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+#exec-overview-island .copy-prompt-opt:hover, #exec-overview-island .copy-prompt-option:hover { background: var(--classic-surface-2); border-color: var(--classic-rule); }
+#exec-overview-island .copy-prompt-option__body { display: flex; flex-direction: column; gap: .1rem; min-width: 0; }
+#exec-overview-island .copy-prompt-opt__title, #exec-overview-island .copy-prompt-option__label { font-size: .82rem; font-weight: 700; line-height: 1.3; }
+#exec-overview-island .copy-prompt-opt__desc, #exec-overview-island .copy-prompt-option__hint { font-size: .74rem; line-height: 1.35; color: var(--classic-muted); white-space: normal; }
+#exec-overview-island .copy-prompt-error { margin: 0; padding: .45rem .65rem; border: 1px solid var(--classic-rule); border-radius: 4px; background-color: var(--classic-surface); background-image: linear-gradient(var(--classic-wash-thin), var(--classic-wash-thin)); color: var(--classic-ink); font-size: .76rem; line-height: 1.4; }
+#exec-overview-island .copy-prompt-error:empty { display: none; }
+
+/* ---------- focus: one ring, everywhere ---------- */
+#exec-overview-island .cw__expand:focus-visible, #exec-overview-island .xrail__btn:focus-visible, #exec-overview-island .mode-switch__btn:focus-visible, #exec-overview-island .copy-prompt-btn:focus-visible, #exec-overview-island .copy-prompt-opt:focus-visible, #exec-overview-island .copy-prompt-option:focus-visible, #exec-overview-island .ai-guidelines-tip__link:focus-visible, #exec-overview-island .ct__sort:focus-visible, #exec-overview-island .info-disc > summary:focus-visible, #exec-overview-island .kpi-tile__reading:focus-visible, #exec-overview-island .ct__unavail:focus-visible, #exec-overview-island .arc-chart path:focus-visible, #exec-overview-island .spark__hit:focus-visible { outline: 2px solid var(--classic-focus); outline-offset: 2px; }
+
+/* ---------- motion: state communication only ---------- */
+#exec-overview-island .cw, #exec-overview-island .kpi-strip { transition: opacity 180ms cubic-bezier(.2, .7, .2, 1), transform 180ms cubic-bezier(.2, .7, .2, 1); }
+/* `is-mode-switching` lands on the island ROOT, and §19's prefixing pass turns a descendant
+   selector into `<scope> .is-mode-switching .cw` -- a rule nothing can match, because the
+   scope element is the element carrying the class. Naming the ancestor from inside the
+   subject keeps the rule true both unprefixed and after prefixing. */
+#exec-overview-island .cw:is(.is-mode-switching *), #exec-overview-island .kpi-strip:is(.is-mode-switching *) { opacity: 0; transform: translateY(4px); }
+#exec-overview-island .xrail__btn, #exec-overview-island .cw__expand, #exec-overview-island .mode-switch__btn, #exec-overview-island .copy-prompt-btn, #exec-overview-island .copy-prompt-opt, #exec-overview-island .copy-prompt-option { transition: background-color 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  #exec-overview-island .cw, #exec-overview-island .kpi-strip, #exec-overview-island .xrail__btn, #exec-overview-island .cw__expand, #exec-overview-island .mode-switch__btn, #exec-overview-island .copy-prompt-btn, #exec-overview-island .copy-prompt-opt, #exec-overview-island .copy-prompt-option { transition: none; }
+  #exec-overview-island .cw:is(.is-mode-switching *), #exec-overview-island .kpi-strip:is(.is-mode-switching *) { opacity: 1; transform: none; }
+}
+
+/* ---------- print: tables print, chrome does not ---------- */
+@media print {
+  #exec-overview-island .cw__rail, #exec-overview-island .xrail, #exec-overview-island .cw__expand, #exec-overview-island .mode-switch, #exec-overview-island .copy-prompt, #exec-overview-island .copy-prompt-btn, #exec-overview-island .copy-prompt-pop, #exec-overview-island .copy-prompt-popover, #exec-overview-island .copy-prompt-tip, #exec-overview-island .ai-guidelines-tip, #exec-overview-island .info-disc, #exec-overview-island .dashboard-tip { display: none !important; }
+  #exec-overview-island .classic-grid { display: block; }
+  #exec-overview-island .cw, #exec-overview-island .kpi-strip { break-inside: avoid; margin-bottom: 1rem; border-color: var(--classic-ink); }
+  #exec-overview-island .cw__body { max-height: none; overflow: visible; }
+  #exec-overview-island .cw--has-aid .cw__body { display: block; }
+  #exec-overview-island .ct thead th, #exec-overview-island .ct thead th:first-child, #exec-overview-island .ct tbody th[scope="row"] { position: static; }
+  #exec-overview-island .ct th, #exec-overview-island .ct td { border-color: var(--classic-ink); white-space: normal; }
+  #exec-overview-island .kpi-tile { border: 1px solid var(--classic-rule); }
+}
+
+/* ============================================================================================
+   END merged Classic block. Island chrome for Classic follows.
+   ============================================================================================ */
+
+/* The two compositions swap in place. Creative chapters are hidden in Classic and the Classic
+   grid is hidden in Creative -- neither is destroyed, so switching back is instant and the
+   filter console keeps reading from the Creative render either way. */
+#exec-overview-island .classic-shell { display: none; }
+/* No top padding: the first widget's top edge lines up with the filter console's, and on a phone
+   the console-to-grid gap is the layout gap plus the console's own margin, not that plus a third. */
+#exec-overview-island[data-mode="classic"] .classic-shell { display: block; padding: 0 0 2rem; }
+#exec-overview-island[data-mode="classic"] .creative-only { display: none; }
+/* The jump chips address the Creative chapters, so they would be dead links in Classic. */
+#exec-overview-island[data-mode="classic"] .chapter-jump-strip { display: none; }
+
+/* The live region and the Classic section's accessible name are for screen readers only: the
+   mode switch already says which composition is on screen. */
+#exec-overview-island .sr-live,
+#exec-overview-island .classic-shell__title {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Creative-mode rails: the same control group as Classic, in the same corner of every head,
+   kept quiet so it never competes with the card it belongs to. Geometry is untouched -- the
+   44px hit extension on .xrail__btn is what keeps these reachable on a phone. */
+#exec-overview-island .head-rail { display: flex; align-items: center; justify-content: flex-end; flex: none; margin-left: auto; }
+#exec-overview-island .head-rail .xrail { gap: .25rem; }
+#exec-overview-island .head-rail .xrail__btn { color: var(--muted-ink); font-size: .68rem; letter-spacing: .02em; }
+#exec-overview-island .head-rail .xrail__btn:hover { color: var(--ink); }
+#exec-overview-island .hero-card .head-rail .xrail__btn { color: var(--invert-ink); border-color: color-mix(in srgb, var(--invert-ink) 45%, transparent); }
+#exec-overview-island .chapter__head .head-rail { padding-bottom: .1rem; }
+/* The card heads were a two-item space-between row; a third item would squeeze the title
+   against its source label, so they wrap and carry a gap now. Nothing else about the Creative
+   cards moves. */
+#exec-overview-island .combo-card__head { flex-wrap: wrap; gap: .3rem .9rem; }
+/* The rail takes a row of its own in every combo head rather than sharing the title row in
+   the two cards whose titles happen to be short. "Same corner on every widget" is the whole
+   point of the rail; a control that moves between siblings is worse than one that costs a
+   row. */
+#exec-overview-island .combo-card__head .head-rail { flex: 1 0 100%; padding-bottom: .1rem; }
+#exec-overview-island .atlas-hero .head-rail { align-self: center; }
+
+/* Copy prompt + package control, in the masthead beside the title block, both modes. */
+/* The masthead's right-hand column: scope stamps above, the two agent affordances below,
+   both hugging the end edge. #229 moved the controls here from under the flags row -- a
+   reader looks to the top-right corner for what a page lets them do, and the old placement
+   read as a footnote to the beta banner rather than as an offer. */
+#exec-overview-island .masthead__aside { display: flex; flex-direction: column; align-items: flex-end; gap: .85rem; text-align: right; }
+#exec-overview-island .masthead__meta { align-items: flex-start; text-align: left; }
+#exec-overview-island .masthead__tools { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: flex-start; gap: .6rem 1.1rem; margin-top: 0; }
+#exec-overview-island .masthead__prompt { display: flex; }
+#exec-overview-island .masthead__package { display: flex; align-items: flex-start; }
+#exec-overview-island .masthead__tools .copy-prompt, #exec-overview-island .masthead__tools .package-control { align-items: flex-end; text-align: right; }
+#exec-overview-island .masthead__tools .ai-guidelines-tip, #exec-overview-island .masthead__tools .how-to-tip { max-width: 15rem; }
+
+/* Colour separates the pair into a choice instead of two identical outlines (#229). Both are
+   the same offer -- hand this page to an assistant -- so both are accent; the filled one is
+   the shorter path for someone already in a chat, the outlined one is the file. Neither tone
+   is the plain --accent: at these type sizes only --accent-deep clears 4.5:1, filled or not. */
+#exec-overview-island .masthead__tools .copy-prompt-btn {
+  border-color: var(--accent-deep); background: var(--accent-deep); color: var(--surface);
+}
+#exec-overview-island .masthead__tools .copy-prompt-btn:hover,
+#exec-overview-island .masthead__tools .copy-prompt-btn[aria-expanded="true"] { border-color: var(--invert-surface); background: var(--invert-surface); color: var(--invert-ink); }
+#exec-overview-island .masthead__tools .copy-prompt-btn.is-copied { border-color: var(--accent-deep); background: var(--surface); color: var(--accent-deep); }
+
+#exec-overview-island .masthead__package .xrail__btn {
+  min-height: 2.75rem; padding: 0 .95rem; font-size: .8rem;
+  border-color: var(--accent-deep); color: var(--accent-deep); background: transparent;
+}
+#exec-overview-island .masthead__package .xrail__btn:hover { border-color: var(--accent-deep); background: var(--accent-deep); color: var(--surface); }
+#exec-overview-island .masthead__package .xrail__btn:active { background: var(--invert-surface); border-color: var(--invert-surface); color: var(--invert-ink); }
+/* The file type is information, not the point of the button, so it rides at the weight of a
+   caption. Kept inside the button (a reader needs it before the click, not after). */
+#exec-overview-island .masthead__package .xrail__suffix { font-weight: 400; opacity: .72; }
+
+#exec-overview-island .masthead__tools .how-to-tip { margin: 0; font-size: .72rem; line-height: 1.4; color: var(--muted-ink); }
+#exec-overview-island .masthead__tools .how-to-tip__link { position: relative; color: inherit; text-decoration: underline; text-underline-offset: .15em; }
+#exec-overview-island .masthead__tools .how-to-tip__link::after { content: ""; position: absolute; inset: -.6rem -.2rem; }
+#exec-overview-island .masthead__tools .how-to-tip__link:hover { color: var(--accent-deep); }
+/* The merged Classic block's one focus ring names every control that existed when it was
+   pasted; the guide link is newer, so the island grants it the same ring rather than editing
+   the shared block out from under its drift guard. */
+#exec-overview-island .masthead__tools .how-to-tip__link:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+#exec-overview-island .copy-prompt-btn { font-family: FavorSans, Arial, sans-serif; }
+/* The shared block anchors the popover under the button's RIGHT edge from 48rem, which is the
+   right choice for a control that sits at the right of its row. Exec's copy prompt is the
+   first thing in the masthead, so that anchoring hangs the panel off the left of the page and
+   clips its labels. Anchor it to the button's leading edge on this surface instead. */
+#exec-overview-island .masthead__prompt .copy-prompt-pop,
+#exec-overview-island .masthead__prompt .copy-prompt-popover { left: 0; right: auto; }
+
+/* The Go Deeper table carries a sentence per row, which is the one place a Classic cell should
+   wrap rather than scroll the table sideways. */
+#exec-overview-island #cw-exec-links .ct th, #exec-overview-island #cw-exec-links .ct td { white-space: normal; }
+@media (min-width: 48rem) {
+  /* The comfortable column widths are a desktop reading. On a phone they would guarantee the
+     sideways scroll the wrapping above exists to avoid, so they start where there is room.
+     (This note sits inside the block on purpose: tools/scope_island_css.py reads a comment
+     directly above an at-rule as part of that rule's prelude and then reports the at-rule as
+     an unscoped selector.) */
+  #exec-overview-island #cw-exec-links .ct td:first-child, #exec-overview-island #cw-exec-links .ct th:first-child { min-width: 9rem; }
+  #exec-overview-island #cw-exec-links .ct td:nth-child(2), #exec-overview-island #cw-exec-links .ct th:nth-child(2) { min-width: 17rem; }
+}
+
+/* ============================================================================================
+   Polish pass (#214 design director, 2026-09-02). Island-level refinements over the merged
+   Classic block above; the block itself stays byte-equivalent to apps/shared/classic-base.css.
+   ============================================================================================ */
+
+/* The sticky table head must own the top edge of its scroll box. With padding on .cw__body, rows
+   scrolled through a 5.6px gap above the head band; the padding moves onto the head cells and the
+   KPI strip keeps its breathing room by margin. The body's scrollbar is a thin ink thumb on no
+   track -- Windows shows it, macOS overlays it -- so a capped table announces itself. */
+#exec-overview-island .cw__body { padding-top: 0; scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 35%, transparent) transparent; }
+#exec-overview-island .ct thead th { padding-top: .77rem; }
+#exec-overview-island .cw__body > .kpi-strip { margin-top: .35rem; }
+
+/* In the compact state the total row stays pinned to the bottom of the scroll box, so a capped
+   pivot never reads as complete when it is not (grammar §11 caps the body at 28rem; the reader has
+   to be able to tell there is more). It settles into place once the body is scrolled to the end. */
+#exec-overview-island .cw:not(.cw--expanded) .ct__total > th,
+#exec-overview-island .cw:not(.cw--expanded) .ct__total > td { position: sticky; bottom: 0; background-color: var(--classic-surface); }
+#exec-overview-island .cw:not(.cw--expanded) .ct__total > th[scope="row"] { left: 0; z-index: 1; }
+#exec-overview-island .cw:not(.cw--expanded) .ct tbody tr.ct__total:hover > th,
+#exec-overview-island .cw:not(.cw--expanded) .ct tbody tr.ct__total:hover > td { background-color: var(--classic-surface-2); }
+
+/* Quiet tiles keep one value line across the strip. The label slot is two lines tall and the
+   reading hangs from it rather than floating to the tile floor, so a wrapped unit or a two-line
+   delta no longer moves a neighbour's value; the (i) is pulled up to sit on the first label line.
+   The delta slot stays reserved when blank so tile heights match too. */
+#exec-overview-island .kpi-tile__top { align-items: flex-start; min-height: calc(.74rem * 1.3 * 2); }
+#exec-overview-island .kpi-tile__top .info-disc { margin-top: -.4rem; }
+#exec-overview-island .kpi-tile__reading { margin-top: 0; }
+#exec-overview-island .kpi-tile__delta:empty { display: block; min-height: calc(.74rem * 1.3); }
+
+/* Tile (i) popovers hang under their glyph and clamp to the viewport's right margin. The shared
+   dismissal helper nudges an overflowing popover with start-aligned arithmetic (12 - rect.left - 8),
+   so an end-aligned popover whose natural left is off-screen -- every tile but the last two -- is
+   pushed a few hundred pixels to the right of its glyph. Start alignment makes that arithmetic
+   right at every width; the last tile's popover then extends past the strip, not the viewport. */
+#exec-overview-island .kpi-tile .info-disc--end .info-pop { left: -8px; right: auto; }
+
+/* A row-group with no rows in this slice is not a reading; its header alone would be a rule with
+   nothing under it. Browsers without :has() keep the header, which is harmless. */
+#exec-overview-island .ct tbody:has(> tr.ct__group:only-child) { display: none; }
+
+/* "\2014" reads muted and regular everywhere, including inside the bold total row. */
+#exec-overview-island .ct .ct__total .ct__unavail { color: var(--classic-muted); font-weight: 400; }
+
+/* KPI-strip bodies never scroll, so they must not clip: the tile (i) popovers live inside them, and
+   on a phone the popover is wider than the tile column. */
+#exec-overview-island .cw__body:has(> .kpi-strip) { overflow: visible; max-height: none; }
+
+/* Copied states carry the accent as border and wash; the text is --accent-deep, because #f45500 on
+   cream is 3.3:1 and a .72rem label needs 4.5:1. */
+#exec-overview-island .xrail__btn.is-copied, #exec-overview-island .xrail__btn.is-done,
+#exec-overview-island .copy-prompt-btn.is-copied { color: var(--accent-deep); border-color: var(--accent); background-color: rgba(244,85,0,.08); }
+
+/* Pressed states for the controls the shared block gives hover only; the tip link answers hover. */
+#exec-overview-island .cw__expand:active { background: var(--classic-surface-2); color: var(--classic-ink); }
+#exec-overview-island .mode-switch__btn:not([aria-pressed="true"]):active { background: color-mix(in srgb, var(--ink) 8%, transparent); color: var(--classic-ink); }
+#exec-overview-island .copy-prompt-option:active { background: var(--classic-rule); }
+#exec-overview-island .copy-prompt-btn:active { background: var(--classic-ink); color: var(--classic-surface); }
+#exec-overview-island .ai-guidelines-tip__link:hover { color: var(--classic-ink); }
+
+/* Text selection is an accent wash under ink (13.3:1), from the palette rather than the browser. */
+#exec-overview-island ::selection { background: rgba(244,85,0,.24); color: var(--ink); }
+
+@media (max-width: 47.98rem) {
+  /* Phone tables: the inline bar yields room to the row labels, and Go Deeper cells may break a
+     route anywhere rather than push the table 16px wider than its box. */
+  #exec-overview-island .ct__bar { width: 4.5rem; min-width: 3.5rem; }
+  #exec-overview-island #cw-exec-links .ct th, #exec-overview-island #cw-exec-links .ct td { overflow-wrap: anywhere; }
+  /* Phone masthead: the right-hand column unwinds to the left edge -- right-aligned stamps
+     over a full-width title read as a second, competing column on a narrow screen. */
+  #exec-overview-island .masthead__aside { align-items: flex-start; text-align: left; width: 100%; }
+  /* The two buttons share one row and both tips sit under them. Each control's wrapper
+     dissolves into the tools row (display: contents), so the popover anchors to the row --
+     under the buttons, from the left edge -- instead of to a column of its own. */
+  #exec-overview-island .masthead__tools { position: relative; justify-content: flex-start; gap: .5rem .75rem; align-items: center; }
+  #exec-overview-island .masthead__prompt, #exec-overview-island .masthead__prompt .copy-prompt { display: contents; }
+  #exec-overview-island .masthead__package, #exec-overview-island .masthead__package .package-control { display: contents; }
+  #exec-overview-island .masthead__package .xrail { order: 2; }
+  #exec-overview-island .ai-guidelines-tip, #exec-overview-island .copy-prompt-error { order: 3; flex: 1 0 100%; }
+  /* The guide link is the one a first-timer needs, so it lands last and reads as the closing
+     line of the pair rather than as a caption belonging to either button alone. */
+  #exec-overview-island .masthead__tools .how-to-tip { order: 4; flex: 1 0 100%; max-width: none; }
+  #exec-overview-island .masthead__tools .copy-prompt, #exec-overview-island .masthead__tools .package-control { text-align: left; }
+  #exec-overview-island .masthead__prompt .copy-prompt-popover, #exec-overview-island .masthead__prompt .copy-prompt-pop { top: calc(2.75rem + 6px); left: 0; right: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Reduced motion covers the island's own chrome as well as the Classic block. */
+  #exec-overview-island .dashboard-layout, #exec-overview-island .filter-sidebar, #exec-overview-island .toggle-btn, #exec-overview-island .acronym-btn, #exec-overview-island .gender-btn, #exec-overview-island .dir-card, #exec-overview-island .donut-circle, #exec-overview-island .tip-bubble, #exec-overview-island .combo-row, #exec-overview-island .semantic-dot, #exec-overview-island .combo-row__swatch, #exec-overview-island .combo-row__fill, #exec-overview-island .combo-row__arrow { transition: none !important; transform: none !important; filter: none !important; }
+  #exec-overview-island .toggle-btn .arrow { transition: none !important; }
+}
+
+@media print {
+  /* The console, its toggle, the jump strip and the agent tools are screen chrome; the tables
+     print full width in one column, and the masthead stays with the first widget. */
+  #exec-overview-island .sidebar-toggle-bar, #exec-overview-island .filter-sidebar, #exec-overview-island .masthead__tools, #exec-overview-island .chapter-jump-strip { display: none !important; }
+  #exec-overview-island .dashboard-layout, #exec-overview-island .dashboard-layout.is-collapsed { display: block; }
+  #exec-overview-island { padding-bottom: 0; }
+  #exec-overview-island .masthead { break-after: avoid; }
+}
+
+/* ----------------------------------------------------------------------------
+   BEGIN merged Markup block (apps/shared/markup-base.css)
+   Source: apps/shared/markup-base.css (canonical; never edit the copy below by hand).
+   Scope: #exec-overview-island -- produced by tools/scope_island_css.py scope_css().
+   Guard: tests/test_island_delivery.py MergedMarkupBlockTest.
+   Executive Markup V2 (#598): the pen beside the palette and the island's frozen state;
+   the drawing surface itself ships in apps/markup-app (markup-app.css) outside this scope.
+   ---------------------------------------------------------------------------- */
+#exec-overview-island .markup-pen {
+  position: sticky; bottom: 5.75rem; margin-left: 1.25rem; z-index: 95;
+  display: flex; clear: both; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; padding: 0;
+  border: 1px solid var(--rule, rgba(18, 20, 17, .18)); border-radius: 999px;
+  background: color-mix(in srgb, var(--surface, #fff) 88%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  color: var(--ink, #121411); font: inherit; font-size: .8rem; font-weight: 600; letter-spacing: .01em;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink, #121411) 22%, transparent);
+  opacity: .85; cursor: pointer;
+  transition: opacity var(--motion-state, 180ms) var(--motion-ease, ease), border-color var(--motion-feedback, 120ms) var(--motion-ease, ease),
+    background-color var(--motion-feedback, 120ms) var(--motion-ease, ease), color var(--motion-feedback, 120ms) var(--motion-ease, ease),
+    transform var(--motion-feedback, 120ms) var(--motion-ease, ease);
+}
+#exec-overview-island .markup-pen:hover, #exec-overview-island .markup-pen:focus-within { opacity: 1; border-color: var(--edge-strong, currentColor); }
+#exec-overview-island .markup-pen:active { transform: translateY(1px); }
+#exec-overview-island .markup-pen:focus-visible { outline: 2px solid var(--focus, #f45500); outline-offset: 3px; }
+#exec-overview-island .markup-pen[aria-pressed="true"] { opacity: 1; background: var(--ink, #121411); color: var(--invert-ink, var(--background, #fef1e8)); border-color: var(--ink, #121411); }
+#exec-overview-island .markup-pen[aria-busy="true"] { cursor: progress; }
+#exec-overview-island .markup-pen[aria-busy="true"] .markup-pen__icon { animation: markup-pen-tap 900ms ease-in-out infinite; }
+#exec-overview-island .markup-pen__icon { width: 1.15rem; height: 1.15rem; flex: none; }
+
+/* Animated hover tooltip: explains that it freezes current dashboard view */
+#exec-overview-island .markup-pen__tooltip {
+  position: absolute; bottom: calc(100% + .65rem); left: 0; z-index: 120;
+  display: flex; flex-direction: column; gap: 2px; padding: .45rem .65rem;
+  background: color-mix(in srgb, var(--surface, #fff) 94%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--edge-strong, rgba(18, 20, 17, .24));
+  border-radius: 8px;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink, #121411) 20%, transparent);
+  pointer-events: none; opacity: 0; transform: translateY(4px);
+  transition: opacity var(--motion-state, 180ms) var(--motion-ease, ease), transform var(--motion-state, 180ms) var(--motion-ease, ease);
+  white-space: nowrap; text-align: left;
+}
+#exec-overview-island .markup-pen:hover .markup-pen__tooltip, #exec-overview-island .markup-pen:focus-visible .markup-pen__tooltip {
+  opacity: 1; transform: translateY(0);
+}
+#exec-overview-island .markup-pen__label {
+  font-size: .74rem; font-weight: 700; line-height: 1.25; color: var(--ink, #121411);
+}
+#exec-overview-island .markup-pen__desc {
+  font-size: .65rem; font-weight: 400; line-height: 1.2; color: var(--muted-ink, #555); letter-spacing: .01em;
+}
+
+@keyframes markup-pen-tap { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-2px) rotate(-6deg) } }
+
+/* Mobile: floating fixed icon on lower left, always outside the filter console */
+@media (max-width: 768px) {
+  #exec-overview-island .markup-pen {
+    position: fixed;
+    bottom: calc(max(env(safe-area-inset-bottom, 0px), .5rem) + 4.25rem);
+    left: 1.25rem;
+    margin-left: 0;
+    z-index: 990;
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    box-shadow: 0 4px 18px color-mix(in srgb, var(--shadow-ink, #121411) 28%, transparent);
+  }
+  #exec-overview-island .markup-pen__tooltip { display: none; }
+}
+
+/* Instant veil -- mounted at 0ms upon pen button click for immediate user feedback */
+#exec-overview-island .fm-instant-veil {
+  position: fixed; inset: 0; z-index: 2147483000;
+  display: grid; place-items: center;
+  background: color-mix(in srgb, var(--surface, #fff) 85%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  pointer-events: auto;
+  font-family: var(--body-font);
+  animation: fm-fade 160ms ease both;
+}
+#exec-overview-island .fm-instant-veil .fm-loading-card {
+  display: flex; flex-direction: column; align-items: center; gap: .85rem;
+  padding: 1.75rem 2rem 1.5rem; border-radius: 20px;
+  background: var(--surface, #fff); color: var(--ink, #121411);
+  border: 1px solid var(--rule, rgba(18,20,17,.16));
+  box-shadow: 0 10px 30px rgba(18,20,17,.18);
+  width: min(390px, calc(100vw - 2.5rem)); text-align: center;
+}
+#exec-overview-island .fm-instant-veil .fm-progress-bar {
+  width: 100%; height: 7px; border-radius: 999px;
+  background: color-mix(in srgb, var(--surface, #fff) 60%, #e0e0e0);
+  overflow: hidden; position: relative;
+}
+#exec-overview-island .fm-instant-veil .fm-progress-bar__fill--animated {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--focus, #f45500), #ff8b4d);
+  animation: fm-instant-pulse 1.8s ease-in-out infinite;
+}
+@keyframes fm-instant-pulse {
+  0% { width: 15%; }
+  50% { width: 75%; }
+  100% { width: 92%; }
+}
+
+/* While a board is open the island sits inert under the overlay; the state is stated by the
+ * attribute, never by colour alone. Paused is the exception -- the dashboard is live again on
+ * purpose, so nothing recedes and the pen only marks that a board is waiting. */
+#exec-overview-island [data-markup="canvas"], #exec-overview-island [data-markup="saving"], #exec-overview-island [data-markup="viewing"] { user-select: none; }
+#exec-overview-island [data-markup="paused"] .markup-pen { border-color: var(--warn, #b8860b); }
+
+@media (prefers-reduced-motion: reduce) {
+  #exec-overview-island .markup-pen { transition: none; }
+  #exec-overview-island .markup-pen__tooltip { transition: none; }
+  #exec-overview-island .markup-pen[aria-busy="true"] .markup-pen__icon { animation: none; }
+  #exec-overview-island .fm-instant-veil .fm-progress-bar__fill--animated { animation: none; width: 60%; }
+}
+
+/* ----------------------------------------------------------------------------
+   END merged Markup block (apps/shared/markup-base.css)
+   ---------------------------------------------------------------------------- */
+
+
+/* BEGIN merged Breadcrumbs block (apps/shared/breadcrumbs-base.css) */
+#exec-overview-island .suite-breadcrumbs {
+  box-sizing: border-box;
+  width: auto;
+  margin-left: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 2.4rem)));
+  margin-right: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 2.4rem)));
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: .55rem clamp(1.1rem, 2.5vw, 2.4rem);
+  background:
+    repeating-linear-gradient(135deg, color-mix(in srgb, var(--ink) 5%, transparent) 0 1px, transparent 1px 9px),
+    var(--surface-sunken);
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted-ink);
+  font-family: var(--font-mono, "SF Mono", Monaco, Consolas, monospace);
+  font-size: clamp(.62rem, .58rem + .12vw, .72rem);
+  letter-spacing: .08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+#exec-overview-island .suite-breadcrumbs__trail { display: flex; flex-wrap: nowrap; align-items: baseline; gap: .25rem .35rem; margin: 0; padding: 0; list-style: none; max-width: 100%; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; touch-action: pan-x; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 1.5rem), transparent 100%); mask-image: linear-gradient(90deg, #000 calc(100% - 1.5rem), transparent 100%); }
+#exec-overview-island .suite-breadcrumbs__trail::-webkit-scrollbar { display: none; }
+#exec-overview-island .suite-breadcrumbs[data-draggable="true"] .suite-breadcrumbs__trail, #exec-overview-island .suite-breadcrumbs__trail.is-draggable { cursor: grab; }
+#exec-overview-island .suite-breadcrumbs[data-dragging="true"] .suite-breadcrumbs__trail, #exec-overview-island .suite-breadcrumbs__trail.is-dragging { cursor: grabbing; user-select: none; -webkit-user-select: none; scroll-behavior: auto; }
+#exec-overview-island .suite-breadcrumbs[data-dragging="true"] .suite-breadcrumbs__link, #exec-overview-island .suite-breadcrumbs__trail.is-dragging .suite-breadcrumbs__link { pointer-events: none; }
+#exec-overview-island .suite-breadcrumbs__trail::after {
+  content: "";
+  flex: 1 1 0%;
+  min-width: .75rem;
+  align-self: stretch;
+  margin-left: .15rem;
+  background: linear-gradient(90deg, var(--rule), transparent 55%);
+  opacity: .55;
+  pointer-events: none;
+}
+#exec-overview-island .suite-breadcrumbs__item { display: inline-flex; align-items: baseline; min-width: 0; flex: 0 0 auto; }
+#exec-overview-island .suite-breadcrumbs__item--root { flex-shrink: 0; }
+#exec-overview-island .suite-breadcrumbs__peers { display: inline-flex; flex-wrap: nowrap; align-items: baseline; gap: .25rem .35rem; }
+#exec-overview-island .suite-breadcrumbs__root-link, #exec-overview-island .suite-breadcrumbs__link { color: var(--ink); text-decoration: none; transition: color 120ms ease; white-space: nowrap; }
+#exec-overview-island .suite-breadcrumbs__prefix { color: var(--muted-ink); font-weight: 400; }
+#exec-overview-island .suite-breadcrumbs__link { color: var(--muted-ink); padding: 4px 6px; margin: -4px -2px; }
+#exec-overview-island .suite-breadcrumbs__root-link:hover, #exec-overview-island .suite-breadcrumbs__link:hover { color: var(--accent); }
+#exec-overview-island .suite-breadcrumbs__link.is-active { color: var(--ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .3em; }
+#exec-overview-island .suite-breadcrumbs__divider, #exec-overview-island .suite-breadcrumbs__sep { color: var(--rule); user-select: none; flex-shrink: 0; }
+#exec-overview-island .suite-breadcrumbs__root-link:focus-visible, #exec-overview-island .suite-breadcrumbs__link:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: 2px; border-radius: 2px; }
+@media (max-width: 768px) {
+  #exec-overview-island .suite-breadcrumbs {
+    margin-left: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 1.25rem)));
+    margin-right: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 1.25rem)));
+    margin-top: 0;
+    margin-bottom: .85rem;
+    width: auto;
+    max-width: none;
+    padding: .5rem 1rem;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #exec-overview-island .suite-breadcrumbs__root-link, #exec-overview-island .suite-breadcrumbs__link { transition: none; }
+}
+
+/* ------------------------------------------------------------------ nested surfaces (#600)
+   One surface in the suite is three dashboards behind one masthead, and the trail shows it:
+   hovering or tabbing into People reveals the three. Pointer only, and CSS only. A coarse
+   pointer has no hover and a tap on the parent is a navigation, so touch readers reach the
+   three from the page's own lens bar instead of from a menu that opens under their thumb. */
+#exec-overview-island .suite-breadcrumbs__nest { position: relative; display: inline-block; }
+#exec-overview-island .suite-breadcrumbs__nest.is-open .suite-breadcrumbs__sub, #exec-overview-island .suite-breadcrumbs__nest[aria-expanded="true"] .suite-breadcrumbs__sub {
+  display: block;
+}
+/* THE TRAIL CLIPS, so it has to stop while the menu is open. `.suite-breadcrumbs__trail` is a
+   horizontally scrolling rail with a fade mask, and a mask clips a child absolutely positioned
+   outside it just as overflow does: the menu rendered at the right coordinates and was invisible
+   on every real page. While a nest is open the rail drops both, which is safe because the reveal
+   is pointer-only and the rail only scrolls when it is too narrow for the pointer case. */
+#exec-overview-island .suite-breadcrumbs__trail.has-open-nest, #exec-overview-island .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest.is-open), #exec-overview-island .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest[aria-expanded="true"]), #exec-overview-island .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest:hover), #exec-overview-island .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest:focus-within) {
+  overflow: visible;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+#exec-overview-island .suite-breadcrumbs__sub {
+  position: absolute;
+  top: 100%;
+  left: -.35rem;
+  z-index: 40;
+  display: none;
+  min-width: 15rem;
+  max-width: calc(100vw - 1rem);
+  box-sizing: border-box;
+  margin-top: .4rem;
+  padding: .3rem;
+  background: var(--surface-raised, var(--surface, #fff));
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--shadow-ink, #121411) 22%, transparent);
+}
+/* The gap between the link and the menu is bridged, so a pointer travelling down does not
+   cross dead space and close the thing it is aiming at. */
+#exec-overview-island .suite-breadcrumbs__sub::before { content: ""; position: absolute; inset: -.5rem 0 100%; }
+@media (hover: hover) and (pointer: fine) {
+  #exec-overview-island .suite-breadcrumbs__nest:hover .suite-breadcrumbs__sub, #exec-overview-island .suite-breadcrumbs__nest:focus-within .suite-breadcrumbs__sub { display: block; }
+}
+#exec-overview-island .suite-breadcrumbs__tab {
+  display: block;
+  padding: .4rem .55rem;
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+#exec-overview-island .suite-breadcrumbs__tab:hover { background: var(--hover-wash, color-mix(in srgb, var(--accent) 10%, transparent)); }
+#exec-overview-island .suite-breadcrumbs__tab:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: -2px; }
+#exec-overview-island .suite-breadcrumbs__tab-label { display: block; font-weight: 700; font-size: .82rem; }
+#exec-overview-island .suite-breadcrumbs__tab-question { display: block; font-size: .72rem; color: var(--muted-ink); }
+
+/* END merged Breadcrumbs block (apps/shared/breadcrumbs-base.css) */
+
+/* BEGIN merged UX block (apps/shared/ux-base.css)
+   The UX bar (#587): motion tokens, pressed feedback, the status chip, the change cue, the
+   busy veil, and the mobile sheet entrance. Generated from the shared source under the scope
+   "#exec-overview-island" by tools/scope_island_css.py; edit apps/shared/ux-base.css and re-paste, never this
+   copy. Drift is caught by tools/check_merged_blocks.py and tests/test_island_delivery.py.
+   Island-specific UX rules belong in the override zone AFTER the END delimiter. */
+/* ---------- 1. motion vocabulary ---------- */
+/* Durations are the whole timing story. A control reads one token; nothing in
+   an island states a millisecond value of its own for a UX-bar behaviour. */
+#exec-overview-island {
+  --motion-feedback: 120ms;   /* press, hover, toggle acknowledgement */
+  --motion-state: 180ms;      /* a state the eye must follow: selected, mode, chip in/out */
+  --motion-layout: 280ms;     /* a sheet, a panel, a change cue settling */
+  --motion-focus: 360ms;      /* a focal element arriving once */
+  --motion-focal: 550ms;      /* the rare authored moment; one per surface, if any */
+  --motion-ease: cubic-bezier(.16, 1, .3, 1);      /* confident arrival */
+  --motion-ease-exit: cubic-bezier(.4, 0, 1, 1);   /* leaves faster than it came */
+  --host-chrome-bottom: 0px;                       /* shared runtime measurement */
+  --ux-status-gap: .75rem;                         /* one shared clearance, not a surface offset */
+  --ux-status-top: calc(var(--host-chrome-bottom) + var(--ux-status-gap));
+}
+/* Reduced motion is one switch, not a hunt: every duration collapses to zero,
+   so each transition and animation below completes on its first frame while the
+   state it carried (pressed, selected, done, failed) still lands. Reduced motion
+   is never reduced information. */
+@media (prefers-reduced-motion: reduce) {
+  #exec-overview-island {
+    --motion-feedback: 0ms;
+    --motion-state: 0ms;
+    --motion-layout: 0ms;
+    --motion-focus: 0ms;
+    --motion-focal: 0ms;
+  }
+}
+
+/* ---------- 2. pressed feedback ---------- */
+/* The shared control vocabulary acknowledges a press before anything else
+   happens: a 1px settle on :active, back on release. Islands add their own
+   control classes to this list in their override zone, never a second rule. */
+#exec-overview-island .mode-switch__btn, #exec-overview-island .xrail__btn, #exec-overview-island .cw__expand, #exec-overview-island .ct__sort, #exec-overview-island .copy-prompt-btn, #exec-overview-island .copy-prompt-option, #exec-overview-island .copy-prompt-opt, #exec-overview-island .toggle-btn, #exec-overview-island .sidebar-back-btn, #exec-overview-island .reset-btn, #exec-overview-island .scopebar-reset, #exec-overview-island .theme-swatch__btn, #exec-overview-island .mk-toggle, #exec-overview-island .mk-rail__btn, #exec-overview-island .opt-btn, #exec-overview-island .acronym-btn, #exec-overview-island .gender-btn, #exec-overview-island .filter-tag__remove {
+  transition: transform var(--motion-feedback) var(--motion-ease),
+              background-color var(--motion-feedback) linear,
+              border-color var(--motion-feedback) linear,
+              color var(--motion-feedback) linear,
+              box-shadow var(--motion-feedback) linear;
+}
+#exec-overview-island .mode-switch__btn:active, #exec-overview-island .xrail__btn:active:not([disabled]), #exec-overview-island .cw__expand:active, #exec-overview-island .ct__sort:active, #exec-overview-island .copy-prompt-btn:active, #exec-overview-island .copy-prompt-option:active, #exec-overview-island .copy-prompt-opt:active, #exec-overview-island .toggle-btn:active, #exec-overview-island .sidebar-back-btn:active, #exec-overview-island .reset-btn:active, #exec-overview-island .scopebar-reset:active, #exec-overview-island .theme-swatch__btn:active, #exec-overview-island .mk-toggle:active, #exec-overview-island .mk-rail__btn:active, #exec-overview-island .opt-btn:active, #exec-overview-island .acronym-btn:active, #exec-overview-island .gender-btn:active, #exec-overview-island .filter-tag__remove:active {
+  transform: translateY(1px);
+}
+
+/* ---------- 3. the status chip ---------- */
+/* One chip per island, mounted by dashboard-status.mjs. It sits top-centre,
+   below the shared host-chrome boundary measured at runtime, so the mobile bottom
+   edge keeps its one occupant (ADR 0020). It is the visible half of every announce():
+   the live region says it to a screen reader, the chip says it to everyone else.
+   Same words, both places. */
+#exec-overview-island .ux-status {
+  position: fixed;
+  top: var(--ux-status-top);
+  left: 50%;
+  z-index: 996;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  max-width: min(92vw, 36rem);
+  min-height: 2.5rem;
+  padding: .45rem .9rem .45rem .75rem;
+  border: 1px solid var(--invert-surface, var(--classic-ink, var(--ink, #121411)));
+  border-radius: 999px;
+  background: var(--invert-surface, var(--classic-ink, var(--ink, #121411)));
+  color: var(--invert-ink, var(--classic-surface, var(--surface, #ffffff)));
+  font-family: var(--classic-body-font, var(--font-body, system-ui, sans-serif));
+  font-size: .82rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: .005em;
+  box-shadow: 0 10px 24px -10px var(--shadow-ink, rgba(0, 0, 0, .45));
+  opacity: 0;
+  transform: translate(-50%, -8px);
+  pointer-events: none;
+  transition: opacity var(--motion-feedback) var(--motion-ease-exit),
+              transform var(--motion-feedback) var(--motion-ease-exit);
+}
+#exec-overview-island .ux-status[data-open="true"] {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+  transition: opacity var(--motion-state) var(--motion-ease),
+              transform var(--motion-state) var(--motion-ease);
+}
+#exec-overview-island .ux-status__text { min-width: 0; overflow-wrap: anywhere; }
+#exec-overview-island .ux-status__mark {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+}
+#exec-overview-island .ux-status__mark svg { width: 100%; height: 100%; display: block; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+/* done: the mark draws its tick once, then rests. */
+#exec-overview-island .ux-status[data-kind="done"] .ux-status__mark { color: var(--state-healthy, var(--classic-healthy, #2f9a52)); }
+#exec-overview-island .ux-status[data-kind="done"] .ux-status__mark path { stroke-dasharray: 28; stroke-dashoffset: 28; animation: favor-ux-tick var(--motion-state) var(--motion-ease) forwards; }
+/* busy: the only loop in the block, and it stops the moment the chip changes kind
+   or closes, because the spinning element leaves with it. */
+#exec-overview-island .ux-status[data-kind="busy"] .ux-status__mark { animation: favor-ux-spin 900ms linear infinite; }
+/* fail: inverted back to the surface so the red carries the weight, and the chip
+   stays until dismissed -- a failure is never a toast. */
+#exec-overview-island .ux-status[data-kind="fail"] {
+  background: var(--classic-surface, var(--surface, #ffffff));
+  color: var(--classic-ink, var(--ink, #121411));
+  border-color: var(--state-critical, var(--classic-critical, #b3261e));
+  box-shadow: 0 10px 24px -10px var(--shadow-ink, rgba(0, 0, 0, .45)), inset 0 0 0 1px var(--state-critical, var(--classic-critical, #b3261e));
+}
+#exec-overview-island .ux-status[data-kind="fail"] .ux-status__mark { color: var(--state-critical, var(--classic-critical, #b3261e)); }
+#exec-overview-island .ux-status__btn {
+  position: relative;
+  flex: none;
+  margin: -.2rem -.45rem -.2rem 0;
+  min-height: 2rem;
+  padding: 0 .65rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: .76rem;
+  cursor: pointer;
+}
+#exec-overview-island .ux-status__btn::after { content: ""; position: absolute; inset: -.45rem -.3rem; }
+#exec-overview-island .ux-status__btn:hover { background: var(--hover-wash, rgba(127, 127, 127, .14)); }
+#exec-overview-island .ux-status__btn:active { transform: translateY(1px); }
+#exec-overview-island .ux-status__btn:focus-visible { outline: 2px solid var(--classic-focus, var(--focus, #005eb8)); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  #exec-overview-island .ux-status[data-kind="busy"] .ux-status__mark { animation: none; }
+  #exec-overview-island .ux-status[data-kind="done"] .ux-status__mark path { animation: none; stroke-dashoffset: 0; }
+}
+
+/* A live region an island can mount when it has none: present to assistive tech, absent
+   from layout. The chip is the sighted half of whatever is written here. */
+#exec-overview-island .ux-live { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* ---------- 4. the change cue ---------- */
+/* After a filter or scope change the stations whose reading changed settle
+   once: an accent inset ring that fades over the layout beat. Applied by
+   dashboard-status.mjs markChanged(), to a capped handful of nodes, once per
+   user action -- never ambient, never on load. */
+#exec-overview-island .ux-changed { animation: favor-ux-settle var(--motion-layout) var(--motion-ease) 1 both; }
+
+/* ---------- 5. the busy veil ---------- */
+/* A region that is truthfully still working. It keeps the last reading visible
+   under a light veil rather than blanking it, and the cursor says "working". */
+#exec-overview-island .ux-busy { position: relative; cursor: progress; }
+#exec-overview-island .ux-busy::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: var(--classic-surface, var(--surface, #ffffff));
+  opacity: .42;
+  pointer-events: none;
+  transition: opacity var(--motion-state) linear;
+}
+
+/* ---------- 6. the mobile sheet ---------- */
+/* The console arrives from the edge it lives on and the handle rides up with it
+   (docs/guides/mobile-bottom-edge.md). Closing is instant on the sheet and a beat
+   shorter on the handle: exits are faster than entrances. The state attribute lives
+   on the island root, so :is([data-console="open"] *) reaches it from inside the
+   scope prefix without a per-island exception. */
+@media (max-width: 768px) {
+  #exec-overview-island .filter-sidebar:is([data-console="open"] *) { animation: favor-ux-sheet-in var(--motion-layout) var(--motion-ease) 1 both; }
+  #exec-overview-island .sidebar-toggle-bar, #exec-overview-island .console-toggle-bar { transition: bottom var(--motion-layout) var(--motion-ease); }
+  #exec-overview-island .sidebar-toggle-bar:is([data-console="closed"] *), #exec-overview-island .console-toggle-bar:is([data-console="closed"] *) { transition-duration: var(--motion-state); transition-timing-function: var(--motion-ease-exit); }
+  #exec-overview-island .ux-status { max-width: calc(100vw - 2rem); }
+}
+
+@keyframes favor-ux-tick { to { stroke-dashoffset: 0; } }
+@keyframes favor-ux-spin { to { transform: rotate(360deg); } }
+@keyframes favor-ux-settle {
+  from { box-shadow: inset 0 0 0 2px var(--classic-accent, var(--accent, #f45500)); }
+  to { box-shadow: inset 0 0 0 2px transparent; }
+}
+@keyframes favor-ux-sheet-in {
+  from { transform: translateY(18px); opacity: .001; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ------------------------------------------------------------- the theme swatch (#611)
+   At rest: `Theme` and one disc, the palette showing now, plus shuffle. The rest arrive on
+   hover and stay on a click, the same gesture as every readout (DESIGN.md). Each island keeps
+   its own chrome for the pill and the discs; what lives here is the structure, so a palette
+   added later costs no layout anywhere. */
+/* No `position` here on purpose. Each island places the pill itself (sticky at the page's lower
+   left on desktop), and setting `relative` here silently un-stuck all of them. The menu anchors
+   to whatever the island placed, because sticky is already a positioned ancestor; the one case
+   that needs help is the mobile console row, where the pill is static. */
+#exec-overview-island .palette-slot .theme-swatch { position: relative; }
+#exec-overview-island .theme-swatch__label {
+  font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted-ink); padding-left: .35rem;
+}
+/* The trigger is the current palette: a disc, and nothing else at rest. It keeps each island's
+   own disc chrome by also carrying .theme-swatch__btn. */
+#exec-overview-island .theme-swatch__trigger { position: relative; }
+#exec-overview-island .theme-swatch__trigger[aria-expanded="true"] { z-index: 41; }
+#exec-overview-island .theme-swatch__menu {
+  position: absolute; bottom: calc(100% + .4rem); left: 0; z-index: 40;
+  display: inline-flex; align-items: center; gap: .15rem; padding: .25rem .3rem;
+  background: var(--surface-raised, var(--surface)); border: 1px solid var(--rule);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--shadow-ink, #121411) 26%, transparent);
+}
+#exec-overview-island .theme-swatch__menu[hidden] { display: none; }
+/* The gap between the trigger and the menu is bridged, so a pointer travelling up does not
+   cross dead space and close the thing it is aiming at. */
+#exec-overview-island .theme-swatch__menu::after { content: ""; position: absolute; inset: 100% 0 -.5rem; }
+#exec-overview-island .theme-swatch__shuffle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.9rem; height: 1.9rem; padding: 0; margin-left: .1rem;
+  border: 0; border-radius: 999px; background: transparent; color: var(--muted-ink);
+  cursor: pointer;
+}
+#exec-overview-island .theme-swatch__shuffle svg { width: .9rem; height: .9rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+#exec-overview-island .theme-swatch__shuffle:hover { color: var(--ink); background: var(--hover-wash, color-mix(in srgb, var(--accent) 12%, transparent)); }
+#exec-overview-island .theme-swatch__shuffle:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: 2px; }
+/* Pinned reads as held open rather than as hovered. */
+#exec-overview-island .theme-swatch[data-pinned="true"] /* The trigger is the current palette: a disc, #exec-overview-island and nothing else at rest. It keeps each island's
+   own disc chrome by also carrying .theme-swatch__btn. */
+.theme-swatch__trigger { position: relative; }
+#exec-overview-island .theme-swatch__trigger[aria-expanded="true"] { z-index: 41; }
+#exec-overview-island .theme-swatch__menu { border-color: var(--edge-strong, var(--ink)); }
+
+/* END merged UX block (apps/shared/ux-base.css) */

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setup · Sunday Inputs prototype</title>
+<link rel="stylesheet" href="proto.css">
+<link rel="stylesheet" href="../../../apps/stats_inputs/src/ui/shared/inputs-tokens.css">
+<link rel="stylesheet" href="../../../apps/stats_inputs/src/ui/shared/inputs-base.css">
+</head>
+<body>
+<main id="app" class="favor-inputs"></main>
+<nav class="proto-nav" aria-label="Prototype screens"><a href="index.html">1 · My Inputs</a><a href="entry.html">2 · Entry</a><a href="setup.html" aria-current="page">3 · Setup</a></nav>
+<script src="../../../apps/stats_inputs/src/ui/shared/inputs-inbox.js"></script>
+<script src="data.js"></script>
+<script src="proto-render.js"></script>
+<script>
+(function () {
+  var R = window.PROTO_RENDER, I = window.FavorInputsInbox, P = window.PROTO, ICON = window.PROTO_ICON, esc = R.esc, el = R.el;
+  var app = document.getElementById("app");
+  R.shell(app, { setup: true });
+  var page = el("div", "in-page");
+  page.appendChild(el("p", "in-fictional", "Fictional prototype data. Rock Ids and Guids here are invented."));
+  var setup = el("div", "in-setup");
+  var head = el("div", "in-setup__head");
+  head.innerHTML = '<div class="in-head"><h1 class="in-head__title">Setup</h1><p class="in-head__sub">What staff see, mapped to what Rock stores.</p></div>' +
+    '<div class="in-setup__scope"><label class="in-chip"><span>Setting up Manila</span><select aria-label="Campus you are setting up"><option>Manila</option><option>Brisbane</option><option>Seoul</option></select></label><span>4 services on the grid · 42 metrics · numbers locked before Aug 1, 2026</span></div>';
+  setup.appendChild(head);
+
+  var sections = [["overview", "Overview"], ["services", "Services"], ["metrics", "Metrics"], ["responsibilities", "Responsibilities"], ["create", "Add a metric"]];
+  var current = new URLSearchParams(location.search).get("section") || "overview";
+  var rail = el("nav", "in-rail"); rail.setAttribute("aria-label", "Setup sections");
+  sections.forEach(function (s) {
+    var b = el("button", null, s[1]); b.type = "button"; b.setAttribute("role", "tab"); b.setAttribute("aria-selected", s[0] === current ? "true" : "false");
+    b.addEventListener("click", function () { location.search = "?section=" + s[0]; });
+    rail.appendChild(b);
+  });
+  setup.appendChild(rail);
+
+  var panel = el("div", "in-panel"); panel.setAttribute("role", "tabpanel");
+  var c = R.computed();
+  var byKey = {}; c.all.forEach(function (i) { byKey[i.key] = i; });
+  var groups = { "aaaa0001-0000-4000-8000-000000000001": "MNL Host Team", "aaaa0002-0000-4000-8000-000000000002": "MNL Favor Kids Team", "aaaa0003-0000-4000-8000-000000000003": "MNL Worship Team", "aaaa0004-0000-4000-8000-000000000004": "MNL CRTVS x PROD Team", "aaaa0005-0000-4000-8000-000000000005": "MNL People Team", "aaaa0006-0000-4000-8000-000000000006": "MNL Prayer Team", "aaaa0007-0000-4000-8000-000000000007": "MNL Tech Team" };
+  var rockId = 1200;
+  function guidCell(g) { return '<span class="in-guid" title="' + esc(g) + '"><span>' + esc(g) + '</span><button type="button" aria-label="Copy Guid"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/></svg></button></span>'; }
+  function state(yes, label) { return '<span class="in-state ' + (yes ? 'in-state--yes' : 'in-state--no') + '">' + label + '</span>'; }
+  function owners(keys) {
+    var conf = P.preferences.responsibilities[keys] || {};
+    return (conf.owners || []).map(function (g) { return '<span class="in-owner">' + esc(groups[g] || g) + '</span>'; }).join(" ") || '<span class="in-state in-state--warn">No owner yet</span>';
+  }
+
+  if (current === "overview") {
+    panel.innerHTML = '<p class="in-panel__intro">Every row is one Rock Metric this app writes MetricValues to, in the campus category tree. Guid is the binding key; Title is what Rock shows; label, visible, required and owner are this app’s presentation, kept in the campus preferences item.</p>';
+    function table(caption, rows) {
+      var wrap = el("div", "in-table-wrap");
+      wrap.innerHTML = '<table class="in-table"><caption>' + caption + '</caption><thead><tr><th>Category › Metric</th><th>Rock Id</th><th>Guid</th><th>Grain · partitions</th><th>Visible</th><th>Required</th><th>Owner</th><th>Last value</th><th></th></tr></thead><tbody>' + rows.join("") + '</tbody></table>';
+      return wrap;
+    }
+    var teamRows = [];
+    P.teams.forEach(function (t) {
+      var item = byKey["team:MNL:" + t.token];
+      var last = t.meta ? (t.counts.filter(Boolean).slice(-1)[0] || t.unique) + ' · ' + I.inboxFormatWhen(t.meta.at, P.now) + ' · ' + t.meta.by : '—';
+      teamRows.push('<tr><td><span class="in-path">Weekly Metrics › Manila › TEAMS › ' + esc(t.category) + '</span>' + esc(t.category) + ' Volunteers</td><td class="in-id">' + (rockId++) + '</td><td>' + guidCell("cccc" + t.token.toLowerCase().padEnd(4, "0").slice(0, 4) + "-0001-5000-8000-000000000001") + '</td><td>per service<span class="in-path">Campus + Schedule</span></td><td>' + state(true, "Shown") + '</td><td>' + state(true, "Required") + '</td><td>' + owners("team:MNL:" + t.token) + '</td><td class="in-tabular">' + esc(last) + '</td><td><a href="#" class="in-text-btn">Open in Rock</a></td></tr>');
+      teamRows.push('<tr><td><span class="in-path">Weekly Metrics › Manila › TEAMS › ' + esc(t.category) + '</span>' + esc(t.category) + ' Unique Volunteers</td><td class="in-id">' + (rockId++) + '</td><td>' + guidCell("cccc" + t.token.toLowerCase().padEnd(4, "0").slice(0, 4) + "-0002-5000-8000-000000000002") + '</td><td>weekly<span class="in-path">Campus</span></td><td>' + state(true, "Shown") + '</td><td>' + state(true, "Required") + '</td><td>' + owners("team:MNL:" + t.token) + '</td><td class="in-tabular">' + esc(t.unique ? t.unique + ' · ' + I.inboxFormatWhen(t.meta.at, P.now) + ' · ' + t.meta.by : '—') + '</td><td><a href="#" class="in-text-btn">Open in Rock</a></td></tr>');
+    });
+    panel.appendChild(table("TEAMS · 14 metrics · 7 responsibilities", teamRows));
+    var statRows = [];
+    P.departments.forEach(function (d) {
+      d.metrics.forEach(function (m) {
+        var req = P.preferences.required[m.guid] !== false;
+        var lastV = m.values.filter(Boolean).slice(-1)[0];
+        statRows.push('<tr><td><span class="in-path">Weekly Metrics › Manila › STATS › ' + esc(d.key) + '</span>' + esc(m.title) + '</td><td class="in-id">' + (rockId++) + '</td><td>' + guidCell(m.guid) + '</td><td>per service<span class="in-path">Campus + Schedule</span></td><td>' + state(true, "Shown") + '</td><td>' + state(req, req ? "Required" : "Optional") + '</td><td>' + owners("dept:MNL:" + d.key) + '</td><td class="in-tabular">' + esc(lastV ? lastV + ' · ' + I.inboxFormatWhen(d.meta.at, P.now) + ' · ' + d.meta.by : '—') + '</td><td><a href="#" class="in-text-btn">Open in Rock</a></td></tr>');
+      });
+    });
+    panel.appendChild(table("STATS · 8 metrics · 4 responsibilities", statRows));
+    var kv = el("dl", "in-kv");
+    kv.innerHTML = '<dt>Preferences item</dt><dd>Sunday Inputs Settings › MNL (ContentChannelItem 61)</dd><dt>Schema</dt><dd>1</dd><dt>Version</dt><dd>16 · saved Sep 17 by Jom Santos</dd><dt>Catalog</dt><dd>__catalog v12 · 91 metrics · refreshed Sep 15</dd><dt>Freeze</dt><dd>Sundays before Aug 1, 2026 are read-only</dd>';
+    var kvWrap = el("section", "in-section"); kvWrap.innerHTML = '<div class="in-section__head"><h2 class="in-section__title">Where this campus’s setup lives</h2></div>'; kvWrap.appendChild(kv);
+    panel.appendChild(kvWrap);
+  }
+
+  if (current === "responsibilities") {
+    panel.innerHTML = '<p class="in-panel__intro">A responsibility is complete when its required values are saved in Rock. Owners see it first on My Inputs. Nothing here writes a number.</p>';
+    var list = el("div", "in-list");
+    c.all.forEach(function (item) {
+      var row = el("div", "in-resp");
+      var conf = P.preferences.responsibilities[item.key] || {};
+      var ownerChips = (conf.owners || []).map(function (g) { return '<span class="in-owner">' + esc(groups[g] || g) + '<button type="button" aria-label="Remove owner"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span>'; }).join("");
+      var suggested = !conf.owners ? Object.keys(groups).filter(function (g) { return I.inboxMatchesName(groups[g], [item.kind === "team" ? item.label : "MNL " + item.label]); }).map(function (g) { return '<span class="in-owner in-owner--suggested">' + esc(groups[g]) + ' <button type="button" class="in-text-btn" style="min-height:1.6rem;padding:0 .3rem">Use this</button></span>'; }).join("") : "";
+      var req = item.required.length, opt = item.optional.length;
+      row.innerHTML = '<div class="in-resp__head"><div class="in-resp__label"><label class="in-sr" for="l-' + esc(item.key) + '">Label</label><input id="l-' + esc(item.key) + '" value="' + esc(item.label) + '"><span class="in-resp__kind">' + (item.kind === "team" ? "Team" : "Stats department") + '</span></div><span class="in-resp__rule">Complete when <strong>' + req + ' required</strong> value' + (req === 1 ? '' : 's') + (opt ? ' are saved, ' + opt + ' optional' : ' are saved') + '</span></div>' +
+        '<div class="in-owners"><span class="in-resp__kind">Owners</span>' + ownerChips + suggested + '<button type="button" class="in-text-btn">Add owner</button></div>';
+      if (item.kind === "department") {
+        var fields = el("div", "in-resp__fields");
+        var seen = {};
+        item.fields.forEach(function (f) {
+          if (seen[f.guid]) { return; } seen[f.guid] = true;
+          var r = el("div", "in-resp__field");
+          r.innerHTML = '<span>' + esc(f.label) + '</span><label class="in-switch"><input type="checkbox"' + (f.required ? ' checked' : '') + '><span class="in-switch__track" aria-hidden="true"></span><span>' + (f.required ? 'Required' : 'Optional') + '</span></label>';
+          r.querySelector("input").addEventListener("change", function (e) { r.querySelector(".in-switch span:last-child").textContent = e.target.checked ? "Required" : "Optional"; });
+          fields.appendChild(r);
+        });
+        row.appendChild(fields);
+      }
+      list.appendChild(row);
+    });
+    panel.appendChild(list);
+    var picker = el("div", "in-search");
+    picker.innerHTML = '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg><input type="search" placeholder="Search Manila ministry teams" aria-label="Search Manila ministry teams" value="kid">' +
+      '<div class="in-menu" role="listbox"><button type="button" role="option" aria-selected="true"><span>MNL Favor Kids Team</span><small>52 members · 2 leaders</small></button><button type="button" role="option"><span>MNL Favor Kids Junior Volunteers</span><small>14 members · 1 leader</small></button><button type="button" role="option"><span>MNL Kids Worship Team</span><small>9 members</small></button></div>';
+    var pickWrap = el("section", "in-section"); pickWrap.innerHTML = '<div class="in-section__head"><h2 class="in-section__title">Owner picker (opens from Add owner)</h2></div>'; pickWrap.appendChild(picker);
+    panel.appendChild(pickWrap);
+  }
+
+  if (current === "metrics") {
+    panel.innerHTML = '<p class="in-panel__intro">Drag to reorder. Anything you hide stays on the grid for people who already entered numbers. Required is what completes a responsibility; optional never blocks it.</p>';
+    var ml = el("div", "in-table-wrap");
+    var rows = "";
+    P.departments.forEach(function (d) { d.metrics.forEach(function (m) { var req = P.preferences.required[m.guid] !== false; rows += '<tr><td><span class="in-path">STATS › ' + esc(d.key) + '</span>' + esc(m.title) + '</td><td>' + state(true, "Shown") + '</td><td><label class="in-switch"><input type="checkbox"' + (req ? ' checked' : '') + '><span class="in-switch__track" aria-hidden="true"></span><span>' + (req ? 'Required' : 'Optional') + '</span></label></td><td><button type="button" class="in-text-btn">Move up</button> <button type="button" class="in-text-btn">Move down</button> <button type="button" class="in-text-btn">Rename…</button></td></tr>'; }); });
+    ml.innerHTML = '<table class="in-table" style="min-width:40rem"><caption>STATS</caption><thead><tr><th>Metric</th><th>Visible</th><th>Required</th><th></th></tr></thead><tbody>' + rows + '</tbody></table>';
+    panel.appendChild(ml);
+  }
+
+  if (current === "services" || current === "create") {
+    panel.innerHTML = '<div class="in-empty"><strong>' + (current === "services" ? "Services" : "Add a metric") + '</strong>Unchanged from today’s settings dialog (eye toggle and drag order; the three templates). Restyled in the shared world, logic kept.</div>';
+  }
+
+  setup.appendChild(panel);
+  var actions = el("div", "in-setup__actions");
+  actions.innerHTML = '<button type="button" class="in-primary" disabled>Save setup</button><button type="button" class="in-secondary">Discard changes</button>';
+  setup.appendChild(actions);
+  page.appendChild(setup);
+  app.appendChild(page);
+  window.PROTO_STATUS = R.mountStatus(app);
+}());
+</script>
+</body>
+</html>

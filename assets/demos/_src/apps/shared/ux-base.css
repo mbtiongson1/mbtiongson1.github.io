@@ -1,0 +1,260 @@
+/* ==========================================================================
+   UX bar -- the shared interaction floor every shipped dashboard stands on (#587).
+   Standard: docs/design/ux-bar.md.  Runtime: apps/shared/dashboard-status.mjs.
+   Local reference and demo: docs/design/ux-bar.html (serve the repo, open it).
+
+   Each island merges this block into its own stylesheet under its own scope
+   prefix, exactly as classic-base.css and markup-base.css are merged
+   (docs/design/classic-grammar.md §19, tools/scope_island_css.py, guarded by
+   tools/check_merged_blocks.py). Every selector starts with ".", "[" or ":root"
+   (which the scoper rewrites to the island root) so the prefixing pass wraps
+   it verbatim. Keyframe names are prefixed favor-ux- because @keyframes are
+   page-global and an island never owns the page.
+
+   What lives here, and only here:
+     1. the motion vocabulary  -- five durations, two curves, one reduced-motion switch
+     2. pressed feedback       -- every shared control acknowledges the press itself
+     3. the status chip        -- visible completion / failure / working, one per island
+     4. the change cue         -- a once-only settle on the stations a filter changed
+     5. the busy veil          -- a region that is honestly still working
+     6. the mobile sheet       -- the console arrives from its edge; the handle rides with it
+
+   Colours read the island's --classic-* map with the same fallback chains the
+   Classic block uses. The chip inverts through --invert-surface / --invert-ink
+   (#321) so it never paints white on white under favor-dark.
+   ========================================================================== */
+
+/* ---------- 1. motion vocabulary ---------- */
+/* Durations are the whole timing story. A control reads one token; nothing in
+   an island states a millisecond value of its own for a UX-bar behaviour. */
+:root {
+  --motion-feedback: 120ms;   /* press, hover, toggle acknowledgement */
+  --motion-state: 180ms;      /* a state the eye must follow: selected, mode, chip in/out */
+  --motion-layout: 280ms;     /* a sheet, a panel, a change cue settling */
+  --motion-focus: 360ms;      /* a focal element arriving once */
+  --motion-focal: 550ms;      /* the rare authored moment; one per surface, if any */
+  --motion-ease: cubic-bezier(.16, 1, .3, 1);      /* confident arrival */
+  --motion-ease-exit: cubic-bezier(.4, 0, 1, 1);   /* leaves faster than it came */
+  --host-chrome-bottom: 0px;                       /* shared runtime measurement */
+  --ux-status-gap: .75rem;                         /* one shared clearance, not a surface offset */
+  --ux-status-top: calc(var(--host-chrome-bottom) + var(--ux-status-gap));
+}
+/* Reduced motion is one switch, not a hunt: every duration collapses to zero,
+   so each transition and animation below completes on its first frame while the
+   state it carried (pressed, selected, done, failed) still lands. Reduced motion
+   is never reduced information. */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-feedback: 0ms;
+    --motion-state: 0ms;
+    --motion-layout: 0ms;
+    --motion-focus: 0ms;
+    --motion-focal: 0ms;
+  }
+}
+
+/* ---------- 2. pressed feedback ---------- */
+/* The shared control vocabulary acknowledges a press before anything else
+   happens: a 1px settle on :active, back on release. Islands add their own
+   control classes to this list in their override zone, never a second rule. */
+.mode-switch__btn, .xrail__btn, .cw__expand, .ct__sort, .copy-prompt-btn,
+.copy-prompt-option, .copy-prompt-opt, .toggle-btn, .sidebar-back-btn,
+.reset-btn, .scopebar-reset, .theme-swatch__btn, .mk-toggle, .mk-rail__btn,
+.opt-btn, .acronym-btn, .gender-btn, .filter-tag__remove {
+  transition: transform var(--motion-feedback) var(--motion-ease),
+              background-color var(--motion-feedback) linear,
+              border-color var(--motion-feedback) linear,
+              color var(--motion-feedback) linear,
+              box-shadow var(--motion-feedback) linear;
+}
+.mode-switch__btn:active, .xrail__btn:active:not([disabled]), .cw__expand:active,
+.ct__sort:active, .copy-prompt-btn:active, .copy-prompt-option:active,
+.copy-prompt-opt:active, .toggle-btn:active, .sidebar-back-btn:active,
+.reset-btn:active, .scopebar-reset:active, .theme-swatch__btn:active,
+.mk-toggle:active, .mk-rail__btn:active, .opt-btn:active, .acronym-btn:active,
+.gender-btn:active, .filter-tag__remove:active {
+  transform: translateY(1px);
+}
+
+/* ---------- 3. the status chip ---------- */
+/* One chip per island, mounted by dashboard-status.mjs. It sits top-centre,
+   below the shared host-chrome boundary measured at runtime, so the mobile bottom
+   edge keeps its one occupant (ADR 0020). It is the visible half of every announce():
+   the live region says it to a screen reader, the chip says it to everyone else.
+   Same words, both places. */
+.ux-status {
+  position: fixed;
+  top: var(--ux-status-top);
+  left: 50%;
+  z-index: 996;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  max-width: min(92vw, 36rem);
+  min-height: 2.5rem;
+  padding: .45rem .9rem .45rem .75rem;
+  border: 1px solid var(--invert-surface, var(--classic-ink, var(--ink, #121411)));
+  border-radius: 999px;
+  background: var(--invert-surface, var(--classic-ink, var(--ink, #121411)));
+  color: var(--invert-ink, var(--classic-surface, var(--surface, #ffffff)));
+  font-family: var(--classic-body-font, var(--font-body, system-ui, sans-serif));
+  font-size: .82rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: .005em;
+  box-shadow: 0 10px 24px -10px var(--shadow-ink, rgba(0, 0, 0, .45));
+  opacity: 0;
+  transform: translate(-50%, -8px);
+  pointer-events: none;
+  transition: opacity var(--motion-feedback) var(--motion-ease-exit),
+              transform var(--motion-feedback) var(--motion-ease-exit);
+}
+.ux-status[data-open="true"] {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+  transition: opacity var(--motion-state) var(--motion-ease),
+              transform var(--motion-state) var(--motion-ease);
+}
+.ux-status__text { min-width: 0; overflow-wrap: anywhere; }
+.ux-status__mark {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+}
+.ux-status__mark svg { width: 100%; height: 100%; display: block; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+/* done: the mark draws its tick once, then rests. */
+.ux-status[data-kind="done"] .ux-status__mark { color: var(--state-healthy, var(--classic-healthy, #2f9a52)); }
+.ux-status[data-kind="done"] .ux-status__mark path { stroke-dasharray: 28; stroke-dashoffset: 28; animation: favor-ux-tick var(--motion-state) var(--motion-ease) forwards; }
+/* busy: the only loop in the block, and it stops the moment the chip changes kind
+   or closes, because the spinning element leaves with it. */
+.ux-status[data-kind="busy"] .ux-status__mark { animation: favor-ux-spin 900ms linear infinite; }
+/* fail: inverted back to the surface so the red carries the weight, and the chip
+   stays until dismissed -- a failure is never a toast. */
+.ux-status[data-kind="fail"] {
+  background: var(--classic-surface, var(--surface, #ffffff));
+  color: var(--classic-ink, var(--ink, #121411));
+  border-color: var(--state-critical, var(--classic-critical, #b3261e));
+  box-shadow: 0 10px 24px -10px var(--shadow-ink, rgba(0, 0, 0, .45)), inset 0 0 0 1px var(--state-critical, var(--classic-critical, #b3261e));
+}
+.ux-status[data-kind="fail"] .ux-status__mark { color: var(--state-critical, var(--classic-critical, #b3261e)); }
+.ux-status__btn {
+  position: relative;
+  flex: none;
+  margin: -.2rem -.45rem -.2rem 0;
+  min-height: 2rem;
+  padding: 0 .65rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: .76rem;
+  cursor: pointer;
+}
+.ux-status__btn::after { content: ""; position: absolute; inset: -.45rem -.3rem; }
+.ux-status__btn:hover { background: var(--hover-wash, rgba(127, 127, 127, .14)); }
+.ux-status__btn:active { transform: translateY(1px); }
+.ux-status__btn:focus-visible { outline: 2px solid var(--classic-focus, var(--focus, #005eb8)); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .ux-status[data-kind="busy"] .ux-status__mark { animation: none; }
+  .ux-status[data-kind="done"] .ux-status__mark path { animation: none; stroke-dashoffset: 0; }
+}
+
+/* A live region an island can mount when it has none: present to assistive tech, absent
+   from layout. The chip is the sighted half of whatever is written here. */
+.ux-live { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* ---------- 4. the change cue ---------- */
+/* After a filter or scope change the stations whose reading changed settle
+   once: an accent inset ring that fades over the layout beat. Applied by
+   dashboard-status.mjs markChanged(), to a capped handful of nodes, once per
+   user action -- never ambient, never on load. */
+.ux-changed { animation: favor-ux-settle var(--motion-layout) var(--motion-ease) 1 both; }
+
+/* ---------- 5. the busy veil ---------- */
+/* A region that is truthfully still working. It keeps the last reading visible
+   under a light veil rather than blanking it, and the cursor says "working". */
+.ux-busy { position: relative; cursor: progress; }
+.ux-busy::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: var(--classic-surface, var(--surface, #ffffff));
+  opacity: .42;
+  pointer-events: none;
+  transition: opacity var(--motion-state) linear;
+}
+
+/* ---------- 6. the mobile sheet ---------- */
+/* The console arrives from the edge it lives on and the handle rides up with it
+   (docs/guides/mobile-bottom-edge.md). Closing is instant on the sheet and a beat
+   shorter on the handle: exits are faster than entrances. The state attribute lives
+   on the island root, so :is([data-console="open"] *) reaches it from inside the
+   scope prefix without a per-island exception. */
+@media (max-width: 768px) {
+  .filter-sidebar:is([data-console="open"] *) { animation: favor-ux-sheet-in var(--motion-layout) var(--motion-ease) 1 both; }
+  .sidebar-toggle-bar, .console-toggle-bar { transition: bottom var(--motion-layout) var(--motion-ease); }
+  .sidebar-toggle-bar:is([data-console="closed"] *), .console-toggle-bar:is([data-console="closed"] *) { transition-duration: var(--motion-state); transition-timing-function: var(--motion-ease-exit); }
+  .ux-status { max-width: calc(100vw - 2rem); }
+}
+
+@keyframes favor-ux-tick { to { stroke-dashoffset: 0; } }
+@keyframes favor-ux-spin { to { transform: rotate(360deg); } }
+@keyframes favor-ux-settle {
+  from { box-shadow: inset 0 0 0 2px var(--classic-accent, var(--accent, #f45500)); }
+  to { box-shadow: inset 0 0 0 2px transparent; }
+}
+@keyframes favor-ux-sheet-in {
+  from { transform: translateY(18px); opacity: .001; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ------------------------------------------------------------- the theme swatch (#611)
+   At rest: `Theme` and one disc, the palette showing now, plus shuffle. The rest arrive on
+   hover and stay on a click, the same gesture as every readout (DESIGN.md). Each island keeps
+   its own chrome for the pill and the discs; what lives here is the structure, so a palette
+   added later costs no layout anywhere. */
+/* No `position` here on purpose. Each island places the pill itself (sticky at the page's lower
+   left on desktop), and setting `relative` here silently un-stuck all of them. The menu anchors
+   to whatever the island placed, because sticky is already a positioned ancestor; the one case
+   that needs help is the mobile console row, where the pill is static. */
+.palette-slot .theme-swatch { position: relative; }
+.theme-swatch__label {
+  font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted-ink); padding-left: .35rem;
+}
+/* The trigger is the current palette: a disc, and nothing else at rest. It keeps each island's
+   own disc chrome by also carrying .theme-swatch__btn. */
+.theme-swatch__trigger { position: relative; }
+.theme-swatch__trigger[aria-expanded="true"] { z-index: 41; }
+.theme-swatch__menu {
+  position: absolute; bottom: calc(100% + .4rem); left: 0; z-index: 40;
+  display: inline-flex; align-items: center; gap: .15rem; padding: .25rem .3rem;
+  background: var(--surface-raised, var(--surface)); border: 1px solid var(--rule);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--shadow-ink, #121411) 26%, transparent);
+}
+.theme-swatch__menu[hidden] { display: none; }
+/* The gap between the trigger and the menu is bridged, so a pointer travelling up does not
+   cross dead space and close the thing it is aiming at. */
+.theme-swatch__menu::after { content: ""; position: absolute; inset: 100% 0 -.5rem; }
+.theme-swatch__shuffle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.9rem; height: 1.9rem; padding: 0; margin-left: .1rem;
+  border: 0; border-radius: 999px; background: transparent; color: var(--muted-ink);
+  cursor: pointer;
+}
+.theme-swatch__shuffle svg { width: .9rem; height: .9rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.theme-swatch__shuffle:hover { color: var(--ink); background: var(--hover-wash, color-mix(in srgb, var(--accent) 12%, transparent)); }
+.theme-swatch__shuffle:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: 2px; }
+/* Pinned reads as held open rather than as hovered. */
+.theme-swatch[data-pinned="true"] /* The trigger is the current palette: a disc, and nothing else at rest. It keeps each island's
+   own disc chrome by also carrying .theme-swatch__btn. */
+.theme-swatch__trigger { position: relative; }
+.theme-swatch__trigger[aria-expanded="true"] { z-index: 41; }
+.theme-swatch__menu { border-color: var(--edge-strong, var(--ink)); }

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Events · B · Marquee</title>
+<link rel="stylesheet" href="../../shared/breadcrumbs-base.css">
+<style>
+  /* Tokens: themes/favor-events-2026.json */
+  #events-island {
+    --background:#0b0a10; --surface:#14121c; --surface-raised:#1c1927; --surface-sunken:#08070c;
+    --ink:#f5f1e8; --muted-ink:#b3adc4; --rule:#2c2839; --edge:#4a4460;
+    --accent:#ff5b3a; --secondary:#8f7bff; --brand-gold:#ffb42a; --focus:#7cc8ff;
+    --hover-wash:#1f1b2b; --shadow-ink:#000;
+    --ease-out: cubic-bezier(.16,1,.3,1);
+    --display:"Big Shoulders Display", "Favorvetica", Arial, sans-serif;
+  }
+  html, body { margin:0; background:#0b0a10; }
+  ::selection { background:#ffb42a; color:#0b0a10; }
+  #events-island { min-height:100vh; box-sizing:border-box; padding:0 clamp(1rem,2.5vw,2.4rem) 4rem; background:
+      radial-gradient(120% 60% at 50% 0%, #1c1927 0, transparent 60%), var(--background);
+    color:var(--ink); font-family:"Favor Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+
+  .mq-wrap { max-width:60rem; margin:clamp(2rem,6vw,4.5rem) auto 0; perspective:1200px; }
+  .mq-sign { position:relative; padding:clamp(1.6rem,4vw,2.6rem); border-radius:10px;
+    background:linear-gradient(#1a1624,#110f18); border:1px solid var(--edge);
+    box-shadow:0 30px 60px -20px #000, inset 0 1px 0 #ffffff10;
+    transform:rotateX(8deg); transform-origin:50% 100%; animation:mq-settle 1.4s var(--ease-out) both; }
+  @keyframes mq-settle { from { transform:rotateX(38deg) translateY(-30px); opacity:0; } }
+
+  /* bulbs: drawn by JS on both long edges; the chase is one staggered keyframe */
+  .mq-bulbs { position:absolute; left:14px; right:14px; display:flex; justify-content:space-between; pointer-events:none; }
+  .mq-bulbs--top { top:10px } .mq-bulbs--bot { bottom:10px }
+  .mq-bulbs i { width:8px; height:8px; border-radius:50%; background:#5a4a2c; animation:mq-chase 1.2s linear infinite; animation-delay:calc(var(--i) * -.1s); }
+  @keyframes mq-chase { 0%,30% { background:#ffe2a3; } 31%,100% { background:#5a4a2c; } }
+
+  .mq-board { position:relative; margin:.8rem 0; padding:clamp(1rem,3vw,1.6rem) clamp(.8rem,2vw,1.4rem);
+    background:repeating-linear-gradient(#f5f1e8 0 calc(100%/3 - 2px), #d9d2c2 calc(100%/3 - 2px) calc(100%/3));
+    border-radius:4px; color:#0b0a10; overflow:hidden; }
+  .mq-row { display:flex; flex-wrap:wrap; justify-content:center; gap:.08em; font-family:var(--display); font-weight:900; text-transform:uppercase; line-height:1; }
+  .mq-row--big { font-size:clamp(3.6rem, 13vw, 9.5rem); letter-spacing:.01em; }
+  .mq-row--mid { font-size:clamp(1.3rem, 4vw, 2.6rem); font-weight:800; letter-spacing:.06em; margin-top:.35rem; }
+  .mq-row .gap { width:.35em }
+  /* each letter is hung by hand: drops, overshoots, swings still */
+  .mq-l { display:inline-block; transform-origin:50% -40%; animation:mq-hang 1.1s var(--ease-out) both; animation-delay:calc(.9s + var(--i) * 70ms); }
+  .mq-row--big .mq-l:nth-child(odd) { color:var(--accent); }
+  @keyframes mq-hang { 0% { transform:translateY(-120%) rotate(-14deg); opacity:0; } 45% { opacity:1; } 60% { transform:translateY(4%) rotate(5deg); } 80% { transform:rotate(-2deg); } 100% { transform:none; } }
+
+  /* split-flap: what the dashboard will read */
+  .mq-flap { display:flex; justify-content:center; align-items:center; gap:.8rem; margin-top:1.2rem; font-family:"Big Shoulders Text", var(--display); font-weight:700; text-transform:uppercase; letter-spacing:.14em; font-size:.9rem; color:var(--muted-ink); }
+  .mq-flap output { display:inline-grid; min-width:11ch; padding:.35rem .7rem; background:#08070c; border:1px solid var(--rule); border-radius:4px; color:var(--brand-gold); text-align:center; font-variant-numeric:tabular-nums; }
+  .mq-flap output span { display:block; animation:mq-flip .45s var(--ease-out); }
+  @keyframes mq-flip { from { transform:rotateX(90deg); filter:blur(2px); opacity:.2; } }
+
+  .mq-copy { text-align:center; margin-top:2.6rem; }
+  .mq-copy h1 { margin:0 0 .75rem; font-family:var(--display); font-weight:800; font-size:clamp(1.7rem,3.6vw,2.4rem); letter-spacing:.01em; text-wrap:balance; }
+  .mq-copy .mq-q { margin:0 auto 1rem; color:var(--brand-gold); font-weight:600; font-size:1.05rem; }
+  .mq-copy p { margin:0 auto 2rem; max-width:52ch; color:var(--muted-ink); line-height:1.6; font-size:.95rem; }
+  .mq-cta { display:inline-flex; align-items:center; gap:.55rem; padding:.8rem 1.3rem; border-radius:4px; background:var(--accent); color:#0b0a10; text-decoration:none; font-weight:800; font-size:.88rem;
+    transition:transform .3s var(--ease-out), background .2s var(--ease-out); }
+  .mq-cta:hover { background:#ffb42a; transform:translateY(-2px); }
+  .mq-cta:active { transform:translateY(0); }
+  #events-island a:focus-visible { outline:2px solid var(--focus); outline-offset:3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mq-sign, .mq-l, .mq-flap output span { animation:none; }
+    .mq-bulbs i { animation:none; background:#ffe2a3; }
+    .mq-sign { transform:none; }
+  }
+</style>
+</head>
+<body>
+<div id="events-island">
+  <nav class="suite-breadcrumbs" aria-label="Executive Suite"><ol class="suite-breadcrumbs__trail"><li class="suite-breadcrumbs__item suite-breadcrumbs__item--root"><a href="/exec" class="suite-breadcrumbs__root-link">Executive Dashboards</a></li><li class="suite-breadcrumbs__divider" aria-hidden="true">/</li><li class="suite-breadcrumbs__item suite-breadcrumbs__item--siblings"><span class="suite-breadcrumbs__peers"><a href="/exec" class="suite-breadcrumbs__link" data-surface="exec-overview">Overview</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><span class="suite-breadcrumbs__nest"><a href="/exec/people" class="suite-breadcrumbs__link" data-surface="pathways">People</a><span class="suite-breadcrumbs__sub" role="group" aria-label="People &amp; Leaders"><a href="/exec/people" class="suite-breadcrumbs__tab" data-tab="pathways"><span class="suite-breadcrumbs__tab-label">Pathways</span><span class="suite-breadcrumbs__tab-question">Who is becoming ready?</span></a><a href="/exec/people?tab=leadership" class="suite-breadcrumbs__tab" data-tab="leadership"><span class="suite-breadcrumbs__tab-label">Leadership</span><span class="suite-breadcrumbs__tab-question">Who carries responsibility now?</span></a><a href="/exec/people?tab=multiplication" class="suite-breadcrumbs__tab" data-tab="multiplication"><span class="suite-breadcrumbs__tab-label">Multiplication</span><span class="suite-breadcrumbs__tab-question">Who are those leaders building?</span></a></span></span><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/connect" class="suite-breadcrumbs__link" data-surface="connect-field">Connect</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/grow" class="suite-breadcrumbs__link" data-surface="grow">Grow</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/finance" class="suite-breadcrumbs__link" data-surface="finance">Finance</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/events" class="suite-breadcrumbs__link is-active" data-surface="events" aria-current="page">Events</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/TechStatsNew" class="suite-breadcrumbs__link" data-surface="sunday-report">Sunday</a></span></li></ol></nav>
+  <div class="mq-wrap">
+    <div class="mq-sign" aria-hidden="true">
+      <div class="mq-bulbs mq-bulbs--top"></div>
+      <div class="mq-board">
+        <div class="mq-row mq-row--big" data-text="Events"></div>
+        <div class="mq-row mq-row--mid" data-text="Now building" data-offset="6"></div>
+      </div>
+      <div class="mq-bulbs mq-bulbs--bot"></div>
+      <div class="mq-flap">Soon reading <output aria-live="off"><span>Conferences</span></output></div>
+    </div>
+  </div>
+  <div class="mq-copy">
+    <h1>Events is under construction</h1>
+    <p class="mq-q">Are our big nights drawing people in, and bringing them back?</p>
+    <p>We're wiring conferences and church-wide gatherings into Rock so this reads live.</p>
+    <a class="mq-cta" href="/exec"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg>Return to Executive Dashboards</a>
+  </div>
+</div>
+<script>
+(function () {
+  var root = document.getElementById("events-island");
+  root.querySelectorAll(".mq-row").forEach(function (row) {
+    var off = Number(row.dataset.offset || 0);
+    Array.from(row.dataset.text).forEach(function (ch, i) {
+      var s = document.createElement("span");
+      if (ch === " ") { s.className = "gap"; } else { s.className = "mq-l"; s.textContent = ch; s.style.setProperty("--i", i + off); }
+      row.appendChild(s);
+    });
+  });
+  function bulbs() {
+    root.querySelectorAll(".mq-bulbs").forEach(function (b) {
+      b.textContent = "";
+      var n = Math.max(12, Math.round(b.clientWidth / 26));
+      for (var i = 0; i < n; i++) { var el = document.createElement("i"); el.style.setProperty("--i", b.classList.contains("mq-bulbs--bot") ? n - i : i); b.appendChild(el); }
+    });
+  }
+  bulbs(); addEventListener("resize", bulbs);
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var words = ["Conferences", "Nights of worship", "Camps", "Retreats", "Launch nights"], k = 0;
+  var out = root.querySelector(".mq-flap output");
+  setInterval(function () { k = (k + 1) % words.length; out.innerHTML = "<span>" + words[k] + "</span>"; }, 2200);
+})();
+</script>
+</body>
+</html>

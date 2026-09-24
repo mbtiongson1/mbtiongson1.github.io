@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechStats Real-Metrics Dashboard (Preview Workbench)</title>
+  <link rel="stylesheet" href="./capture/techstats.css">
+  <script src="../../../_vendor/chart.umd.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .workbench-bar {
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+    .workbench-badge {
+      background: #e11d48;
+      color: #fff;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .workbench-container {
+      max-width: 1280px;
+      margin: 24px auto;
+      padding: 0 16px;
+    }
+    .workbench-nav-card {
+      background: #ffffff;
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .workbench-tabs-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+    .workbench-tabs-nav span {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+      margin-right: 4px;
+      white-space: nowrap;
+    }
+    .workbench-tab-btn {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .workbench-tab-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .workbench-tab-btn.active {
+      background: #e11d48;
+      border-color: #e11d48;
+      color: #ffffff;
+    }
+    .workbench-select-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .workbench-select-wrapper label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+    }
+    .workbench-select {
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #1e293b;
+      cursor: pointer;
+    }
+    .wb-delight-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: #38bdf8;
+      border: 1px solid #0284c7;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      animation: toast-slide-in 0.3s ease-out;
+    }
+    @keyframes toast-slide-in {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @media (max-width: 640px) {
+      .workbench-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 10px 16px;
+      }
+      .workbench-container {
+        padding: 0 8px;
+        margin: 12px auto;
+      }
+      .workbench-nav-card {
+        padding: 12px 14px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .workbench-select-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .workbench-select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="workbench-bar">
+    <div>
+      <span class="workbench-badge">Template Version 1.4.6</span>
+      <strong>TechStats Real-Metrics Dashboard</strong> — Preview Island Workbench
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span>Campus shape: <strong>Manila (MNL)</strong> | Fictional structure-only fixture</span>
+      <a href="#" target="_blank" rel="noopener noreferrer" style="color:#0284c7;text-decoration:none;font-weight:600;font-size:12px;">Legacy (v1.0) ↗</a>
+    </div>
+  </div>
+
+  <div class="workbench-container">
+    <div class="workbench-nav-card">
+      <div class="workbench-tabs-nav" id="workbench-recent-tabs">
+        <span>Fixture:</span>
+      </div>
+      <div class="workbench-select-wrapper">
+        <label for="workbench-week-select">Workbench data:</label>
+        <select id="workbench-week-select" class="workbench-select"></select>
+        <button type="button" id="workbench-edit-toggle-btn" class="workbench-tab-btn" hidden>
+          <span>Edit Sunday Metadata</span>
+        </button>
+      </div>
+    </div>
+
+    <span id="workbench-export-status" role="status" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;"></span>
+    <div id="workbench-editor-container" style="display:none;margin-bottom:24px;"></div>
+    <div id="techstats-root" data-can-edit="true"></div>
+  </div>
+
+  <script type="module">
+    import { renderReport, buildViewFromBundle } from "./capture/render.mjs";
+    import { buildChartConfig } from "./capture/charts.mjs";
+    import { restToBundle } from "./capture/rest-to-bundle.mjs";
+    import { createExportRegistry, bindExportDelegation, exportCanvasToPng } from "./capture/dashboard-export.mjs";
+    import { mountCopyPrompt, mountPackageControl, buildDashboardPackage } from "./capture/dashboard-prompt.mjs";
+
+    const root = document.querySelector("#techstats-root");
+    const select = document.querySelector("#workbench-week-select");
+    const recent = document.querySelector("#workbench-recent-tabs");
+    const editButton = document.querySelector("#workbench-edit-toggle-btn");
+    const charts = [];
+    let currentBundle = null;
+
+    function destroyCharts() {
+      while (charts.length) charts.pop().destroy();
+    }
+
+    function renderUnavailable(detail) {
+      destroyCharts();
+      root.innerHTML = `<p class="empty-state">${detail}</p>`;
+    }
+
+    // The workbench never boots techstats-boot.mjs (that module self-boots on import and
+    // talks to the live /api/TechStats/* endpoints, which this static fixture harness has
+    // none of) -- so it wires the same pure view builder (render.mjs) into the same shared
+    // export rail / copy prompt modules directly, matching what the real island does in
+    // techstats-boot.mjs without triggering that module's live-fetch boot.
+    function buildView() {
+      return buildViewFromBundle(currentBundle, {
+        url: globalThis.location.href,
+        canEdit: false,
+        fictional: true,
+      });
+    }
+
+    function announce(message) {
+      const status = document.querySelector("#workbench-export-status");
+      if (status) status.textContent = message;
+    }
+
+    function sectionTable(id) {
+      return () => {
+        const section = (buildView().sections || []).find((candidate) => candidate.id === id);
+        return section ? { id: section.id, title: section.heading, columns: section.columns || [], rows: section.rows || [] } : null;
+      };
+    }
+
+    const exportRegistry = createExportRegistry();
+    exportRegistry.register("techstats-metrics-history", {
+      title: "Historical data ledger",
+      table: sectionTable("techstats-metrics-history"),
+    });
+    exportRegistry.register("techstats-volunteers", {
+      title: "Volunteer history",
+      table: sectionTable("techstats-volunteers"),
+      png: () => {
+        const canvas = root.querySelector('canvas[data-chart="volunteers"]');
+        return canvas ? exportCanvasToPng(canvas) : Promise.reject(new Error("no volunteer chart is drawn"));
+      },
+    });
+    exportRegistry.register("techstats-weekly-delta", {
+      title: "This week · Sunday stats",
+      table: sectionTable("techstats-weekly-delta"),
+      png: () => {
+        const canvas = root.querySelector('canvas[data-chart="combo"]');
+        return canvas ? exportCanvasToPng(canvas) : Promise.reject(new Error("no combo chart is drawn"));
+      },
+    });
+    exportRegistry.register("techstats-signups", {
+      title: "Live signups & registrations",
+      table: sectionTable("techstats-signups"),
+    });
+    exportRegistry.register("techstats-metrics", {
+      title: "TechStats",
+      table: () => {
+        const included = (buildView().sections || []).filter((section) => !section.personLevel).length;
+        return {
+          id: "techstats-metrics",
+          title: "TechStats",
+          columns: [{ key: "metric", label: "Summary" }, { key: "value", label: "Value" }],
+          rows: [{ metric: "Sections included in the package", value: included }],
+        };
+      },
+    });
+    bindExportDelegation(root, exportRegistry, {
+      view: buildView,
+      announce,
+      package: () => buildDashboardPackage(buildView()),
+    });
+
+    function renderFixture(reportData) {
+      const bundle = restToBundle(reportData);
+      currentBundle = bundle;
+      destroyCharts();
+      root.innerHTML = renderReport(bundle, { includeDevInspector: true });
+      const configurations = buildChartConfig(bundle);
+      for (const canvas of root.querySelectorAll("canvas[data-chart]")) {
+        const config = configurations[canvas.getAttribute("data-chart")];
+        if (config && globalThis.Chart) charts.push(new globalThis.Chart(canvas, config));
+      }
+      const copyPromptHost = root.querySelector("[data-copy-prompt-host]");
+      if (copyPromptHost) mountCopyPrompt(copyPromptHost, { view: buildView, announce, align: "end" });
+      const packageControlHost = root.querySelector("[data-package-control-host]");
+      if (packageControlHost) mountPackageControl(packageControlHost, { surfaceId: "techstats-metrics", align: "end" });
+    }
+
+    async function initWorkbench() {
+      recent.innerHTML = "<span>Fixture:</span>";
+      const option = document.createElement("option");
+      option.value = "fictional";
+      option.textContent = "Fictional structure-only report";
+      select.append(option);
+      select.disabled = true;
+      editButton.hidden = true;
+
+      try {
+        const response = await fetch("./capture/bundle-fictional.json", { credentials: "same-origin" });
+        if (!response.ok) throw new Error(`Fixture request failed (${response.status}).`);
+        renderFixture(await response.json());
+      } catch (error) {
+        renderUnavailable("Fictional fixture unavailable. The workbench does not fall back to historical or live values.");
+      }
+    }
+
+    initWorkbench();
+  </script>
+</body>
+</html>

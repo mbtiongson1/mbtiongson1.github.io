@@ -1,0 +1,2405 @@
+/* >>> GENERATED THEME BLOCKS -- tools/build_theme_blocks.py from themes/favor-*.json. Do not hand-edit. <<< */
+
+/* The palette #grow-island ships today. A page that sets no data-theme is unchanged. */
+#grow-island {
+  --accent: #4f3ad0;
+  --accent-deep: #4130b3;
+  --age-all-ages: #66656e;
+  --age-deaf: #2653c2;
+  --age-adults: #2a7f46;
+  --age-kids: #e9b62c;
+  --age-mature: #6a44c4;
+  --age-seasoned: #b8356c;
+  --age-young-adults: #0f8489;
+  --age-youth: #bf5f12;
+  --background: #fbfbfd;
+  --brand-gold: #e9b62c;
+  --cohort-core: #e9b62c;
+  --cohort-crowd: #2653c2;
+  --cohort-leader: #c3441f;
+  --cohort-new: #0a9aa1;
+  --edge-lit: #e3e3ea;
+  --edge-strong: #85848f;
+  --faint-ink: #66656e;
+  --focus: #4130b3;
+  --gap-wash: #ececf2;
+  --gender-men: #2653c2;
+  --gender-unknown: #a5a4ad;
+  --gender-women: #b8356c;
+  --ghost-wash: #e8e8ee;
+  --hover-wash: #f1eefc;
+  --ink: #121411;
+  --move-gain: #2a7f46;
+  --move-gain-text: #256a3d;
+  --move-loss: #a82c1c;
+  --move-loss-text: #922719;
+  --move-neutral: #a5a4ad;
+  --move-neutral-text: #63626b;
+  --move-stalled: #a55e07;
+  --move-stalled-text: #84480a;
+  --muted-ink: #57565f;
+  --on-accent: #fffdfa;
+  --rule: #dcdce4;
+  --secondary: #a8391a;
+  --selected-wash: #e4defa;
+  --shadow-ink: #121411;
+  --soft-critical: #fbe3df;
+  --soft-gain: #e3f2e8;
+  --soft-healthy: #e3f2e8;
+  --soft-loss: #fbe3df;
+  --soft-neutral: #f3f3f7;
+  --soft-stalled: #fbecd8;
+  --soft-thin: #fce8dc;
+  --soft-watch: #fcefd6;
+  --state-critical: #a82c1c;
+  --state-critical-text: #922719;
+  --state-healthy: #2a7f46;
+  --state-healthy-text: #256a3d;
+  --state-thin: #b04f18;
+  --state-thin-text: #8d3f0e;
+  --state-unknown: #c5c5cd;
+  --state-unknown-text: #63626b;
+  --state-watch: #a55e07;
+  --state-watch-text: #84480a;
+  --surface: #ffffff;
+  --surface-lit: #ffffff;
+  --surface-raised: #f6f6f9;
+  --surface-sunken: #f0f0f5;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #3b2f7a;
+  --trajectory-line-edge: #4f3ad0;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+#grow-island[data-theme="favor-cream"] {
+  --accent: #f45500;
+  --accent-deep: #c23f00;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #fef1e8;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #ded8d1;
+  --edge-strong: #8d8880;
+  --faint-ink: #726f65;
+  --focus: #0077a4;
+  --gap-wash: #f2ece5;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #ece6e2;
+  --hover-wash: #fff2e8;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #121411;
+  --rule: #d8cec6;
+  --secondary: #0077a4;
+  --selected-wash: #ffebd8;
+  --shadow-ink: #121411;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fffaf6;
+  --surface-lit: #fffdfa;
+  --surface-raised: #fdf6f1;
+  --surface-sunken: #fef1e8;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #2f4553;
+  --trajectory-line-edge: #3d5a68;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+#grow-island[data-theme="favor-dark"] {
+  --accent: #ff7a33;
+  --accent-deep: #ff9459;
+  --age-all-ages: #7b8b93;
+  --age-deaf: #d9675e;
+  --age-adults: #ffc24d;
+  --age-kids: #35b0dc;
+  --age-mature: #a78bfa;
+  --age-seasoned: #b487b6;
+  --age-young-adults: #7fae8c;
+  --age-youth: #ff7a33;
+  --background: #070b0e;
+  --brand-gold: #ffc24d;
+  --cohort-core: #35b0dc;
+  --cohort-crowd: #ffc24d;
+  --cohort-leader: #ff7a33;
+  --cohort-new: #b487b6;
+  --edge-lit: #35505f;
+  --edge-strong: #5c7788;
+  --faint-ink: #7b8b93;
+  --focus: #7fd2f0;
+  --gap-wash: #1a252f;
+  --gender-men: #35b0dc;
+  --gender-unknown: #7b8b93;
+  --gender-women: #ff7a33;
+  --ghost-wash: #16202a;
+  --hover-wash: #1a232d;
+  --ink: #e2edf2;
+  --move-gain: #3fbf8e;
+  --move-gain-text: #5fd0a5;
+  --move-loss: #ff6a3d;
+  --move-loss-text: #ff8a65;
+  --move-neutral: #7b8b93;
+  --move-neutral-text: #9aa8af;
+  --move-stalled: #e8973a;
+  --move-stalled-text: #f0ac5c;
+  --muted-ink: #93a8b3;
+  --on-accent: #131e26;
+  --rule: #1e2c35;
+  --secondary: #56c2e8;
+  --selected-wash: #273039;
+  --shadow-ink: #02050a;
+  --soft-critical: #342325;
+  --soft-gain: #153132;
+  --soft-healthy: #153132;
+  --soft-loss: #342325;
+  --soft-neutral: #1f2932;
+  --soft-stalled: #302b24;
+  --soft-thin: #2e2726;
+  --soft-watch: #302b24;
+  --state-critical: #ff6a3d;
+  --state-critical-text: #ff8a65;
+  --state-healthy: #3fbf8e;
+  --state-healthy-text: #5fd0a5;
+  --state-thin: #d98243;
+  --state-thin-text: #e79a63;
+  --state-unknown: #7b8b93;
+  --state-unknown-text: #9aa8af;
+  --state-watch: #e8973a;
+  --state-watch-text: #f0ac5c;
+  --surface: #0d1620;
+  --surface-lit: #131e26;
+  --surface-raised: #101a21;
+  --surface-sunken: #0c1319;
+  --trajectory-ground: #000000;
+  --trajectory-line: #4a6b7c;
+  --trajectory-line-edge: #a0becd;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+#grow-island[data-theme="favor-indigo"] {
+  --accent: #8796fc;
+  --accent-deep: #b1bdfc;
+  --age-all-ages: #8b8e9e;
+  --age-deaf: #c4503d;
+  --age-adults: #538059;
+  --age-kids: #ffb42a;
+  --age-mature: #a78bfa;
+  --age-seasoned: #95969d;
+  --age-young-adults: #646cff;
+  --age-youth: #f45500;
+  --background: #0f111c;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #c4503d;
+  --cohort-leader: #f45500;
+  --cohort-new: #8796fc;
+  --edge-lit: #4a5175;
+  --edge-strong: #686f92;
+  --faint-ink: #8b8e9e;
+  --focus: #8796fc;
+  --gap-wash: #262836;
+  --gender-men: #8796fc;
+  --gender-unknown: #73757b;
+  --gender-women: #f45500;
+  --ghost-wash: #202337;
+  --hover-wash: #242632;
+  --ink: #f4efe6;
+  --move-gain: #538059;
+  --move-gain-text: #74a279;
+  --move-loss: #c4503d;
+  --move-loss-text: #eb735e;
+  --move-neutral: #73757b;
+  --move-neutral-text: #95969d;
+  --move-stalled: #bc5915;
+  --move-stalled-text: #e17c3f;
+  --muted-ink: #afb2c1;
+  --on-accent: #23273b;
+  --rule: #2b3047;
+  --secondary: #b1bdfc;
+  --selected-wash: #32333d;
+  --shadow-ink: #060725;
+  --soft-critical: #39272f;
+  --soft-gain: #262f33;
+  --soft-healthy: #262f33;
+  --soft-loss: #39272f;
+  --soft-neutral: #2b2d39;
+  --soft-stalled: #37292a;
+  --soft-thin: #37292a;
+  --soft-watch: #3c2525;
+  --state-critical: #f25852;
+  --state-critical-text: #fa7d73;
+  --state-healthy: #538059;
+  --state-healthy-text: #74a279;
+  --state-thin: #d7712e;
+  --state-thin-text: #e68a54;
+  --state-unknown: #73757b;
+  --state-unknown-text: #95969d;
+  --state-watch: #b7831f;
+  --state-watch-text: #ca9842;
+  --surface: #171926;
+  --surface-lit: #23273b;
+  --surface-raised: #1d2030;
+  --surface-sunken: #12141f;
+  --trajectory-ground: #000000;
+  --trajectory-line: #4a6b7c;
+  --trajectory-line-edge: #a0becd;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+#grow-island[data-theme="favor-grow-multicolor"] {
+  --accent: #4f3ad0;
+  --accent-deep: #4130b3;
+  --age-all-ages: #66656e;
+  --age-deaf: #2653c2;
+  --age-adults: #2a7f46;
+  --age-kids: #e9b62c;
+  --age-mature: #6a44c4;
+  --age-seasoned: #b8356c;
+  --age-young-adults: #0f8489;
+  --age-youth: #bf5f12;
+  --background: #fbfbfd;
+  --brand-gold: #e9b62c;
+  --cohort-core: #e9b62c;
+  --cohort-crowd: #2653c2;
+  --cohort-leader: #c3441f;
+  --cohort-new: #0a9aa1;
+  --edge-lit: #e3e3ea;
+  --edge-strong: #85848f;
+  --faint-ink: #66656e;
+  --focus: #4130b3;
+  --gap-wash: #ececf2;
+  --gender-men: #2653c2;
+  --gender-unknown: #a5a4ad;
+  --gender-women: #b8356c;
+  --ghost-wash: #e8e8ee;
+  --hover-wash: #f1eefc;
+  --ink: #121411;
+  --move-gain: #2a7f46;
+  --move-gain-text: #256a3d;
+  --move-loss: #a82c1c;
+  --move-loss-text: #922719;
+  --move-neutral: #a5a4ad;
+  --move-neutral-text: #63626b;
+  --move-stalled: #a55e07;
+  --move-stalled-text: #84480a;
+  --muted-ink: #57565f;
+  --on-accent: #fffdfa;
+  --rule: #dcdce4;
+  --secondary: #a8391a;
+  --selected-wash: #e4defa;
+  --shadow-ink: #121411;
+  --soft-critical: #fbe3df;
+  --soft-gain: #e3f2e8;
+  --soft-healthy: #e3f2e8;
+  --soft-loss: #fbe3df;
+  --soft-neutral: #f3f3f7;
+  --soft-stalled: #fbecd8;
+  --soft-thin: #fce8dc;
+  --soft-watch: #fcefd6;
+  --state-critical: #a82c1c;
+  --state-critical-text: #922719;
+  --state-healthy: #2a7f46;
+  --state-healthy-text: #256a3d;
+  --state-thin: #b04f18;
+  --state-thin-text: #8d3f0e;
+  --state-unknown: #c5c5cd;
+  --state-unknown-text: #63626b;
+  --state-watch: #a55e07;
+  --state-watch-text: #84480a;
+  --surface: #ffffff;
+  --surface-lit: #ffffff;
+  --surface-raised: #f6f6f9;
+  --surface-sunken: #f0f0f5;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #3b2f7a;
+  --trajectory-line-edge: #4f3ad0;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+#grow-island[data-theme="favor-leadership"] {
+  --accent: #95610f;
+  --accent-deep: #6f4809;
+  --age-all-ages: #5d6a72;
+  --age-deaf: #bd5348;
+  --age-adults: #2c5a8b;
+  --age-kids: #ad7b21;
+  --age-mature: #78508d;
+  --age-seasoned: #78508d;
+  --age-young-adults: #2a8878;
+  --age-youth: #ad7b21;
+  --background: #edf0ef;
+  --brand-gold: #ad7b21;
+  --cohort-core: #ad7b21;
+  --cohort-crowd: #bd5348;
+  --cohort-leader: #116a60;
+  --cohort-new: #2c5a8b;
+  --edge-lit: #eaeeec;
+  --edge-strong: #748791;
+  --faint-ink: #5d6a72;
+  --focus: #14202a;
+  --gap-wash: #eef1f0;
+  --gender-men: #41598a;
+  --gender-unknown: #7a868d;
+  --gender-women: #4f8676;
+  --ghost-wash: #e6ebe9;
+  --hover-wash: #f0f4f3;
+  --ink: #14202a;
+  --move-gain: #116a60;
+  --move-gain-text: #0e574f;
+  --move-loss: #a03227;
+  --move-loss-text: #8f2b22;
+  --move-neutral: #7a868d;
+  --move-neutral-text: #5b6a73;
+  --move-stalled: #8a5d0c;
+  --move-stalled-text: #7a520a;
+  --muted-ink: #41535e;
+  --on-accent: #ffffff;
+  --rule: #d7dedc;
+  --secondary: #116a60;
+  --selected-wash: #dfe8e5;
+  --shadow-ink: #14202a;
+  --soft-critical: #fbe9e7;
+  --soft-gain: #e7f2ee;
+  --soft-healthy: #e7f2ee;
+  --soft-loss: #fbe9e7;
+  --soft-neutral: #f0f4f3;
+  --soft-stalled: #fdf1dc;
+  --soft-thin: #fdf1dc;
+  --soft-watch: #fdf1dc;
+  --state-critical: #a03227;
+  --state-critical-text: #8f2b22;
+  --state-healthy: #116a60;
+  --state-healthy-text: #0e574f;
+  --state-thin: #95610f;
+  --state-thin-text: #7d5009;
+  --state-unknown: #768884;
+  --state-unknown-text: #5b6a73;
+  --state-watch: #8a5d0c;
+  --state-watch-text: #7a520a;
+  --surface: #f8faf9;
+  --surface-lit: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #e3e9e7;
+  --swatch-mark: #116a60;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #41598a;
+  --trajectory-line-edge: #2c5a8b;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+#grow-island[data-theme="favor-watershed"] {
+  --accent: #0077a4;
+  --accent-deep: #005a7d;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #f6fbfd;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #dbe6ec;
+  --edge-strong: #79868e;
+  --faint-ink: #726f65;
+  --focus: #005a7d;
+  --gap-wash: #e6eef2;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #e2e9ee;
+  --hover-wash: #e9f5fb;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #ffffff;
+  --rule: #cfdde5;
+  --secondary: #00607f;
+  --selected-wash: #d8ecf7;
+  --shadow-ink: #0d2028;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fcfeff;
+  --surface-lit: #fdffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #eaf4f9;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #1f4a5e;
+  --trajectory-line-edge: #2e6076;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+/* A pinned surface keeps its own ground in every theme, because the ground carries
+   meaning. It resolves the whole contract from favor-cream, which is what replaced
+   Connect Health's twelve -deep / -mark-cream tokens. */
+#grow-island .pinned-cream {
+  --accent: #f45500;
+  --accent-deep: #c23f00;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #fef1e8;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #ded8d1;
+  --edge-strong: #8d8880;
+  --faint-ink: #726f65;
+  --focus: #0077a4;
+  --gap-wash: #f2ece5;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #ece6e2;
+  --hover-wash: #fff2e8;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #121411;
+  --rule: #d8cec6;
+  --secondary: #0077a4;
+  --selected-wash: #ffebd8;
+  --shadow-ink: #121411;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fffaf6;
+  --surface-lit: #fffdfa;
+  --surface-raised: #fdf6f1;
+  --surface-sunken: #fef1e8;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #2f4553;
+  --trajectory-line-edge: #3d5a68;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+/* The #469 spectrum: Favor Grow Multicolor's non-semantic hue ladder, rotated across the
+   page and locked to one hue when a reader narrows to one item (--spectrum-lock). */
+@property --sp { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --sp-ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --sp-band { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --sp-band-ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --background { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --surface { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --surface-raised { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --surface-sunken { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --muted-ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --rule { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --accent-deep { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --secondary { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --focus { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --hover-wash { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --selected-wash { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@media (prefers-reduced-motion: no-preference) {
+  #grow-island { transition: --background .2s cubic-bezier(.16,1,.3,1), --surface .2s cubic-bezier(.16,1,.3,1), --surface-raised .2s cubic-bezier(.16,1,.3,1), --surface-sunken .2s cubic-bezier(.16,1,.3,1), --ink .2s cubic-bezier(.16,1,.3,1), --muted-ink .2s cubic-bezier(.16,1,.3,1), --rule .2s cubic-bezier(.16,1,.3,1), --accent .2s cubic-bezier(.16,1,.3,1), --accent-deep .2s cubic-bezier(.16,1,.3,1), --secondary .2s cubic-bezier(.16,1,.3,1), --focus .2s cubic-bezier(.16,1,.3,1), --hover-wash .2s cubic-bezier(.16,1,.3,1), --selected-wash .2s cubic-bezier(.16,1,.3,1); }
+  :is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard) { transition: --sp .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s), --sp-ink .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s), --sp-band .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s), --sp-band-ink .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s); }
+}
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) { --spectrum-1: #5b3ee0; --spectrum-1-text: #3f2aa8; --spectrum-1-on: #ffffff; --spectrum-2: #d6560b; --spectrum-2-text: #9a3a06; --spectrum-2-on: #121411; --spectrum-3: #2f62e0; --spectrum-3-text: #1f45a3; --spectrum-3-on: #ffffff; --spectrum-4: #078f94; --spectrum-4-text: #0b6b70; --spectrum-4-on: #121411; --spectrum-5: #c93b78; --spectrum-5-text: #8f2a55; --spectrum-5-on: #ffffff; --spectrum-6: #2f9a52; --spectrum-6-text: #1f6436; --spectrum-6-on: #121411; --spectrum-7: #1686bf; --spectrum-7-text: #0b5c85; --spectrum-7-on: #121411;
+  --spectrum-band: linear-gradient(90deg, #5b3ee0 0.00% 14.29%, #d6560b 14.29% 28.57%, #2f62e0 28.57% 42.86%, #078f94 42.86% 57.14%, #c93b78 57.14% 71.43%, #2f9a52 71.43% 85.71%, #1686bf 85.71% 100.00%);
+  --sp-own: var(--spectrum-1); --sp-ink-own: var(--spectrum-1-text); --sp-on-own: var(--spectrum-1-on);
+  --sp: var(--spectrum-lock, var(--sp-own)); --sp-ink: var(--sp-ink-own);
+  --sp-band: var(--spectrum-lock-wash, var(--sp-own)); --sp-band-ink: var(--spectrum-lock-ink, var(--sp-on-own)); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard) { --sp: var(--spectrum-lock, var(--sp-own)); --sp-ink: var(--sp-ink-own); --sp-band: var(--spectrum-lock-wash, var(--sp-own)); --sp-band-ink: var(--spectrum-lock-ink, var(--sp-on-own)); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.xrail__btn, .filter-fieldset) { --sp: var(--sp-own); --sp-ink: var(--sp-ink-own); --sp-band: var(--sp-own); --sp-band-ink: var(--sp-on-own); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+1) { --sp-own: var(--spectrum-1); --sp-ink-own: var(--spectrum-1-text); --sp-on-own: var(--spectrum-1-on); --sp-delay: 0ms; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+2) { --sp-own: var(--spectrum-2); --sp-ink-own: var(--spectrum-2-text); --sp-on-own: var(--spectrum-2-on); --sp-delay: 10ms; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+3) { --sp-own: var(--spectrum-3); --sp-ink-own: var(--spectrum-3-text); --sp-on-own: var(--spectrum-3-on); --sp-delay: 20ms; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+4) { --sp-own: var(--spectrum-4); --sp-ink-own: var(--spectrum-4-text); --sp-on-own: var(--spectrum-4-on); --sp-delay: 30ms; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+5) { --sp-own: var(--spectrum-5); --sp-ink-own: var(--spectrum-5-text); --sp-on-own: var(--spectrum-5-on); --sp-delay: 40ms; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+6) { --sp-own: var(--spectrum-6); --sp-ink-own: var(--spectrum-6-text); --sp-on-own: var(--spectrum-6-on); --sp-delay: 50ms; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+7) { --sp-own: var(--spectrum-7); --sp-ink-own: var(--spectrum-7-text); --sp-on-own: var(--spectrum-7-on); --sp-delay: 60ms; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) { accent-color: var(--spectrum-1); caret-color: var(--spectrum-1); scrollbar-color: var(--spectrum-1) color-mix(in srgb, var(--spectrum-1) 10%, var(--surface)); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) ::selection { background: color-mix(in srgb, var(--sp) 30%, var(--surface)); color: var(--ink); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :focus-visible { outline-color: var(--sp); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.title-beta, .masthead h1 .beta) { color: var(--spectrum-1-text); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .status-beta { background: var(--spectrum-1); border-color: var(--spectrum-1); color: var(--spectrum-1-on); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .sidebar-head { background-image: var(--spectrum-band); background-size: 100% 6px; background-repeat: no-repeat; background-position: 0 100%; border-bottom-color: transparent; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) { background: var(--sp-band); color: var(--sp-band-ink); border-color: var(--sp); padding: .65rem .95rem; box-shadow: none; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) :is(h2, h3, .chapter__meta, .chapter__no, .chapter__title-group, .sub, .station-tag, .cw__question, .cw__lead, .cw__title, .combo-card__source, .pathway-section__count, .station-question, .station-note, .station-note strong, .station-note em, .prosemark, .info-disc > summary, .info-tip, .info-disc, .cw__info, .cw__expand) { color: inherit; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) :is(.station-tag, .prosemark, .info-tip, .info-disc, .cw__info, .cw__expand) { border-color: currentColor; background: transparent; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .state-badge { background-color: var(--surface); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .xrail__btn:not(:disabled, [aria-disabled="true"], .tool__off) { background: var(--surface); border-color: var(--surface); color: var(--sp-ink-own); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .xrail__btn:not(:disabled, [aria-disabled="true"], .tool__off):is(:hover, :focus-visible) { background: var(--sp-ink-own); border-color: var(--surface); color: #ffffff; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .tool__off { background: transparent; border-color: currentColor; color: inherit; opacity: .8; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.pulse-card, .combo-card, .dir-card, .cw, .kpi-tile, .stack-tile, .mode-panel, .groupcard) { background-color: color-mix(in srgb, var(--sp) 7%, var(--surface)); box-shadow: inset 0 6px 0 var(--sp); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.pulse-kpi, .kpi-tile__value, .queue-rank, .donut-center-total):not(.hero-card *) { color: var(--sp-ink); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .pulse-grid { background: repeating-linear-gradient(135deg, var(--rule) 0 1px, var(--surface-raised) 1px 10px); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.pulse-track, .combo-row__track) { background-color: color-mix(in srgb, var(--sp) 20%, var(--surface)); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .hero-card { --invert-surface: var(--spectrum-1); --invert-ink: var(--spectrum-1-on); background-color: var(--spectrum-1); box-shadow: none; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .hero-card .pulse-card__head { background: none; color: var(--invert-ink); padding-inline: 0; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .hero-card :is(.info-tip, .info-disc, .cw__info, .cw__expand, a, .pulse-cta) { color: var(--invert-ink); border-color: var(--invert-ink); text-decoration-color: currentColor; opacity: 1; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter, .station, .pathway-section, .cw, .combo-card, .dir-card) a:not(.xrail__btn, .copy-prompt-btn, .combo-row, .hero-card *) { color: var(--sp-ink); text-decoration-color: var(--sp); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.info-tip, .info-disc, .cw__info, .cw__expand) { color: var(--sp-ink); border-color: var(--sp); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) thead th { background-color: var(--sp-band); color: var(--sp-band-ink); border-bottom-color: var(--sp); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.combo-row, .queue-row, .cohort-row, .rhythm-row, .modes-row, .swarmrow, tbody tr):nth-child(even) { background-color: color-mix(in srgb, var(--sp) 9%, var(--surface)); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.combo-row, .queue-row, .cohort-row, .rhythm-row, .modes-row, .swarmrow, tbody tr):hover { background-color: color-mix(in srgb, var(--sp) 20%, var(--surface)); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .xrail__btn:not(:disabled, [aria-disabled="true"]) { background: var(--sp); border-color: var(--sp); color: var(--sp-on-own); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .xrail__btn:not(:disabled, [aria-disabled="true"]):is(:hover, :focus-visible) { background: var(--sp-ink-own); border-color: var(--sp-ink-own); color: #ffffff; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .xrail__btn:is(:disabled, [aria-disabled="true"]) { background: color-mix(in srgb, var(--sp) 10%, var(--surface)); border-color: color-mix(in srgb, var(--sp) 45%, var(--surface)); color: var(--sp-ink-own); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .filter-legend { color: var(--sp-ink); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .filter-fieldset :is(button, [role="button"]):not([aria-pressed="true"]):hover { background-color: color-mix(in srgb, var(--sp) 14%, var(--surface)); border-color: var(--sp); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .filter-fieldset :is(button, [role="button"])[aria-pressed="true"] { background: var(--sp); border-color: var(--sp); color: var(--sp-on-own); box-shadow: none; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .filter-fieldset :is(button, [role="button"])[aria-pressed="true"] * { color: inherit; }
+
+/* The #248 theme swatch. Every rule but the disc colours reads the contract, so the
+   control re-themes with the page it sits in. The disc colours are literal on purpose:
+   a swatch has to show the palette it offers, not the one already showing. */
+#grow-island .theme-swatch { position: sticky; bottom: 3.25rem; margin-left: 1.25rem; z-index: 100;
+  display: inline-flex; align-items: center; gap: .1rem; padding: .1rem .3rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--rule); border-radius: 999px;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+  opacity: .85; transition: opacity .18s ease, border-color .18s ease, box-shadow .18s ease; }
+#grow-island .theme-swatch:hover, #grow-island .theme-swatch:focus-within { opacity: 1; border-color: var(--edge-strong);
+  box-shadow: 0 6px 22px color-mix(in srgb, var(--shadow-ink) 28%, transparent); }
+/* The open menu must be fully opaque whatever the resting pill's opacity is: opacity on a
+   parent applies to its children, and a palette list you can read the page through is not a
+   list (#611). */
+#grow-island .theme-swatch[data-open="true"] { opacity: 1; }
+#grow-island .theme-swatch__btn { position: relative; display: inline-flex; align-items: center; justify-content: center;
+  padding: 0; background: transparent; border: 0; color: var(--muted-ink); font: inherit;
+  cursor: pointer; line-height: 0; }
+#grow-island .theme-swatch__btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 999px; }
+#grow-island .theme-swatch__disc { width: 1.25rem; height: 1.25rem; border-radius: 50%; flex: none;
+  /* the dual-colour split: ground on one half, accent on the other */
+  background: linear-gradient(115deg, var(--a) 0 50%, var(--b) 50% 100%);
+  box-shadow: inset 0 0 0 1px var(--edge-strong);
+  transition: box-shadow .18s ease, transform .18s cubic-bezier(.16,1,.3,1); }
+#grow-island .theme-swatch__btn[aria-pressed="true"] .theme-swatch__disc { box-shadow: inset 0 0 0 1px var(--c), 0 0 0 2px var(--ink); }
+#grow-island .theme-swatch__btn:hover .theme-swatch__disc { transform: scale(1.12); }
+/* THE MENU IS MINIMAL (#611): the other palettes as a row of discs, the same discs the control
+   has always used, with each one's name on its own hover. A list of words would be a second
+   vocabulary for something a reader picks by colour. */
+#grow-island .theme-swatch__menu .theme-swatch__btn { padding: .1rem; border-radius: 999px; }
+/* The name outside the menu stays the floating label the resting control has always had. */
+#grow-island .theme-swatch__name { position: absolute; bottom: calc(100% + .65rem); left: 0; z-index: 120;
+  transform: translateY(.25rem); opacity: 0; pointer-events: none; white-space: nowrap;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--edge-strong);
+  padding: .35rem .6rem; border-radius: .35rem; box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink) 30%, transparent);
+  transition: opacity .16s ease, transform .2s cubic-bezier(.16,1,.3,1);
+  display: flex; flex-direction: column; gap: .15rem; text-align: left; }
+#grow-island .theme-swatch__title { font-size: .74rem; font-weight: 700; line-height: 1.25; color: var(--ink); }
+#grow-island .theme-swatch__sub { font-size: .65rem; font-weight: 400; line-height: 1.2; color: var(--muted-ink); letter-spacing: .01em; }
+#grow-island .theme-swatch__btn:hover .theme-swatch__name, #grow-island .theme-swatch__btn:focus-visible .theme-swatch__name { opacity: 1; transform: translateY(0); }
+/* No stored choice means the palette the stylesheet ships, and the trigger says so by drawing
+   the page's own ground and accent rather than an empty ring. */
+#grow-island .theme-swatch__trigger[data-theme-pick=""] .theme-swatch__disc { --a: var(--background); --b: var(--swatch-mark, var(--accent)); }
+/* The menu itself is opaque, and its own box: see the structure in apps/shared/ux-base.css. */
+#grow-island .theme-swatch__menu { background: var(--surface); }
+#grow-island .theme-swatch__btn[data-theme-pick="favor-cream"] .theme-swatch__disc { --a: #fef1e8; --b: #f45500; --c: #121411; }
+#grow-island .theme-swatch__btn[data-theme-pick="favor-dark"] .theme-swatch__disc { --a: #070b0e; --b: #ff7a33; --c: #e2edf2; }
+#grow-island .theme-swatch__btn[data-theme-pick="favor-indigo"] .theme-swatch__disc { --a: #0f111c; --b: #8796fc; --c: #f4efe6; }
+#grow-island .theme-swatch__btn[data-theme-pick="favor-grow-multicolor"] .theme-swatch__disc { --a: #fbfbfd; --b: #4f3ad0; --c: #121411; }
+#grow-island .theme-swatch__btn[data-theme-pick="favor-grow-multicolor"] .theme-swatch__disc { background: conic-gradient(#5b3ee0 0% 25%, #d6560b 25% 50%, #078f94 50% 75%, #c93b78 75% 100%); }
+#grow-island .theme-swatch__btn[data-theme-pick="favor-leadership"] .theme-swatch__disc { --a: #edf0ef; --b: #116a60; --c: #14202a; }
+#grow-island .theme-swatch__btn[data-theme-pick="favor-watershed"] .theme-swatch__disc { --a: #f6fbfd; --b: #0077a4; --c: #121411; }
+@media (prefers-reduced-motion: reduce) {
+  #grow-island .theme-swatch__disc { transition: box-shadow .18s ease; }
+  #grow-island .theme-swatch__btn:hover .theme-swatch__disc { transform: none; }
+  #grow-island .theme-swatch__name { transform: translateY(0); }
+}
+@media print {
+  #grow-island .theme-swatch { display: none; }
+}
+
+/* >>> END GENERATED THEME BLOCKS <<< */
+
+#grow-island {
+  --font-display: Favorvetica, "Favor Sans", Arial, sans-serif;
+  --font-body: FavorSans, "Favor Sans", Arial, sans-serif;
+  --font-num: Arial, Helvetica, sans-serif;
+  --classic-heading-font: FavorSans, "Favor Sans", Arial, sans-serif;
+  --classic-body-font: Arial, Helvetica, sans-serif;
+  color-scheme: light;
+  background: var(--notebook-page, #ffffff);
+  background-image: none;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.45;
+  container-type: inline-size;
+  padding: 0 var(--s-4) var(--s-7);
+}
+
+#grow-island[data-theme="favor-dark"], #grow-island[data-theme="favor-indigo"] { color-scheme: dark; }
+
+/* ==========================================================================
+   THE GROW COURSE LADDER -- island-local, and deliberately outside the token
+   contract above.
+
+   Every token the four runtime themes define is generated into the region at the
+   top of this file from themes/favor-*.json. These are not those. --course-* is
+   Grow's own identity ladder (one fill and one text hue per course, ops/grow-courses.json
+   `hue`), and --invert-* is the role pair #321 added so a reversed panel does not go
+   white-on-white when the ground is already near-black. No other island declares them,
+   so they have no place in a shared theme file.
+
+   They sit AFTER the generated region on purpose: the two sets are disjoint, and a
+   reader who scrolls past the machine-written block should find the hand-written one
+   last rather than hunting for it inside 600 generated lines.
+
+   The values are a light/dark pair, not four independent palettes: a light ground
+   takes hue.light for the fill and hue.text for text, a dark ground takes hue.dark for
+   both. Keep it that way -- it is what would let this section be generated too.
+   ========================================================================== */
+
+/* The ladder Grow ships with no data-theme set: its own light ground. */
+#grow-island {
+  --invert-surface: var(--ink);
+  --invert-ink: var(--background);
+  --course-build: #d95224;
+  --course-build-text: #8e2f10;
+  --course-build-on: #121411;
+  --course-favor-dna: #4f3ad0;
+  --course-favor-dna-text: #3b2aa0;
+  --course-favor-dna-on: #fffdfa;
+  --course-upnext: #15120f;
+  --course-upnext-text: #15120f;
+  --course-upnext-on: #fffdfa;
+  --course-healthy-relationships: #2a5bd0;
+  --course-healthy-relationships-text: #1e418f;
+  --course-healthy-relationships-on: #fffdfa;
+  --course-stewarding-your-finances: #2f8f4e;
+  --course-stewarding-your-finances-text: #1f6436;
+  --course-stewarding-your-finances-on: #121411;
+  --course-favored-and-free: #b82138;
+  --course-favored-and-free-text: #b82138;
+  --course-favored-and-free-on: #fffdfa;
+  --course-prophetic-culture: #0a9aa1;
+  --course-prophetic-culture-text: #0b6b70;
+  --course-prophetic-culture-on: #121411;
+  --course-bible-masterclass: #c9741a;
+  --course-bible-masterclass-text: #834a0c;
+  --course-bible-masterclass-on: #121411;
+  --course-bible-essentials: #e9b62c;
+  --course-bible-essentials-text: #8a6408;
+  --course-bible-essentials-on: #121411;
+  --course-gifts-of-the-holy-spirit: #c93b78;
+  --course-gifts-of-the-holy-spirit-text: #8f2a55;
+  --course-gifts-of-the-holy-spirit-on: #fffdfa;
+  --course-presence-filled-life: #7a4fd6;
+  --course-presence-filled-life-text: #4d2ea3;
+  --course-presence-filled-life-on: #fffdfa;
+  --course-influencing-your-world: #d9731c;
+  --course-influencing-your-world-text: #8a4708;
+  --course-influencing-your-world-on: #121411;
+  --course-freedom-encounter: #4f9a2a;
+  --course-freedom-encounter-text: #356a1b;
+  --course-freedom-encounter-on: #121411;
+  --course-before-forever: #255585;
+  --course-before-forever-text: #255585;
+  --course-before-forever-on: #fffdfa;
+  --course-spiritual-disciplines: #7d752f;
+  --course-spiritual-disciplines-text: #7d752f;
+  --course-spiritual-disciplines-on: #fffdfa;
+  --course-deliverance-masterclass: #853f32;
+  --course-deliverance-masterclass-text: #853f32;
+  --course-deliverance-masterclass-on: #fffdfa;
+  --course-how-to-read-my-bible: #85187f;
+  --course-how-to-read-my-bible-text: #85187f;
+  --course-how-to-read-my-bible-on: #fffdfa;
+}
+
+#grow-island[data-theme="favor-cream"] {
+  --invert-surface: var(--ink);
+  --invert-ink: var(--background);
+  --course-build: #d95224;
+  --course-build-text: #8e2f10;
+  --course-build-on: #121411;
+  --course-favor-dna: #4f3ad0;
+  --course-favor-dna-text: #3b2aa0;
+  --course-favor-dna-on: #fffdfa;
+  --course-upnext: #15120f;
+  --course-upnext-text: #15120f;
+  --course-upnext-on: #fffdfa;
+  --course-healthy-relationships: #2a5bd0;
+  --course-healthy-relationships-text: #1e418f;
+  --course-healthy-relationships-on: #fffdfa;
+  --course-stewarding-your-finances: #2f8f4e;
+  --course-stewarding-your-finances-text: #1f6436;
+  --course-stewarding-your-finances-on: #121411;
+  --course-favored-and-free: #b82138;
+  --course-favored-and-free-text: #b82138;
+  --course-favored-and-free-on: #fffdfa;
+  --course-prophetic-culture: #0a9aa1;
+  --course-prophetic-culture-text: #0b6b70;
+  --course-prophetic-culture-on: #121411;
+  --course-bible-masterclass: #c9741a;
+  --course-bible-masterclass-text: #834a0c;
+  --course-bible-masterclass-on: #121411;
+  --course-bible-essentials: #e9b62c;
+  --course-bible-essentials-text: #8a6408;
+  --course-bible-essentials-on: #121411;
+  --course-gifts-of-the-holy-spirit: #c93b78;
+  --course-gifts-of-the-holy-spirit-text: #8f2a55;
+  --course-gifts-of-the-holy-spirit-on: #fffdfa;
+  --course-presence-filled-life: #7a4fd6;
+  --course-presence-filled-life-text: #4d2ea3;
+  --course-presence-filled-life-on: #fffdfa;
+  --course-influencing-your-world: #d9731c;
+  --course-influencing-your-world-text: #8a4708;
+  --course-influencing-your-world-on: #121411;
+  --course-freedom-encounter: #4f9a2a;
+  --course-freedom-encounter-text: #356a1b;
+  --course-freedom-encounter-on: #121411;
+  --course-before-forever: #255585;
+  --course-before-forever-text: #255585;
+  --course-before-forever-on: #fffdfa;
+  --course-spiritual-disciplines: #7d752f;
+  --course-spiritual-disciplines-text: #7d752f;
+  --course-spiritual-disciplines-on: #fffdfa;
+  --course-deliverance-masterclass: #853f32;
+  --course-deliverance-masterclass-text: #853f32;
+  --course-deliverance-masterclass-on: #fffdfa;
+  --course-how-to-read-my-bible: #85187f;
+  --course-how-to-read-my-bible-text: #85187f;
+  --course-how-to-read-my-bible-on: #fffdfa;
+}
+
+#grow-island[data-theme="favor-dark"] {
+  --invert-surface: var(--surface-lit);
+  --invert-ink: var(--ink);
+  --course-build: #e8622f;
+  --course-build-text: #e8622f;
+  --course-build-on: #131e26;
+  --course-favor-dna: #8f7cf5;
+  --course-favor-dna-text: #8f7cf5;
+  --course-favor-dna-on: #131e26;
+  --course-upnext: #f4efe6;
+  --course-upnext-text: #f4efe6;
+  --course-upnext-on: #131e26;
+  --course-healthy-relationships: #6f95f0;
+  --course-healthy-relationships-text: #6f95f0;
+  --course-healthy-relationships-on: #131e26;
+  --course-stewarding-your-finances: #4fc47a;
+  --course-stewarding-your-finances-text: #4fc47a;
+  --course-stewarding-your-finances-on: #131e26;
+  --course-favored-and-free: #f8536c;
+  --course-favored-and-free-text: #f8536c;
+  --course-favored-and-free-on: #131e26;
+  --course-prophetic-culture: #3fc3c9;
+  --course-prophetic-culture-text: #3fc3c9;
+  --course-prophetic-culture-on: #131e26;
+  --course-bible-masterclass: #eb9a3f;
+  --course-bible-masterclass-text: #eb9a3f;
+  --course-bible-masterclass-on: #131e26;
+  --course-bible-essentials: #f2c95a;
+  --course-bible-essentials-text: #f2c95a;
+  --course-bible-essentials-on: #131e26;
+  --course-gifts-of-the-holy-spirit: #ec6aa3;
+  --course-gifts-of-the-holy-spirit-text: #ec6aa3;
+  --course-gifts-of-the-holy-spirit-on: #131e26;
+  --course-presence-filled-life: #a894f7;
+  --course-presence-filled-life-text: #a894f7;
+  --course-presence-filled-life-on: #131e26;
+  --course-influencing-your-world: #f0913d;
+  --course-influencing-your-world-text: #f0913d;
+  --course-influencing-your-world-on: #131e26;
+  --course-freedom-encounter: #7dd35a;
+  --course-freedom-encounter-text: #7dd35a;
+  --course-freedom-encounter-on: #131e26;
+  --course-before-forever: #6592c0;
+  --course-before-forever-text: #6592c0;
+  --course-before-forever-on: #131e26;
+  --course-spiritual-disciplines: #999042;
+  --course-spiritual-disciplines-text: #999042;
+  --course-spiritual-disciplines-on: #131e26;
+  --course-deliverance-masterclass: #c17d70;
+  --course-deliverance-masterclass-text: #c17d70;
+  --course-deliverance-masterclass-on: #131e26;
+  --course-how-to-read-my-bible: #d562cb;
+  --course-how-to-read-my-bible-text: #d562cb;
+  --course-how-to-read-my-bible-on: #131e26;
+}
+
+#grow-island[data-theme="favor-indigo"] {
+  --invert-surface: var(--surface-lit);
+  --invert-ink: var(--ink);
+  --course-build: #e8622f;
+  --course-build-text: #e8622f;
+  --course-build-on: #000000;
+  --course-favor-dna: #8f7cf5;
+  --course-favor-dna-text: #8f7cf5;
+  --course-favor-dna-on: #000000;
+  --course-upnext: #f4efe6;
+  --course-upnext-text: #f4efe6;
+  --course-upnext-on: #23273b;
+  --course-healthy-relationships: #6f95f0;
+  --course-healthy-relationships-text: #6f95f0;
+  --course-healthy-relationships-on: #23273b;
+  --course-stewarding-your-finances: #4fc47a;
+  --course-stewarding-your-finances-text: #4fc47a;
+  --course-stewarding-your-finances-on: #23273b;
+  --course-favored-and-free: #f8536c;
+  --course-favored-and-free-text: #f8536c;
+  --course-favored-and-free-on: #23273b;
+  --course-prophetic-culture: #3fc3c9;
+  --course-prophetic-culture-text: #3fc3c9;
+  --course-prophetic-culture-on: #23273b;
+  --course-bible-masterclass: #eb9a3f;
+  --course-bible-masterclass-text: #eb9a3f;
+  --course-bible-masterclass-on: #23273b;
+  --course-bible-essentials: #f2c95a;
+  --course-bible-essentials-text: #f2c95a;
+  --course-bible-essentials-on: #23273b;
+  --course-gifts-of-the-holy-spirit: #ec6aa3;
+  --course-gifts-of-the-holy-spirit-text: #ec6aa3;
+  --course-gifts-of-the-holy-spirit-on: #23273b;
+  --course-presence-filled-life: #a894f7;
+  --course-presence-filled-life-text: #a894f7;
+  --course-presence-filled-life-on: #23273b;
+  --course-influencing-your-world: #f0913d;
+  --course-influencing-your-world-text: #f0913d;
+  --course-influencing-your-world-on: #23273b;
+  --course-freedom-encounter: #7dd35a;
+  --course-freedom-encounter-text: #7dd35a;
+  --course-freedom-encounter-on: #23273b;
+  --course-before-forever: #6592c0;
+  --course-before-forever-text: #6592c0;
+  --course-before-forever-on: #23273b;
+  --course-spiritual-disciplines: #999042;
+  --course-spiritual-disciplines-text: #999042;
+  --course-spiritual-disciplines-on: #23273b;
+  --course-deliverance-masterclass: #c17d70;
+  --course-deliverance-masterclass-text: #c17d70;
+  --course-deliverance-masterclass-on: #23273b;
+  --course-how-to-read-my-bible: #d562cb;
+  --course-how-to-read-my-bible-text: #d562cb;
+  --course-how-to-read-my-bible-on: #23273b;
+}
+
+#grow-island[data-theme="favor-grow-multicolor"] {
+  --invert-surface: var(--ink);
+  --invert-ink: var(--background);
+  --course-build: #d95224;
+  --course-build-text: #8e2f10;
+  --course-build-on: #121411;
+  --course-favor-dna: #4f3ad0;
+  --course-favor-dna-text: #3b2aa0;
+  --course-favor-dna-on: #fffdfa;
+  --course-upnext: #15120f;
+  --course-upnext-text: #15120f;
+  --course-upnext-on: #fffdfa;
+  --course-healthy-relationships: #2a5bd0;
+  --course-healthy-relationships-text: #1e418f;
+  --course-healthy-relationships-on: #fffdfa;
+  --course-stewarding-your-finances: #2f8f4e;
+  --course-stewarding-your-finances-text: #1f6436;
+  --course-stewarding-your-finances-on: #121411;
+  --course-favored-and-free: #b82138;
+  --course-favored-and-free-text: #b82138;
+  --course-favored-and-free-on: #fffdfa;
+  --course-prophetic-culture: #0a9aa1;
+  --course-prophetic-culture-text: #0b6b70;
+  --course-prophetic-culture-on: #121411;
+  --course-bible-masterclass: #c9741a;
+  --course-bible-masterclass-text: #834a0c;
+  --course-bible-masterclass-on: #121411;
+  --course-bible-essentials: #e9b62c;
+  --course-bible-essentials-text: #8a6408;
+  --course-bible-essentials-on: #121411;
+  --course-gifts-of-the-holy-spirit: #c93b78;
+  --course-gifts-of-the-holy-spirit-text: #8f2a55;
+  --course-gifts-of-the-holy-spirit-on: #fffdfa;
+  --course-presence-filled-life: #7a4fd6;
+  --course-presence-filled-life-text: #4d2ea3;
+  --course-presence-filled-life-on: #fffdfa;
+  --course-influencing-your-world: #d9731c;
+  --course-influencing-your-world-text: #8a4708;
+  --course-influencing-your-world-on: #121411;
+  --course-freedom-encounter: #4f9a2a;
+  --course-freedom-encounter-text: #356a1b;
+  --course-freedom-encounter-on: #121411;
+  --course-before-forever: #255585;
+  --course-before-forever-text: #255585;
+  --course-before-forever-on: #fffdfa;
+  --course-spiritual-disciplines: #7d752f;
+  --course-spiritual-disciplines-text: #7d752f;
+  --course-spiritual-disciplines-on: #fffdfa;
+  --course-deliverance-masterclass: #853f32;
+  --course-deliverance-masterclass-text: #853f32;
+  --course-deliverance-masterclass-on: #fffdfa;
+  --course-how-to-read-my-bible: #85187f;
+  --course-how-to-read-my-bible-text: #85187f;
+  --course-how-to-read-my-bible-on: #fffdfa;
+}
+
+/* ==========================================================================
+   BROADSHEET WITH A SPINE -- the hand-written composition.
+
+   Grow reads like a well-set operations broadsheet printed in seven inks. The
+   ground is paper; the reading is hairline rules, tabular figures and prose in
+   its own lane. Colour has one stable job per system, and never two:
+
+     spectrum (--spectrum-1..7)   the CHAPTER INDEX. One saturated spine per
+                                  chapter, a quiet wash on its title block, the
+                                  7-tick index in the masthead, the focus ring.
+                                  Never a bar, a row, a cell, a figure, or a state.
+     course hue (--c / --c-text / --c-on)   identity. Always beside the course name.
+     state (--state-* / --soft-*)  the six health words, and only them.
+     ghost (--ghost-wash + dashed --edge-strong)   every absence, untinted.
+
+   --sp, --sp-ink, --sp-band and --sp-band-ink are registered @properties with
+   initial-value: transparent, so `var(--sp, fallback)` never falls back. Every
+   rule below paints through --chapter-*, which cream / dark / indigo point at
+   their own accent, and which Multicolor points at --sp ON THE SAME ELEMENT the
+   generated rotation sets --sp on (a custom property is resolved where it is
+   declared and inherits as a value, so the indirection cannot live on the root).
+   ========================================================================== */
+
+#grow-island {
+  /* one spatial scale */
+  --s-1: .25rem; --s-2: .5rem; --s-3: .75rem; --s-4: 1rem; --s-5: 1.5rem; --s-6: 2rem; --s-7: 3rem;
+  /* one type scale: six voices, two figure sizes; every font-size below is one of these */
+  --t-display: clamp(2.4rem, 6.4vw, 4.6rem);
+  --t-deck: clamp(1.15rem, 2.3vw, 1.55rem);
+  --t-chapter: clamp(1.2rem, 1.6vw, 1.4rem);
+  --t-lead: 1rem;
+  --t-body: .9rem;
+  --t-meta: .8rem;
+  --t-micro: .7rem;
+  --t-figure: 1.4rem;
+  --t-figure-lg: 1.9rem;
+  /* the chapter indirection (see the header comment) */
+  --chapter-hue: var(--accent);
+  --chapter-ink: var(--accent-deep);
+  --chapter-wash: var(--surface-raised);
+  /* station geometry: the spine width and the inner padding, read by the head bleed */
+  --spine: 4px;
+  --pad: var(--s-4);
+  /* filter console width, shared across islands (T2) */
+  --sidebar-w: 320px;
+  /* the mobile bottom edge: one number read by the handle and the sheet */
+  --console-h: min(38vh, 320px);
+  /* The notebook surface: white page for default Grow palette, warm paper on cards,
+     dots on paper. In cream, dark and indigo, the roles derive from their own theme
+     tokens so dark and indigo never inherit beige cards or warm rules. */
+  --notebook-page: var(--background);
+  --notebook-ground: #f5e6d2;
+  --notebook-surface: #fdf6ec;
+  --notebook-rule: #dccbb5;
+  --notebook-radius: 10px;
+  --notebook-card-shadow: 0 16px 40px -12px color-mix(in srgb, var(--shadow-ink, #121411) 14%, transparent), 0 2px 6px -1px color-mix(in srgb, var(--shadow-ink, #121411) 6%, transparent);
+  --brand-ribbon: var(--spectrum-band, linear-gradient(90deg, #d94f24 0%, #d94f24 16.6%, #5b3fd6 16.6%, #5b3fd6 33.3%, #2a5bd0 33.3%, #2a5bd0 50%, #0a9aa1 50%, #0a9aa1 66.6%, #2f8f4e 66.6%, #2f8f4e 83.3%, #e9b62c 83.3%, #e9b62c 100%));
+  --dot-ink: color-mix(in srgb, #7d6f5e 14%, transparent);
+  --dot-pitch: 18px;
+}
+#grow-island[data-theme="favor-cream"] { --notebook-page: var(--background); --notebook-ground: var(--background); --notebook-surface: var(--surface); --notebook-rule: var(--rule); --notebook-card-shadow: 0 16px 40px -12px color-mix(in srgb, var(--shadow-ink) 14%, transparent), 0 2px 6px -1px color-mix(in srgb, var(--shadow-ink) 6%, transparent); --dot-ink: color-mix(in srgb, var(--edge-strong) 14%, transparent); }
+#grow-island[data-theme="favor-dark"] { --notebook-page: var(--background); --notebook-ground: var(--background); --notebook-surface: var(--surface); --notebook-rule: var(--rule); --notebook-card-shadow: 0 16px 40px -12px color-mix(in srgb, #000 65%, transparent), 0 2px 6px -1px color-mix(in srgb, #000 45%, transparent); --dot-ink: color-mix(in srgb, var(--edge-strong) 16%, transparent); }
+#grow-island[data-theme="favor-indigo"] { --notebook-page: var(--background); --notebook-ground: var(--background); --notebook-surface: var(--surface); --notebook-rule: var(--rule); --notebook-card-shadow: 0 16px 40px -12px color-mix(in srgb, #000 65%, transparent), 0 2px 6px -1px color-mix(in srgb, #000 45%, transparent); --dot-ink: color-mix(in srgb, var(--edge-strong) 16%, transparent); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) { --notebook-page: #ffffff; --notebook-ground: #f5e6d2; --notebook-surface: #fdf6ec; --notebook-rule: #dccbb5; --notebook-card-shadow: 0 16px 40px -12px color-mix(in srgb, var(--shadow-ink) 14%, transparent), 0 2px 6px -1px color-mix(in srgb, var(--shadow-ink) 6%, transparent); --dot-ink: color-mix(in srgb, #7d6f5e 14%, transparent); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])), :is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.station, .colophon, .cw, .kpi-tile, .mode-panel) {
+  --chapter-hue: var(--sp);
+  --chapter-ink: var(--sp-ink);
+  --chapter-wash: color-mix(in srgb, var(--sp) 14%, var(--notebook-surface, var(--surface)));
+}
+
+/* The rotation is an INDEX, not a position. data-chapter is written in the shell,
+   so inserting a node never recolours a chapter, and chapter 1 is violet as the
+   ladder intends. Same specificity as the generated :nth-child rule, later in the
+   file, so it lands. The stagger is 10ms a chapter: the sweep is one gesture. */
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .station[data-chapter="1"] { --sp-own: var(--spectrum-1); --sp-ink-own: var(--spectrum-1-text); --sp-on-own: var(--spectrum-1-on); --sp-delay: 0ms; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .station[data-chapter="2"] { --sp-own: var(--spectrum-2); --sp-ink-own: var(--spectrum-2-text); --sp-on-own: var(--spectrum-2-on); --sp-delay: 10ms; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .station[data-chapter="3"] { --sp-own: var(--spectrum-3); --sp-ink-own: var(--spectrum-3-text); --sp-on-own: var(--spectrum-3-on); --sp-delay: 20ms; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .station[data-chapter="4"] { --sp-own: var(--spectrum-4); --sp-ink-own: var(--spectrum-4-text); --sp-on-own: var(--spectrum-4-on); --sp-delay: 30ms; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .station[data-chapter="5"] { --sp-own: var(--spectrum-5); --sp-ink-own: var(--spectrum-5-text); --sp-on-own: var(--spectrum-5-on); --sp-delay: 40ms; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .station[data-chapter="6"] { --sp-own: var(--spectrum-6); --sp-ink-own: var(--spectrum-6-text); --sp-on-own: var(--spectrum-6-on); --sp-delay: 50ms; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .colophon[data-chapter="7"] { --sp: var(--spectrum-lock, var(--spectrum-7)); --sp-ink: var(--spectrum-7-text); --sp-delay: 60ms; }
+
+/* The seven ticks of the masthead index, each in its chapter's ink; a course lock
+   pulls all seven to the course, exactly as it pulls the spines. */
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .chapterindex__item[data-chapter="1"] .chapterindex__tick { background: var(--spectrum-lock, var(--spectrum-1)); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .chapterindex__item[data-chapter="2"] .chapterindex__tick { background: var(--spectrum-lock, var(--spectrum-2)); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .chapterindex__item[data-chapter="3"] .chapterindex__tick { background: var(--spectrum-lock, var(--spectrum-3)); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .chapterindex__item[data-chapter="4"] .chapterindex__tick { background: var(--spectrum-lock, var(--spectrum-4)); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .chapterindex__item[data-chapter="5"] .chapterindex__tick { background: var(--spectrum-lock, var(--spectrum-5)); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .chapterindex__item[data-chapter="6"] .chapterindex__tick { background: var(--spectrum-lock, var(--spectrum-6)); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .chapterindex__item[data-chapter="7"] .chapterindex__tick { background: var(--spectrum-lock, var(--spectrum-7)); }
+
+/* Motion is state communication, and it stays inside 200ms; the generated sweep
+   is already .18s with a 10ms stagger. Reduced motion collapses all of it. */
+@media (prefers-reduced-motion: no-preference) {
+  #grow-island :is(.ev, .nowcard, .fptable tbody tr, .opt-btn, .acronym-btn, .scopebar-reset, .toggle-btn) { transition: background-color .15s ease, box-shadow .15s ease; }
+  #grow-island .is-mode-switching .cw { transition: opacity .18s ease; }
+  #grow-island .toggle-btn .arrow { transition: transform .18s ease; }
+}
+
+/* ------------------------------------------------------------- base --- */
+#grow-island *, #grow-island *::before, #grow-island *::after { box-sizing: border-box; }
+#grow-island ::selection { background: var(--selected-wash); color: var(--ink); }
+/* One ring, seven grounds: the ring alone cannot clear 3:1 against every hue it can
+   land on, so it travels with a paper halo (W3C Focus Appearance). */
+#grow-island :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; box-shadow: 0 0 0 6px var(--surface); border-radius: 2px; }
+#grow-island a { color: var(--accent-deep); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+#grow-island button { font: inherit; color: inherit; }
+#grow-island .num,
+#grow-island :is(.stage b, .node b, .tier__val, .rung__nums b, .seg, .kpi-tile__value, .ct__num, .chapterindex__no) { font-family: var(--font-num); font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+#grow-island .srlive, #grow-island .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+#grow-island .nowrap { white-space: nowrap; }
+/* The eyebrow voice, once: every uppercase micro label on the page is this. */
+#grow-island :is(.scopebar-lead, .nowcard__eyebrow, .filter-legend, .fptable th, .chapterindex__title, .ladder__benchmark, .ev__date) { font-size: var(--t-micro); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+
+/* --------------------------------------------------------- masthead --- */
+#grow-island .masthead-card { position: relative; max-width: 96rem; margin: var(--s-5) auto var(--s-5); background: var(--notebook-ground); border: 1px solid var(--notebook-rule, var(--rule)); border-radius: var(--notebook-radius, 10px); overflow: hidden; box-shadow: var(--notebook-card-shadow); }
+#grow-island .masthead-card::before { content: ""; display: block; height: 6px; width: 100%; background: var(--brand-ribbon); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .masthead-card::before { background-image: linear-gradient(var(--spectrum-lock, transparent), var(--spectrum-lock, transparent)), var(--brand-ribbon); }
+
+#grow-island .masthead { position: relative; padding: var(--s-5) var(--s-5) var(--s-4); border-bottom: 1px solid var(--notebook-rule, var(--rule)); background-color: var(--notebook-surface); background-image: radial-gradient(circle, var(--dot-ink) .75px, transparent .85px); background-size: var(--dot-pitch) var(--dot-pitch); }
+#grow-island .masthead::before { display: none; }
+#grow-island .masthead > * { position: relative; }
+#grow-island .masthead__row { display: flex; flex-wrap: wrap; gap: var(--s-5) var(--s-6); align-items: flex-end; justify-content: space-between; max-width: 100%; margin: 0 auto; }
+#grow-island .masthead__id { flex: 1 1 22rem; min-width: 0; }
+#grow-island .masthead__aside { display: flex; flex-direction: column; gap: var(--s-3); align-items: flex-start; }
+#grow-island .masthead__tools { display: flex; gap: var(--s-2); flex-wrap: wrap; justify-content: flex-end; }
+#grow-island .breadcrumb { font-size: var(--t-meta); color: var(--muted-ink); margin: 0 0 var(--s-3); letter-spacing: .01em; }
+#grow-island .breadcrumb strong { color: var(--ink); }
+#grow-island h1 { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: -.035em; line-height: .94; font-size: var(--t-display); margin: 0; text-wrap: balance; max-width: 24ch; }
+#grow-island .title-beta { display: inline-block; font-size: .58em; letter-spacing: 0; text-transform: none; white-space: nowrap; }
+#grow-island .subtitle { font-family: var(--font-body); font-weight: 700; font-size: var(--t-deck); line-height: 1.22; letter-spacing: -.01em; margin: var(--s-3) 0 0; max-width: 36ch; text-wrap: balance; }
+#grow-island .block { display: inline-block; position: relative; padding: 0 .16em .04em; color: var(--on-accent); isolation: isolate; }
+#grow-island .block::before { content: ""; position: absolute; inset: .06em -.04em .02em; background: var(--accent); transform: skewX(-8deg); z-index: -1; }
+#grow-island .lede { max-width: 58ch; margin: var(--s-4) 0 0; color: var(--muted-ink); font-size: var(--t-lead); }
+#grow-island .stamps { display: grid; gap: var(--s-1) var(--s-4); grid-template-columns: auto auto; font-size: var(--t-meta); margin: 0; }
+#grow-island .stamps dt { color: var(--muted-ink); }
+#grow-island .stamps dd { margin: 0; font-weight: 700; }
+#grow-island .flag-provenance { margin: var(--s-3) auto 0; max-width: 100%; font-size: var(--t-meta); font-weight: 700; color: var(--secondary); }
+#grow-island .coremarks { display: flex; gap: var(--s-2); margin-top: var(--s-4); flex-wrap: wrap; }
+/* A skewed mark reads its course's own on grade, never a fixed white (GC-09). */
+#grow-island .cm { display: inline-flex; align-items: center; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: -.02em; font-size: var(--t-body); padding: .22em .55em .2em; transform: skewX(-8deg); color: var(--c-on, var(--surface-lit)); background: var(--c, var(--edge-strong)); }
+#grow-island .cm > span { display: inline-block; transform: skewX(8deg); }
+#grow-island .cm--build { background: var(--course-build); color: var(--course-build-on); }
+#grow-island .cm--dna { background: var(--course-favor-dna); color: var(--course-favor-dna-on); }
+#grow-island .cm--ink { background: var(--invert-surface); color: var(--invert-ink); }
+
+/* The chapter index: the spectrum's one stated job, written where it means something.
+   Seven ticks, each a 10px square in its chapter's hue beside the chapter's number and
+   name, each an anchor to its station. Labelled, ordered, and never animated. */
+#grow-island .chapterindex { flex: 1 1 100%; order: 3; min-width: 0; }
+#grow-island .chapterindex__title { display: block; color: var(--muted-ink); margin-bottom: var(--s-2); }
+#grow-island .chapterindex ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-4); }
+#grow-island .chapterindex__item { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 1.75rem; padding: 0 var(--s-1) 0 0; color: var(--ink); text-decoration: none; font-size: var(--t-meta); line-height: 1.2; }
+#grow-island .chapterindex__item:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; }
+#grow-island .chapterindex__tick { flex: none; width: 10px; height: 10px; background: var(--edge-strong); }
+#grow-island .chapterindex__no { color: var(--muted-ink); font-weight: 700; min-width: 1ch; }
+#grow-island[data-mode="classic"] .chapterindex { display: none; }
+#grow-island .station, #grow-island .colophon { scroll-margin-top: var(--s-4); }
+
+/* ------------------------------------------------------- scope line --- */
+#grow-island .scopebar { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-3); align-items: baseline; width: 100%; margin: 0; padding: var(--s-3) var(--s-5); font-size: var(--t-meta); background: var(--notebook-ground); }
+#grow-island .scopebar-lead { color: var(--muted-ink); }
+#grow-island .scopebar-summary { font-weight: 700; }
+#grow-island .scopebar-reset { border: 1px solid var(--notebook-rule, var(--rule)); background: var(--notebook-surface); padding: var(--s-1) var(--s-3); min-height: 44px; cursor: pointer; border-radius: 4px; }
+#grow-island .scopebar-reset:hover { background: var(--hover-wash); }
+
+/* ---------- layout + filter console (family anatomy, console skin) ---------- */
+/* The toggle travels with the console it controls. The console is sticky, so on
+   a long page it is still there at scroll depth -- but the button that closes it
+   sat in normal flow at the top of the document, so you could open the console,
+   scroll, and then have no way to close it without scrolling back up. The bar now
+   sticks to the same --console-top the sidebar uses. It spans the full column but
+   is transparent, so only the button takes pointer events; everything else passes
+   through to the chart underneath. */
+#grow-island .sidebar-toggle-bar { max-width: 96rem; margin: .6rem auto .5rem; display: flex; justify-content: flex-end; position: sticky; top: var(--console-top, 1rem); z-index: 30; pointer-events: none; }
+#grow-island .sidebar-toggle-bar > * { pointer-events: auto; }
+#grow-island .toggle-btn { display: inline-flex; align-items: center; gap: .5rem; padding: .38rem .85rem; border: 1px solid var(--notebook-rule, var(--rule)); background: var(--notebook-surface, var(--surface)); color: var(--ink); font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; cursor: pointer; border-radius: 4px; box-shadow: 0 2px 8px color-mix(in srgb, var(--shadow-ink) 12%, transparent); }
+#grow-island .toggle-btn:hover { background: var(--hover-wash); border-color: var(--edge-strong); }
+#grow-island .toggle-btn .arrow { color: var(--muted-ink); transition: transform .2s ease; transform: rotate(0deg); }
+#grow-island[data-console="open"] .toggle-btn .arrow { transform: rotate(0deg); }
+#grow-island[data-console="closed"] .toggle-btn .arrow { transform: rotate(180deg); }
+
+/* ----------------------------------------------------------- layout --- */
+#grow-island .dashboard-layout { display: grid; gap: var(--s-5); grid-template-columns: 1fr; max-width: 96rem; margin: 0 auto; padding: 0 0 var(--s-7); align-items: start; transition: grid-template-columns .25s ease; }
+#grow-island[data-console="closed"] .dashboard-layout { grid-template-columns: minmax(0, 1fr) 0; gap: 0; }
+#grow-island[data-console="closed"] .filter-sidebar { display: none; }
+#grow-island .main-column { min-width: 0; display: grid; gap: var(--s-5); }
+
+/* A station is a signature in a bound volume: one spine down its left edge in the
+   chapter's ink, drawn as an inset shadow so the box never changes width, and a
+   title block washed in the same ink at 14%, bleeding edge to edge over the spine.
+   The lead station gets one step more air on all four sides and a wider spine;
+   that asymmetry, not colour, is what makes the centrepiece read as the centrepiece. */
+#grow-island .station { position: relative; min-width: 0; background-color: var(--notebook-surface); background-image: radial-gradient(circle, var(--dot-ink) .75px, transparent .85px); background-size: var(--dot-pitch) var(--dot-pitch); border: 1px solid var(--notebook-rule, var(--rule)); border-radius: var(--notebook-radius, 10px); padding: var(--pad); padding-inline-start: calc(var(--pad) + var(--spine)); box-shadow: var(--notebook-card-shadow), inset var(--spine) 0 0 var(--chapter-hue); overflow: hidden; }
+#grow-island .station--lead { --pad: var(--s-5); --spine: 6px; border-color: var(--edge-strong); }
+#grow-island .station-head { margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) var(--s-4) calc(-1 * (var(--pad) + var(--spine))); padding: var(--s-3) var(--pad) var(--s-3) calc(var(--pad) + var(--spine)); background: var(--chapter-wash); color: var(--ink); border-bottom: 1px solid var(--chapter-hue); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .station-head { background: var(--chapter-wash); color: var(--ink); border-color: var(--chapter-hue); padding: var(--s-3) var(--pad) var(--s-3) calc(var(--pad) + var(--spine)); }
+#grow-island h2 { font-family: var(--font-body); font-weight: 700; font-size: var(--t-chapter); letter-spacing: -.015em; margin: 0; line-height: 1.2; text-wrap: balance; }
+#grow-island .station-question { margin: var(--s-1) 0 0; color: var(--ink); font-size: var(--t-lead); font-weight: 400; }
+#grow-island .station-note { margin: var(--s-2) 0 0; font-size: var(--t-meta); color: var(--ink); }
+#grow-island .insight { margin: var(--s-4) 0 0; font-size: var(--t-lead); max-width: 70ch; }
+#grow-island .insight strong { font-weight: 700; }
+/* Links and (i) marks are one ink across the page, not the chapter's hue. */
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.chapter, .station, .pathway-section, .cw, .combo-card, .dir-card) a:not(.xrail__btn, .copy-prompt-btn, .combo-row, .hero-card *) { color: var(--accent-deep); text-decoration-color: currentColor; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.info-tip, .info-disc, .cw__info, .cw__expand) { color: var(--accent-deep); border-color: var(--rule); }
+
+/* Prose is hover-only, behind a small (i), positioned out of flow so it costs zero
+   layout at every viewport -- absolute, as on every other executive surface, so it
+   scrolls with the mark that opened it. The (i) itself keeps a 44px target. */
+#grow-island .info-disc { display: inline-block; vertical-align: .05em; margin-left: var(--s-1); }
+#grow-island .info-disc summary { display: inline-flex; align-items: center; justify-content: center; width: 1.5rem; height: 1.5rem; min-width: 44px; min-height: 44px; cursor: pointer; list-style: none; color: var(--accent-deep); }
+#grow-island .info-disc summary::-webkit-details-marker { display: none; }
+#grow-island .info-disc svg { width: 1.05rem; height: 1.05rem; fill: none; stroke: currentColor; stroke-width: 1.3; }
+#grow-island .info-disc .dotcap { fill: currentColor; stroke: none; }
+#grow-island .info-pop { position: absolute; z-index: 40; width: max-content; max-width: min(30rem, calc(100vw - 2rem)); margin-top: var(--s-1); padding: var(--s-3) var(--s-4); background: var(--surface-lit); border: 1px solid var(--edge-strong); font-size: var(--t-meta); font-weight: 400; line-height: 1.45; letter-spacing: 0; text-transform: none; color: var(--ink); box-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent); }
+#grow-island .info-disc-h1 summary { color: var(--accent-deep); }
+
+/* --------------------------------------------- chapter 1: happening now --- */
+/* The course hue carries identity here and nothing else: a spine and a dot, with
+   the course name beside them. The running card has a wider spine and a real
+   progress mark: the session meter, in the same three-shape vocabulary as the
+   scoreboard's .fp (solid = held, hairline box = still to come, dashed = unknown). */
+#grow-island .nowstrip { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: var(--s-3); margin-bottom: var(--s-4); }
+#grow-island .nowstrip__empty { grid-column: 1 / -1; margin: 0; border: 1px dashed var(--edge-strong); background: var(--ghost-wash); padding: var(--s-3) var(--s-4); font-size: var(--t-body); color: var(--ink); }
+/* T7 -- the silhouette above an unavailable panel's prose. Hollow, dashed, untinted,
+   NEVER animated: this is the "we cannot look, here is why" shape, not the loading
+   skeleton. Same wash and edge as .ev--ghost / .stage--ghost above. */
+#grow-island .unavailable-ghosts { display: flex; gap: var(--s-2); margin-bottom: var(--s-3); }
+#grow-island .unavailable-ghost-bar { flex: 1 1 0; height: 2.4rem; border: 1px dashed var(--edge-strong); background: var(--ghost-wash); border-radius: 4px; }
+#grow-island .nowcard { display: flex; flex-direction: column; gap: var(--s-1); text-align: left; color: inherit; cursor: pointer; padding: var(--s-3) var(--s-4) var(--s-3) calc(var(--s-4) + 3px); min-height: 44px;
+  background: var(--surface); border: 1px solid var(--rule); box-shadow: inset 3px 0 0 var(--c, var(--edge-strong)); }
+#grow-island .nowcard:hover { background: var(--hover-wash); }
+#grow-island .nowcard--running { background: color-mix(in srgb, var(--c, var(--accent)) 8%, var(--surface-raised)); box-shadow: inset 5px 0 0 var(--c, var(--edge-strong)); padding-left: calc(var(--s-4) + 5px); }
+#grow-island .nowcard__eyebrow { font-family: var(--font-display); color: var(--c-text, var(--muted-ink)); }
+#grow-island .nowcard__course { display: flex; align-items: center; gap: var(--s-2); font-weight: 700; font-size: var(--t-chapter); line-height: 1.15; letter-spacing: -.015em; }
+#grow-island .nowcard__dot { flex: none; width: .68rem; height: .68rem; background: var(--c, var(--edge-strong)); }
+#grow-island .nowcard__detail { font-size: var(--t-meta); color: var(--muted-ink); }
+#grow-island .nowcard__detail b { color: var(--ink); }
+#grow-island .nowcard__held { display: block; font-size: var(--t-meta); }
+#grow-island .nowcard__ghost { display: block; font-size: var(--t-meta); color: var(--muted-ink); }
+#grow-island .nowcard__meter { display: flex; gap: 2px; height: .55rem; margin-top: var(--s-2); }
+#grow-island .nowcard__meter i { display: block; flex: 1 1 0; min-width: 6px; background: var(--c, var(--edge-strong)); }
+#grow-island .nowcard__meter i.todo { background: transparent; box-shadow: inset 0 0 0 1px var(--edge-strong); }
+#grow-island .nowcard__meter i.gh { background: var(--ghost-wash); border: 1px dashed var(--edge-strong); }
+
+#grow-island .rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(11.5rem, 1fr); gap: var(--s-3); overflow-x: auto; padding-bottom: var(--s-2); scroll-snap-type: x proximity; scrollbar-width: thin; }
+#grow-island .ev { border: 1px solid var(--rule); background: var(--surface-raised); padding: var(--s-3) var(--s-3) var(--s-3); min-height: 7.4rem; display: flex; flex-direction: column; gap: var(--s-2); scroll-snap-align: start; text-align: left; color: inherit; cursor: pointer; }
+#grow-island .ev:hover { background: var(--hover-wash); }
+/* Today and selected differ by a word, not only by a wash and a border. */
+#grow-island .ev--today { border: 2px solid var(--ink); }
+#grow-island .ev--selected { background: var(--selected-wash); box-shadow: inset 3px 0 0 var(--c, var(--accent)), inset 0 0 0 2px var(--edge-strong); }
+#grow-island .ev--selected .ev__date::after { content: " · selected"; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--muted-ink); }
+#grow-island .ev--ghost { border: 1px dashed var(--edge-strong); background: var(--ghost-wash); }
+#grow-island .ev__date { color: var(--muted-ink); }
+#grow-island .ev__date b { color: var(--ink); }
+#grow-island .ev__tag { align-self: flex-start; font-family: var(--font-display); text-transform: uppercase; letter-spacing: -.01em; font-size: var(--t-micro); padding: .2em .5em .16em; transform: skewX(-8deg); color: var(--c-on, var(--surface-lit)); background: var(--c, var(--edge-strong)); }
+#grow-island .ev__tag > span { display: inline-block; transform: skewX(8deg); }
+#grow-island .ev__title { font-weight: 700; font-size: var(--t-body); line-height: 1.2; }
+#grow-island .ev__sub { font-size: var(--t-meta); color: var(--muted-ink); margin-top: auto; }
+
+/* ------------------------------------------------ chapter 2: the ladder --- */
+/* The only graphic allowed to be big. Every track shares one scale and, from
+   session 2 on, one reference line: session 1's attended count, drawn as a dashed
+   hairline through every track at the same x so the cliff is seen, not computed. */
+#grow-island .ladder { display: grid; gap: var(--s-3); }
+#grow-island .ladder--benched { padding-top: 1.1rem; }
+#grow-island .rung { display: grid; grid-template-columns: 5.6rem 1fr; gap: var(--s-2) var(--s-4); align-items: center; }
+#grow-island .rung__label { font-weight: 700; font-size: var(--t-body); line-height: 1.2; }
+#grow-island .rung__label small { display: block; font-weight: 400; color: var(--muted-ink); font-size: var(--t-meta); }
+#grow-island .track { position: relative; height: 2.35rem; display: flex; gap: 2px; align-items: stretch; }
+#grow-island .ladder--benched .track::after { content: ""; position: absolute; top: -.25rem; bottom: -.25rem; left: calc(var(--bench, 0) * 100%); width: 0; border-left: 1px dashed var(--edge-strong); pointer-events: none; }
+#grow-island .ladder__benchmark { position: absolute; top: -1.05rem; left: calc(var(--bench, 0) * 100%); transform: translateX(-100%); white-space: nowrap; color: var(--muted-ink); padding-right: var(--s-1); }
+#grow-island .seg { position: relative; height: 100%; display: flex; align-items: center; padding: 0 var(--s-2); font-size: var(--t-meta); font-weight: 700; color: var(--surface-lit); white-space: nowrap; overflow: hidden; }
+#grow-island .seg--returned { background: var(--c); color: var(--c-on); }
+#grow-island .seg--first { background: var(--c); color: var(--c-on); }
+#grow-island .seg--new { background: color-mix(in srgb, var(--c) 34%, var(--surface)); color: var(--ink); background-image: repeating-linear-gradient(135deg, transparent 0 5px, color-mix(in srgb, var(--c) 45%, transparent) 5px 7px); container-type: inline-size; }
+/* A hatched bar too narrow for its figure hides the figure rather than clipping it;
+   the number survives in .rung__nums beneath. */
+@container (max-width: 2.6rem) { #grow-island .seg--new .seg__n { font-size: 0; } }
+#grow-island .seg--dropped { border: 1px dashed var(--edge-strong); color: var(--muted-ink); background: transparent; font-weight: 400; min-width: 2.4rem; justify-content: center; }
+#grow-island .perfect { position: absolute; top: -.32rem; bottom: -.32rem; width: 2px; background: var(--invert-surface); }
+#grow-island .perfect::before { content: ""; position: absolute; top: -.1rem; left: -.28rem; border-top: .3rem solid var(--invert-surface); border-left: .3rem solid transparent; border-right: .3rem solid transparent; }
+#grow-island .rung__nums { grid-column: 2; display: flex; gap: var(--s-2) var(--s-4); flex-wrap: wrap; font-size: var(--t-meta); color: var(--muted-ink); margin-top: calc(-1 * var(--s-1)); }
+#grow-island .rung__nums b { color: var(--ink); font-weight: 700; }
+#grow-island .rung__nums .baseline { font-style: italic; }
+
+/* One legend voice: a grid, the swatch mirrors the mark's real form, ordered as the
+   marks appear, --t-meta, muted body with ink figures. --c is written on the legend
+   node by the boot module AND defended here (--c is not a registered property, so
+   this fallback genuinely fires). */
+#grow-island .legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--s-2) var(--s-4); align-items: start; font-size: var(--t-meta); color: var(--muted-ink); margin-top: var(--s-4); padding-top: var(--s-3); border-top: 1px solid var(--rule); }
+#grow-island .legend span { display: grid; grid-template-columns: 1.1rem 1fr; gap: var(--s-2); align-items: start; }
+#grow-island .legend i { position: relative; display: block; width: .85rem; height: .85rem; margin-top: .15em; }
+#grow-island .legend .k1 { background: var(--c, var(--accent)); }
+#grow-island .legend .k2 { background: color-mix(in srgb, var(--c, var(--accent)) 34%, var(--surface)); background-image: repeating-linear-gradient(135deg, transparent 0 3px, color-mix(in srgb, var(--c, var(--accent)) 45%, transparent) 3px 4px); }
+#grow-island .legend .k3 { border: 1px dashed var(--edge-strong); }
+#grow-island .legend .k4 { width: 2px; margin-left: .4rem; background: var(--invert-surface); }
+#grow-island .legend .k4::before { content: ""; position: absolute; top: -.1rem; left: -.28rem; border-top: .3rem solid var(--invert-surface); border-left: .3rem solid transparent; border-right: .3rem solid transparent; }
+#grow-island .legend .k5 { width: 0; margin-left: .4rem; border-left: 1px dashed var(--edge-strong); }
+
+/* --------------------------------------------- chapter 3: completion shape --- */
+#grow-island .tiers { display: grid; gap: var(--s-2); }
+#grow-island .tier { display: grid; grid-template-columns: 8.5rem 1fr 6.5rem; gap: var(--s-3); align-items: center; font-size: var(--t-body); }
+#grow-island .tier__bar { height: 1.15rem; background: var(--ghost-wash); position: relative; }
+#grow-island :is(.tier__bar, .stage, .rung):focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+#grow-island .tier__bar > i { position: absolute; inset: 0 auto 0 0; background: var(--c); }
+#grow-island .tier__val { text-align: right; font-weight: 700; }
+#grow-island .tier__val small { display: block; color: var(--muted-ink); font-weight: 400; font-size: var(--t-meta); }
+#grow-island .tier--top .tier__bar { height: 1.5rem; }
+#grow-island .tier--top .tier__bar > i { background: var(--c-text); }
+
+/* ------------------------------------------ chapter 4: the core pipelines --- */
+#grow-island .pipes { display: grid; gap: var(--s-5); }
+#grow-island .pipe { padding-top: 0; }
+#grow-island .pipe + .pipe { padding-top: var(--s-5); border-top: 1px solid var(--rule); }
+#grow-island .pipe__head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s-4); margin-bottom: var(--s-2); flex-wrap: wrap; }
+#grow-island .pipe__meta { font-size: var(--t-meta); color: var(--muted-ink); }
+#grow-island .stages { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+#grow-island .stage { background: var(--surface-raised); border: 1px solid var(--rule); padding: var(--s-2) var(--s-3) var(--s-3); min-height: 4.4rem; position: relative; }
+#grow-island .stage b { display: block; font-size: var(--t-figure); line-height: 1; }
+#grow-island .stage small { display: block; color: var(--muted-ink); font-size: var(--t-micro); line-height: 1.2; margin-top: var(--s-1); }
+#grow-island .stage .fill { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--c); }
+#grow-island .stage--ghost { border: 1px dashed var(--edge-strong); background: var(--ghost-wash); }
+#grow-island .stage--ghost b { color: var(--muted-ink); font-weight: 400; }
+/* Agreement is not health. The five agreement categories read as one ink ramp plus
+   hatch, so nothing here can be mistaken for a state chip: agree = ink; group ahead
+   and board ahead = the same 55% grey told apart by hatch direction; on the board
+   with no group = the ghost box; in a group with no request = 22% grey. */
+#grow-island .agree { margin-top: var(--s-3); display: grid; gap: var(--s-1); font-size: var(--t-meta); }
+#grow-island .agree__bar { display: flex; height: .8rem; gap: 2px; }
+#grow-island .agree__bar > i { display: block; height: 100%; }
+#grow-island .agree__bar .a1 { background: var(--ink); }
+#grow-island .agree__bar .a2 { background: color-mix(in srgb, var(--ink) 55%, var(--surface)); }
+#grow-island .agree__bar .a3 { background: color-mix(in srgb, var(--ink) 55%, var(--surface)); background-image: repeating-linear-gradient(135deg, transparent 0 4px, var(--surface) 4px 6px); }
+#grow-island .agree__bar .a4 { background: var(--ghost-wash); border: 1px dashed var(--edge-strong); }
+#grow-island .agree__bar .a5 { background: color-mix(in srgb, var(--ink) 22%, var(--surface)); }
+#grow-island .agree__keys { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: var(--s-1) var(--s-4); color: var(--muted-ink); }
+#grow-island .agree__keys b { color: var(--ink); }
+
+/* ------------------------------------------------- chapter 5: the bridge --- */
+#grow-island .bridge { display: grid; grid-template-columns: 1fr; gap: var(--s-3); }
+#grow-island .node { border: 1px solid var(--rule); background: var(--surface-raised); padding: var(--s-3) var(--s-4); }
+#grow-island .node b { display: block; font-size: var(--t-figure-lg); line-height: 1; margin-top: var(--s-2); }
+#grow-island .node small { display: block; color: var(--muted-ink); font-size: var(--t-meta); margin-top: var(--s-1); }
+/* The qualified base has no single course, so its emphasis is ink, not a hue. */
+#grow-island .node--focus { border: 2px solid var(--edge-strong); background: var(--surface-lit); box-shadow: inset 4px 0 0 var(--ink); padding-left: calc(var(--s-4) + 4px); }
+#grow-island .join { align-self: center; justify-self: center; color: var(--muted-ink); font-size: var(--t-meta); text-align: center; padding: 0 var(--s-1); display: inline-flex; align-items: center; gap: var(--s-1); }
+#grow-island .join::after { content: "\2193"; font-family: var(--font-num); }
+
+/* --------------------------------------------- chapter 6: the scoreboard --- */
+/* Table-first: hairlines, not stripes; one alignment per column, words left and
+   figures right in their own lanes; the worst row emphasised by ground and, where
+   its state is a bad one, by that state's own ink beside the state word. */
+#grow-island .table-scroll { overflow-x: auto; overflow-y: auto; max-height: 32rem; scrollbar-width: thin; scrollbar-gutter: stable; padding-bottom: var(--s-1); }
+#grow-island .fptable { width: 100%; border-spacing: 0; font-size: var(--t-body); }
+#grow-island .fptable th { position: sticky; top: 0; z-index: 2; text-align: left; color: var(--muted-ink); padding: var(--s-2) var(--s-2); background: var(--surface); border-bottom: 2px solid var(--ink); }
+#grow-island .fptable th.n { text-align: right; }
+#grow-island .fptable td { padding: var(--s-3) var(--s-2); border-bottom: 1px solid var(--rule); vertical-align: top; }
+#grow-island .fptable tbody tr:last-child td { border-bottom: 0; }
+#grow-island .fptable tbody tr:hover td { background: var(--hover-wash); }
+#grow-island .fptable tbody tr:first-child td { background: var(--surface-raised); }
+#grow-island .fptable tbody tr:first-child:is([data-state="critical"], [data-state="thin"], [data-state="watch"]) td:first-child { box-shadow: inset 3px 0 0 var(--row-state); }
+#grow-island .fptable tr[data-state="critical"] { --row-state: var(--state-critical); }
+#grow-island .fptable tr[data-state="thin"] { --row-state: var(--state-thin); }
+#grow-island .fptable tr[data-state="watch"] { --row-state: var(--state-watch); }
+#grow-island .fptable .n { text-align: right; white-space: nowrap; }
+#grow-island .fptable .n small { display: block; font-size: var(--t-meta); font-weight: 400; color: var(--muted-ink); }
+#grow-island .fptable td.course { min-width: 13rem; }
+#grow-island .course { font-weight: 700; }
+#grow-island .course small { display: block; color: var(--muted-ink); font-weight: 400; font-size: var(--t-meta); }
+#grow-island .huechip { display: inline-block; width: .7rem; height: .7rem; margin-right: var(--s-2); vertical-align: -.05em; background: var(--c); }
+#grow-island .fp { display: flex; gap: 2px; align-items: flex-end; height: 1.9rem; width: 6.2rem; }
+#grow-island .fp i { display: block; flex: 1 1 0; min-width: 6px; background: var(--c); min-height: 2px; }
+#grow-island .fp .gh { background: var(--ghost-wash); border: 1px dashed var(--edge-strong); }
+#grow-island .chip { display: inline-block; font-size: var(--t-micro); font-weight: 700; letter-spacing: .04em; padding: .18em .5em; border: 1px solid currentColor; white-space: nowrap; }
+#grow-island .chip--healthy { color: var(--state-healthy-text); background: var(--soft-healthy); }
+#grow-island .chip--watch { color: var(--state-watch-text); background: var(--soft-watch); }
+#grow-island .chip--thin { color: var(--state-thin-text); background: var(--soft-thin); }
+#grow-island .chip--critical { color: var(--state-critical-text); background: var(--soft-critical); }
+#grow-island .chip--notstarted { color: var(--state-unknown-text); background: var(--soft-neutral); }
+#grow-island .chip--nohistory { color: var(--state-unknown-text); background: var(--ghost-wash); }
+#grow-island .why { color: var(--muted-ink); font-size: var(--t-meta); min-width: 12rem; }
+#grow-island .act { white-space: nowrap; }
+/* Multicolor's generated table chrome is spectrum on rows and heads; both are
+   deleted here so a row carries only its course chip, its course bars and its
+   state chip. */
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) thead th { background-color: transparent; color: var(--muted-ink); border-bottom-color: var(--ink); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.fptable, .ct) tbody tr:nth-child(even) { background-color: transparent; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) :is(.fptable, .ct) tbody tr:hover { background-color: var(--hover-wash); }
+
+/* ----------------------------------------------- absences, one vocabulary --- */
+#grow-island .ghost { color: var(--muted-ink); font-weight: 400; font-family: var(--font-num); }
+#grow-island .station-unavailable { border: 1px dashed var(--edge-strong); background: var(--ghost-wash); padding: var(--s-3) var(--s-4); margin-top: var(--s-3); }
+#grow-island .station-unavailable h3 { font-size: var(--t-body); margin: 0; }
+#grow-island .station-unavailable p { margin: var(--s-1) 0 0; font-size: var(--t-meta); color: var(--muted-ink); }
+#grow-island .station-unavailable code { font-family: var(--font-num); font-size: var(--t-meta); }
+
+/* --------------------------------------------------- chapter 7: colophon --- */
+#grow-island .colophon { border: 1px solid var(--notebook-rule, var(--rule)); border-radius: var(--notebook-radius, 10px); padding: var(--s-3) var(--s-3) var(--s-3) calc(var(--spine) + var(--s-3)); background-color: var(--notebook-surface); background-image: radial-gradient(circle, var(--dot-ink) .75px, transparent .85px); background-size: var(--dot-pitch) var(--dot-pitch); box-shadow: var(--notebook-card-shadow), inset var(--spine) 0 0 var(--chapter-hue); overflow: hidden; font-size: var(--t-meta); color: var(--muted-ink); }
+#grow-island .colophon-summary { cursor: pointer; display: flex; gap: var(--s-3); align-items: baseline; min-height: 44px; }
+#grow-island .colophon-title { font-weight: 700; color: var(--ink); font-size: var(--t-body); }
+#grow-island .colophon-toggle-hint { font-size: var(--t-meta); }
+#grow-island .colophon-body { display: grid; gap: var(--s-3); margin-top: var(--s-3); }
+#grow-island .colophon-body h3 { font-size: var(--t-body); margin: 0 0 var(--s-1); color: var(--ink); }
+#grow-island .colophon-body ul { margin: 0; padding-left: var(--s-4); }
+
+/* ------------------------------------------------------------ console --- */
+/* Quiet chrome: the console changes what the page shows, so it does not compete
+   with it. Selected is a wash plus a 2px ink edge, never a spectrum fill. */
+#grow-island .filter-sidebar { position: sticky; top: calc(var(--console-top, 1rem) + 2.5rem); max-height: calc(100vh - var(--console-top, 1rem) - 3.5rem); min-width: 0; background-color: var(--notebook-surface); background-image: radial-gradient(circle, var(--dot-ink) .75px, transparent .85px); background-size: var(--dot-pitch) var(--dot-pitch); border: 1px solid var(--notebook-rule, var(--rule)); border-radius: var(--notebook-radius, 10px); box-shadow: var(--notebook-card-shadow); padding: var(--s-4) var(--s-4) var(--s-5); display: grid; gap: var(--s-4); align-content: start; overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
+#grow-island #mode-switch-mount { display: flex; width: 100%; }
+#grow-island .mode-switch { display: inline-flex; width: 100%; gap: 2px; padding: 2px; border: 1px solid var(--classic-rule); background: var(--classic-surface-2); flex: none; }
+#grow-island .mode-switch__btn { flex: 1 1 0; min-height: 2.75rem; padding: 0 1rem; border: 0; border-radius: 0; background: transparent; color: var(--classic-muted); font-family: var(--classic-body-font); font-size: .82rem; font-weight: 700; letter-spacing: .01em; cursor: pointer; transition: background-color .12s ease, color .12s ease; }
+#grow-island .mode-switch__btn:hover { color: var(--classic-ink); }
+#grow-island .mode-switch__btn[aria-pressed="true"] { background: var(--classic-ink); color: var(--classic-surface); cursor: default; }
+#grow-island .mode-switch__btn:focus-visible { outline: 2px solid var(--classic-focus); outline-offset: 2px; }
+#grow-island .sidebar-head { display: flex; flex-wrap: wrap; gap: var(--s-2); align-items: baseline; padding-bottom: var(--s-2); border-bottom: 1px solid var(--rule); }
+#grow-island .sidebar-head h2 { font-size: var(--t-lead); margin: 0; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .sidebar-head { background-image: none; border-bottom-color: var(--rule); }
+#grow-island .sidebar-back-btn { display: none; border: 1px solid var(--rule); background: var(--surface-raised); padding: var(--s-2) var(--s-3); min-height: 44px; cursor: pointer; }
+#grow-island .active-summary-pill { margin-left: auto; font-family: var(--font-num, inherit); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+#grow-island .reset-btn { margin-left: auto; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); background: none; border: none; cursor: pointer; padding: 0; min-height: 44px; display: inline-flex; align-items: center; }
+#grow-island .reset-btn:hover { text-decoration: underline; text-underline-offset: 3px; }
+#grow-island .reset-btn[hidden] { display: none; }
+#grow-island .filter-form { display: grid; gap: var(--s-4); }
+#grow-island .filter-fieldset { border: none; margin: 0; padding: 0; min-width: 0; }
+#grow-island .filter-legend { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-ink); display: flex; justify-content: space-between; width: 100%; margin-bottom: .15rem; padding: 0; }
+#grow-island .filter-legend .sub { font-weight: 400; font-size: .64rem; color: var(--muted-ink); letter-spacing: .06em; text-transform: uppercase; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .filter-legend { color: var(--muted-ink); }
+#grow-island .campus-acronym-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+#grow-island .chip-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-1); }
+#grow-island .acronym-btn { min-height: 44px; padding: 6px 0; border: 1px solid var(--rule); background: var(--surface-raised); color: var(--muted-ink); cursor: pointer; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-align: center; }
+#grow-island .acronym-btn:hover { border-color: var(--edge-strong); background: var(--hover-wash); color: var(--ink); }
+#grow-island .acronym-btn[aria-pressed="true"] { border: 2px solid var(--ink); background: var(--surface-lit); color: var(--ink); font-weight: 800; box-shadow: none; }
+#grow-island .acronym-btn[aria-pressed="true"]:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+#grow-island .opt-btn { min-height: 44px; padding: var(--s-2) var(--s-2); border: 1px solid var(--rule); background: var(--surface-raised); cursor: pointer; font-size: var(--t-meta); text-align: left; display: grid; gap: .15rem; align-content: center; }
+#grow-island .opt-btn small { color: var(--muted-ink); font-size: var(--t-micro); }
+#grow-island :is(.opt-btn, .acronym-btn):hover { background: var(--hover-wash); }
+#grow-island :is(.acronym-btn, .opt-btn)[aria-pressed="true"] { border-color: var(--edge-strong); background: var(--selected-wash); color: var(--ink); box-shadow: inset 0 0 0 1px var(--edge-strong); }
+#grow-island :is(.acronym-btn, .opt-btn)[aria-pressed="true"]:focus-visible { box-shadow: inset 0 0 0 1px var(--edge-strong), 0 0 0 6px var(--surface); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .filter-fieldset :is(button, [role="button"]):not([aria-pressed="true"]):hover { background-color: var(--hover-wash); border-color: var(--edge-strong); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .filter-fieldset :is(button, [role="button"])[aria-pressed="true"] { background: var(--selected-wash); border-color: var(--edge-strong); color: var(--ink); box-shadow: inset 0 0 0 1px var(--edge-strong); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .filter-fieldset :is(button, [role="button"])[aria-pressed="true"] * { color: inherit; }
+#grow-island .field-select { width: 100%; min-height: 44px; padding: var(--s-2) var(--s-2); border: 1px solid var(--rule); background: var(--surface-raised); color: var(--ink); }
+#grow-island .filter-count-note { font-size: var(--t-meta); color: var(--muted-ink); margin: 0; }
+#grow-island .filter-backdrop { display: block; position: fixed; inset: 0; z-index: 980; background: transparent; }
+#grow-island .filter-backdrop[hidden] { display: none; }
+
+/* ------------------------------------------------------------ classic --- */
+/* Classic is the crisp table-first reading. Spectrum leaves its chrome entirely:
+   a 3px chapter rule along the card's top edge is the whole of it. Course colour
+   survives as the .huechip beside every course name and the course-hued inline
+   bar; state stays a soft wash on KPI tiles, backgrounds only. The two GC-02 /
+   GC-03 lines: a .cw is a grid with one bounded column and its body may shrink,
+   so a wide table scrolls inside its card instead of under the console. */
+#grow-island .classic-mount { display: none; }
+#grow-island[data-mode="classic"] .classic-mount { display: block; }
+#grow-island[data-mode="classic"] .station { display: none; }
+#grow-island[data-mode="classic"] .colophon { display: block; }
+#grow-island .classic-grid { display: grid; gap: var(--s-5); grid-template-columns: minmax(0, 1fr); align-items: start; }
+#grow-island .cw { min-width: 0; background-color: var(--notebook-surface); background-image: radial-gradient(circle, var(--dot-ink) .75px, transparent .85px); background-size: var(--dot-pitch) var(--dot-pitch); border: 1px solid var(--notebook-rule, var(--classic-rule)); border-radius: var(--notebook-radius, 10px); padding: var(--s-4); display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-3); align-content: start; box-shadow: var(--notebook-card-shadow), inset 0 3px 0 var(--chapter-hue); overflow: hidden; }
+#grow-island .cw__body { min-width: 0; }
+#grow-island .cw__head { display: flex; gap: var(--s-3); align-items: flex-start; justify-content: space-between; flex-wrap: wrap; min-width: 0; padding-bottom: var(--s-2); border-bottom: 1px solid var(--classic-rule); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .cw { background-color: var(--notebook-surface); box-shadow: var(--notebook-card-shadow), inset 0 3px 0 var(--chapter-hue); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .cw__head { background: transparent; color: var(--classic-ink); border-color: var(--classic-rule); padding: 0 0 var(--s-2); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .cw__head :is(.cw__question, .cw__lead, .cw__note) { color: var(--classic-muted); }
+#grow-island .cw__titlerow { display: flex; align-items: baseline; gap: .2rem; min-width: 0; }
+#grow-island .cw__title { font-family: var(--classic-heading-font); font-size: var(--t-lead); font-weight: 700; margin: 0; color: var(--classic-ink); }
+#grow-island .cw__question { margin: var(--s-1) 0 0; font-size: var(--t-meta); color: var(--classic-muted); }
+#grow-island .cw__tools { display: flex; gap: var(--s-1); align-items: center; flex-wrap: wrap; }
+#grow-island .cw__expand { min-height: 44px; min-width: 44px; border: 1px solid var(--classic-rule); background: var(--classic-surface-2); cursor: pointer; }
+#grow-island .cw__note { margin: 0; font-size: var(--t-meta); color: var(--classic-muted); }
+#grow-island .cw__empty { margin: 0; font-size: var(--t-meta); color: var(--classic-muted); }
+#grow-island .cw__stack { display: grid; gap: var(--s-3); min-width: 0; overflow-x: auto; scrollbar-width: thin; }
+#grow-island .ct { width: 100%; border-spacing: 0; font-family: var(--classic-body-font); font-size: var(--t-body); }
+/* A table with a prose column lays out at a reading width and scrolls inside its card,
+   rather than folding "Why" into a 60px column of one word per line. */
+#grow-island .ct td { min-width: 4.5rem; }
+#grow-island #cw-grow-scoreboard .ct { min-width: 46rem; }
+#grow-island #cw-grow-continuity .ct { min-width: 38rem; }
+#grow-island .ct caption { text-align: left; font-size: var(--t-meta); color: var(--classic-muted); padding-bottom: var(--s-2); }
+#grow-island .ct th { text-align: left; font-size: var(--t-body); font-weight: 700; color: var(--classic-ink); padding: var(--s-2) var(--s-2); border-bottom: 1px solid var(--classic-rule); }
+#grow-island .ct thead th { font-size: var(--t-micro); letter-spacing: .04em; text-transform: uppercase; color: var(--classic-muted); border-bottom: 2px solid var(--classic-ink); white-space: nowrap; vertical-align: bottom; }
+#grow-island .ct td, #grow-island .ct tbody th { vertical-align: top; }
+#grow-island .ct td { padding: var(--s-2) var(--s-2); border-bottom: 1px solid var(--classic-rule); }
+#grow-island .ct__total td { border-top: 2px solid var(--classic-ink); font-weight: 700; }
+#grow-island .ct__group th { background: var(--classic-surface-2); }
+#grow-island .ct__num { text-align: right; }
+#grow-island .ct__bar { display: block; height: .55rem; background: var(--c, var(--classic-bar)); }
+#grow-island .ct__unavailable { color: var(--classic-muted); }
+#grow-island .ct .huechip { vertical-align: -.02em; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .ct thead th { background-color: transparent; color: var(--classic-muted); border-bottom-color: var(--classic-ink); }
+#grow-island .kpi-strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-2); }
+#grow-island .kpi-tile { min-width: 0; border: 1px solid var(--classic-rule); background: var(--classic-surface-2); padding: var(--s-2) var(--s-3); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .kpi-tile { background-color: var(--classic-surface-2); box-shadow: none; }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .kpi-tile__value:not(.hero-card *) { color: var(--classic-ink); }
+#grow-island .kpi-tile__label { display: block; font-size: var(--t-micro); color: var(--classic-muted); }
+#grow-island .kpi-tile__value { display: block; font-size: var(--t-figure); font-weight: 700; }
+#grow-island .kpi-tile__unit, #grow-island .kpi-tile__delta { font-size: var(--t-micro); color: var(--classic-muted); }
+#grow-island .kpi--healthy { background: var(--classic-wash-healthy); }
+#grow-island .kpi--watch { background: var(--classic-wash-watch); }
+#grow-island .kpi--thin { background: var(--classic-wash-thin); }
+#grow-island .kpi--neutral { background: var(--classic-wash-neutral); }
+#grow-island .kpi--unknown { background: var(--classic-wash-unknown); }
+#grow-island .cw__rail { display: inline-flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+#grow-island .cw--expanded .cw__body { max-height: none; }
+#grow-island .cw--has-aid:not(.cw--half) .cw__body, #grow-island .cw--has-aid.cw--half.cw--expanded .cw__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, 18rem); gap: 1rem; align-items: start; }
+#grow-island .cw--has-aid:not(.cw--half) .cw__aid, #grow-island .cw--has-aid.cw--half.cw--expanded .cw__aid { grid-column: 2; grid-row: 1; position: sticky; top: 0; }
+#grow-island .cw__aid { margin: 0; min-width: 0; }
+#grow-island .cw__aid svg { display: block; max-width: 100%; height: auto; }
+#grow-island .cw__aid:empty { display: none; }
+#grow-island .cw__unavail { display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; margin: .45rem 0 .2rem; padding: 1rem 1rem 1.05rem; border: 1px dashed var(--classic-muted); background: transparent; color: var(--classic-ink); }
+#grow-island .cw__unavail-label { font-size: .74rem; font-weight: 700; letter-spacing: .02em; color: var(--classic-muted); }
+#grow-island .cw__unavail-reason { margin: 0; font-size: .84rem; line-height: 1.5; max-width: 52ch; }
+
+#grow-island .ct__share { color: var(--classic-muted); }
+#grow-island .ct__total .ct__share { color: var(--classic-ink); }
+#grow-island .ct__unavail { color: var(--classic-muted); }
+#grow-island .ct__bar-track { display: block; height: .55rem; width: 100%; background: var(--classic-surface-2); }
+#grow-island .ct__bar-fill { display: block; height: 100%; max-width: 100%; background: var(--classic-bar); }
+#grow-island .ct__spark { width: 8.5rem; vertical-align: middle; }
+#grow-island .ct__spark svg { display: block; overflow: visible; }
+#grow-island .spark__base { stroke: var(--classic-rule); stroke-width: 1; }
+#grow-island .spark__line { fill: none; stroke: var(--classic-bar); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+#grow-island .spark__dot { fill: var(--classic-bar); }
+#grow-island .spark__hit { cursor: pointer; }
+#grow-island .ct__sort { position: relative; display: inline-flex; align-items: center; gap: .25rem; min-height: 1.75rem; margin: -.3rem 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; text-align: inherit; }
+#grow-island .ct__sort::after { content: ""; position: absolute; inset: -.5rem 0; }
+#grow-island .ct__sort svg { width: 10px; height: 10px; fill: none; stroke: currentColor; stroke-width: 1.5; opacity: .45; }
+#grow-island .ct__sort:hover { color: var(--classic-ink); }
+#grow-island .ct th[aria-sort="ascending"] .ct__sort svg, #grow-island .ct th[aria-sort="descending"] .ct__sort svg { opacity: 1; }
+#grow-island .ct th[aria-sort="ascending"] .ct__sort-down, #grow-island .ct th[aria-sort="descending"] .ct__sort-up { display: none; }
+#grow-island .ct__sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+#grow-island .kpi-tile__top { display: flex; align-items: center; justify-content: space-between; gap: .3rem; min-width: 0; }
+#grow-island .kpi-tile__reading { display: flex; align-items: baseline; flex-wrap: wrap; gap: .3rem; margin-top: auto; }
+#grow-island .kpi-tile__value.is-unavail { font-weight: 400; color: var(--classic-muted); }
+#grow-island .info-disc--end .info-pop { left: auto; right: -8px; }
+#grow-island .arc-chart { display: block; overflow: visible; }
+#grow-island .arc-chart path { cursor: pointer; transition: opacity .12s ease; }
+#grow-island .arc-chart path:focus-visible { outline: 2px solid var(--classic-focus); outline-offset: 2px; }
+
+#grow-island .xrail { display: inline-flex; align-items: center; gap: .3rem; }
+#grow-island .xrail__btn { position: relative; display: inline-flex; align-items: center; gap: .35rem; min-height: 2rem; padding: 0 .55rem; border: 1px solid var(--classic-rule); border-radius: 4px; background: transparent; color: var(--classic-ink); font-family: var(--classic-body-font); font-size: .72rem; font-weight: 700; line-height: 1; letter-spacing: .01em; cursor: pointer; white-space: nowrap; }
+#grow-island .xrail__btn::after { content: ""; position: absolute; inset: -.4rem 0; }
+#grow-island .xrail__btn svg { width: 14px; height: 14px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; }
+#grow-island .xrail__icon { display: inline-flex; align-items: center; }
+#grow-island .xrail__label { display: inline-block; }
+#grow-island .xrail__suffix { display: inline-block; font-size: .68rem; font-weight: 500; opacity: .75; padding: 1px 4px; border-radius: 3px; background: color-mix(in srgb, currentColor 10%, transparent); margin-left: .25rem; }
+#grow-island .xrail__btn:hover { border-color: var(--classic-ink); background: var(--classic-surface-2); }
+#grow-island .xrail__btn:active { background: var(--classic-rule); }
+#grow-island .xrail__btn.is-busy { cursor: progress; opacity: .65; }
+#grow-island .xrail__btn.is-copied, #grow-island .xrail__btn.is-done { border-color: var(--classic-accent); color: var(--classic-accent); background: transparent; }
+#grow-island .xrail__btn--package { min-height: 2.25rem; padding: 0 .85rem; border-radius: 6px; font-size: .78rem; }
+#grow-island .package-control { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; gap: .3rem; }
+#grow-island .how-to-tip { margin: 0; font-size: .7rem; line-height: 1.35; color: var(--classic-muted); }
+#grow-island .how-to-tip a, #grow-island .how-to-tip__link { position: relative; color: inherit; text-decoration: underline; text-underline-offset: .15em; }
+#grow-island .how-to-tip a::after, #grow-island .how-to-tip__link::after { content: ""; position: absolute; inset: -.6rem -.2rem; }
+#grow-island .tool__off, #grow-island .xrail__btn:disabled, #grow-island .xrail__btn[aria-disabled="true"] { border-style: dashed; border-color: var(--classic-rule); color: var(--classic-muted); background: transparent; cursor: not-allowed; opacity: 1; }
+#grow-island .tool__off:hover, #grow-island .xrail__btn:disabled:hover, #grow-island .xrail__btn[aria-disabled="true"]:hover { border-color: var(--classic-rule); background: transparent; color: var(--classic-muted); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .cw .xrail__btn:not(:disabled, [aria-disabled="true"], .tool__off) { background: var(--classic-surface-2); border-color: var(--classic-rule); color: var(--classic-ink); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .cw .xrail__btn:not(:disabled, [aria-disabled="true"], .tool__off):is(:hover, :focus-visible) { background: var(--hover-wash); border-color: var(--edge-strong); color: var(--classic-ink); }
+:is(#grow-island[data-theme="favor-grow-multicolor"], #grow-island:not([data-theme])) .cw .xrail__btn:is(:disabled, [aria-disabled="true"], .tool__off) { background: var(--classic-surface); border-color: var(--classic-rule); color: var(--classic-muted); opacity: 1; }
+
+#grow-island .copy-prompt { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; gap: .3rem; }
+#grow-island .copy-prompt-btn { position: relative; display: inline-flex; align-items: center; gap: .45rem; min-height: 2.25rem; padding: 0 .85rem; border: 1px solid var(--classic-ink); border-radius: 6px; background: transparent; color: var(--classic-ink); font-family: var(--classic-body-font); font-size: .78rem; font-weight: 700; line-height: 1; cursor: pointer; white-space: nowrap; }
+#grow-island .copy-prompt-btn svg { width: 15px; height: 15px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; }
+#grow-island .copy-prompt-btn svg.copy-prompt-btn__caret { width: 11px; height: 11px; stroke-width: 2; opacity: .7; margin-left: .1rem; }
+#grow-island .copy-prompt-btn:hover, #grow-island .copy-prompt-btn[aria-expanded="true"] { background: var(--classic-ink); color: var(--classic-surface); }
+#grow-island .copy-prompt-btn.is-copied { background: transparent; border-color: var(--classic-accent); color: var(--classic-accent); }
+#grow-island .copy-prompt-tip, #grow-island .ai-guidelines-tip { margin: 0; font-size: .7rem; line-height: 1.35; color: var(--classic-muted); }
+#grow-island .copy-prompt-tip a, #grow-island .ai-guidelines-tip__link { position: relative; color: inherit; text-decoration: underline; text-underline-offset: .15em; }
+#grow-island .copy-prompt-tip a::after, #grow-island .ai-guidelines-tip__link::after { content: ""; position: absolute; inset: -.6rem -.2rem; }
+#grow-island .ai-guidelines-tip__mark { width: 1em; height: 1em; margin-left: .2em; vertical-align: -.12em; flex: none; }
+#grow-island .copy-prompt-pop, #grow-island .copy-prompt-popover { position: absolute; z-index: 50; top: calc(2.25rem + 6px); left: 0; right: auto; display: grid; gap: .2rem; min-width: 18rem; max-width: min(24rem, calc(100vw - 2rem)); padding: .35rem; background: var(--classic-surface); border: 1px solid var(--classic-rule); border-radius: 6px; box-shadow: var(--classic-shadow); }
+#grow-island .copy-prompt--end .copy-prompt-pop, #grow-island .copy-prompt--end .copy-prompt-popover { left: auto; right: 0; }
+#grow-island .copy-prompt-pop[hidden], #grow-island .copy-prompt-popover[hidden] { display: none; }
+@media (max-width: 47.98rem) {
+  #grow-island .copy-prompt-pop, #grow-island .copy-prompt-popover, #grow-island .copy-prompt--end .copy-prompt-pop, #grow-island .copy-prompt--end .copy-prompt-popover { left: 0; right: auto; min-width: 0; width: min(24rem, calc(100vw - 2rem)); }
+}
+#grow-island .copy-prompt-opt, #grow-island .copy-prompt-option { display: flex; align-items: flex-start; gap: .7rem; width: 100%; min-height: 2.75rem; padding: .5rem .7rem; border: 1px solid transparent; border-radius: 4px; background: transparent; color: var(--classic-ink); font-family: var(--classic-body-font); text-align: left; cursor: pointer; }
+#grow-island .copy-prompt-opt svg, #grow-island .copy-prompt-option svg { flex: none; width: 18px; height: 18px; margin-top: .1rem; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+#grow-island .copy-prompt-opt:hover, #grow-island .copy-prompt-option:hover { background: var(--classic-surface-2); border-color: var(--classic-rule); }
+#grow-island .copy-prompt-option__body { display: flex; flex-direction: column; gap: .1rem; min-width: 0; }
+#grow-island .copy-prompt-opt__title, #grow-island .copy-prompt-option__label { font-size: .82rem; font-weight: 700; line-height: 1.3; }
+#grow-island .copy-prompt-opt__desc, #grow-island .copy-prompt-option__hint { font-size: .74rem; line-height: 1.35; color: var(--classic-muted); white-space: normal; }
+#grow-island .copy-prompt-error { margin: 0; padding: .45rem .65rem; border: 1px solid var(--classic-rule); border-radius: 4px; background-color: var(--classic-surface); background-image: linear-gradient(var(--classic-wash-thin), var(--classic-wash-thin)); color: var(--classic-ink); font-size: .76rem; line-height: 1.4; }
+#grow-island .copy-prompt-error:empty { display: none; }
+
+#grow-island .dashboard-tip { position: fixed; z-index: 1040; top: 0; left: 0; max-width: 18rem; padding: .6rem .75rem; background: var(--classic-surface); border: 1px solid var(--classic-rule); color: var(--classic-ink); box-shadow: var(--classic-shadow); font-family: var(--classic-body-font); font-size: .8rem; line-height: 1.45; pointer-events: none; opacity: 0; visibility: hidden; transition: opacity .12s ease, visibility .12s; }
+#grow-island .dashboard-tip[data-open="true"] { opacity: 1; visibility: visible; }
+#grow-island .dashboard-tip__card { display: flex; flex-direction: column; gap: .15rem; }
+#grow-island .dashboard-tip__head { display: flex; align-items: center; gap: .4rem; margin-bottom: .15rem; }
+#grow-island .dashboard-tip__swatch { flex: none; width: .6rem; height: .6rem; background: currentColor; }
+#grow-island .dashboard-tip__label { font-weight: 700; color: var(--classic-muted); }
+#grow-island .dashboard-tip__value { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+#grow-island .dashboard-tip__compare { margin: .1rem 0 0; color: var(--classic-muted); }
+#grow-island .dashboard-tip__unit { margin-left: .3rem; color: var(--classic-muted); }
+
+#grow-island .cw__expand:focus-visible, #grow-island .xrail__btn:focus-visible, #grow-island .mode-switch__btn:focus-visible, #grow-island .copy-prompt-btn:focus-visible, #grow-island .copy-prompt-opt:focus-visible, #grow-island .copy-prompt-option:focus-visible, #grow-island .ai-guidelines-tip__link:focus-visible, #grow-island .ct__sort:focus-visible, #grow-island .info-disc > summary:focus-visible, #grow-island .kpi-tile__reading:focus-visible, #grow-island .ct__unavail:focus-visible, #grow-island .arc-chart path:focus-visible, #grow-island .spark__hit:focus-visible { outline: 2px solid var(--classic-focus); outline-offset: 2px; }
+#grow-island .xrail__btn, #grow-island .cw__expand, #grow-island .mode-switch__btn, #grow-island .copy-prompt-btn, #grow-island .copy-prompt-opt, #grow-island .copy-prompt-option { transition: background-color 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  #grow-island .xrail__btn, #grow-island .cw__expand, #grow-island .mode-switch__btn, #grow-island .copy-prompt-btn, #grow-island .copy-prompt-opt, #grow-island .copy-prompt-option { transition: none; }
+}
+
+#grow-island .masthead__tools { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: flex-start; gap: .6rem 1.1rem; margin-top: 0; }
+#grow-island .masthead__tools .copy-prompt, #grow-island .masthead__tools .package-control { position: relative; display: inline-flex; flex-direction: column; align-items: flex-end; gap: .3rem; text-align: right; }
+#grow-island .masthead__tools .copy-prompt-btn { position: relative; display: inline-flex; align-items: center; gap: .45rem; min-height: 2.25rem; padding: 0 .85rem; border: 1px solid var(--accent); border-radius: 6px; background: var(--accent); color: var(--background); font-family: var(--font-body, inherit); font-size: .78rem; font-weight: 700; line-height: 1; cursor: pointer; white-space: nowrap; transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
+#grow-island .masthead__tools .copy-prompt-btn svg { width: 15px; height: 15px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; }
+#grow-island .masthead__tools .copy-prompt-btn svg.copy-prompt-btn__caret { width: 11px; height: 11px; stroke-width: 2; opacity: .75; margin-left: .1rem; }
+#grow-island .masthead__tools .copy-prompt-btn:hover, #grow-island .masthead__tools .copy-prompt-btn[aria-expanded="true"] { border-color: var(--ink); background: var(--ink); color: var(--background); }
+#grow-island .masthead__tools .copy-prompt-btn.is-copied { border-color: var(--accent); background: transparent; color: var(--accent); }
+#grow-island .masthead__tools .xrail { display: inline-flex; align-items: center; }
+#grow-island .masthead__tools .xrail__btn { position: relative; display: inline-flex; align-items: center; gap: .35rem; min-height: 2.25rem; padding: 0 .85rem; border: 1px solid var(--accent); border-radius: 6px; background: transparent; color: var(--accent); font-family: var(--font-body, inherit); font-size: .78rem; font-weight: 700; line-height: 1; letter-spacing: .01em; cursor: pointer; white-space: nowrap; transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
+#grow-island .masthead__tools .xrail__btn svg { width: 14px; height: 14px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; }
+#grow-island .masthead__tools .xrail__btn:hover { border-color: var(--accent); background: var(--accent); color: var(--background); }
+#grow-island .masthead__tools .xrail__btn:active { background: var(--ink); border-color: var(--ink); color: var(--background); }
+#grow-island .masthead__tools .xrail__btn.is-copied, #grow-island .masthead__tools .xrail__btn.is-done { border-color: var(--accent); color: var(--accent); background: transparent; }
+#grow-island .masthead__tools .xrail__suffix { display: inline-block; font-size: .68rem; font-weight: 500; opacity: .75; padding: 1px 4px; border-radius: 3px; background: color-mix(in srgb, currentColor 14%, transparent); margin-left: .25rem; }
+#grow-island .masthead__tools .copy-prompt-popover { position: absolute; z-index: 50; top: calc(2.25rem + 6px); right: 0; left: auto; display: grid; gap: .25rem; min-width: 20rem; max-width: min(26rem, calc(100vw - 2rem)); padding: .4rem; background: var(--surface); border: 1px solid var(--edge-strong); border-radius: 8px; box-shadow: 0 12px 36px color-mix(in srgb, var(--shadow-ink, #000) 45%, transparent); }
+#grow-island .masthead__tools .copy-prompt-popover[hidden] { display: none; }
+#grow-island .masthead__tools .copy-prompt-option { display: flex; align-items: flex-start; gap: .75rem; width: 100%; min-height: 2.75rem; padding: .6rem .75rem; border: 1px solid transparent; border-radius: 5px; background: transparent; color: var(--ink); font-family: var(--font-body, inherit); text-align: left; cursor: pointer; transition: background-color .12s ease, border-color .12s ease; }
+#grow-island .masthead__tools .copy-prompt-option svg { flex: none; width: 18px; height: 18px; margin-top: .15rem; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; color: var(--accent); }
+#grow-island .masthead__tools .copy-prompt-option:hover { background: color-mix(in srgb, var(--ink) 8%, transparent); border-color: var(--edge-strong); }
+#grow-island .masthead__tools .copy-prompt-option__body { display: flex; flex-direction: column; gap: .15rem; min-width: 0; }
+#grow-island .masthead__tools .copy-prompt-option__label { font-size: .82rem; font-weight: 700; line-height: 1.3; color: var(--ink); }
+#grow-island .masthead__tools .copy-prompt-option__hint { font-size: .73rem; line-height: 1.35; color: var(--muted-ink); white-space: normal; }
+#grow-island .masthead__tools .copy-prompt-error { margin: 0; padding: .45rem .65rem; border: 1px solid var(--rule); border-radius: 4px; background-color: var(--surface); color: var(--ink); font-size: .76rem; line-height: 1.4; }
+#grow-island .masthead__tools .copy-prompt-error:empty { display: none; }
+#grow-island .masthead__tools .ai-guidelines-tip, #grow-island .masthead__tools .how-to-tip { margin: 0; font-size: .7rem; line-height: 1.35; color: var(--muted-ink); max-width: 15rem; text-align: right; }
+#grow-island .masthead__tools .ai-guidelines-tip__link, #grow-island .masthead__tools .how-to-tip__link { position: relative; color: inherit; text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+#grow-island .masthead__tools .ai-guidelines-tip__link:hover, #grow-island .masthead__tools .how-to-tip__link:hover { color: var(--accent); }
+#grow-island .masthead__tools .ai-guidelines-tip__mark { width: 1em; height: 1em; margin-left: .2em; vertical-align: -.12em; flex: none; }
+#grow-island .masthead__tools .copy-prompt-btn:focus-visible, #grow-island .masthead__tools .xrail__btn:focus-visible, #grow-island .masthead__tools .copy-prompt-option:focus-visible, #grow-island .masthead__tools .ai-guidelines-tip__link:focus-visible, #grow-island .masthead__tools .how-to-tip__link:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+#grow-island .spark { display: block; }
+
+/* -------------------------------------------------------- wide screens --- */
+@container (min-width: 48.0625rem) {
+  #grow-island .stages { grid-template-columns: repeat(4, 1fr); }
+  #grow-island .bridge { grid-template-columns: 1fr auto 1fr auto 1.2fr auto 1fr; align-items: stretch; }
+  #grow-island .join::after { content: "\2192"; }
+  #grow-island .kpi-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  #grow-island .rung { grid-template-columns: 7rem 1fr; }
+  #grow-island .track { height: 2.8rem; }
+  /* The console is a column from 48rem on, where it sits on every executive surface,
+     so it never lands 4,000px below the page (GC-11). */
+  #grow-island .dashboard-layout { grid-template-columns: minmax(0, 1fr) var(--sidebar-w); }
+  #grow-island[data-console="closed"] .dashboard-layout { grid-template-columns: minmax(0, 1fr) 0; gap: 0; }
+}
+
+@container (min-width: 64rem) {
+  #grow-island .dashboard-layout { grid-template-columns: minmax(0, 1fr) var(--sidebar-w); }
+  #grow-island[data-console="closed"] .dashboard-layout { grid-template-columns: minmax(0, 1fr) 0; gap: 0; }
+  #grow-island .classic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #grow-island .classic-grid > .cw--expanded { grid-column: 1 / -1; }
+  /* The dead gutter closes: the chapter index takes the middle of the masthead. */
+  #grow-island .masthead__row { display: grid; grid-template-columns: minmax(28rem, 1.3fr) minmax(12rem, .6fr) minmax(16rem, .9fr); gap: var(--s-5); align-items: end; }
+  #grow-island .chapterindex { order: initial; flex: initial; align-self: end; }
+  #grow-island .chapterindex ol { flex-direction: column; gap: var(--s-1); }
+  #grow-island[data-mode="classic"] .masthead__row { grid-template-columns: minmax(0, 1fr) auto; }
+}
+
+/* ---- console controls the compacted Course group and the batch select need ----
+   Course is grouped core-first then electives, so the group needs a label row and a
+   three-up chip grid; the batch select is disabled rather than hidden when a course
+   has no runs, so the reason stays on screen. The insight row is where station prose
+   moved to inside the (i) disclosure. */
+#grow-island .course-subgroup { display: grid; gap: var(--s-1); margin-top: var(--s-1); }
+#grow-island .course-subgroup__label { font-size: .64rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted-ink); }
+#grow-island .chip-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--s-1); }
+
+/* T5 -- course tiles. The abbreviation is the face; the full course name reveals on
+   hover/focus in an absolutely-positioned label, following the .theme-swatch__name
+   pattern above so the reveal never shifts the 3-column grid. Colour reuses each
+   course's own --course-<slug> ladder (already used by .huechip); selection stays
+   legible without colour via the border + weight, same as .acronym-btn. */
+#grow-island .course-tile { position: relative; min-width: 0; min-height: 44px; padding: var(--s-2) var(--s-1);
+  border: 1px solid var(--rule); border-radius: 6px; cursor: pointer; text-align: center;
+  background: color-mix(in srgb, var(--c) 10%, var(--notebook-surface, var(--surface-raised)));
+  color: var(--c-text); font-size: .72rem; font-weight: 700; letter-spacing: .03em; }
+#grow-island .course-tile:hover { border-color: var(--edge-strong); background: color-mix(in srgb, var(--c) 18%, var(--notebook-surface, var(--surface-raised))); }
+#grow-island .course-tile[aria-pressed="true"] { border: 2px solid var(--ink); background: color-mix(in srgb, var(--c) 24%, var(--notebook-surface, var(--surface-raised))); color: var(--ink); font-weight: 800; }
+#grow-island .course-tile[aria-pressed="true"]:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+#grow-island .course-tile__face { display: block; }
+#grow-island .course-tile__name { position: absolute; bottom: calc(100% + .4rem); left: 50%; z-index: 120;
+  transform: translate(-50%, .25rem); opacity: 0; pointer-events: none; white-space: nowrap;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--edge-strong);
+  padding: .3rem .55rem; border-radius: .35rem; box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink) 30%, transparent); }
+#grow-island .course-tile__title { font-size: .72rem; font-weight: 700; line-height: 1.25; }
+#grow-island .course-tile:hover .course-tile__name, #grow-island .course-tile:focus-visible .course-tile__name { opacity: 1; transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: no-preference) {
+  #grow-island .course-tile__name { transition: opacity .16s ease, transform .2s cubic-bezier(.16,1,.3,1); }
+}
+#grow-island .course-filter-group { display: grid; gap: var(--s-2); }
+#grow-island .field-select:disabled { opacity: 0.72; cursor: not-allowed; }
+#grow-island .info-pop__insight { margin-top: var(--s-2); padding-top: var(--s-2); border-top: 1px solid var(--rule); font-style: italic; }
+
+/* ------------------------------------------------------ narrow screens --- */
+@media (max-width: 768px) {
+  #grow-island { padding: 0 var(--s-2) var(--s-7); }
+  #grow-island .masthead-card { margin: var(--s-3) auto var(--s-4); border-radius: 8px; }
+  #grow-island .masthead { padding: var(--s-4) var(--s-3) var(--s-4); }
+  #grow-island .scopebar { padding: var(--s-2) var(--s-3); }
+  #grow-island .station { border-radius: 8px; }
+  #grow-island .colophon { border-radius: 8px; }
+  #grow-island .cw { border-radius: 8px; }
+  #grow-island .dashboard-layout { grid-template-columns: minmax(0, 1fr); }
+  #grow-island .masthead__aside { align-items: flex-start; }
+  #grow-island .masthead__tools { justify-content: flex-start; }
+  #grow-island .masthead__tools .copy-prompt, #grow-island .masthead__tools .package-control { align-items: flex-start; text-align: left; }
+  #grow-island .masthead__tools .ai-guidelines-tip, #grow-island .masthead__tools .how-to-tip { max-width: none; text-align: left; }
+  #grow-island .masthead__tools .copy-prompt-popover { left: 0; right: auto; min-width: 0; width: min(24rem, calc(100vw - 2rem)); }
+  #grow-island .chapterindex__item { min-height: 44px; }
+  #grow-island .stamps { grid-template-columns: auto 1fr; }
+  #grow-island .station--lead { --pad: var(--s-4); }
+  #grow-island .rung { grid-template-columns: 4.6rem 1fr; }
+  #grow-island .tier { grid-template-columns: 6.5rem 1fr 4.5rem; }
+
+  /* The scoreboard re-flows to one card per batch instead of shrinking: the course
+     name and its chip as the heading, the session bars full width beneath, then a
+     two-column list of the readings, and a 44px Rock link. Nothing scrolls sideways. */
+  #grow-island .table-scroll { overflow: visible; max-height: none; padding-bottom: 0; }
+  #grow-island .fptable, #grow-island .fptable tbody { display: block; }
+  #grow-island .fptable thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  #grow-island .fptable tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-2) var(--s-4); border: 1px solid var(--rule); padding: var(--s-3) var(--s-4); margin-bottom: var(--s-3); }
+  #grow-island .fptable tbody tr:first-child { background: var(--surface-raised); }
+  #grow-island .fptable tbody tr:first-child td { background: transparent; }
+  #grow-island .fptable tbody tr:first-child:is([data-state="critical"], [data-state="thin"], [data-state="watch"]) { box-shadow: inset 3px 0 0 var(--row-state); }
+  #grow-island .fptable tbody tr:first-child:is([data-state="critical"], [data-state="thin"], [data-state="watch"]) td:first-child { box-shadow: none; }
+  #grow-island .fptable tbody tr:last-child { margin-bottom: 0; }
+  #grow-island .fptable td { display: block; padding: 0; border: 0; min-width: 0; }
+  #grow-island .fptable td::before { content: attr(data-label); display: block; font-size: var(--t-micro); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-ink); margin-bottom: .1rem; }
+  #grow-island .fptable td.course, #grow-island .fptable td.fpcell, #grow-island .fptable td.why, #grow-island .fptable td.act { grid-column: 1 / -1; }
+  #grow-island .fptable td.course::before, #grow-island .fptable td.fpcell::before { display: none; }
+  #grow-island .fptable td.course { font-size: var(--t-lead); }
+  #grow-island .fptable .n { text-align: left; white-space: normal; }
+  #grow-island .fptable .n small { display: inline; margin-left: var(--s-1); }
+  #grow-island .fp { width: 100%; height: 1.6rem; }
+  #grow-island .act a { display: inline-flex; align-items: center; min-height: 44px; }
+  #grow-island .fptable td.act:empty { display: none; }
+  #grow-island .why { min-width: 0; }
+
+  /* ---- the bottom edge: one object, in two parts (docs/guides/mobile-bottom-edge.md) ----
+     The handle is a full-width 48px grab bar. It sits on the viewport floor when the
+     sheet is closed and on the sheet's own top edge when open; one label in both
+     states, and only the arrow turns. data-console is mirrored on the island root
+     by bindSidebar(), because the handle precedes the layout in the DOM. */
+  #grow-island .sidebar-toggle-bar { position: fixed; top: auto; left: 0; right: 0; bottom: 0; z-index: 991; display: block; max-width: none; margin: 0; padding: 0; }
+  #grow-island[data-console="open"] .sidebar-toggle-bar { bottom: var(--console-h); }
+  #grow-island .toggle-btn { display: flex; width: 100%; align-items: center; justify-content: center; gap: var(--s-2); min-height: 48px; padding: var(--s-2) var(--s-4) max(var(--s-2), env(safe-area-inset-bottom, var(--s-2))); background: var(--surface); color: var(--ink); border: 0; border-top: 1px solid var(--edge-strong); border-radius: 0; box-shadow: none; font-size: var(--t-meta); }
+  #grow-island[data-console="open"] .toggle-btn { padding-bottom: var(--s-2); }
+  #grow-island .toggle-btn .arrow, #grow-island[data-console="closed"] .toggle-btn .arrow { display: inline-block; transform: rotate(-90deg); }
+  #grow-island[data-console="open"] .toggle-btn .arrow { transform: rotate(90deg); }
+
+  /* The sheet: square-topped, because its top edge is the handle; compact, so the
+     ladder stays visible above it; its own scroll; no reserve for a pill. */
+  #grow-island .dashboard-layout[data-console="closed"] .filter-sidebar { display: none; }
+  #grow-island .dashboard-layout[data-console="open"] .filter-sidebar { position: fixed; top: auto; bottom: 0; left: 0; right: 0; width: 100%; height: var(--console-h); max-height: var(--console-h); margin: 0; z-index: 990; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; border: 0; border-top: 1px solid var(--rule); border-radius: 0; box-shadow: none; padding: var(--s-3) var(--s-4) max(var(--s-4), env(safe-area-inset-bottom, var(--s-4))); }
+  #grow-island .sidebar-back-btn { display: block; }
+  /* ---- the palette, as the console's last row ----
+     The sticky pill is fixed to the viewport corner, so at 390px it floated over the
+     chapter index. Once the console becomes a sheet the swatch moves into it as an
+     ordinary row -- a preference, in the place preferences live -- exactly as Connect
+     Field and Pathways do. Desktop keeps the pill untouched; none of this reaches it. */
+  #grow-island .palette-slot { margin-top: .75rem; padding-top: .6rem; border-top: 1px solid var(--rule); }
+  #grow-island .theme-swatch { position: static; margin: 0; padding: 0; display: flex; width: 100%; justify-content: flex-start; gap: .25rem; background: transparent; border: none; backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; opacity: 1; }
+  #grow-island .theme-swatch__btn { min-width: 44px; min-height: 44px; justify-content: center; }
+
+  #grow-island .filter-backdrop { backdrop-filter: none; -webkit-backdrop-filter: none; }
+}
+
+@media (min-width: 769px) {
+  #grow-island .dashboard-layout[data-console="closed"] .filter-sidebar { display: none; }
+  #grow-island .filter-backdrop { display: none; }
+}
+
+@media print {
+  #grow-island .sidebar-toggle-bar, #grow-island .filter-backdrop, #grow-island .cw__rail, #grow-island .xrail, #grow-island .cw__expand, #grow-island .mode-switch, #grow-island .copy-prompt, #grow-island .copy-prompt-btn, #grow-island .copy-prompt-pop, #grow-island .copy-prompt-popover, #grow-island .copy-prompt-tip, #grow-island .ai-guidelines-tip, #grow-island .info-disc, #grow-island .dashboard-tip { display: none !important; }
+}
+
+
+/* ----------------------------------------------------------------------------
+   BEGIN merged Markup block (apps/shared/markup-base.css)
+   Source: apps/shared/markup-base.css (canonical; never edit the copy below by hand).
+   Scope: #grow-island -- produced by tools/scope_island_css.py scope_css().
+   Guard: tests/test_island_delivery.py MergedMarkupBlockTest.
+   Executive Markup V2 (#598): the pen beside the palette and the island's frozen state;
+   the drawing surface itself ships in apps/markup-app (markup-app.css) outside this scope.
+   ---------------------------------------------------------------------------- */
+/* Executive Markup V2 -- the pen and the island's frozen state (#598).
+ * Pasted under each island's own scope by tools/scope_island_css.py. Everything the drawing
+ * surface itself needs ships inside markup-app.css and mounts outside the island, so this
+ * block only styles the pen beside the palette and what the live dashboard does while a board
+ * is open. Every selector starts with `.` or `[` so the scoping pass confines it. */
+
+#grow-island .markup-pen {
+  position: sticky; bottom: 5.75rem; margin-left: 1.25rem; z-index: 95;
+  display: flex; clear: both; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; padding: 0;
+  border: 1px solid var(--rule, rgba(18, 20, 17, .18)); border-radius: 999px;
+  background: color-mix(in srgb, var(--surface, #fff) 88%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  color: var(--ink, #121411); font: inherit; font-size: .8rem; font-weight: 600; letter-spacing: .01em;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink, #121411) 22%, transparent);
+  opacity: .85; cursor: pointer;
+  transition: opacity var(--motion-state, 180ms) var(--motion-ease, ease), border-color var(--motion-feedback, 120ms) var(--motion-ease, ease),
+    background-color var(--motion-feedback, 120ms) var(--motion-ease, ease), color var(--motion-feedback, 120ms) var(--motion-ease, ease),
+    transform var(--motion-feedback, 120ms) var(--motion-ease, ease);
+}
+#grow-island .markup-pen:hover, #grow-island .markup-pen:focus-within { opacity: 1; border-color: var(--edge-strong, currentColor); }
+#grow-island .markup-pen:active { transform: translateY(1px); }
+#grow-island .markup-pen:focus-visible { outline: 2px solid var(--focus, #f45500); outline-offset: 3px; }
+#grow-island .markup-pen[aria-pressed="true"] { opacity: 1; background: var(--ink, #121411); color: var(--invert-ink, var(--background, #fef1e8)); border-color: var(--ink, #121411); }
+#grow-island .markup-pen[aria-busy="true"] { cursor: progress; }
+#grow-island .markup-pen[aria-busy="true"] .markup-pen__icon { animation: markup-pen-tap 900ms ease-in-out infinite; }
+#grow-island .markup-pen__icon { width: 1.15rem; height: 1.15rem; flex: none; }
+
+/* Animated hover tooltip: explains that it freezes current dashboard view */
+#grow-island .markup-pen__tooltip {
+  position: absolute; bottom: calc(100% + .65rem); left: 0; z-index: 120;
+  display: flex; flex-direction: column; gap: 2px; padding: .45rem .65rem;
+  background: color-mix(in srgb, var(--surface, #fff) 94%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--edge-strong, rgba(18, 20, 17, .24));
+  border-radius: 8px;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink, #121411) 20%, transparent);
+  pointer-events: none; opacity: 0; transform: translateY(4px);
+  transition: opacity var(--motion-state, 180ms) var(--motion-ease, ease), transform var(--motion-state, 180ms) var(--motion-ease, ease);
+  white-space: nowrap; text-align: left;
+}
+#grow-island .markup-pen:hover .markup-pen__tooltip, #grow-island .markup-pen:focus-visible .markup-pen__tooltip {
+  opacity: 1; transform: translateY(0);
+}
+#grow-island .markup-pen__label {
+  font-size: .74rem; font-weight: 700; line-height: 1.25; color: var(--ink, #121411);
+}
+#grow-island .markup-pen__desc {
+  font-size: .65rem; font-weight: 400; line-height: 1.2; color: var(--muted-ink, #555); letter-spacing: .01em;
+}
+
+@keyframes markup-pen-tap { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-2px) rotate(-6deg) } }
+
+/* Mobile: floating fixed icon on lower left, always outside the filter console */
+@media (max-width: 768px) {
+  #grow-island .markup-pen {
+    position: fixed;
+    bottom: calc(max(env(safe-area-inset-bottom, 0px), .5rem) + 4.25rem);
+    left: 1.25rem;
+    margin-left: 0;
+    z-index: 990;
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    box-shadow: 0 4px 18px color-mix(in srgb, var(--shadow-ink, #121411) 28%, transparent);
+  }
+  #grow-island .markup-pen__tooltip { display: none; }
+}
+
+/* Instant veil -- mounted at 0ms upon pen button click for immediate user feedback */
+#grow-island .fm-instant-veil {
+  position: fixed; inset: 0; z-index: 2147483000;
+  display: grid; place-items: center;
+  background: color-mix(in srgb, var(--surface, #fff) 85%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  pointer-events: auto;
+  font-family: var(--body-font);
+  animation: fm-fade 160ms ease both;
+}
+#grow-island .fm-instant-veil .fm-loading-card {
+  display: flex; flex-direction: column; align-items: center; gap: .85rem;
+  padding: 1.75rem 2rem 1.5rem; border-radius: 20px;
+  background: var(--surface, #fff); color: var(--ink, #121411);
+  border: 1px solid var(--rule, rgba(18,20,17,.16));
+  box-shadow: 0 10px 30px rgba(18,20,17,.18);
+  width: min(390px, calc(100vw - 2.5rem)); text-align: center;
+}
+#grow-island .fm-instant-veil .fm-progress-bar {
+  width: 100%; height: 7px; border-radius: 999px;
+  background: color-mix(in srgb, var(--surface, #fff) 60%, #e0e0e0);
+  overflow: hidden; position: relative;
+}
+#grow-island .fm-instant-veil .fm-progress-bar__fill--animated {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--focus, #f45500), #ff8b4d);
+  animation: fm-instant-pulse 1.8s ease-in-out infinite;
+}
+@keyframes fm-instant-pulse {
+  0% { width: 15%; }
+  50% { width: 75%; }
+  100% { width: 92%; }
+}
+
+/* While a board is open the island sits inert under the overlay; the state is stated by the
+ * attribute, never by colour alone. Paused is the exception -- the dashboard is live again on
+ * purpose, so nothing recedes and the pen only marks that a board is waiting. */
+#grow-island [data-markup="canvas"], #grow-island [data-markup="saving"], #grow-island [data-markup="viewing"] { user-select: none; }
+#grow-island [data-markup="paused"] .markup-pen { border-color: var(--warn, #b8860b); }
+
+@media (prefers-reduced-motion: reduce) {
+  #grow-island .markup-pen { transition: none; }
+  #grow-island .markup-pen__tooltip { transition: none; }
+  #grow-island .markup-pen[aria-busy="true"] .markup-pen__icon { animation: none; }
+  #grow-island .fm-instant-veil .fm-progress-bar__fill--animated { animation: none; width: 60%; }
+}
+
+/* ----------------------------------------------------------------------------
+   END merged Markup block (apps/shared/markup-base.css)
+   ---------------------------------------------------------------------------- */
+
+/* BEGIN merged Breadcrumbs block (apps/shared/breadcrumbs-base.css) */
+#grow-island .suite-breadcrumbs {
+  box-sizing: border-box;
+  width: auto;
+  margin-left: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 2.4rem)));
+  margin-right: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 2.4rem)));
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: .55rem clamp(1.1rem, 2.5vw, 2.4rem);
+  background:
+    repeating-linear-gradient(135deg, color-mix(in srgb, var(--ink) 5%, transparent) 0 1px, transparent 1px 9px),
+    var(--surface-sunken);
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted-ink);
+  font-family: var(--font-mono, "SF Mono", Monaco, Consolas, monospace);
+  font-size: clamp(.62rem, .58rem + .12vw, .72rem);
+  letter-spacing: .08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+#grow-island .suite-breadcrumbs__trail { display: flex; flex-wrap: nowrap; align-items: baseline; gap: .25rem .35rem; margin: 0; padding: 0; list-style: none; max-width: 100%; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; touch-action: pan-x; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 1.5rem), transparent 100%); mask-image: linear-gradient(90deg, #000 calc(100% - 1.5rem), transparent 100%); }
+#grow-island .suite-breadcrumbs__trail::-webkit-scrollbar { display: none; }
+#grow-island .suite-breadcrumbs[data-draggable="true"] .suite-breadcrumbs__trail, #grow-island .suite-breadcrumbs__trail.is-draggable { cursor: grab; }
+#grow-island .suite-breadcrumbs[data-dragging="true"] .suite-breadcrumbs__trail, #grow-island .suite-breadcrumbs__trail.is-dragging { cursor: grabbing; user-select: none; -webkit-user-select: none; scroll-behavior: auto; }
+#grow-island .suite-breadcrumbs[data-dragging="true"] .suite-breadcrumbs__link, #grow-island .suite-breadcrumbs__trail.is-dragging .suite-breadcrumbs__link { pointer-events: none; }
+#grow-island .suite-breadcrumbs__trail::after {
+  content: "";
+  flex: 1 1 0%;
+  min-width: .75rem;
+  align-self: stretch;
+  margin-left: .15rem;
+  background: linear-gradient(90deg, var(--rule), transparent 55%);
+  opacity: .55;
+  pointer-events: none;
+}
+#grow-island .suite-breadcrumbs__item { display: inline-flex; align-items: baseline; min-width: 0; flex: 0 0 auto; }
+#grow-island .suite-breadcrumbs__item--root { flex-shrink: 0; }
+#grow-island .suite-breadcrumbs__peers { display: inline-flex; flex-wrap: nowrap; align-items: baseline; gap: .25rem .35rem; }
+#grow-island .suite-breadcrumbs__root-link, #grow-island .suite-breadcrumbs__link { color: var(--ink); text-decoration: none; transition: color 120ms ease; white-space: nowrap; }
+#grow-island .suite-breadcrumbs__prefix { color: var(--muted-ink); font-weight: 400; }
+#grow-island .suite-breadcrumbs__link { color: var(--muted-ink); padding: 4px 6px; margin: -4px -2px; }
+#grow-island .suite-breadcrumbs__root-link:hover, #grow-island .suite-breadcrumbs__link:hover { color: var(--accent); }
+#grow-island .suite-breadcrumbs__link.is-active { color: var(--ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .3em; }
+#grow-island .suite-breadcrumbs__divider, #grow-island .suite-breadcrumbs__sep { color: var(--rule); user-select: none; flex-shrink: 0; }
+#grow-island .suite-breadcrumbs__root-link:focus-visible, #grow-island .suite-breadcrumbs__link:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: 2px; border-radius: 2px; }
+@media (max-width: 768px) {
+  #grow-island .suite-breadcrumbs {
+    margin-left: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 1.25rem)));
+    margin-right: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 1.25rem)));
+    margin-top: 0;
+    margin-bottom: .85rem;
+    width: auto;
+    max-width: none;
+    padding: .5rem 1rem;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #grow-island .suite-breadcrumbs__root-link, #grow-island .suite-breadcrumbs__link { transition: none; }
+}
+
+/* ------------------------------------------------------------------ nested surfaces (#600)
+   One surface in the suite is three dashboards behind one masthead, and the trail shows it:
+   hovering or tabbing into People reveals the three. Pointer only, and CSS only. A coarse
+   pointer has no hover and a tap on the parent is a navigation, so touch readers reach the
+   three from the page's own lens bar instead of from a menu that opens under their thumb. */
+#grow-island .suite-breadcrumbs__nest { position: relative; display: inline-block; }
+#grow-island .suite-breadcrumbs__nest.is-open .suite-breadcrumbs__sub, #grow-island .suite-breadcrumbs__nest[aria-expanded="true"] .suite-breadcrumbs__sub {
+  display: block;
+}
+/* THE TRAIL CLIPS, so it has to stop while the menu is open. `.suite-breadcrumbs__trail` is a
+   horizontally scrolling rail with a fade mask, and a mask clips a child absolutely positioned
+   outside it just as overflow does: the menu rendered at the right coordinates and was invisible
+   on every real page. While a nest is open the rail drops both, which is safe because the reveal
+   is pointer-only and the rail only scrolls when it is too narrow for the pointer case. */
+#grow-island .suite-breadcrumbs__trail.has-open-nest, #grow-island .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest.is-open), #grow-island .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest[aria-expanded="true"]), #grow-island .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest:hover), #grow-island .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest:focus-within) {
+  overflow: visible;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+#grow-island .suite-breadcrumbs__sub {
+  position: absolute;
+  top: 100%;
+  left: -.35rem;
+  z-index: 40;
+  display: none;
+  min-width: 15rem;
+  max-width: calc(100vw - 1rem);
+  box-sizing: border-box;
+  margin-top: .4rem;
+  padding: .3rem;
+  background: var(--surface-raised, var(--surface, #fff));
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--shadow-ink, #121411) 22%, transparent);
+}
+/* The gap between the link and the menu is bridged, so a pointer travelling down does not
+   cross dead space and close the thing it is aiming at. */
+#grow-island .suite-breadcrumbs__sub::before { content: ""; position: absolute; inset: -.5rem 0 100%; }
+@media (hover: hover) and (pointer: fine) {
+  #grow-island .suite-breadcrumbs__nest:hover .suite-breadcrumbs__sub, #grow-island .suite-breadcrumbs__nest:focus-within .suite-breadcrumbs__sub { display: block; }
+}
+#grow-island .suite-breadcrumbs__tab {
+  display: block;
+  padding: .4rem .55rem;
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+#grow-island .suite-breadcrumbs__tab:hover { background: var(--hover-wash, color-mix(in srgb, var(--accent) 10%, transparent)); }
+#grow-island .suite-breadcrumbs__tab:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: -2px; }
+#grow-island .suite-breadcrumbs__tab-label { display: block; font-weight: 700; font-size: .82rem; }
+#grow-island .suite-breadcrumbs__tab-question { display: block; font-size: .72rem; color: var(--muted-ink); }
+
+/* END merged Breadcrumbs block (apps/shared/breadcrumbs-base.css) */
+
+/* BEGIN merged UX block (apps/shared/ux-base.css)
+   The UX bar (#587): motion tokens, pressed feedback, the status chip, the change cue, the
+   busy veil, and the mobile sheet entrance. Generated from the shared source under the scope
+   "#grow-island" by tools/scope_island_css.py; edit apps/shared/ux-base.css and re-paste, never this
+   copy. Drift is caught by tools/check_merged_blocks.py and tests/test_island_delivery.py.
+   Island-specific UX rules belong in the override zone AFTER the END delimiter. */
+/* ---------- 1. motion vocabulary ---------- */
+/* Durations are the whole timing story. A control reads one token; nothing in
+   an island states a millisecond value of its own for a UX-bar behaviour. */
+#grow-island {
+  --motion-feedback: 120ms;   /* press, hover, toggle acknowledgement */
+  --motion-state: 180ms;      /* a state the eye must follow: selected, mode, chip in/out */
+  --motion-layout: 280ms;     /* a sheet, a panel, a change cue settling */
+  --motion-focus: 360ms;      /* a focal element arriving once */
+  --motion-focal: 550ms;      /* the rare authored moment; one per surface, if any */
+  --motion-ease: cubic-bezier(.16, 1, .3, 1);      /* confident arrival */
+  --motion-ease-exit: cubic-bezier(.4, 0, 1, 1);   /* leaves faster than it came */
+  --host-chrome-bottom: 0px;                       /* shared runtime measurement */
+  --ux-status-gap: .75rem;                         /* one shared clearance, not a surface offset */
+  --ux-status-top: calc(var(--host-chrome-bottom) + var(--ux-status-gap));
+}
+/* Reduced motion is one switch, not a hunt: every duration collapses to zero,
+   so each transition and animation below completes on its first frame while the
+   state it carried (pressed, selected, done, failed) still lands. Reduced motion
+   is never reduced information. */
+@media (prefers-reduced-motion: reduce) {
+  #grow-island {
+    --motion-feedback: 0ms;
+    --motion-state: 0ms;
+    --motion-layout: 0ms;
+    --motion-focus: 0ms;
+    --motion-focal: 0ms;
+  }
+}
+
+/* ---------- 2. pressed feedback ---------- */
+/* The shared control vocabulary acknowledges a press before anything else
+   happens: a 1px settle on :active, back on release. Islands add their own
+   control classes to this list in their override zone, never a second rule. */
+#grow-island .mode-switch__btn, #grow-island .xrail__btn, #grow-island .cw__expand, #grow-island .ct__sort, #grow-island .copy-prompt-btn, #grow-island .copy-prompt-option, #grow-island .copy-prompt-opt, #grow-island .toggle-btn, #grow-island .sidebar-back-btn, #grow-island .reset-btn, #grow-island .scopebar-reset, #grow-island .theme-swatch__btn, #grow-island .mk-toggle, #grow-island .mk-rail__btn, #grow-island .opt-btn, #grow-island .acronym-btn, #grow-island .gender-btn, #grow-island .filter-tag__remove {
+  transition: transform var(--motion-feedback) var(--motion-ease),
+              background-color var(--motion-feedback) linear,
+              border-color var(--motion-feedback) linear,
+              color var(--motion-feedback) linear,
+              box-shadow var(--motion-feedback) linear;
+}
+#grow-island .mode-switch__btn:active, #grow-island .xrail__btn:active:not([disabled]), #grow-island .cw__expand:active, #grow-island .ct__sort:active, #grow-island .copy-prompt-btn:active, #grow-island .copy-prompt-option:active, #grow-island .copy-prompt-opt:active, #grow-island .toggle-btn:active, #grow-island .sidebar-back-btn:active, #grow-island .reset-btn:active, #grow-island .scopebar-reset:active, #grow-island .theme-swatch__btn:active, #grow-island .mk-toggle:active, #grow-island .mk-rail__btn:active, #grow-island .opt-btn:active, #grow-island .acronym-btn:active, #grow-island .gender-btn:active, #grow-island .filter-tag__remove:active {
+  transform: translateY(1px);
+}
+
+/* ---------- 3. the status chip ---------- */
+/* One chip per island, mounted by dashboard-status.mjs. It sits top-centre,
+   below the shared host-chrome boundary measured at runtime, so the mobile bottom
+   edge keeps its one occupant (ADR 0020). It is the visible half of every announce():
+   the live region says it to a screen reader, the chip says it to everyone else.
+   Same words, both places. */
+#grow-island .ux-status {
+  position: fixed;
+  top: var(--ux-status-top);
+  left: 50%;
+  z-index: 996;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  max-width: min(92vw, 36rem);
+  min-height: 2.5rem;
+  padding: .45rem .9rem .45rem .75rem;
+  border: 1px solid var(--invert-surface, var(--classic-ink, var(--ink, #121411)));
+  border-radius: 999px;
+  background: var(--invert-surface, var(--classic-ink, var(--ink, #121411)));
+  color: var(--invert-ink, var(--classic-surface, var(--surface, #ffffff)));
+  font-family: var(--classic-body-font, var(--font-body, system-ui, sans-serif));
+  font-size: .82rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: .005em;
+  box-shadow: 0 10px 24px -10px var(--shadow-ink, rgba(0, 0, 0, .45));
+  opacity: 0;
+  transform: translate(-50%, -8px);
+  pointer-events: none;
+  transition: opacity var(--motion-feedback) var(--motion-ease-exit),
+              transform var(--motion-feedback) var(--motion-ease-exit);
+}
+#grow-island .ux-status[data-open="true"] {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+  transition: opacity var(--motion-state) var(--motion-ease),
+              transform var(--motion-state) var(--motion-ease);
+}
+#grow-island .ux-status__text { min-width: 0; overflow-wrap: anywhere; }
+#grow-island .ux-status__mark {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+}
+#grow-island .ux-status__mark svg { width: 100%; height: 100%; display: block; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+/* done: the mark draws its tick once, then rests. */
+#grow-island .ux-status[data-kind="done"] .ux-status__mark { color: var(--state-healthy, var(--classic-healthy, #2f9a52)); }
+#grow-island .ux-status[data-kind="done"] .ux-status__mark path { stroke-dasharray: 28; stroke-dashoffset: 28; animation: favor-ux-tick var(--motion-state) var(--motion-ease) forwards; }
+/* busy: the only loop in the block, and it stops the moment the chip changes kind
+   or closes, because the spinning element leaves with it. */
+#grow-island .ux-status[data-kind="busy"] .ux-status__mark { animation: favor-ux-spin 900ms linear infinite; }
+/* fail: inverted back to the surface so the red carries the weight, and the chip
+   stays until dismissed -- a failure is never a toast. */
+#grow-island .ux-status[data-kind="fail"] {
+  background: var(--classic-surface, var(--surface, #ffffff));
+  color: var(--classic-ink, var(--ink, #121411));
+  border-color: var(--state-critical, var(--classic-critical, #b3261e));
+  box-shadow: 0 10px 24px -10px var(--shadow-ink, rgba(0, 0, 0, .45)), inset 0 0 0 1px var(--state-critical, var(--classic-critical, #b3261e));
+}
+#grow-island .ux-status[data-kind="fail"] .ux-status__mark { color: var(--state-critical, var(--classic-critical, #b3261e)); }
+#grow-island .ux-status__btn {
+  position: relative;
+  flex: none;
+  margin: -.2rem -.45rem -.2rem 0;
+  min-height: 2rem;
+  padding: 0 .65rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: .76rem;
+  cursor: pointer;
+}
+#grow-island .ux-status__btn::after { content: ""; position: absolute; inset: -.45rem -.3rem; }
+#grow-island .ux-status__btn:hover { background: var(--hover-wash, rgba(127, 127, 127, .14)); }
+#grow-island .ux-status__btn:active { transform: translateY(1px); }
+#grow-island .ux-status__btn:focus-visible { outline: 2px solid var(--classic-focus, var(--focus, #005eb8)); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  #grow-island .ux-status[data-kind="busy"] .ux-status__mark { animation: none; }
+  #grow-island .ux-status[data-kind="done"] .ux-status__mark path { animation: none; stroke-dashoffset: 0; }
+}
+
+/* A live region an island can mount when it has none: present to assistive tech, absent
+   from layout. The chip is the sighted half of whatever is written here. */
+#grow-island .ux-live { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* ---------- 4. the change cue ---------- */
+/* After a filter or scope change the stations whose reading changed settle
+   once: an accent inset ring that fades over the layout beat. Applied by
+   dashboard-status.mjs markChanged(), to a capped handful of nodes, once per
+   user action -- never ambient, never on load. */
+#grow-island .ux-changed { animation: favor-ux-settle var(--motion-layout) var(--motion-ease) 1 both; }
+
+/* ---------- 5. the busy veil ---------- */
+/* A region that is truthfully still working. It keeps the last reading visible
+   under a light veil rather than blanking it, and the cursor says "working". */
+#grow-island .ux-busy { position: relative; cursor: progress; }
+#grow-island .ux-busy::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: var(--classic-surface, var(--surface, #ffffff));
+  opacity: .42;
+  pointer-events: none;
+  transition: opacity var(--motion-state) linear;
+}
+
+/* ---------- 6. the mobile sheet ---------- */
+/* The console arrives from the edge it lives on and the handle rides up with it
+   (docs/guides/mobile-bottom-edge.md). Closing is instant on the sheet and a beat
+   shorter on the handle: exits are faster than entrances. The state attribute lives
+   on the island root, so :is([data-console="open"] *) reaches it from inside the
+   scope prefix without a per-island exception. */
+@media (max-width: 768px) {
+  #grow-island .filter-sidebar:is([data-console="open"] *) { animation: favor-ux-sheet-in var(--motion-layout) var(--motion-ease) 1 both; }
+  #grow-island .sidebar-toggle-bar, #grow-island .console-toggle-bar { transition: bottom var(--motion-layout) var(--motion-ease); }
+  #grow-island .sidebar-toggle-bar:is([data-console="closed"] *), #grow-island .console-toggle-bar:is([data-console="closed"] *) { transition-duration: var(--motion-state); transition-timing-function: var(--motion-ease-exit); }
+  #grow-island .ux-status { max-width: calc(100vw - 2rem); }
+}
+
+@keyframes favor-ux-tick { to { stroke-dashoffset: 0; } }
+@keyframes favor-ux-spin { to { transform: rotate(360deg); } }
+@keyframes favor-ux-settle {
+  from { box-shadow: inset 0 0 0 2px var(--classic-accent, var(--accent, #f45500)); }
+  to { box-shadow: inset 0 0 0 2px transparent; }
+}
+@keyframes favor-ux-sheet-in {
+  from { transform: translateY(18px); opacity: .001; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ------------------------------------------------------------- the theme swatch (#611)
+   At rest: `Theme` and one disc, the palette showing now, plus shuffle. The rest arrive on
+   hover and stay on a click, the same gesture as every readout (DESIGN.md). Each island keeps
+   its own chrome for the pill and the discs; what lives here is the structure, so a palette
+   added later costs no layout anywhere. */
+/* No `position` here on purpose. Each island places the pill itself (sticky at the page's lower
+   left on desktop), and setting `relative` here silently un-stuck all of them. The menu anchors
+   to whatever the island placed, because sticky is already a positioned ancestor; the one case
+   that needs help is the mobile console row, where the pill is static. */
+#grow-island .palette-slot .theme-swatch { position: relative; }
+#grow-island .theme-swatch__label {
+  font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted-ink); padding-left: .35rem;
+}
+/* The trigger is the current palette: a disc, and nothing else at rest. It keeps each island's
+   own disc chrome by also carrying .theme-swatch__btn. */
+#grow-island .theme-swatch__trigger { position: relative; }
+#grow-island .theme-swatch__trigger[aria-expanded="true"] { z-index: 41; }
+#grow-island .theme-swatch__menu {
+  position: absolute; bottom: calc(100% + .4rem); left: 0; z-index: 40;
+  display: inline-flex; align-items: center; gap: .15rem; padding: .25rem .3rem;
+  background: var(--surface-raised, var(--surface)); border: 1px solid var(--rule);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--shadow-ink, #121411) 26%, transparent);
+}
+#grow-island .theme-swatch__menu[hidden] { display: none; }
+/* The gap between the trigger and the menu is bridged, so a pointer travelling up does not
+   cross dead space and close the thing it is aiming at. */
+#grow-island .theme-swatch__menu::after { content: ""; position: absolute; inset: 100% 0 -.5rem; }
+#grow-island .theme-swatch__shuffle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.9rem; height: 1.9rem; padding: 0; margin-left: .1rem;
+  border: 0; border-radius: 999px; background: transparent; color: var(--muted-ink);
+  cursor: pointer;
+}
+#grow-island .theme-swatch__shuffle svg { width: .9rem; height: .9rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+#grow-island .theme-swatch__shuffle:hover { color: var(--ink); background: var(--hover-wash, color-mix(in srgb, var(--accent) 12%, transparent)); }
+#grow-island .theme-swatch__shuffle:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: 2px; }
+/* Pinned reads as held open rather than as hovered. */
+#grow-island .theme-swatch[data-pinned="true"] /* The trigger is the current palette: a disc, #grow-island and nothing else at rest. It keeps each island's
+   own disc chrome by also carrying .theme-swatch__btn. */
+.theme-swatch__trigger { position: relative; }
+#grow-island .theme-swatch__trigger[aria-expanded="true"] { z-index: 41; }
+#grow-island .theme-swatch__menu { border-color: var(--edge-strong, var(--ink)); }
+
+/* END merged UX block (apps/shared/ux-base.css) */

@@ -1,0 +1,249 @@
+/* Exec Overview Mini — Page 12 compact island styles.
+ *
+ * This is NOT a bespoke reimplementation. Every rule below is the literal
+ * property set of the matching component in exec-overview.css (#exec-overview-
+ * island .combo-card, .donut-box, .mode-switch, .campus-acronym-row, .dir-card,
+ * .dashboard-tip), only rescoped to #exec-mini-island so the two islands never
+ * collide on the same page. If exec-overview.css changes one of these
+ * components, re-paste the matching block here — do not invent a variant.
+ *
+ * Issue #724, #664, #665. */
+
+/* ---------------------------------------------------------------- Palette
+ * Verbatim copy of #exec-overview-island's default (favor-exec-2026) token
+ * block from exec-overview.css, restricted to the custom properties this
+ * component tree actually reads. */
+#exec-mini-island {
+  --accent: #f45500;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #fef1e8;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --focus: #0077a4;
+  --hover-wash: #fff2e8;
+  --ink: #121411;
+  --muted-ink: #625f59;
+  --pale: #eaded5;
+  --rule: #d8cec6;
+  --secondary: #0077a4;
+  --state-attention: #ae1c21;
+  --state-healthy: #47734d;
+  --state-unknown: #c9c2bc;
+  --state-watch: #8b6000;
+  --surface: #fffaf6;
+
+  --classic-surface: var(--surface);
+  --classic-rule: var(--rule);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-accent: #c23f00;
+  --classic-body-font: FavorSans, Arial, sans-serif;
+  --classic-shadow: 0 10px 28px rgba(18, 20, 17, .16);
+
+  --motion-feedback: 120ms;
+  --motion-ease: cubic-bezier(.16, 1, .3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #exec-mini-island { --motion-feedback: 0ms; }
+  /* Verbatim: #exec-overview-island's own reduced-motion override, rescoped. */
+  #exec-mini-island .acronym-btn, #exec-mini-island .mode-switch__btn, #exec-mini-island .dir-card, #exec-mini-island .donut-circle, #exec-mini-island .combo-row, #exec-mini-island .semantic-dot, #exec-mini-island .combo-row__swatch, #exec-mini-island .combo-row__fill { transition: none !important; transform: none !important; filter: none !important; }
+}
+
+#exec-mini-island, #exec-mini-island * { box-sizing: border-box; }
+
+#exec-mini-island {
+  font-family: FavorSans, Arial, sans-serif;
+  color: var(--ink);
+  width: 100%;
+  max-width: 640px;
+  /* Page 12 hosts this card in a right-hand rail whose actual rendered
+     width has no fixed relationship to the viewport -- at some window
+     widths the rail is narrower than at others, independent of a mobile/
+     tablet/desktop split. A viewport media query cannot see that; a
+     container query on the card's own box can. See apps/grow-island for
+     this codebase's other container-query precedent. */
+  container-type: inline-size;
+  container-name: exec-mini;
+}
+
+/* ---------------------------------------------------------------- Card shell
+ * Verbatim: #exec-overview-island .combo-card / .combo-card__head / .combo-card__source */
+#exec-mini-island.combo-card { border: 2px solid var(--ink); background: var(--surface); padding: 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
+#exec-mini-island .combo-card__head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--rule); padding-bottom: .6rem; margin: 0; }
+#exec-mini-island .combo-card__head h2 { font-size: 1.15rem; font-family: Favorvetica, Arial, sans-serif; margin: 0; }
+#exec-mini-island .combo-card__source { font-size: .74rem; color: var(--muted-ink); letter-spacing: .06em; text-transform: uppercase; font-weight: 700; }
+#exec-mini-island .combo-card__foot { border-top: 1px solid var(--rule); padding-top: .6rem; font-size: .78rem; color: var(--muted-ink); display: flex; justify-content: space-between; align-items: baseline; }
+
+/* ---------------------------------------------------------------- Filter head
+ * Verbatim: #exec-overview-island .filter-legend / .reset-btn */
+#exec-mini-island .exec-mini__filter { display: flex; flex-direction: column; gap: .4rem; }
+#exec-mini-island .filter-legend {
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted-ink);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0;
+}
+#exec-mini-island .reset-btn {
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+#exec-mini-island .reset-btn:hover { text-decoration: underline; }
+
+/* ---------------------------------------------------------------- Campus row
+ * Verbatim: #exec-overview-island .campus-acronym-row / .acronym-btn */
+#exec-mini-island .campus-acronym-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+#exec-mini-island .acronym-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 0;
+  border: 1px solid var(--rule);
+  background: var(--background);
+  color: var(--ink);
+  font-size: .84rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  cursor: pointer;
+  transition: background-color var(--motion-feedback) linear, border-color var(--motion-feedback) linear, color var(--motion-feedback) linear, box-shadow var(--motion-feedback) linear, transform var(--motion-feedback) var(--motion-ease);
+  user-select: none;
+}
+#exec-mini-island .acronym-btn:hover { border-color: var(--ink); background: var(--hover-wash); }
+#exec-mini-island .acronym-btn[aria-pressed="true"], #exec-mini-island .acronym-btn.is-active {
+  border: 2px solid var(--ink);
+  background: var(--surface);
+  color: var(--accent);
+  box-shadow: 2px 2px 0 var(--ink);
+  font-weight: 800;
+}
+
+/* ---------------------------------------------------------------- Mode switch
+ * Verbatim: #exec-overview-island .mode-switch / .mode-switch__btn */
+#exec-mini-island .mode-switch { display: inline-flex; width: 100%; gap: 2px; padding: 2px; border: 1px solid var(--classic-rule); background: var(--pale); }
+#exec-mini-island .mode-switch__btn { flex: 1 1 0; min-height: 2.25rem; padding: 0 .5rem; border: 0; background: transparent; color: var(--classic-muted); font-family: var(--classic-body-font); font-size: .76rem; font-weight: 700; letter-spacing: .01em; cursor: pointer; transition: background-color var(--motion-feedback) linear, color var(--motion-feedback) linear; }
+#exec-mini-island .mode-switch__btn:hover { color: var(--classic-ink); }
+#exec-mini-island .mode-switch__btn[aria-pressed="true"] { background: var(--classic-ink); color: var(--classic-surface); cursor: default; }
+
+/* ---------------------------------------------------------------- Donut + bars
+ * Verbatim: #exec-overview-island .combo-stage / .donut-box / .donut-svg /
+ * .donut-circle / .donut-track / .donut-center-* / .combo-bars / .combo-row* */
+/* min-height reserves room for the tallest cycling mode (Age, 6 rows) so
+   switching Age/Connection/Gender/Campus never resizes the card underneath
+   the reader's pointer. */
+#exec-mini-island .combo-stage { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 1rem; align-items: center; min-height: 188px; }
+#exec-mini-island .donut-box { position: relative; width: 132px; height: 132px; margin: 0 auto; flex: none; }
+#exec-mini-island .donut-svg { width: 100%; height: 100%; transform: rotate(-90deg); overflow: visible; }
+#exec-mini-island .donut-circle { fill: none; stroke-width: 20; transition: stroke-dasharray .35s ease, stroke-dashoffset .35s ease, stroke-width .18s ease-out, filter .18s ease-out; }
+#exec-mini-island .donut-circle:not(.donut-track):hover { stroke-width: 23; filter: drop-shadow(0 2px 5px rgba(18, 20, 17, 0.18)); }
+#exec-mini-island .donut-track { stroke: var(--pale); }
+#exec-mini-island .donut-center-label { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; pointer-events: none; }
+#exec-mini-island .donut-center-total { font-family: Favorvetica, Arial, sans-serif; font-size: 1.25rem; line-height: 1; }
+#exec-mini-island .donut-center-unit { font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-ink); font-weight: 700; margin-top: 2px; }
+
+#exec-mini-island .combo-bars { display: flex; flex-direction: column; justify-content: center; gap: .4rem; width: 100%; }
+#exec-mini-island .combo-row { display: grid; grid-template-columns: minmax(72px, auto) 1fr 40px 36px; gap: .4rem; align-items: center; font-size: .78rem; padding: .2rem .35rem; border-radius: 3px; color: inherit; cursor: default; transition: background-color .15s ease-out, transform .15s ease-out; }
+#exec-mini-island .combo-row:hover { background: var(--hover-wash); transform: translateX(2px); }
+#exec-mini-island .combo-row:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+#exec-mini-island .combo-row__name { font-weight: 700; display: flex; align-items: center; gap: .3rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#exec-mini-island .combo-row__swatch { width: .65rem; height: .65rem; flex: none; border: 1px solid var(--rule); display: inline-block; }
+#exec-mini-island .combo-row__track { height: 10px; background: var(--pale); position: relative; overflow: hidden; border-radius: 1px; }
+#exec-mini-island .combo-row__fill { height: 100%; display: block; transition: width .25s ease-out; }
+#exec-mini-island .combo-row__count { font-size: .72rem; color: var(--muted-ink); text-align: right; }
+#exec-mini-island .combo-row__pct { font-family: Favorvetica, Arial, sans-serif; font-size: .9rem; text-align: right; line-height: 1; }
+#exec-mini-island .combo-row.unknown { opacity: .75; }
+
+/* Container queries, not viewport media queries: Page 12 hosts this card in
+   a right-hand rail whose rendered width has no fixed relationship to
+   window.innerWidth -- the same viewport can give the card anywhere from
+   ~260px to its full 640px cap depending on the host page's own column
+   layout at that width (confirmed live on rock.example.invalid: a 1100px
+   window gave a 296px card, a 1366px window gave a 385px card). A viewport
+   breakpoint cannot see that; `container-type: inline-size` on the card
+   itself lets these rules read the card's own available width instead.
+   Thresholds are tuned against the card's content-box (post padding/
+   border) and verified empirically, not derived from a single formula.
+
+   Only one threshold: below it, stack -- donut above, legend below at full
+   card width, so every column (name, bar, count, percent) always fits with
+   room to spare regardless of how narrow the rail gets. Above it, stay
+   side-by-side with everything shown; live measurement put the real
+   crossover between a 286px content-box (still clipped) and a 341px one
+   (clipped by 27.6px of headroom), so 340px is deliberately drawn on the
+   safe side of the failing case rather than the passing one. Nothing is
+   ever hidden -- reflow replaces the earlier hide-the-bar-and-percent
+   tablet rule; see conversation notes if that decluttering still matters
+   enough to reinstate as a narrower middle band. */
+@container exec-mini (max-width: 340px) {
+  #exec-mini-island .combo-stage { grid-template-columns: 1fr; justify-items: center; gap: .85rem; }
+  #exec-mini-island .combo-bars { width: 100%; }
+}
+
+/* Connection semantic dots -- verbatim: #exec-overview-island .semantic-dot */
+#exec-mini-island .semantic-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-left: .25rem; flex: none; }
+#exec-mini-island .semantic-dot.semantic--healthy { background: var(--state-healthy); box-shadow: 0 0 0 1.5px rgba(71, 115, 77, 0.35); }
+#exec-mini-island .semantic-dot.semantic--watch { background: #ffb42a; box-shadow: 0 0 0 1.5px rgba(255, 180, 42, 0.45); }
+#exec-mini-island .semantic-dot.semantic--attention { background: var(--accent); box-shadow: 0 0 0 1.5px rgba(194, 63, 0, 0.4); }
+
+#exec-mini-island .mini-unavailable { font-size: .82rem; color: var(--muted-ink); text-align: center; padding: 2.5rem 0; }
+#exec-mini-island .exec-mini__chart-title { display: none; }
+
+/* ---------------------------------------------------------------- CTA
+ * Verbatim: #exec-overview-island .dir-card, with a square 2px border wrap
+ * (the .dir-grid frame collapsed to a single tile since the mini has one CTA). */
+#exec-mini-island .dir-card.exec-mini__cta {
+  border: 2px solid var(--ink);
+  background: var(--surface);
+  padding: 1.15rem 1.35rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background var(--motion-feedback) linear;
+}
+#exec-mini-island .dir-card.exec-mini__cta:hover { background: var(--hover-wash); }
+#exec-mini-island .dir-card.exec-mini__cta h3 { font-size: 1.05rem; color: var(--ink); text-transform: none; letter-spacing: normal; font-family: Favorvetica, Arial, sans-serif; margin: 0; }
+#exec-mini-island .dir-card.exec-mini__cta p { font-size: .8rem; color: var(--muted-ink); margin: .2rem 0 0; }
+#exec-mini-island .exec-mini__cta-arrow { font-size: 1.3rem; color: var(--accent); flex: none; }
+
+/* ---------------------------------------------------------------- Tooltip
+ * Verbatim: apps/shared/classic-base.css .dashboard-tip* (the merged block
+ * every other island pastes at its own scope). */
+#exec-mini-island .dashboard-tip { position: fixed; z-index: 1040; top: 0; left: 0; max-width: 18rem; padding: .6rem .75rem; background: var(--classic-surface); border: 1px solid var(--classic-rule); color: var(--classic-ink); box-shadow: var(--classic-shadow); font-family: var(--classic-body-font); font-size: .8rem; line-height: 1.45; pointer-events: none; opacity: 0; visibility: hidden; transition: opacity .12s ease, visibility .12s; }
+#exec-mini-island .dashboard-tip[data-open="true"] { opacity: 1; visibility: visible; }
+#exec-mini-island .dashboard-tip[data-pinned="true"] { pointer-events: auto; }
+#exec-mini-island .dashboard-tip__head { display: flex; align-items: center; gap: .4rem; margin-bottom: .15rem; }
+#exec-mini-island .dashboard-tip__swatch { flex: none; width: .6rem; height: .6rem; background: currentColor; }
+#exec-mini-island .dashboard-tip__label { font-weight: 700; color: var(--classic-muted); }
+#exec-mini-island .dashboard-tip__value { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+#exec-mini-island .dashboard-tip__compare { margin: .1rem 0 0; color: var(--classic-muted); }
+#exec-mini-island .dashboard-tip__unit { margin-left: .3rem; color: var(--classic-muted); }
+
+/* ---------------------------------------------------------------- Responsive
+ * Touch target and padding stay viewport-driven (real small screen + touch
+ * input correlate with narrow viewport); the donut/legend stacking that
+ * actually depends on the card's squeeze lives in the container queries
+ * above instead. */
+@media (max-width: 480px) {
+  #exec-mini-island.combo-card { padding: 1rem; }
+  #exec-mini-island .acronym-btn, #exec-mini-island .reset-btn { min-height: 44px; }
+}

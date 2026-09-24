@@ -1,0 +1,3453 @@
+/* ==========================================================================
+   People Pathway island — Deep-Sounding Chart.
+   A night-bridge nautical chart, not an exec dashboard. Steps are sounded
+   depth bands read top to bottom; the crowd is soundings; movement is set and
+   drift. Ground is chart night-black so the data is the only light on the
+   page. Favor cohort hues carry identity and the state ramp carries polarity,
+   both lifted to hold contrast against the dark ground; typography stays
+   achromatic chart ink so colour on this page always means data.
+   Deployed beside the island modules under the plugin asset root; the dev
+   workbench (../index.html) loads it relatively with system-stack fallbacks.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Favorvetica";
+  src: url("../../../../_fonts/Favorvetica-Regular.otf") format("opentype");
+  font-weight: normal; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Favorvetica";
+  src: url("../../../../_fonts/Favorvetica-Bold.otf") format("opentype");
+  font-weight: bold; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Favor Sans";
+  src: url("../../../../_fonts/FavorSans.otf") format("opentype");
+  font-weight: normal; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Favor Sans";
+  src: url("../../../../_fonts/FavorSans-Bold.otf") format("opentype");
+  font-weight: bold; font-style: normal; font-display: swap;
+}
+
+/* >>> GENERATED THEME BLOCKS -- tools/build_theme_blocks.py from themes/favor-*.json. Do not hand-edit. <<< */
+
+/* The palette .pathways ships today. A page that sets no data-theme is unchanged. */
+.pathways {
+  --accent: #ff7a33;
+  --accent-deep: #ff9459;
+  --age-all-ages: #7b8b93;
+  --age-deaf: #d9675e;
+  --age-adults: #ffc24d;
+  --age-kids: #35b0dc;
+  --age-mature: #a78bfa;
+  --age-seasoned: #b487b6;
+  --age-young-adults: #7fae8c;
+  --age-youth: #ff7a33;
+  --background: #070b0e;
+  --brand-gold: #ffc24d;
+  --cohort-core: #35b0dc;
+  --cohort-crowd: #ffc24d;
+  --cohort-leader: #ff7a33;
+  --cohort-new: #b487b6;
+  --edge-lit: #35505f;
+  --edge-strong: #5c7788;
+  --faint-ink: #7b8b93;
+  --focus: #7fd2f0;
+  --gap-wash: #1a252f;
+  --gender-men: #35b0dc;
+  --gender-unknown: #7b8b93;
+  --gender-women: #ff7a33;
+  --ghost-wash: #16202a;
+  --hover-wash: #1a232d;
+  --ink: #e2edf2;
+  --move-gain: #3fbf8e;
+  --move-gain-text: #5fd0a5;
+  --move-loss: #ff6a3d;
+  --move-loss-text: #ff8a65;
+  --move-neutral: #7b8b93;
+  --move-neutral-text: #9aa8af;
+  --move-stalled: #e8973a;
+  --move-stalled-text: #f0ac5c;
+  --muted-ink: #93a8b3;
+  --on-accent: #131e26;
+  --rule: #1e2c35;
+  --secondary: #56c2e8;
+  --selected-wash: #273039;
+  --shadow-ink: #02050a;
+  --soft-critical: #342325;
+  --soft-gain: #153132;
+  --soft-healthy: #153132;
+  --soft-loss: #342325;
+  --soft-neutral: #1f2932;
+  --soft-stalled: #302b24;
+  --soft-thin: #2e2726;
+  --soft-watch: #302b24;
+  --state-critical: #ff6a3d;
+  --state-critical-text: #ff8a65;
+  --state-healthy: #3fbf8e;
+  --state-healthy-text: #5fd0a5;
+  --state-thin: #d98243;
+  --state-thin-text: #e79a63;
+  --state-unknown: #7b8b93;
+  --state-unknown-text: #9aa8af;
+  --state-watch: #e8973a;
+  --state-watch-text: #f0ac5c;
+  --surface: #0d1620;
+  --surface-lit: #131e26;
+  --surface-raised: #101a21;
+  --surface-sunken: #0c1319;
+  --trajectory-ground: #000000;
+  --trajectory-line: #4a6b7c;
+  --trajectory-line-edge: #a0becd;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+.pathways[data-theme="favor-cream"] {
+  --accent: #f45500;
+  --accent-deep: #c23f00;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #fef1e8;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #ded8d1;
+  --edge-strong: #8d8880;
+  --faint-ink: #726f65;
+  --focus: #0077a4;
+  --gap-wash: #f2ece5;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #ece6e2;
+  --hover-wash: #fff2e8;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #121411;
+  --rule: #d8cec6;
+  --secondary: #0077a4;
+  --selected-wash: #ffebd8;
+  --shadow-ink: #121411;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fffaf6;
+  --surface-lit: #fffdfa;
+  --surface-raised: #fdf6f1;
+  --surface-sunken: #fef1e8;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #2f4553;
+  --trajectory-line-edge: #3d5a68;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+.pathways[data-theme="favor-dark"] {
+  --accent: #ff7a33;
+  --accent-deep: #ff9459;
+  --age-all-ages: #7b8b93;
+  --age-deaf: #d9675e;
+  --age-adults: #ffc24d;
+  --age-kids: #35b0dc;
+  --age-mature: #a78bfa;
+  --age-seasoned: #b487b6;
+  --age-young-adults: #7fae8c;
+  --age-youth: #ff7a33;
+  --background: #070b0e;
+  --brand-gold: #ffc24d;
+  --cohort-core: #35b0dc;
+  --cohort-crowd: #ffc24d;
+  --cohort-leader: #ff7a33;
+  --cohort-new: #b487b6;
+  --edge-lit: #35505f;
+  --edge-strong: #5c7788;
+  --faint-ink: #7b8b93;
+  --focus: #7fd2f0;
+  --gap-wash: #1a252f;
+  --gender-men: #35b0dc;
+  --gender-unknown: #7b8b93;
+  --gender-women: #ff7a33;
+  --ghost-wash: #16202a;
+  --hover-wash: #1a232d;
+  --ink: #e2edf2;
+  --move-gain: #3fbf8e;
+  --move-gain-text: #5fd0a5;
+  --move-loss: #ff6a3d;
+  --move-loss-text: #ff8a65;
+  --move-neutral: #7b8b93;
+  --move-neutral-text: #9aa8af;
+  --move-stalled: #e8973a;
+  --move-stalled-text: #f0ac5c;
+  --muted-ink: #93a8b3;
+  --on-accent: #131e26;
+  --rule: #1e2c35;
+  --secondary: #56c2e8;
+  --selected-wash: #273039;
+  --shadow-ink: #02050a;
+  --soft-critical: #342325;
+  --soft-gain: #153132;
+  --soft-healthy: #153132;
+  --soft-loss: #342325;
+  --soft-neutral: #1f2932;
+  --soft-stalled: #302b24;
+  --soft-thin: #2e2726;
+  --soft-watch: #302b24;
+  --state-critical: #ff6a3d;
+  --state-critical-text: #ff8a65;
+  --state-healthy: #3fbf8e;
+  --state-healthy-text: #5fd0a5;
+  --state-thin: #d98243;
+  --state-thin-text: #e79a63;
+  --state-unknown: #7b8b93;
+  --state-unknown-text: #9aa8af;
+  --state-watch: #e8973a;
+  --state-watch-text: #f0ac5c;
+  --surface: #0d1620;
+  --surface-lit: #131e26;
+  --surface-raised: #101a21;
+  --surface-sunken: #0c1319;
+  --trajectory-ground: #000000;
+  --trajectory-line: #4a6b7c;
+  --trajectory-line-edge: #a0becd;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+.pathways[data-theme="favor-indigo"] {
+  --accent: #8796fc;
+  --accent-deep: #b1bdfc;
+  --age-all-ages: #8b8e9e;
+  --age-deaf: #c4503d;
+  --age-adults: #538059;
+  --age-kids: #ffb42a;
+  --age-mature: #a78bfa;
+  --age-seasoned: #95969d;
+  --age-young-adults: #646cff;
+  --age-youth: #f45500;
+  --background: #0f111c;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #c4503d;
+  --cohort-leader: #f45500;
+  --cohort-new: #8796fc;
+  --edge-lit: #4a5175;
+  --edge-strong: #686f92;
+  --faint-ink: #8b8e9e;
+  --focus: #8796fc;
+  --gap-wash: #262836;
+  --gender-men: #8796fc;
+  --gender-unknown: #73757b;
+  --gender-women: #f45500;
+  --ghost-wash: #202337;
+  --hover-wash: #242632;
+  --ink: #f4efe6;
+  --move-gain: #538059;
+  --move-gain-text: #74a279;
+  --move-loss: #c4503d;
+  --move-loss-text: #eb735e;
+  --move-neutral: #73757b;
+  --move-neutral-text: #95969d;
+  --move-stalled: #bc5915;
+  --move-stalled-text: #e17c3f;
+  --muted-ink: #afb2c1;
+  --on-accent: #23273b;
+  --rule: #2b3047;
+  --secondary: #b1bdfc;
+  --selected-wash: #32333d;
+  --shadow-ink: #060725;
+  --soft-critical: #39272f;
+  --soft-gain: #262f33;
+  --soft-healthy: #262f33;
+  --soft-loss: #39272f;
+  --soft-neutral: #2b2d39;
+  --soft-stalled: #37292a;
+  --soft-thin: #37292a;
+  --soft-watch: #3c2525;
+  --state-critical: #f25852;
+  --state-critical-text: #fa7d73;
+  --state-healthy: #538059;
+  --state-healthy-text: #74a279;
+  --state-thin: #d7712e;
+  --state-thin-text: #e68a54;
+  --state-unknown: #73757b;
+  --state-unknown-text: #95969d;
+  --state-watch: #b7831f;
+  --state-watch-text: #ca9842;
+  --surface: #171926;
+  --surface-lit: #23273b;
+  --surface-raised: #1d2030;
+  --surface-sunken: #12141f;
+  --trajectory-ground: #000000;
+  --trajectory-line: #4a6b7c;
+  --trajectory-line-edge: #a0becd;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+.pathways[data-theme="favor-grow-multicolor"] {
+  --accent: #4f3ad0;
+  --accent-deep: #4130b3;
+  --age-all-ages: #66656e;
+  --age-deaf: #2653c2;
+  --age-adults: #2a7f46;
+  --age-kids: #e9b62c;
+  --age-mature: #6a44c4;
+  --age-seasoned: #b8356c;
+  --age-young-adults: #0f8489;
+  --age-youth: #bf5f12;
+  --background: #fbfbfd;
+  --brand-gold: #e9b62c;
+  --cohort-core: #e9b62c;
+  --cohort-crowd: #2653c2;
+  --cohort-leader: #c3441f;
+  --cohort-new: #0a9aa1;
+  --edge-lit: #e3e3ea;
+  --edge-strong: #85848f;
+  --faint-ink: #66656e;
+  --focus: #4130b3;
+  --gap-wash: #ececf2;
+  --gender-men: #2653c2;
+  --gender-unknown: #a5a4ad;
+  --gender-women: #b8356c;
+  --ghost-wash: #e8e8ee;
+  --hover-wash: #f1eefc;
+  --ink: #121411;
+  --move-gain: #2a7f46;
+  --move-gain-text: #256a3d;
+  --move-loss: #a82c1c;
+  --move-loss-text: #922719;
+  --move-neutral: #a5a4ad;
+  --move-neutral-text: #63626b;
+  --move-stalled: #a55e07;
+  --move-stalled-text: #84480a;
+  --muted-ink: #57565f;
+  --on-accent: #fffdfa;
+  --rule: #dcdce4;
+  --secondary: #a8391a;
+  --selected-wash: #e4defa;
+  --shadow-ink: #121411;
+  --soft-critical: #fbe3df;
+  --soft-gain: #e3f2e8;
+  --soft-healthy: #e3f2e8;
+  --soft-loss: #fbe3df;
+  --soft-neutral: #f3f3f7;
+  --soft-stalled: #fbecd8;
+  --soft-thin: #fce8dc;
+  --soft-watch: #fcefd6;
+  --state-critical: #a82c1c;
+  --state-critical-text: #922719;
+  --state-healthy: #2a7f46;
+  --state-healthy-text: #256a3d;
+  --state-thin: #b04f18;
+  --state-thin-text: #8d3f0e;
+  --state-unknown: #c5c5cd;
+  --state-unknown-text: #63626b;
+  --state-watch: #a55e07;
+  --state-watch-text: #84480a;
+  --surface: #ffffff;
+  --surface-lit: #ffffff;
+  --surface-raised: #f6f6f9;
+  --surface-sunken: #f0f0f5;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #3b2f7a;
+  --trajectory-line-edge: #4f3ad0;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+.pathways[data-theme="favor-leadership"] {
+  --accent: #95610f;
+  --accent-deep: #6f4809;
+  --age-all-ages: #5d6a72;
+  --age-deaf: #bd5348;
+  --age-adults: #2c5a8b;
+  --age-kids: #ad7b21;
+  --age-mature: #78508d;
+  --age-seasoned: #78508d;
+  --age-young-adults: #2a8878;
+  --age-youth: #ad7b21;
+  --background: #edf0ef;
+  --brand-gold: #ad7b21;
+  --cohort-core: #ad7b21;
+  --cohort-crowd: #bd5348;
+  --cohort-leader: #116a60;
+  --cohort-new: #2c5a8b;
+  --edge-lit: #eaeeec;
+  --edge-strong: #748791;
+  --faint-ink: #5d6a72;
+  --focus: #14202a;
+  --gap-wash: #eef1f0;
+  --gender-men: #41598a;
+  --gender-unknown: #7a868d;
+  --gender-women: #4f8676;
+  --ghost-wash: #e6ebe9;
+  --hover-wash: #f0f4f3;
+  --ink: #14202a;
+  --move-gain: #116a60;
+  --move-gain-text: #0e574f;
+  --move-loss: #a03227;
+  --move-loss-text: #8f2b22;
+  --move-neutral: #7a868d;
+  --move-neutral-text: #5b6a73;
+  --move-stalled: #8a5d0c;
+  --move-stalled-text: #7a520a;
+  --muted-ink: #41535e;
+  --on-accent: #ffffff;
+  --rule: #d7dedc;
+  --secondary: #116a60;
+  --selected-wash: #dfe8e5;
+  --shadow-ink: #14202a;
+  --soft-critical: #fbe9e7;
+  --soft-gain: #e7f2ee;
+  --soft-healthy: #e7f2ee;
+  --soft-loss: #fbe9e7;
+  --soft-neutral: #f0f4f3;
+  --soft-stalled: #fdf1dc;
+  --soft-thin: #fdf1dc;
+  --soft-watch: #fdf1dc;
+  --state-critical: #a03227;
+  --state-critical-text: #8f2b22;
+  --state-healthy: #116a60;
+  --state-healthy-text: #0e574f;
+  --state-thin: #95610f;
+  --state-thin-text: #7d5009;
+  --state-unknown: #768884;
+  --state-unknown-text: #5b6a73;
+  --state-watch: #8a5d0c;
+  --state-watch-text: #7a520a;
+  --surface: #f8faf9;
+  --surface-lit: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #e3e9e7;
+  --swatch-mark: #116a60;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #41598a;
+  --trajectory-line-edge: #2c5a8b;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+.pathways[data-theme="favor-watershed"] {
+  --accent: #0077a4;
+  --accent-deep: #005a7d;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #f6fbfd;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #dbe6ec;
+  --edge-strong: #79868e;
+  --faint-ink: #726f65;
+  --focus: #005a7d;
+  --gap-wash: #e6eef2;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #e2e9ee;
+  --hover-wash: #e9f5fb;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #ffffff;
+  --rule: #cfdde5;
+  --secondary: #00607f;
+  --selected-wash: #d8ecf7;
+  --shadow-ink: #0d2028;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fcfeff;
+  --surface-lit: #fdffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #eaf4f9;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #1f4a5e;
+  --trajectory-line-edge: #2e6076;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+/* A pinned surface keeps its own ground in every theme, because the ground carries
+   meaning. It resolves the whole contract from favor-cream, which is what replaced
+   Connect Health's twelve -deep / -mark-cream tokens. */
+.pathways .pinned-cream {
+  --accent: #f45500;
+  --accent-deep: #c23f00;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #fef1e8;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #ded8d1;
+  --edge-strong: #8d8880;
+  --faint-ink: #726f65;
+  --focus: #0077a4;
+  --gap-wash: #f2ece5;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #ece6e2;
+  --hover-wash: #fff2e8;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #121411;
+  --rule: #d8cec6;
+  --secondary: #0077a4;
+  --selected-wash: #ffebd8;
+  --shadow-ink: #121411;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fffaf6;
+  --surface-lit: #fffdfa;
+  --surface-raised: #fdf6f1;
+  --surface-sunken: #fef1e8;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #2f4553;
+  --trajectory-line-edge: #3d5a68;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+/* The #469 spectrum: Favor Grow Multicolor's non-semantic hue ladder, rotated across the
+   page and locked to one hue when a reader narrows to one item (--spectrum-lock). */
+@property --sp { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --sp-ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --sp-band { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --sp-band-ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --background { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --surface { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --surface-raised { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --surface-sunken { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --muted-ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --rule { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --accent-deep { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --secondary { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --focus { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --hover-wash { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --selected-wash { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@media (prefers-reduced-motion: no-preference) {
+  .pathways { transition: --background .2s cubic-bezier(.16,1,.3,1), --surface .2s cubic-bezier(.16,1,.3,1), --surface-raised .2s cubic-bezier(.16,1,.3,1), --surface-sunken .2s cubic-bezier(.16,1,.3,1), --ink .2s cubic-bezier(.16,1,.3,1), --muted-ink .2s cubic-bezier(.16,1,.3,1), --rule .2s cubic-bezier(.16,1,.3,1), --accent .2s cubic-bezier(.16,1,.3,1), --accent-deep .2s cubic-bezier(.16,1,.3,1), --secondary .2s cubic-bezier(.16,1,.3,1), --focus .2s cubic-bezier(.16,1,.3,1), --hover-wash .2s cubic-bezier(.16,1,.3,1), --selected-wash .2s cubic-bezier(.16,1,.3,1); }
+  .pathways[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard) { transition: --sp .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s), --sp-ink .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s), --sp-band .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s), --sp-band-ink .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s); }
+}
+.pathways[data-theme="favor-grow-multicolor"] { --spectrum-1: #5b3ee0; --spectrum-1-text: #3f2aa8; --spectrum-1-on: #ffffff; --spectrum-2: #d6560b; --spectrum-2-text: #9a3a06; --spectrum-2-on: #121411; --spectrum-3: #2f62e0; --spectrum-3-text: #1f45a3; --spectrum-3-on: #ffffff; --spectrum-4: #078f94; --spectrum-4-text: #0b6b70; --spectrum-4-on: #121411; --spectrum-5: #c93b78; --spectrum-5-text: #8f2a55; --spectrum-5-on: #ffffff; --spectrum-6: #2f9a52; --spectrum-6-text: #1f6436; --spectrum-6-on: #121411; --spectrum-7: #1686bf; --spectrum-7-text: #0b5c85; --spectrum-7-on: #121411;
+  --spectrum-band: linear-gradient(90deg, #5b3ee0 0.00% 14.29%, #d6560b 14.29% 28.57%, #2f62e0 28.57% 42.86%, #078f94 42.86% 57.14%, #c93b78 57.14% 71.43%, #2f9a52 71.43% 85.71%, #1686bf 85.71% 100.00%);
+  --sp-own: var(--spectrum-1); --sp-ink-own: var(--spectrum-1-text); --sp-on-own: var(--spectrum-1-on);
+  --sp: var(--spectrum-lock, var(--sp-own)); --sp-ink: var(--sp-ink-own);
+  --sp-band: var(--spectrum-lock-wash, var(--sp-own)); --sp-band-ink: var(--spectrum-lock-ink, var(--sp-on-own)); }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard) { --sp: var(--spectrum-lock, var(--sp-own)); --sp-ink: var(--sp-ink-own); --sp-band: var(--spectrum-lock-wash, var(--sp-own)); --sp-band-ink: var(--spectrum-lock-ink, var(--sp-on-own)); }
+.pathways[data-theme="favor-grow-multicolor"] :is(.xrail__btn, .filter-fieldset) { --sp: var(--sp-own); --sp-ink: var(--sp-ink-own); --sp-band: var(--sp-own); --sp-band-ink: var(--sp-on-own); }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+1) { --sp-own: var(--spectrum-1); --sp-ink-own: var(--spectrum-1-text); --sp-on-own: var(--spectrum-1-on); --sp-delay: 0ms; }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+2) { --sp-own: var(--spectrum-2); --sp-ink-own: var(--spectrum-2-text); --sp-on-own: var(--spectrum-2-on); --sp-delay: 10ms; }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+3) { --sp-own: var(--spectrum-3); --sp-ink-own: var(--spectrum-3-text); --sp-on-own: var(--spectrum-3-on); --sp-delay: 20ms; }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+4) { --sp-own: var(--spectrum-4); --sp-ink-own: var(--spectrum-4-text); --sp-on-own: var(--spectrum-4-on); --sp-delay: 30ms; }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+5) { --sp-own: var(--spectrum-5); --sp-ink-own: var(--spectrum-5-text); --sp-on-own: var(--spectrum-5-on); --sp-delay: 40ms; }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+6) { --sp-own: var(--spectrum-6); --sp-ink-own: var(--spectrum-6-text); --sp-on-own: var(--spectrum-6-on); --sp-delay: 50ms; }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+7) { --sp-own: var(--spectrum-7); --sp-ink-own: var(--spectrum-7-text); --sp-on-own: var(--spectrum-7-on); --sp-delay: 60ms; }
+.pathways[data-theme="favor-grow-multicolor"] { accent-color: var(--spectrum-1); caret-color: var(--spectrum-1); scrollbar-color: var(--spectrum-1) color-mix(in srgb, var(--spectrum-1) 10%, var(--surface)); }
+.pathways[data-theme="favor-grow-multicolor"] ::selection { background: color-mix(in srgb, var(--sp) 30%, var(--surface)); color: var(--ink); }
+.pathways[data-theme="favor-grow-multicolor"] :focus-visible { outline-color: var(--sp); }
+.pathways[data-theme="favor-grow-multicolor"] :is(.title-beta, .masthead h1 .beta) { color: var(--spectrum-1-text); }
+.pathways[data-theme="favor-grow-multicolor"] .status-beta { background: var(--spectrum-1); border-color: var(--spectrum-1); color: var(--spectrum-1-on); }
+.pathways[data-theme="favor-grow-multicolor"] .sidebar-head { background-image: var(--spectrum-band); background-size: 100% 6px; background-repeat: no-repeat; background-position: 0 100%; border-bottom-color: transparent; }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) { background: var(--sp-band); color: var(--sp-band-ink); border-color: var(--sp); padding: .65rem .95rem; box-shadow: none; }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) :is(h2, h3, .chapter__meta, .chapter__no, .chapter__title-group, .sub, .station-tag, .cw__question, .cw__lead, .cw__title, .combo-card__source, .pathway-section__count, .station-question, .station-note, .station-note strong, .station-note em, .prosemark, .info-disc > summary, .info-tip, .info-disc, .cw__info, .cw__expand) { color: inherit; }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) :is(.station-tag, .prosemark, .info-tip, .info-disc, .cw__info, .cw__expand) { border-color: currentColor; background: transparent; }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .state-badge { background-color: var(--surface); }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .xrail__btn:not(:disabled, [aria-disabled="true"], .tool__off) { background: var(--surface); border-color: var(--surface); color: var(--sp-ink-own); }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .xrail__btn:not(:disabled, [aria-disabled="true"], .tool__off):is(:hover, :focus-visible) { background: var(--sp-ink-own); border-color: var(--surface); color: #ffffff; }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .tool__off { background: transparent; border-color: currentColor; color: inherit; opacity: .8; }
+.pathways[data-theme="favor-grow-multicolor"] :is(.pulse-card, .combo-card, .dir-card, .cw, .kpi-tile, .stack-tile, .mode-panel, .groupcard) { background-color: color-mix(in srgb, var(--sp) 7%, var(--surface)); box-shadow: inset 0 6px 0 var(--sp); }
+.pathways[data-theme="favor-grow-multicolor"] :is(.pulse-kpi, .kpi-tile__value, .queue-rank, .donut-center-total):not(.hero-card *) { color: var(--sp-ink); }
+.pathways[data-theme="favor-grow-multicolor"] .pulse-grid { background: repeating-linear-gradient(135deg, var(--rule) 0 1px, var(--surface-raised) 1px 10px); }
+.pathways[data-theme="favor-grow-multicolor"] :is(.pulse-track, .combo-row__track) { background-color: color-mix(in srgb, var(--sp) 20%, var(--surface)); }
+.pathways[data-theme="favor-grow-multicolor"] .hero-card { --invert-surface: var(--spectrum-1); --invert-ink: var(--spectrum-1-on); background-color: var(--spectrum-1); box-shadow: none; }
+.pathways[data-theme="favor-grow-multicolor"] .hero-card .pulse-card__head { background: none; color: var(--invert-ink); padding-inline: 0; }
+.pathways[data-theme="favor-grow-multicolor"] .hero-card :is(.info-tip, .info-disc, .cw__info, .cw__expand, a, .pulse-cta) { color: var(--invert-ink); border-color: var(--invert-ink); text-decoration-color: currentColor; opacity: 1; }
+.pathways[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .combo-card, .dir-card) a:not(.xrail__btn, .copy-prompt-btn, .combo-row, .hero-card *) { color: var(--sp-ink); text-decoration-color: var(--sp); }
+.pathways[data-theme="favor-grow-multicolor"] :is(.info-tip, .info-disc, .cw__info, .cw__expand) { color: var(--sp-ink); border-color: var(--sp); }
+.pathways[data-theme="favor-grow-multicolor"] thead th { background-color: var(--sp-band); color: var(--sp-band-ink); border-bottom-color: var(--sp); }
+.pathways[data-theme="favor-grow-multicolor"] :is(.combo-row, .queue-row, .cohort-row, .rhythm-row, .modes-row, .swarmrow, tbody tr):nth-child(even) { background-color: color-mix(in srgb, var(--sp) 9%, var(--surface)); }
+.pathways[data-theme="favor-grow-multicolor"] :is(.combo-row, .queue-row, .cohort-row, .rhythm-row, .modes-row, .swarmrow, tbody tr):hover { background-color: color-mix(in srgb, var(--sp) 20%, var(--surface)); }
+.pathways[data-theme="favor-grow-multicolor"] .xrail__btn:not(:disabled, [aria-disabled="true"]) { background: var(--sp); border-color: var(--sp); color: var(--sp-on-own); }
+.pathways[data-theme="favor-grow-multicolor"] .xrail__btn:not(:disabled, [aria-disabled="true"]):is(:hover, :focus-visible) { background: var(--sp-ink-own); border-color: var(--sp-ink-own); color: #ffffff; }
+.pathways[data-theme="favor-grow-multicolor"] .xrail__btn:is(:disabled, [aria-disabled="true"]) { background: color-mix(in srgb, var(--sp) 10%, var(--surface)); border-color: color-mix(in srgb, var(--sp) 45%, var(--surface)); color: var(--sp-ink-own); }
+.pathways[data-theme="favor-grow-multicolor"] .filter-legend { color: var(--sp-ink); }
+.pathways[data-theme="favor-grow-multicolor"] .filter-fieldset :is(button, [role="button"]):not([aria-pressed="true"]):hover { background-color: color-mix(in srgb, var(--sp) 14%, var(--surface)); border-color: var(--sp); }
+.pathways[data-theme="favor-grow-multicolor"] .filter-fieldset :is(button, [role="button"])[aria-pressed="true"] { background: var(--sp); border-color: var(--sp); color: var(--sp-on-own); box-shadow: none; }
+.pathways[data-theme="favor-grow-multicolor"] .filter-fieldset :is(button, [role="button"])[aria-pressed="true"] * { color: inherit; }
+
+/* The #248 theme swatch. Every rule but the disc colours reads the contract, so the
+   control re-themes with the page it sits in. The disc colours are literal on purpose:
+   a swatch has to show the palette it offers, not the one already showing. */
+.pathways .theme-swatch { position: sticky; bottom: 3.25rem; margin-left: 1.25rem; z-index: 100;
+  display: inline-flex; align-items: center; gap: .1rem; padding: .1rem .3rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--rule); border-radius: 999px;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+  opacity: .85; transition: opacity .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.pathways .theme-swatch:hover, .pathways .theme-swatch:focus-within { opacity: 1; border-color: var(--edge-strong);
+  box-shadow: 0 6px 22px color-mix(in srgb, var(--shadow-ink) 28%, transparent); }
+/* The open menu must be fully opaque whatever the resting pill's opacity is: opacity on a
+   parent applies to its children, and a palette list you can read the page through is not a
+   list (#611). */
+.pathways .theme-swatch[data-open="true"] { opacity: 1; }
+.pathways .theme-swatch__btn { position: relative; display: inline-flex; align-items: center; justify-content: center;
+  padding: 0; background: transparent; border: 0; color: var(--muted-ink); font: inherit;
+  cursor: pointer; line-height: 0; }
+.pathways .theme-swatch__btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 999px; }
+.pathways .theme-swatch__disc { width: 1.25rem; height: 1.25rem; border-radius: 50%; flex: none;
+  /* the dual-colour split: ground on one half, accent on the other */
+  background: linear-gradient(115deg, var(--a) 0 50%, var(--b) 50% 100%);
+  box-shadow: inset 0 0 0 1px var(--edge-strong);
+  transition: box-shadow .18s ease, transform .18s cubic-bezier(.16,1,.3,1); }
+.pathways .theme-swatch__btn[aria-pressed="true"] .theme-swatch__disc { box-shadow: inset 0 0 0 1px var(--c), 0 0 0 2px var(--ink); }
+.pathways .theme-swatch__btn:hover .theme-swatch__disc { transform: scale(1.12); }
+/* THE MENU IS MINIMAL (#611): the other palettes as a row of discs, the same discs the control
+   has always used, with each one's name on its own hover. A list of words would be a second
+   vocabulary for something a reader picks by colour. */
+.pathways .theme-swatch__menu .theme-swatch__btn { padding: .1rem; border-radius: 999px; }
+/* The name outside the menu stays the floating label the resting control has always had. */
+.pathways .theme-swatch__name { position: absolute; bottom: calc(100% + .65rem); left: 0; z-index: 120;
+  transform: translateY(.25rem); opacity: 0; pointer-events: none; white-space: nowrap;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--edge-strong);
+  padding: .35rem .6rem; border-radius: .35rem; box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink) 30%, transparent);
+  transition: opacity .16s ease, transform .2s cubic-bezier(.16,1,.3,1);
+  display: flex; flex-direction: column; gap: .15rem; text-align: left; }
+.pathways .theme-swatch__title { font-size: .74rem; font-weight: 700; line-height: 1.25; color: var(--ink); }
+.pathways .theme-swatch__sub { font-size: .65rem; font-weight: 400; line-height: 1.2; color: var(--muted-ink); letter-spacing: .01em; }
+.pathways .theme-swatch__btn:hover .theme-swatch__name, .pathways .theme-swatch__btn:focus-visible .theme-swatch__name { opacity: 1; transform: translateY(0); }
+/* No stored choice means the palette the stylesheet ships, and the trigger says so by drawing
+   the page's own ground and accent rather than an empty ring. */
+.pathways .theme-swatch__trigger[data-theme-pick=""] .theme-swatch__disc { --a: var(--background); --b: var(--swatch-mark, var(--accent)); }
+/* The menu itself is opaque, and its own box: see the structure in apps/shared/ux-base.css. */
+.pathways .theme-swatch__menu { background: var(--surface); }
+.pathways .theme-swatch__btn[data-theme-pick="favor-cream"] .theme-swatch__disc { --a: #fef1e8; --b: #f45500; --c: #121411; }
+.pathways .theme-swatch__btn[data-theme-pick="favor-dark"] .theme-swatch__disc { --a: #070b0e; --b: #ff7a33; --c: #e2edf2; }
+.pathways .theme-swatch__btn[data-theme-pick="favor-indigo"] .theme-swatch__disc { --a: #0f111c; --b: #8796fc; --c: #f4efe6; }
+.pathways .theme-swatch__btn[data-theme-pick="favor-grow-multicolor"] .theme-swatch__disc { --a: #fbfbfd; --b: #4f3ad0; --c: #121411; }
+.pathways .theme-swatch__btn[data-theme-pick="favor-grow-multicolor"] .theme-swatch__disc { background: conic-gradient(#5b3ee0 0% 25%, #d6560b 25% 50%, #078f94 50% 75%, #c93b78 75% 100%); }
+.pathways .theme-swatch__btn[data-theme-pick="favor-leadership"] .theme-swatch__disc { --a: #edf0ef; --b: #116a60; --c: #14202a; }
+.pathways .theme-swatch__btn[data-theme-pick="favor-watershed"] .theme-swatch__disc { --a: #f6fbfd; --b: #0077a4; --c: #121411; }
+@media (prefers-reduced-motion: reduce) {
+  .pathways .theme-swatch__disc { transition: box-shadow .18s ease; }
+  .pathways .theme-swatch__btn:hover .theme-swatch__disc { transform: none; }
+  .pathways .theme-swatch__name { transform: translateY(0); }
+}
+@media print {
+  .pathways .theme-swatch { display: none; }
+}
+
+/* >>> END GENERATED THEME BLOCKS <<< */
+
+/* T4 -- the notebook card look, ported from Grow, scoped to the multicolor theme only.
+   Token names match Grow's verbatim; the page ground stays white, dots and beige live
+   on the card. Accent varies by island: Pathways takes a top rule in the chapter hue.
+   Kept OUTSIDE the generated theme block above (tools/build_theme_blocks.py) so it is not
+   wiped the next time that block regenerates. */
+.pathways[data-theme="favor-grow-multicolor"] {
+  --notebook-page: #ffffff;
+  --notebook-ground: #f5e6d2;
+  --notebook-surface: #fdf6ec;
+  --notebook-rule: #dccbb5;
+  --notebook-radius: 10px;
+  --notebook-card-shadow: 0 16px 40px -12px color-mix(in srgb, var(--shadow-ink) 14%, transparent), 0 2px 6px -1px color-mix(in srgb, var(--shadow-ink) 6%, transparent);
+  --dot-ink: color-mix(in srgb, #7d6f5e 14%, transparent);
+  --dot-pitch: 18px;
+}
+.pathways[data-theme="favor-grow-multicolor"] .cw {
+  background-color: var(--notebook-surface);
+  background-image: radial-gradient(circle, var(--dot-ink) .75px, transparent .85px);
+  background-size: var(--dot-pitch) var(--dot-pitch);
+  border: 1px solid var(--notebook-rule);
+  border-radius: var(--notebook-radius);
+  box-shadow: var(--notebook-card-shadow), inset 0 3px 0 0 var(--sp, var(--accent));
+}
+
+.pathways {
+  /* Chart ground. These two names are this island's own, but the tones under them are
+     not: #0c1319 and #101a21 were, letter for letter, favor-dark's surfaceSunken and
+     surfaceRaised. Left literal they survived a theme switch, so picking Favor Cream
+     painted a cream page with a night-blue masthead, night-blue bar tracks and
+     night-blue disclosures -- the silent failure this project exists to kill, found by
+     the swatch on its first run. The alias stays for the local vocabulary; the tone
+     comes from the contract. */
+  --depth-1: var(--surface-sunken);
+  --depth-2: var(--surface-raised);
+  --graticule: color-mix(in srgb, var(--muted-ink) 10%, transparent);
+  /* One depth scale. Every rule weight and dot brightness steps off this. These
+     are opacities, not colors. */
+  --sound-1: 0.28;
+  --sound-2: 0.55;
+  --sound-3: 1;
+  --bar-h: 5rem;
+  /* Duplicates of the contract's --body-font / --display-font under this
+     island's older names -- follow the theme instead of re-declaring it. */
+  --font-body: var(--body-font);
+  --font-display: var(--display-font);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--background);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0 0 4rem;
+}
+
+.pathways *, .pathways *::before, .pathways *::after { box-sizing: border-box; }
+.pathways ::selection { background: color-mix(in srgb, var(--secondary) 30%, transparent); color: #ffffff; }
+.pathways { caret-color: var(--secondary); scrollbar-color: var(--rule) transparent; scrollbar-width: thin; accent-color: var(--secondary); }
+.pathways ::-webkit-scrollbar { width: 10px; height: 10px; }
+.pathways ::-webkit-scrollbar-track { background: var(--depth-1); }
+.pathways ::-webkit-scrollbar-thumb { background: var(--rule); border: 2px solid var(--depth-1); }
+.pathways ::-webkit-scrollbar-thumb:hover { background: #2c3f4b; }
+.pathways :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; box-shadow: 0 0 0 5px color-mix(in srgb, var(--focus) 18%, transparent); }
+.pathways h1, .pathways h2 { margin: 0; font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; }
+.pathways h1 { font-size: clamp(2.1rem, 4.5vw, 2.9rem); line-height: 1.02; }
+.pathways h2 { font-size: clamp(1.35rem, 2.4vw, 1.7rem); line-height: 1.1; }
+.pathways h3 { margin: 0; font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-ink); }
+.pathways p { margin: 0; }
+.pathways a { color: var(--secondary); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.pathways svg { display: block; }
+.pathways .shell { max-width: 96rem; margin: 0 auto; padding: 0 1.25rem; }
+.pathways .num { font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; letter-spacing: -0.01em; }
+
+/* Masthead: same anatomy as every exec surface. */
+.pathways .masthead { padding: 1.5rem 0 1.25rem; border-bottom: 2px solid var(--ink); }
+.pathways .masthead__top { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1rem; justify-content: space-between; }
+.pathways .masthead__id { display: flex; flex-direction: column; gap: .6rem; }
+.pathways .masthead__title { display: flex; align-items: center; gap: .6rem; }
+.pathways .masthead__mark { flex: none; width: 2rem; height: 2rem; color: var(--accent); }
+.pathways .title-beta { display: inline-block; font-size: .58em; letter-spacing: 0; white-space: nowrap; }
+.pathways .masthead__meta { display: flex; flex-direction: column; gap: .25rem; }
+.pathways .stamp { font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-ink); }
+.pathways .stamp strong { color: var(--ink); }
+.pathways .status-beta { display: inline-flex; align-items: baseline; gap: .45rem; margin-top: .65rem; padding: .3rem .6rem; border: 1px solid var(--ink); background: var(--ink); color: var(--surface); font-size: .72rem; letter-spacing: .04em; }
+.pathways .status-beta strong { text-transform: uppercase; letter-spacing: .12em; }
+.pathways .status-beta span { opacity: .82; }
+.pathways .flag--fictional { display: inline-block; margin-top: .5rem; font-size: .82rem; font-weight: 700; color: var(--surface); background: var(--accent); padding: .15rem .55rem; letter-spacing: .06em; }
+
+/* Two-column bridge layout: the chart holds the page, the filter console sits
+   to starboard. Every pathway renders in the one scroll. */
+/* --console-bar-h reserves the band the sticky Filter console button occupies,
+   so the console it opens starts below the button instead of under it. */
+.pathways { --console-w: 20rem; --console-bar-h: 2.4rem; }
+.pathways .main-column { min-width: 0; }
+
+/* The toggle travels with the console it controls.
+   The console is sticky, so on a long page it is still there at scroll depth --
+   but the button that closes it used to sit in normal flow at the top of the
+   document, which meant you could open the console, scroll, and then have no way
+   to close it without scrolling all the way back up. The bar sticks to the same
+   --console-top the sidebar uses, so the control and the thing it controls are
+   always on screen together.
+   The bar spans the full column but is transparent, so it must not swallow
+   clicks or scrolls meant for the chart underneath: only the button itself takes
+   pointer events. */
+.pathways .sidebar-toggle-bar {
+  display: flex; justify-content: flex-end; margin: 1rem 0 .65rem;
+  position: sticky; top: var(--console-top, 1rem);
+  z-index: 30;
+  pointer-events: none;
+}
+.pathways .sidebar-toggle-bar > * { pointer-events: auto; }
+.pathways .toggle-btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .45rem .85rem;
+  border: 1px solid var(--rule);
+  background: var(--depth-1);
+  color: var(--ink);
+  font-family: inherit; font-size: .78rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .08em;
+  cursor: pointer; user-select: none;
+  transition: background 160ms var(--ease-out), border-color 160ms var(--ease-out);
+}
+.pathways .toggle-btn:hover { background: var(--depth-2); border-color: var(--secondary); }
+/* Opaque, because it now sits over the chart rather than above it. */
+.pathways .sidebar-toggle-bar .toggle-btn {
+  background: var(--depth-1);
+  box-shadow: 0 6px 18px -10px rgba(0, 0, 0, .9);
+}
+.pathways .toggle-btn .arrow { width: .7rem; height: .7rem; color: var(--secondary); transition: transform 200ms var(--ease-out); }
+/* toggleSidebar() used to write this as an inline style, which is why it also had to
+   clear the property by hand whenever the mobile rules below wanted the mark turned a
+   different way -- an inline transform outranks any stylesheet, so a resize while
+   collapsed left the desktop angle stuck on the bottom sheet. CSS owns the mark in both
+   breakpoints now, keyed off the same data-console the other two islands use, and it
+   turns the same way they do: closed points left, at the console it will pull open;
+   open points right, back at the edge it folds into. It pointed the opposite way here. */
+.pathways[data-console="closed"] .toggle-btn .arrow { transform: rotate(180deg); }
+
+.pathways .dashboard-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--console-w);
+  gap: 1.75rem;
+  align-items: start;
+}
+.pathways .dashboard-layout.is-collapsed { grid-template-columns: minmax(0, 1fr) 0; gap: 0; }
+
+/* Filter console. Instrument panel material: darker than the chart so the
+   chart stays the lit surface. */
+.pathways .filter-sidebar {
+  /* --console-top is measured at runtime: it clears Rock's fixed nav in
+     production and falls back to a plain 1rem inset in the workbench. */
+  position: sticky; top: calc(var(--console-top, 1rem) + var(--console-bar-h));
+  width: var(--console-w);
+  /* The console is taller than a laptop viewport once every fieldset is open.
+     Bound it to what is actually visible below the host chrome and let the form
+     scroll inside, so the lower filters are reachable instead of being clipped. */
+  max-height: calc(100vh - var(--console-top, 1rem) - var(--console-bar-h) - 1rem);
+  background: var(--depth-1);
+  /* On a near-black ground a dark border and a black shadow are both
+     invisible, so the console reads as bleeding off the right margin instead
+     of ending. Depth here comes from light: a lit edge, not a cast shadow. */
+  border: 1px solid var(--edge-lit);
+  padding: .95rem 1rem 1.1rem;
+  display: flex; flex-direction: column; gap: .8rem;
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--ink) 10%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--background) 90%, transparent),
+    0 18px 40px -24px rgba(0, 0, 0, 1);
+}
+.pathways .dashboard-layout.is-collapsed .filter-sidebar { display: none; }
+
+/* Back button inside console head (mobile bottom sheet) */
+.pathways .sidebar-back-btn {
+  display: none;
+  align-items: center;
+  gap: .35rem;
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: .78rem;
+  font-weight: 700;
+  padding: .35rem .65rem;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 4px;
+  min-height: 44px;
+}
+.pathways .sidebar-back-btn:hover, .pathways .sidebar-back-btn:focus-visible {
+  background: var(--depth-2);
+  border-color: var(--secondary);
+}
+.pathways .filter-backdrop {
+  display: none;
+}
+
+/* Pathway sections: each pathway is a charted region of the same scroll. */
+.pathways .pathway-section { margin: 0 0 2.6rem; }
+.pathways .pathway-section + .pathway-section { border-top: 1px solid var(--rule); padding-top: 1.8rem; }
+.pathways .pathway-section__head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  margin-bottom: .6rem;
+}
+.pathways .pathway-section__name {
+  margin: 0; font-family: var(--font-display); font-weight: 700;
+  font-size: 1.45rem; line-height: 1.08; letter-spacing: -0.01em;
+  color: var(--ink); text-transform: none;
+}
+.pathways .pathway-section__count {
+  font-size: .75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .09em; color: var(--muted-ink); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.pathways .pathgroup__desc { margin: 0; color: var(--muted-ink); }
+
+.pathways .sidebar-head {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 0.4rem;
+}
+.pathways .sidebar-title-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.pathways .sidebar-head h2 {
+  font-size: 1.05rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin: 0;
+}
+.pathways .active-summary-pill {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.pathways .reset-btn {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+.pathways .reset-btn:hover {
+  text-decoration: underline;
+}
+
+/* Mode switch (contract §3): the grammar's own ruleset, pasted below with the
+   classic-base block, is the whole styling. The pre-grammar island version that
+   used to sit here fought it -- a 2px pressed border and a cast shadow leaked
+   through onto the ink-filled segment -- so it is gone rather than layered. */
+
+.pathways .filter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  /* Scrolls within the bounded console. min-height:0 is what actually lets a
+     flex child shrink below its content height; without it the form keeps its
+     full height and the overflow never engages. */
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  padding-right: .35rem;
+  margin-right: -.35rem;
+}
+
+.pathways .filter-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.pathways .filter-legend {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-ink);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.2rem;
+  border: none;
+  padding: 0;
+}
+.pathways .filter-legend .sub {
+  font-weight: 600;
+  color: var(--muted-ink);
+  font-size: 0.66rem;
+}
+.pathways .chip-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.25rem;
+}
+.pathways .chip-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.pathways .chip-group-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.pathways .opt-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0.25rem 0.45rem;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  background: var(--background);
+  cursor: pointer;
+  transition: background-color var(--motion-feedback) linear, border-color var(--motion-feedback) linear, color var(--motion-feedback) linear, box-shadow var(--motion-feedback) linear, transform var(--motion-feedback) var(--motion-ease);
+  user-select: none;
+  text-align: left;
+  width: 100%;
+  font-family: inherit;
+  border-radius: 0;
+}
+.pathways .opt-btn:hover {
+  border-color: var(--ink);
+  background: var(--depth-2);
+}
+.pathways .opt-btn[aria-pressed="true"],
+.pathways .opt-btn.is-active {
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  font-weight: 700;
+  background: var(--surface);
+  box-shadow: 0 6px 16px -10px rgba(0, 0, 0, 0.8);
+}
+.pathways .btn-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 0.74rem;
+}
+.pathways .btn-title {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pathways .swatch-dot {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  border: 1px solid var(--rule);
+  flex: none;
+}
+.pathways .mono-tag {
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--muted-ink);
+}
+.pathways .val-tag {
+  font-size: 0.7rem;
+  color: var(--muted-ink);
+  font-family: var(--font-body);
+}
+.pathways .btn-meter {
+  height: 3px;
+  width: 100%;
+  background: color-mix(in srgb, var(--muted-ink) 12%, transparent);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.pathways .btn-meter-fill {
+  height: 100%;
+  width: 100%;
+  border-radius: 1px;
+  transform-origin: left center;
+  transition: transform 250ms var(--ease-out);
+}
+
+/* Stack By: four tiles, not four lines.
+   As a column the four dimensions read as a ranked list with one winner and three
+   runners-up; as a 2x2 they read as four equal cuts of the same population. The
+   active tile shows the segment swatches it is about to draw, so the console
+   carries the legend of its own choice. */
+.pathways .stack-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+.pathways .stack-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: .45rem .5rem;
+  border: 1px solid var(--rule);
+  background: var(--background);
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  border-radius: 0;
+  transition: border-color 120ms var(--ease-out), background 120ms var(--ease-out), box-shadow 160ms var(--ease-out);
+}
+.pathways .stack-tile:hover { border-color: var(--ink); background: var(--depth-2); }
+.pathways .stack-tile:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.pathways .stack-tile[aria-pressed="true"] {
+  border: 2px solid var(--ink);
+  background: var(--surface);
+  padding: calc(.45rem - 1px) calc(.5rem - 1px);
+  box-shadow: 0 6px 16px -10px rgba(0, 0, 0, .8);
+}
+.pathways .stack-tile__name { font-size: .78rem; font-weight: 700; letter-spacing: .01em; }
+.pathways .stack-tile__swatches { display: flex; gap: 2px; width: 100%; }
+.pathways .stack-tile__swatch {
+  display: block; height: 4px; flex: 1 1 0; min-width: 3px;
+  opacity: .5;
+  transition: opacity 160ms var(--ease-out);
+}
+.pathways .stack-tile[aria-pressed="true"] .stack-tile__swatch { opacity: 1; }
+.pathways .stack-tile__meta { font-size: .66rem; color: var(--muted-ink); }
+
+/* State focus: one pill per rung of the ladder, tinted with the rung's own tone
+   so the filter and the bar it narrows use the same colour vocabulary. */
+.pathways .state-pill-row { display: flex; flex-wrap: wrap; gap: 4px; }
+.pathways .state-pill {
+  display: inline-flex; align-items: center; gap: .3rem;
+  padding: .28rem .45rem;
+  border: 1px solid var(--rule);
+  background: var(--background);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: .74rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 0;
+  transition: border-color 120ms var(--ease-out), background 120ms var(--ease-out);
+}
+.pathways .state-pill:hover { border-color: var(--ink); background: var(--depth-2); }
+.pathways .state-pill:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+.pathways .state-pill[aria-pressed="true"] {
+  border: 2px solid var(--ink);
+  padding: calc(.28rem - 1px) calc(.45rem - 1px);
+  background: var(--surface);
+  box-shadow: inset 0 -3px 0 -1px var(--pill-tone, var(--ink));
+}
+.pathways .state-pill__dot { display: block; width: .5rem; height: .5rem; border-radius: 50%; border: 1px solid var(--rule); flex: none; }
+.pathways .state-pill__name { white-space: nowrap; }
+/* A rung some steps declare and Rock cannot answer. Not a count, and not a zero. */
+.pathways .state-pill__ghost { color: var(--muted-ink); font-style: italic; }
+
+/* Gender Pill Row */
+.pathways .gender-pill-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+.pathways .gender-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 5px 4px;
+  border: 1px solid var(--rule);
+  background: var(--background);
+  color: var(--ink);
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color var(--motion-feedback) linear, border-color var(--motion-feedback) linear, color var(--motion-feedback) linear, box-shadow var(--motion-feedback) linear, transform var(--motion-feedback) var(--motion-ease);
+  user-select: none;
+  text-align: center;
+  font-family: inherit;
+  border-radius: 0;
+}
+.pathways .gender-btn:hover {
+  border-color: var(--ink);
+  background: var(--depth-2);
+}
+.pathways .gender-btn[aria-pressed="true"],
+.pathways .gender-btn.is-active {
+  border: 2px solid var(--ink);
+  background: var(--surface);
+  box-shadow: 0 6px 16px -10px rgba(0, 0, 0, 0.8);
+}
+.pathways .gender-btn-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.72rem;
+}
+
+/* Ratio Table for Age Distribution */
+.pathways .ratio-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.74rem;
+  margin-top: 0.1rem;
+}
+.pathways .ratio-table th {
+  font-size: 0.64rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted-ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.2rem 0.25rem;
+  text-align: right;
+}
+.pathways .ratio-table th:first-child {
+  text-align: left;
+}
+.pathways .ratio-table td {
+  padding: 0.22rem 0.25rem;
+  border-bottom: 1px solid var(--rule);
+  text-align: right;
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+.pathways .ratio-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+.pathways .ratio-table tr:hover td {
+  background: var(--depth-2);
+}
+.pathways .ratio-table tr.is-selected td {
+  background: color-mix(in srgb, var(--secondary) 16%, transparent);
+  color: var(--ink);
+  font-weight: 700;
+  border-color: var(--secondary);
+}
+.pathways .ratio-idx {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--muted-ink);
+}
+
+.pathways .filter-count-note {
+  font-size: 0.76rem;
+  color: var(--muted-ink);
+  padding-top: 0.35rem;
+  border-top: 1px dashed var(--rule);
+  line-height: 1.35;
+}
+
+@media (max-width: 1080px) {
+  .pathways .pathway-section__head { flex-wrap: wrap; gap: 0.25rem; }
+  .pathways .swarmrow__plot { height: 7rem; }
+}
+
+@media (max-width: 768px) {
+  .pathways {
+    overflow-x: clip;
+    max-width: 100vw;
+    --console-h: min(38vh, 320px);
+  }
+
+  /* The fixed bottom sheet is outside grid flow. Keep its former desktop track out of
+     the layout too, or opening it reserves the console column and squeezes the board. */
+  .pathways .dashboard-layout,
+  .pathways .dashboard-layout.is-collapsed {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  /* ---- the bottom edge: one object, in two parts ----
+     The handle is not a floating pill any more. It docks to the sheet's top edge
+     when open and to the viewport's bottom edge when closed. */
+  .pathways .sidebar-toggle-bar {
+    position: fixed;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 991;
+    margin: 0;
+    padding: .5rem 1rem max(.5rem, env(safe-area-inset-bottom, .5rem));
+    background: var(--panel-2, var(--surface));
+    border-top: 1px solid var(--rule);
+    pointer-events: auto;
+  }
+  .pathways[data-console="open"] .sidebar-toggle-bar {
+    bottom: var(--console-h);
+    padding-bottom: .5rem;
+  }
+  .pathways .toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+    width: 100%;
+    min-height: 48px;
+    padding: 0 .5rem;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    font-size: .8rem;
+  }
+  /* The closed selector is spelled out at the same weight the desktop rule above uses.
+     A media query adds no specificity, so the bare `.pathways .toggle-btn .arrow` on
+     its own would lose to it and the sheet's handle would point sideways-wrong. */
+  .pathways .toggle-btn .arrow,
+  .pathways[data-console="closed"] .toggle-btn .arrow { transform: rotate(-90deg); }
+  .pathways[data-console="open"] .toggle-btn .arrow { transform: rotate(90deg); }
+
+  /* The sheet. Square-topped, because its top edge is now the handle. The old
+     3.8rem of bottom padding reserved room for a pill that no longer floats. */
+  .pathways .filter-sidebar {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: var(--console-h);
+    max-height: min(40vh, 340px);
+    min-height: 200px;
+    margin: 0;
+    order: initial;
+    z-index: 990;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    border: 1px solid var(--edge-lit);
+    border-bottom: none;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, .5);
+    padding: .85rem 1rem max(1rem, env(safe-area-inset-bottom, 1rem));
+    transform: translateY(0);
+  }
+  .pathways .filter-form { overflow-y: visible; padding-right: 0; margin-right: 0; }
+  .pathways .dashboard-layout.is-collapsed .filter-sidebar {
+    display: none;
+    transform: translateY(100%);
+  }
+
+  .pathways .sidebar-back-btn {
+    display: inline-flex;
+  }
+
+  /* Touch outside backdrop: NO BLUR, transparent so graphs are visible for real-time comparison */
+  .pathways .filter-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    z-index: 980;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .pathways .dashboard-layout:not(.is-collapsed) ~ .filter-backdrop,
+  .pathways .filter-backdrop.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Markup rail clearance */
+  .pathways .mk-rail { bottom: calc(48px + .75rem); }
+
+  /* ---- the palette, as the console's last row ----
+     A preference, in the place preferences live, shaped like every other console
+     row. Desktop keeps the sticky pill exactly as it is; none of this reaches it. */
+  .pathways .palette-slot { margin-top: .75rem; padding-top: .6rem; border-top: 1px solid var(--rule); }
+  .pathways .theme-swatch {
+    position: static;
+    margin: 0; padding: 0;
+    display: flex; width: 100%; justify-content: flex-start; gap: .25rem;
+    background: transparent;
+    border: none;
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+    box-shadow: none;
+    opacity: 1;
+  }
+  .pathways .theme-swatch__btn { min-width: 44px; min-height: 44px; justify-content: center; }
+
+  /* ---- 44px floor, every console control ---- */
+  .pathways .reset-btn { min-height: 44px; padding: 0 .5rem; display: inline-flex; align-items: center; }
+  .pathways .opt-btn { min-height: 44px; justify-content: center; }
+  .pathways .gender-btn { min-height: 44px; justify-content: center; }
+  .pathways .stack-tile { min-height: 44px; justify-content: center; }
+  .pathways .state-pill { min-height: 44px; }
+  .pathways .ratio-table td { height: 44px; }
+}
+
+/* Chapters pace the scroll. */
+.pathways .chapter { padding: 2.5rem 0 1rem; }
+.pathways .chapter__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: .75rem; justify-content: space-between; }
+.pathways .chapter__what { max-width: 62ch; color: var(--muted-ink); font-size: .95rem; margin: .35rem 0 1.25rem; }
+.pathways .chapter__meta { font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted-ink); }
+
+/* --- Chapter 1: the Pathway Map hero -------------------------------------- */
+.pathways .pathgroup { display: flex; align-items: center; gap: .55rem; padding: 1.4rem 0 .5rem; border-bottom: 1px solid var(--rule); }
+/* .pathgroup__logo is gone: the decorative mark and its console toggle were
+   removed on operator instruction. The flex row stays -- the description and the
+   pathway note are still its children. */
+
+.pathways .step { display: grid; grid-template-columns: 1fr; gap: .45rem; padding: 1.1rem 0; border-bottom: 1px solid var(--rule); }
+.pathways .step__side { display: flex; flex-direction: column; gap: .3rem; min-width: 0; }
+.pathways .step__label { display: flex; align-items: baseline; gap: .55rem; flex-wrap: wrap; }
+.pathways .step__name { font-family: var(--font-display); font-weight: 700; font-size: 1.08rem; }
+.pathways .step__persist { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-ink); border: 1px solid var(--rule); padding: .08rem .4rem; white-space: nowrap; }
+.pathways .step__states { display: flex; gap: .7rem; flex-wrap: wrap; font-size: .8rem; color: var(--muted-ink); }
+.pathways .step__states strong { color: var(--ink); }
+/* A state Rock cannot answer reads '?' and is set apart from a real 0, so the two
+   never look alike at a glance (ADR 0018, issue 451). */
+.pathways .step__state--unknown { font-style: italic; opacity: .75; }
+.pathways .step__state--unknown strong { color: var(--muted-ink); }
+
+.pathways .step__zone { position: relative; }
+.pathways .step__track {
+  position: relative; display: flex; align-items: stretch;
+  min-height: var(--bar-h);
+  background: linear-gradient(180deg, var(--depth-2) 0%, var(--depth-1) 100%);
+  border: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+}
+/* Sounding datum: the zero line every band is measured from. */
+.pathways .step__track::before {
+  content: ""; position: absolute; inset-block: 0; left: 0; width: 2px;
+  background: var(--secondary); opacity: var(--sound-2);
+}
+.pathways .step__seg { display: block; min-width: 2px; margin-right: 2px; transition: filter 150ms var(--ease-out), transform 150ms var(--ease-out); transform-origin: left center; position: relative; z-index: 1; }
+.pathways .step__seg:hover { filter: brightness(0.85); }
+.pathways .step__value { font-family: var(--font-display); font-weight: 700; font-size: 1.7rem; line-height: 1; align-self: center; padding: 0 .65rem; white-space: nowrap; }
+.pathways .step__aggnote { align-self: center; font-size: .84rem; color: var(--muted-ink); padding: 0 .6rem; }
+.pathways .step__zero { align-self: center; padding: 0 .6rem; font-size: .88rem; color: var(--muted-ink); border-left: 2px solid var(--ink); }
+/* All-time ghost bar: sits at position:absolute behind the coloured segments. The
+ * track must be position:relative (already is) so the ghost fills the bar depth. */
+/* The band was a raw rgba(200,200,200) grey, which belongs to no theme on this
+   page -- part of why it read as a foreign object rather than as a reading. It is
+   the muted ink of whatever palette is live, and it is hoverable now: the exposed
+   tail past the coloured fill is exactly "the grey part" a reader points at. */
+.pathways .step__seg--alltime {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  background: color-mix(in srgb, var(--muted-ink) 20%, transparent);
+  border-right: 1px solid color-mix(in srgb, var(--muted-ink) 42%, transparent);
+  pointer-events: auto;
+  cursor: help;
+  transition: background 160ms var(--ease-out);
+  min-width: 0;
+  margin-right: 0;
+  z-index: 0;
+}
+.pathways .step__seg--alltime:hover,
+.pathways .step__seg--alltime:focus-visible {
+  background: color-mix(in srgb, var(--muted-ink) 34%, transparent);
+  filter: none;
+}
+.pathways .step__seg--alltime:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+/* The cap: a tick at the all-time extent, so the band is findable even where the
+   gap between all-time and today is two people wide. It grows into a full-height
+   rule as the band is read -- the one authored moment on this bar. */
+.pathways .step__alltimecap {
+  position: absolute; top: 50%; bottom: 50%; width: 2px; z-index: 2;
+  margin-left: -1px;
+  background: var(--muted-ink);
+  pointer-events: none;
+  transition: top 180ms var(--ease-out), bottom 180ms var(--ease-out), background 180ms var(--ease-out);
+}
+.pathways .step__track:hover .step__alltimecap,
+.pathways .step__seg--alltime:focus-visible ~ .step__alltimecap {
+  top: -3px; bottom: -3px; background: var(--ink);
+}
+/* Inline annotation that follows the live value */
+.pathways .step__alltime-note {
+  align-self: center;
+  font-size: .78rem;
+  color: var(--muted-ink);
+  opacity: .75;
+  padding: 0 .45rem;
+  white-space: nowrap;
+  letter-spacing: .01em;
+}
+
+.pathways .step--ghost .step__ghostbar { min-height: var(--bar-h); border: 1px dashed var(--rule); background: var(--ghost-wash); background-image: repeating-linear-gradient(-45deg, color-mix(in srgb, var(--muted-ink) 16%, transparent) 0 8px, transparent 8px 16px); display: flex; align-items: center; }
+.pathways .step__track--unavailable, .pathways .step__track--ghost { min-height: var(--bar-h); background: var(--depth-1); border: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.pathways .step__seg--pattern-diagonal { background: repeating-linear-gradient(-45deg, #cfc8bf 0 8px, #e8e2d9 8px 16px); border-right: 1px dashed var(--muted-ink); }
+.pathways .step__value--unknown { color: var(--muted-ink); font-style: italic; }
+.pathways .step__ghostnote { align-self: center; padding: 0 .8rem; font-size: .85rem; font-style: italic; color: var(--muted-ink); }
+
+/* Loading skeleton: same silhouette, obviously alive, never mistakable for data. */
+.pathways .skeleton { position: relative; overflow: hidden; background: var(--ghost-wash); border: 1px solid var(--rule); min-height: var(--bar-h); }
+.pathways .skeleton::after { content: ""; position: absolute; inset: 0; transform: translateX(-100%); background: linear-gradient(90deg, transparent 0%, color-mix(in srgb, var(--secondary) 22%, transparent) 50%, transparent 100%); animation: pathways-shimmer 1.4s infinite; }
+@keyframes pathways-shimmer { 100% { transform: translateX(100%); } }
+
+/* --- Trajectory layer ------------------------------------------------------ */
+/* The deepest ground on the page. Two thousand translucent curves need the
+   maximum-contrast field behind them to read at all -- on any lifted surface tone
+   the faint ones disappeared into it. Operator ruling: this field is deliberately
+   outside the ground contract and takes whichever extreme its theme allows, white
+   on cream and pure black on both dark themes, so the layer carries its own line
+   and edge tokens rather than the shared vocabulary. */
+.pathways .flowwrap {
+  position: relative; margin-top: 1.25rem;
+  border: 1px solid var(--rule);
+  background: var(--trajectory-ground);
+}
+.pathways .flowwrap__head { display: flex; flex-wrap: wrap; gap: .6rem; align-items: baseline; justify-content: space-between; padding: .7rem .9rem 0; }
+.pathways .flowwrap__hint { font-size: .82rem; color: var(--muted-ink); padding: 0 .9rem .6rem; max-width: 70ch; }
+/* The trajectory field pans by drag, not by a scrollbar. `overflow-y` is spelled `hidden`
+   deliberately and NOT `visible`: with `overflow-x: auto`, CSS coerces a `visible` cross-axis
+   to `auto`, which is exactly how this field kept ending up vertically scrollable while the
+   stylesheet claimed it was not. The gesture lives in makeDragPannable(). */
+.pathways .flow__mount {
+  overflow-x: auto;
+  overflow-y: hidden;
+  touch-action: pan-x;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+.pathways .flow__mount::-webkit-scrollbar { display: none; }
+/* The mount clips rather than scrolls now, so a bottom margin on its last child is a
+   sliver of plot the reader would never see. Nothing hangs off the bottom edge. */
+/* The mount clips rather than scrolls, so nothing may hang off its bottom edge. The plot
+   is its only child; the sentences that used to sit in here are siblings now. */
+.pathways .flow__mount > :last-child { margin-bottom: 0; }
+.pathways .flowwrap__notes { padding: 0 .9rem .6rem; }
+.pathways .flowwrap__notes:empty { display: none; }
+.pathways .flow__mount.is-dragging { cursor: grabbing; user-select: none; }
+.pathways .flow__mount:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* `display: block` is load-bearing: an inline SVG sits on the text baseline and leaves
+   descender space under itself, which made the mount 8px shorter than its own plot. That
+   was harmless while the mount scrolled; now that it clips, it would cut the bottom row. */
+.pathways .flow__svg { display: block; width: 100%; height: auto; min-width: 640px; }
+.pathways .flow__line { fill: none; stroke: var(--trajectory-line); stroke-width: 1; opacity: .34; pointer-events: none; }
+
+
+/* Every transition dot in one path. Translucent fill and stroke, so overlap
+   still reads as density without a per-node blend mode. */
+.pathways .flow__dots {
+  fill: color-mix(in srgb, var(--secondary) 26%, transparent);
+  stroke: color-mix(in srgb, var(--trajectory-line-edge) 55%, transparent);
+  stroke-width: .75;
+  pointer-events: none;
+}
+/* Event markers: the dates carrying the most movement. */
+.pathways .flow__eventline { stroke: var(--accent); stroke-width: 1; stroke-dasharray: 2 4; opacity: .55; }
+.pathways .flow__eventdot { fill: var(--accent); }
+.pathways .flow__eventlabel {
+  /* Text on the trajectory field, so it takes the text-grade accent, not the mark one. */
+  fill: var(--accent-deep); font-size: 10px; font-weight: 700;
+  letter-spacing: .04em; text-transform: uppercase;
+}
+.pathways .flowwrap__events {
+  margin: .7rem 0 0; font-size: .78rem; line-height: 1.45; color: var(--muted-ink);
+}
+.pathways .flow__joint { font-size: 11px; fill: var(--muted-ink); }
+
+/* ---------- the scrub keycap ----------
+   The touch twin of the namecard, built to the same contract as Connect Health's
+   field strip so both dashboards teach one gesture. One element, three lines,
+   always above the finger that is driving it. Never the only path to a sounding:
+   the strip's arrow-key walk reaches every one of them with no pointer at all,
+   and this is aria-hidden precisely so a screen reader stays on that. */
+.pathways .keycap {
+  position: fixed; z-index: 996; top: 0; left: 0;
+  display: flex; flex-direction: column;
+  width: max-content; max-width: min(17rem, calc(100vw - 24px));
+  padding: .5rem .7rem;
+  background: var(--surface); border: 1px solid var(--ink);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .55);
+  pointer-events: none; opacity: 0;
+  transition: opacity 150ms var(--ease-out);
+}
+.pathways .keycap[hidden] { display: none; }
+.pathways .keycap[data-keycap-on="true"] { opacity: 1; }
+.pathways .keycap[data-cancel="true"] { opacity: .55; border-color: var(--rule); }
+.pathways .keycap-state {
+  font-size: .66rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+}
+.pathways .keycap-state.is-fresh { color: var(--move-gain); }
+.pathways .keycap-state.is-past { color: var(--move-stalled); }
+.pathways .keycap-state.is-far { color: var(--move-loss); }
+.pathways .keycap[data-cancel="true"] .keycap-state { color: var(--muted-ink); }
+.pathways .keycap-name {
+  margin-top: 2px; font-size: .9rem; font-weight: 700; color: var(--ink);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.pathways .keycap-pos { margin-top: 3px; font-size: .62rem; letter-spacing: .02em; color: var(--muted-ink); }
+
+/* The person namecard: the staff-person layer's one window. */
+.pathways .namecard__note { margin-top: .35rem; font-size: .8rem; color: var(--muted-ink); line-height: 1.4; }
+/* The canvas owns pointer events for the crowd; the ringed person buttons sit
+   above it and keep their own. */
+.pathways .swarmrow__canvas { pointer-events: auto; }
+/* Fixed, not absolute: the card is mounted on the island root and shown over
+   whichever chapter the pointer is in. Absolute positioning tied it to a chapter
+   mount, and the trajectory mount's `overflow-x: auto` (which makes both axes
+   scroll containers) clipped it out of sight entirely. z-index sits above the
+   chapters and below Rock's own chrome. */
+.pathways .namecard {
+  position: fixed; z-index: 60; min-width: 16rem; max-width: 23rem;
+  background: var(--surface); border: 2px solid var(--ink);
+  padding: .7rem .85rem; transform: translateY(4px); pointer-events: auto;
+  /* A person on many steps makes a long card. Bound it to the viewport and let
+     it scroll inside rather than run past the bottom of the window. */
+  max-height: min(30rem, 80vh); overflow-y: auto;
+  box-shadow: 0 14px 40px -18px rgba(0, 0, 0, .9);
+}
+.pathways .namecard[hidden] { display: none; }
+.pathways .namecard__name { font-family: var(--font-display); font-weight: 700; font-size: 1.08rem; }
+.pathways .namecard__name a { color: var(--ink); text-decoration-color: var(--accent); }
+.pathways .namecard__meta { font-size: .78rem; color: var(--muted-ink); letter-spacing: .04em; text-transform: uppercase; margin-top: .1rem; }
+/* Section labels inside the card. A label, not a heading: it speaks one step
+   quieter than the name and in the same uppercase voice the meta line uses, so
+   the card reads as one object rather than a stack of little panels. */
+.pathways .namecard__label {
+  margin: .7rem 0 .3rem;
+  border-top: 1px solid var(--rule);
+  padding-top: .5rem;
+  font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted-ink);
+}
+
+/* Where they stand: step on the left, rung and elapsed time on the right.
+   Two columns rather than a flat list, because the eye scans the step names to
+   find the one it came for and then reads across. */
+.pathways .namecard__stand {
+  display: grid; grid-template-columns: minmax(5.5rem, auto) 1fr;
+  gap: .3rem .7rem; margin: 0; font-size: .8rem;
+}
+/* Align to the top of the row, not to a baseline. `align-self: baseline` looked
+   right until a holding wrapped: the dd is a wrapping flex box, so its baseline
+   is its *last* line, and the label drifted down to meet it. One row sat level
+   with its chip while its neighbours floated between chip and fact. Top
+   alignment is stable no matter how many lines the right column takes; the
+   .1rem is optical, bringing the smaller label text back onto the chip's
+   own first line. */
+/* `margin: 0` is not tidiness: Rock's own stylesheet puts `margin-top: 16px` on
+   every dt after the first, and a grid item's margin sits inside its area, so
+   `align-self: start` faithfully aligned to a start that had already been
+   pushed down. The first label looked correct and every one after it floated. */
+.pathways .namecard__stand dt {
+  margin: 0;
+  font-weight: 700; color: var(--ink); align-self: start; padding-top: .1rem; line-height: 1.3;
+}
+.pathways .namecard__stand dd {
+  margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; align-content: start;
+  gap: .25rem .4rem;
+}
+/* The rung chip carries the same token as its bar segment on the map, so a
+   colour learned there means the same thing here. */
+.pathways .namecard__rung {
+  font-size: .68rem; font-weight: 700; letter-spacing: .03em;
+  padding: .05rem .35rem;
+  border: 1px solid var(--rule);
+  background: var(--depth-2);
+  white-space: nowrap;
+}
+.pathways .namecard__fact { font-size: .74rem; color: var(--muted-ink); white-space: nowrap; }
+/* Past its own season. Not an alarm -- a fact the reader came for. */
+.pathways .namecard__fact.is-past { color: var(--move-stalled); }
+/* ADR 0018: hollow, dashed, static. It can never be read as a zero or as a
+   loading state, and it says outright that Rock holds no date here. */
+.pathways .namecard__ghost {
+  display: inline-block; min-width: 1.1rem; padding: 0 .25rem;
+  font-weight: 700; font-size: .72rem; line-height: 1.3; text-align: center;
+  color: var(--muted-ink);
+  border: 1px dashed var(--rule);
+  background: transparent;
+  cursor: help;
+}
+/* Three shared columns: kind chip, step, date. The list owns the tracks and each
+   row borrows them through subgrid, so the step names start on one line down the
+   whole history instead of stepping in and out behind chips of different widths
+   (ENTERED, COMPLETED, LEADERSHIP PREP). A per-row grid could not do this --
+   each row would size its own chip column -- and a hard-coded chip width would
+   clip the longest label. Subgrid keeps the <li> a real list item while sharing
+   the measure. */
+.pathways .namecard__seq {
+  list-style: none; margin: 0; padding: 0; font-size: .84rem;
+  display: grid; grid-template-columns: auto 1fr auto; gap: .22rem .5rem;
+  align-items: baseline;
+}
+.pathways .namecard__seq li {
+  display: grid; grid-column: 1 / -1; grid-template-columns: subgrid;
+  align-items: baseline;
+}
+@supports not (grid-template-columns: subgrid) {
+  .pathways .namecard__seq { display: flex; flex-direction: column; gap: .22rem; }
+  .pathways .namecard__seq li { display: flex; gap: .5rem; }
+  .pathways .namecard__date { margin-left: auto; }
+}
+/* Shrink-wrap inside the shared column. Without this the chip stretches to the
+   width of the longest label in the list, and a short ENTERED reads as a wide
+   empty box with its word pinned to one end. */
+.pathways .namecard__kind {
+  font-size: .7rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  padding: .05rem .35rem; border: 1px solid var(--rule);
+  justify-self: start; white-space: nowrap;
+}
+.pathways .namecard__kind.kind-gain { background: var(--soft-gain); }
+.pathways .namecard__kind.kind-loss { background: var(--soft-loss); }
+.pathways .namecard__kind.kind-stalled { background: var(--soft-stalled); }
+/* No margin-left:auto here: the grid's 1fr step column already pushes the date
+   to the right edge, and an auto margin would fight the track. The flex
+   fallback above restores it for engines without subgrid. */
+.pathways .namecard__date { color: var(--muted-ink); white-space: nowrap; justify-self: end; }
+.pathways .namecard__go { display: inline-block; margin-top: .55rem; font-size: .84rem; font-weight: 700; }
+.pathways .namecard__inert { margin-top: .55rem; font-size: .78rem; color: var(--muted-ink); font-style: italic; }
+
+/* --- Chapter 2: waterfall --------------------------------------------------- */
+.pathways .waterfall { border: 1px solid var(--rule); background: var(--surface); padding: 1rem; }
+.pathways .wf__svgwrap {
+  overflow-x: auto;
+  overflow-y: hidden;
+  touch-action: pan-x;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+.pathways .wf__svgwrap::-webkit-scrollbar { display: none; }
+.pathways .wf__svgwrap.is-dragging { cursor: grabbing; user-select: none; }
+.pathways .wf__svgwrap:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.pathways .wf__svg { width: 100%; height: auto; min-width: 34rem; }
+.pathways .wf__bar { transition: filter 150ms var(--ease-out); cursor: default; }
+.pathways .wf__bar:hover { filter: brightness(0.85); }
+.pathways .wf__label { font-size: 13px; fill: var(--ink); }
+.pathways .wf__value { font-size: 13px; font-weight: 700; fill: var(--ink); }
+.pathways .wf__anchor-label { font-size: 13px; font-weight: 700; fill: var(--ink); }
+.pathways .wf__connector { stroke: var(--muted-ink); stroke-width: 1; opacity: .5; stroke-dasharray: 2 3; }
+.pathways .wf__axisline { stroke: var(--ink); stroke-width: 2; }
+.pathways .wf__recon { margin-top: .8rem; padding-top: .6rem; border-top: 1px solid var(--rule); font-size: .86rem; }
+.pathways .wf__recon.is-ok strong { color: var(--move-gain); }
+.pathways .wf__recon.is-broken strong { color: var(--move-loss); }
+
+/* --- Chapter 3: beeswarm ---------------------------------------------------- */
+.pathways .swarm { border: 1px solid var(--rule); background: var(--surface); padding: 1rem; }
+.pathways .swarm__axis { display: flex; justify-content: space-between; gap: 1rem; font-size: .78rem; color: var(--muted-ink); padding-bottom: .6rem; }
+.pathways .swarmrow { display: grid; grid-template-columns: 1fr; gap: .3rem; padding: .6rem 0; border-bottom: 1px solid var(--rule); }
+.pathways .swarmrow:last-of-type { border-bottom: 0; }
+.pathways .swarmrow__name { font-weight: 700; font-size: .92rem; }
+.pathways .swarmrow__meta { font-size: .78rem; color: var(--muted-ink); }
+.pathways .swarmrow__plot {
+  position: relative; height: 6.5rem;
+  background: linear-gradient(180deg, var(--depth-2) 0%, var(--depth-1) 100%);
+  border: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+.pathways .swarmrow__canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+.pathways .swarmrow__window { position: absolute; top: 0; bottom: 0; left: 0; background: color-mix(in srgb, var(--move-gain) 7%, transparent); border-right: 0; pointer-events: none; }
+.pathways .swarmrow__plot::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--graticule); pointer-events: none; }
+.pathways .swarmrow__windowedge { position: absolute; top: 0; bottom: 0; border-left: 2px dashed var(--move-stalled); pointer-events: none; }
+/* Day marks inside the plot. They sit on the floor of the strip so they never
+   cross the dots, and they are the only thing that turns "past the window" from
+   an impression into a number. */
+.pathways .swarmrow__tick {
+  position: absolute; bottom: .15rem; z-index: 3;
+  font-size: .68rem; letter-spacing: .06em; color: var(--faint-ink);
+  pointer-events: none; white-space: nowrap;
+}
+.pathways .swarmrow__tick--start { transform: translateX(.2rem); }
+.pathways .swarmrow__tick--mid { transform: translateX(.25rem); color: var(--move-stalled-text); }
+.pathways .swarmrow__tick--end { text-align: right; }
+.pathways .swarmrow__bin { display: none; }
+/* The soundings are painted, not built. Two canvases: density underneath, the
+   plumb line and its ring on top. The overlay is the focusable element, so the
+   whole strip is one tab stop that arrow keys walk. */
+.pathways .swarmrow__overlay {
+  position: absolute; inset: 0; width: 100%; height: 100%; z-index: 4;
+  cursor: crosshair; touch-action: pan-y;
+}
+.pathways .swarmrow__overlay:focus-visible {
+  outline: 2px solid var(--focus); outline-offset: -2px;
+}
+
+/* --- Shared: legends, tables, notes ----------------------------------------- */
+.pathways .legend { display: flex; flex-wrap: wrap; gap: .9rem; padding: .6rem 0; }
+.pathways .legend__row { display: inline-flex; align-items: center; gap: .4rem; font-size: .82rem; }
+.pathways .legend__swatch { width: .85rem; height: .85rem; border: 1px solid var(--rule); display: inline-block; }
+/* The all-time swatch has to read as the band it names: same 20% wash, and the
+   same 2px cap at its right edge that the band grows on hover. */
+.pathways .legend__swatch--alltime {
+  position: relative;
+  background: color-mix(in srgb, var(--muted-ink) 20%, transparent);
+}
+.pathways .legend__swatch--alltime::after {
+  content: ""; position: absolute; top: -2px; bottom: -2px; right: -1px; width: 2px;
+  background: color-mix(in srgb, var(--muted-ink) 55%, transparent);
+}
+.pathways .legend__row.has-readout { cursor: help; }
+.pathways .legend__row.has-readout:hover .legend__swatch--alltime,
+.pathways .legend__row.has-readout:focus-visible .legend__swatch--alltime {
+  background: color-mix(in srgb, var(--muted-ink) 34%, transparent);
+}
+.pathways .legend__row:focus-visible { outline: 2px solid var(--secondary); outline-offset: 2px; }
+.pathways .disclosure { border: 1px solid var(--rule); background: var(--depth-1); margin-top: .9rem; }
+.pathways .disclosure--about { margin: .35rem 0 1.35rem; background: transparent; border: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.pathways .disclosure--about summary { padding: .5rem 0; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted-ink); }
+.pathways .disclosure--about summary:hover { color: var(--secondary); }
+.pathways .disclosure--about[open] summary { border-bottom: 0; color: var(--ink); }
+.pathways .disclosure--about .chapter__what { padding: 0 0 .85rem; margin: 0; }
+.pathways .disclosure summary { cursor: pointer; padding: .55rem .75rem; font-weight: 700; font-size: .9rem; }
+.pathways .disclosure summary:hover { color: var(--accent); }
+.pathways .disclosure[open] summary { border-bottom: 1px solid var(--rule); }
+.pathways .tablewrap { overflow-x: auto; overflow-y: hidden; padding: .5rem .75rem .9rem; }
+.pathways table { border-collapse: collapse; width: 100%; font-size: .88rem; }
+.pathways caption { text-align: left; color: var(--muted-ink); font-size: .82rem; padding: .35rem 0; }
+.pathways th { text-align: left; border-bottom: 2px solid var(--ink); padding: .35rem .5rem; }
+.pathways td { border-bottom: 1px solid var(--rule); padding: .35rem .5rem; }
+.pathways td.num, .pathways th.num { text-align: right; }
+.pathways .colophon { margin-top: 2.25rem; padding-top: 1rem; border-top: 2px solid var(--ink); color: var(--muted-ink); font-size: .85rem; max-width: 72ch; }
+.pathways .srlive { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Wider composition from 48rem: oversized tracks earn their name. */
+@media (min-width: 48rem) {
+  .pathways .step { grid-template-columns: 17rem 1fr; column-gap: 1.5rem; align-items: center; padding: 1.35rem 0; }
+  .pathways { --bar-h: 7.5rem; }
+  .pathways .step__value { font-size: 2.2rem; }
+  .pathways .swarmrow { grid-template-columns: 17rem 1fr; column-gap: 1.5rem; align-items: center; }
+  .pathways .swarmrow__plot { height: 8.5rem; }
+  .pathways .chapter { padding: 3.25rem 0 1.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pathways .skeleton::after { animation: none; }
+  .pathways .step__seg, .pathways .flow__line, .pathways .step__alltimecap, .pathways .chip, .pathways .wf__bar,
+  .pathways .toggle-btn, .pathways .toggle-btn .arrow, .pathways .opt-btn, .pathways .gender-btn,
+  .pathways .stack-tile, .pathways .stack-tile__swatch, .pathways .state-pill, .pathways .step__seg--alltime,
+  .pathways .keycap,
+  .pathways .btn-meter-fill, .pathways .signal-lane__fill, .pathways .signal-head__toggle, .pathways .dirchip { transition: none; }
+}
+
+/* Finish-review round: grouped focus chips, honest focus notices, signal bars,
+   solo trajectory markers, themed scrollbars, paper material. */
+.pathways .rail__group { display: inline-flex; align-items: center; gap: .4rem; padding: .15rem .45rem .15rem .15rem; border: 1px dashed var(--rule); }
+.pathways .rail__grouplabel { font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-ink); padding: 0 .25rem; }
+.pathways .focus-notice { border: 1px solid var(--move-stalled); background: var(--soft-stalled); color: var(--ink); font-size: .85rem; padding: .5rem .75rem; margin-bottom: .9rem; max-width: 70ch; }
+/* Front Door: four independent Sunday touchpoints.
+   This track is not a bar. Its hatch marks it as a different kind of reading --
+   overlapping observations of one Sunday, not a measured population -- so it is
+   never mistaken for the person bars above and below it. */
+.pathways .step__track--signals {
+  flex-direction: column; align-items: stretch;
+  gap: .55rem; padding: .7rem .85rem .75rem;
+  background-image:
+    repeating-linear-gradient(-45deg, color-mix(in srgb, var(--muted-ink) 10%, transparent) 0 6px, transparent 6px 12px),
+    linear-gradient(180deg, var(--depth-2) 0%, var(--depth-1) 100%);
+}
+.pathways .signal-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: .75rem;
+}
+.pathways .signal-head__label {
+  font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--muted-ink); font-variant-numeric: tabular-nums;
+}
+.pathways .signal-head__toggle {
+  font-family: inherit; font-size: .7rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--secondary); background: transparent;
+  border: 1px solid var(--rule); border-radius: 2px;
+  padding: .2rem .55rem; cursor: pointer;
+  transition: border-color 150ms var(--ease-out), color 150ms var(--ease-out);
+}
+.pathways .signal-head__toggle:hover { border-color: var(--secondary); color: var(--ink); }
+
+/* Split lanes: the honest default. One row per touchpoint, each on its own
+   scale-to-peak rail, with the reading, the week-over-week move, the running
+   average, and the Rock metric all set in text. */
+.pathways .signal-lanes { display: grid; gap: .5rem; }
+.pathways .signal-lane {
+  display: grid;
+  grid-template-columns: minmax(8.5rem, 12rem) minmax(0, 1fr) minmax(9rem, auto);
+  grid-template-areas: "name rail readout" ". source source";
+  align-items: center; column-gap: .8rem; row-gap: .15rem;
+}
+.pathways .signal-lane__name {
+  grid-area: name; display: flex; align-items: center; gap: .45rem;
+  font-size: .9rem; font-weight: 700; color: var(--ink);
+}
+.pathways .signal-lane__swatch {
+  width: 10px; height: 10px; flex: 0 0 auto; border-radius: 1px;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--background) 55%, transparent);
+}
+.pathways .signal-lane__rail {
+  grid-area: rail; position: relative; height: 1.5rem;
+  background: color-mix(in srgb, var(--muted-ink) 8%, transparent);
+  border-left: 2px solid var(--secondary);
+}
+.pathways .signal-lane__fill {
+  display: block; height: 100%;
+  transition: width 260ms var(--ease-out);
+}
+.pathways .signal-lane__readout {
+  grid-area: readout; display: flex; align-items: baseline; justify-content: flex-end;
+  flex-wrap: wrap; gap: .1rem .5rem; text-align: right;
+}
+.pathways .signal-lane__value {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.35rem; line-height: 1; color: var(--ink);
+}
+.pathways .signal-lane__delta { font-size: .74rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pathways .signal-lane__delta.is-up { color: var(--move-gain); }
+.pathways .signal-lane__delta.is-down { color: var(--move-loss); }
+.pathways .signal-lane__delta.is-flat { color: var(--muted-ink); }
+.pathways .signal-lane__meta { font-size: .74rem; color: var(--muted-ink); }
+.pathways .signal-lane__source {
+  grid-area: source; margin: 0; font-size: .74rem; line-height: 1.35; color: var(--muted-ink);
+}
+.pathways .signal-lane--unobserved .signal-lane__name,
+.pathways .signal-lane--unobserved .signal-lane__value { color: var(--muted-ink); font-style: italic; }
+.pathways .signal-lane--unobserved .signal-lane__swatch { box-shadow: inset 0 0 0 1px var(--muted-ink); }
+.pathways .signal-lane--unobserved .signal-lane__rail {
+  background-image: repeating-linear-gradient(-45deg, color-mix(in srgb, var(--muted-ink) 18%, transparent) 0 6px, transparent 6px 12px);
+}
+
+/* Stacked: opt-in, and labelled as overlapping every time it is shown. */
+.pathways .signal-stack { display: flex; height: 2.1rem; }
+.pathways .signal-stack__seg { display: block; min-width: 3px; margin-right: 2px; }
+.pathways .signal-stack__readout { display: flex; align-items: baseline; gap: .6rem; }
+.pathways .signal-stack__total { font-family: var(--font-display); font-weight: 700; font-size: 1.7rem; line-height: 1; color: var(--ink); }
+.pathways .signal-stack__caveat { font-size: .78rem; font-style: italic; color: var(--move-stalled); }
+.pathways .signal-legend { font-size: .78rem; color: var(--muted-ink); font-variant-numeric: tabular-nums; }
+.pathways .signal-foot { margin: 0; font-size: .78rem; line-height: 1.4; color: var(--muted-ink); }
+
+@media (max-width: 720px) {
+  .pathways .signal-lane {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "name readout" "rail rail" "source source";
+    row-gap: .3rem;
+  }
+  .pathways .signal-lane__readout { justify-content: flex-start; }
+}
+.pathways .step__value--signals { font-size: 1.25rem; }
+
+
+.pathways .wf__svg { min-width: 860px; }
+.pathways .swarmrow__bin { opacity: .45; }
+.pathways .tablewrap, .pathways .flow__mount, .pathways .wf__svgwrap { scrollbar-color: var(--muted-ink) var(--background); scrollbar-width: thin; }
+/* Graticule: the chart's lat/long ruling, drawn not photographed. Replaces the
+   paper and grain overlays -- a night chart has no paper. */
+.pathways {
+  background-image:
+    linear-gradient(to right, var(--graticule) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--graticule) 1px, transparent 1px);
+  background-size: 5.5rem 5.5rem;
+  background-position: center top;
+}
+.pathways .masthead {
+  background-color: var(--depth-1);
+  background-image: repeating-linear-gradient(90deg, var(--graticule) 0 1px, transparent 1px 1.375rem);
+}
+
+/* Segment readout: the band's name and number, on the band itself. Positioned
+   inside the track, which is already position:relative for the sounding datum. */
+.pathways .segcard {
+  position: absolute;
+  z-index: 8;
+  min-width: 9rem;
+  max-width: 15rem;
+  padding: .5rem .6rem .55rem;
+  background: var(--depth-1);
+  border: 1px solid var(--edge-lit);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--ink) 10%, transparent),
+    0 14px 30px -18px rgba(0, 0, 0, 1);
+  pointer-events: none;
+}
+.pathways .segcard__head { display: flex; align-items: center; gap: .4rem; margin-bottom: .2rem; }
+.pathways .segcard__swatch {
+  width: 9px; height: 9px; flex: 0 0 auto; border-radius: 1px;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--background) 55%, transparent);
+}
+.pathways .segcard__label {
+  font-size: .74rem; font-weight: 700; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--ink);
+}
+.pathways .segcard__line { display: flex; align-items: baseline; gap: .3rem; }
+.pathways .segcard__value {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; line-height: 1; color: var(--ink);
+}
+.pathways .segcard__unit { font-size: .74rem; color: var(--muted-ink); }
+.pathways .segcard__share { margin: .15rem 0 0; font-size: .74rem; color: var(--secondary); }
+.pathways .segcard__note { margin: .2rem 0 0; font-size: .72rem; line-height: 1.35; color: var(--muted-ink); }
+.pathways .step__seg:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+
+/* Partial waterfall: counted movements as real bars, everything the schema
+   cannot answer yet reserved as a hatched ghost. A ghost is never a zero. */
+.pathways .wfghost { display: grid; gap: .45rem; }
+.pathways .wfghost__row {
+  display: grid;
+  grid-template-columns: minmax(9rem, 15rem) minmax(0, 1fr) minmax(4.5rem, auto);
+  align-items: center; column-gap: .85rem;
+}
+.pathways .wfghost__row--anchor { margin: .2rem 0; }
+.pathways .wfghost__label { font-size: .9rem; font-weight: 700; color: var(--ink); }
+.pathways .wfghost__row--anchor .wfghost__label {
+  font-family: var(--font-display); font-size: 1rem; letter-spacing: -0.01em;
+}
+.pathways .wfghost__label--ghost { color: var(--muted-ink); font-style: italic; font-weight: 400; }
+.pathways .wfghost__rail {
+  position: relative; height: 2.1rem;
+  background: color-mix(in srgb, var(--muted-ink) 6%, transparent);
+}
+/* The centre axis. Movements hang off it, gains right and losses left, which is
+   what makes this a waterfall instead of a list of bars all growing one way. */
+.pathways .wfghost__rail::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 50%;
+  width: 2px; margin-left: -1px; background: var(--secondary);
+  opacity: var(--sound-2); pointer-events: none;
+}
+/* Anchors are totals, not movements: they measure from the left edge and get
+   no axis, because they are not signed. */
+.pathways .wfghost__rail--anchor { border-left: 2px solid var(--secondary); }
+.pathways .wfghost__rail--anchor::before { display: none; }
+.pathways .wfghost__bar { position: absolute; top: 0; height: 100%; cursor: help; }
+.pathways .wfghost__bar.is-total { left: 0; }
+.pathways .wfghost__bar.is-plus { left: 50%; }
+.pathways .wfghost__bar.is-minus { right: 50%; }
+.pathways .wfghost__bar.is-gain { background: var(--move-gain); }
+.pathways .wfghost__bar.is-loss { background: var(--move-loss); }
+.pathways .wfghost__bar.is-stalled { background: var(--move-stalled); }
+.pathways .wfghost__bar--ghost {
+  background: repeating-linear-gradient(-45deg,
+    color-mix(in srgb, var(--muted-ink) 20%, transparent) 0 8px,
+    color-mix(in srgb, var(--muted-ink) 4%, transparent) 8px 16px);
+  border-right: 1px dashed var(--muted-ink);
+}
+.pathways .wfghost__bar:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+.pathways .wfghost__value {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; line-height: 1;
+  color: var(--ink); text-align: right;
+}
+.pathways .wfghost__value--unknown { color: var(--muted-ink); font-style: italic; }
+.pathways .wfghost__value.is-minus { color: var(--move-loss); }
+.pathways .wfghost__legend {
+  margin: .8rem 0 0; font-size: .78rem; line-height: 1.45; color: var(--muted-ink);
+}
+@media (max-width: 720px) {
+  .pathways .wfghost__row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "label value" "rail rail";
+    row-gap: .25rem;
+  }
+  .pathways .wfghost__label { grid-area: label; }
+  .pathways .wfghost__value { grid-area: value; }
+  .pathways .wfghost__rail { grid-area: rail; }
+}
+
+/* A pathway's clarifying note: visible in place, and repeated as a readout on
+   the heading for anyone who hovers the name instead of reading past it. */
+.pathways .pathgroup__note {
+  margin: .3rem 0 0; font-size: .82rem; line-height: 1.45;
+  color: var(--muted-ink); max-width: 52ch;
+}
+.pathways .pathway-section__name.has-readout { cursor: help; }
+.pathways .pathway-section__name.has-readout:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.pathways .segcard__unknown {
+  margin: .1rem 0 0; font-size: .8rem; font-style: italic; color: var(--move-stalled);
+}
+.pathways .signal-lane__rail { cursor: help; }
+.pathways .signal-lane__rail:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* Rock migration window: the span whose transition dates are import timestamps
+   rather than the day a person moved. Marked as ground, not as a mask -- the
+   records are real and stay legible; what is suppressed is the reading that they
+   are ministry activity. */
+.pathways .flow__migration {
+  /* On pure black a 5% wash is invisible. This has to read as a distinct kind of
+     time without competing with the curves drawn over it. */
+  fill: color-mix(in srgb, var(--move-stalled) 4%, transparent);
+  stroke: none;
+  pointer-events: none;
+}
+/* The hatch itself is an SVG pattern (see the renderer), so it scales with the
+   plot and sits under the curves. */
+.pathways .flow__migrationhatch { stroke: color-mix(in srgb, var(--move-stalled) 11%, transparent); stroke-width: 1; }
+.pathways .flow__migrationedge {
+  stroke: var(--move-stalled);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+  opacity: .6;
+}
+.pathways .flow__migrationlabel {
+  fill: var(--move-stalled);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+}
+.pathways .flowwrap__migration {
+  margin: .5rem 0 0; font-size: .78rem; line-height: 1.45; color: var(--muted-ink);
+  border-left: 2px solid var(--move-stalled); padding-left: .6rem;
+}
+
+
+/* ==========================================================================
+   CLASSIC MODE (#214 / #218).
+
+   Two blocks live below, in this order:
+
+   1. The island's --classic-* map (classic-grammar.md §13, People Pathways
+      column). It sits on the island root unconditionally, because the mode
+      switch and the copy prompt use these tokens in Creative too.
+   2. apps/shared/classic-base.css, pasted verbatim with every selector confined
+      to .pathways (classic-grammar.md §19, tools/scope_island_css.py), between
+      the BEGIN/END markers. Synced 2026-09-02 against apps/shared/classic-base.css.
+      Two deliberate departures from a byte-for-byte paste, both noted in place:
+      the .is-mode-switching rules attach to the root itself (.pathways.is-...),
+      because the island root is what carries that class; and the print comment
+      moved inside its at-rule so the scope checker does not read it as a selector.
+      Refresh it by re-running the scoping tool over the shared file and diffing.
+
+   Island chrome that Classic needs -- the mode containers, the masthead tools,
+   the Creative-mode rails, the directory chips, the chart aids -- follows the
+   pasted block, so the island keeps the last word on its own furniture.
+   ========================================================================== */
+
+.pathways {
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--depth-2);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-focus: var(--focus);
+  /* Washes are backgrounds only; the island's soft polarity ramp is already
+     mixed for this ground, so Classic borrows it rather than inventing one. */
+  --classic-wash-healthy: var(--soft-gain);
+  --classic-wash-watch: var(--soft-stalled);
+  --classic-wash-neutral: var(--ghost-wash);
+  /* Composites to the same value as var(--soft-neutral) painted on --surface,
+     which is what this override always sat on -- tokenized so it follows theme. */
+  --classic-wash-unknown: var(--soft-neutral);
+  /* One data hue for bars and sparklines. Cohort hues stay identity, never state. */
+  --classic-bar: var(--secondary);
+  --classic-heading-font: var(--font-display);
+  --classic-body-font: var(--font-body);
+  --classic-shadow: 0 12px 34px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------- BEGIN pasted apps/shared/classic-base.css (scope .pathways) ---------- */
+
+/* ==========================================================================
+   Classic mode -- token-agnostic composition block (#214).
+   Spec: docs/design/classic-grammar.md. Builders: apps/shared/classic-widgets.mjs.
+
+   Each island merges this block into its own stylesheet under its own scope
+   prefix (#exec-overview-island / .pathways / #connect-field). Every selector
+   here starts with "." "[" or "#" so a prefixing pass can wrap it verbatim;
+   there is no :root, no bare element, no *, and no @keyframes.
+
+   An island sets these on its root (under [data-mode="classic"] or always):
+     --classic-surface        widget / tile ground
+     --classic-surface-2      table head band, hover band, bar track, switch well
+     --classic-ink            all text, all numerals
+     --classic-muted          labels, units, captions, deltas, the (i) glyph
+     --classic-rule           hairlines
+     --classic-accent         open (i), copied state, current-mode rule
+     --classic-focus          the focus ring
+     --classic-wash-healthy | -watch | -thin | -neutral | -unknown   backgrounds only
+     --classic-bar            inline bars and sparklines (one data hue, never state)
+     --classic-heading-font   widget titles
+     --classic-body-font      everything else
+   Optional: --classic-shadow (popover shadow), --classic-num-font (defaults to Arial).
+
+   Every color below is a bare var(--classic-*) with NO fallback. It used to carry a
+   var(--classic-x, var(--y, #creamHex)) chain ending in a literal, on the theory that a
+   widget should render sanely before an island had mapped a value. Under a theme switch
+   that theory inverts: a broken chain no longer degrades, it paints cream into a dark
+   theme and looks like a rendering bug rather than a missing token. Every island now
+   receives the whole map from its generated theme blocks
+   (tools/build_theme_blocks.py), in all three themes, so there is nothing left to fall
+   back to and an unmapped token must fail visibly instead of quietly.
+   ========================================================================== */
+
+/* ---------- layout ---------- */
+.pathways .classic-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; align-items: start; }
+.pathways .classic-grid > .kpi-strip, .pathways .classic-grid > .cw { grid-column: 1 / -1; min-width: 0; }
+@media (min-width: 48rem) {
+  .pathways .classic-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 1.1rem; }
+  .pathways .classic-grid > .cw--half { grid-column: span 6; }
+  .pathways .classic-grid > .cw--expanded { grid-column: 1 / -1; }
+}
+
+/* ---------- widget (cw) ---------- */
+.pathways .cw { display: flex; flex-direction: column; min-width: 0; background: var(--classic-surface); border: 1px solid var(--classic-rule); color: var(--classic-ink); font-family: var(--classic-body-font); }
+.pathways .cw__head { display: flex; flex-wrap: wrap; align-items: flex-start; gap: .5rem .9rem; padding: .8rem .9rem .6rem; border-bottom: 1px solid var(--classic-rule); }
+.pathways .cw__lead { flex: 1 1 20rem; min-width: 0; display: flex; flex-direction: column; gap: .15rem; }
+.pathways .cw__titlerow { display: flex; align-items: center; gap: .3rem; min-width: 0; }
+.pathways .cw__title { margin: 0; font-family: var(--classic-heading-font); font-size: 1.05rem; font-weight: 700; line-height: 1.2; letter-spacing: -.01em; text-transform: none; color: var(--classic-ink); text-wrap: balance; }
+.pathways .cw__question { margin: 0; font-size: .84rem; line-height: 1.4; color: var(--classic-muted); }
+.pathways .cw__info { margin-left: .1rem; }
+.pathways .cw__tools { display: flex; align-items: center; gap: .4rem; margin-left: auto; flex: none; }
+.pathways .cw__rail { display: flex; align-items: center; }
+.pathways .cw__expand { position: relative; display: inline-grid; place-items: center; width: 2rem; height: 2rem; padding: 0; border: 1px solid var(--classic-rule); background: transparent; color: var(--classic-muted); cursor: pointer; }
+.pathways .cw__expand::after { content: ""; position: absolute; inset: -.4rem; }
+.pathways .cw__expand svg { width: 14px; height: 14px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.pathways .cw__expand:hover { color: var(--classic-ink); border-color: var(--classic-ink); }
+.pathways .cw__expand[aria-pressed="true"] { background: var(--classic-ink); color: var(--classic-surface); border-color: var(--classic-ink); }
+/* No padding at the top of the scroll container. The scrollport is the padding box, so a
+   top inset here leaves a band the sticky <thead> cannot cover and rows slide visibly
+   through it; the head rule and the cells' own padding carry the breathing room instead. */
+.pathways .cw__body { position: relative; padding: 0 .9rem .8rem; overflow: auto; max-height: 28rem; min-width: 0; }
+.pathways .cw--expanded .cw__body { max-height: none; }
+/* A body showing readings rather than a table has nothing to scroll, and capping it clips
+   the (i) popovers its tiles open. Any table in the body means the cap is doing real work. */
+.pathways .cw__body:has(.kpi-strip):not(:has(.ct)) { overflow: visible; max-height: none; }
+.pathways .cw__aid { display: flex; align-items: flex-start; justify-content: center; padding: .5rem 0; min-width: 0; }
+.pathways .cw__aid svg { display: block; max-width: 100%; height: auto; }
+.pathways .cw__aid:empty { display: none; }
+.pathways .cw__note { margin: 0; padding: .55rem .9rem .7rem; border-top: 1px solid var(--classic-rule); font-size: .82rem; line-height: 1.45; color: var(--classic-ink); }
+.pathways .cw__note strong { font-weight: 700; }
+/* Beside the table only where the widget's own column can hold both. A half-width widget
+   has room for one or the other, so its aid stays under the table until the widget is
+   expanded back to full width. Below that the body is a plain block and the aid follows
+   the table because it follows it in the DOM (classic-widgets.mjs keeps it last). */
+@media (min-width: 64rem) {
+  .pathways .cw--has-aid:not(.cw--half) .cw__body, .pathways .cw--has-aid.cw--half.cw--expanded .cw__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, 18rem); gap: 1rem; align-items: start; }
+  .pathways .cw--has-aid:not(.cw--half) .cw__aid, .pathways .cw--has-aid.cw--half.cw--expanded .cw__aid { grid-column: 2; grid-row: 1; position: sticky; top: 0; }
+}
+
+/* ---------- unavailable (a refusal is never a zero) ---------- */
+.pathways .cw__unavail { display: flex; flex-direction: column; align-items: flex-start; gap: .35rem; margin: .45rem 0 .2rem; padding: 1rem 1rem 1.05rem; border: 1px dashed var(--classic-muted); background: transparent; color: var(--classic-ink); }
+.pathways .cw__unavail-label { font-size: .74rem; font-weight: 700; letter-spacing: .02em; color: var(--classic-muted); }
+.pathways .cw__unavail-reason { margin: 0; font-size: .84rem; line-height: 1.5; max-width: 52ch; }
+
+/* ---------- classic table (ct) ---------- */
+.pathways .ct { width: 100%; border-collapse: collapse; border-spacing: 0; font-size: .86rem; line-height: 1.35; color: var(--classic-ink); font-family: var(--classic-body-font); }
+.pathways .ct caption { caption-side: bottom; text-align: left; padding: .5rem 0 0; font-size: .74rem; line-height: 1.45; color: var(--classic-muted); }
+.pathways .ct th, .pathways .ct td { padding: .42rem .55rem; text-align: left; vertical-align: baseline; border-bottom: 1px solid var(--classic-rule); white-space: nowrap; }
+.pathways .ct th:first-child, .pathways .ct td:first-child { padding-left: 0; white-space: normal; }
+.pathways .ct th:last-child, .pathways .ct td:last-child { padding-right: 0; }
+.pathways .ct thead th { position: sticky; top: 0; z-index: 1; font-size: .74rem; font-weight: 700; color: var(--classic-muted); background: var(--classic-surface); border-bottom: 1px solid var(--classic-ink); text-transform: none; letter-spacing: 0; }
+.pathways .ct tbody th { font-weight: 600; }
+/* Row headers stay put while a wide pivot scrolls sideways inside .cw__body. */
+.pathways .ct thead th:first-child, .pathways .ct tbody th[scope="row"] { position: sticky; left: 0; background-color: var(--classic-surface); }
+.pathways .ct thead th:first-child { z-index: 2; }
+.pathways .ct tbody tr:hover > th, .pathways .ct tbody tr:hover > td { background-color: var(--classic-surface-2); }
+.pathways .ct__num { font-family: var(--classic-num-font, Arial, sans-serif); font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+.pathways .ct td.ct__num, .pathways .ct th.ct__num { text-align: right; }
+.pathways .ct__share { color: var(--classic-muted); }
+.pathways .ct__unavail { color: var(--classic-muted); }
+.pathways .ct__group > th { padding-top: .95rem; font-size: .74rem; font-weight: 700; color: var(--classic-muted); border-bottom: 1px solid var(--classic-ink); }
+.pathways .ct tbody:first-of-type .ct__group > th { padding-top: .5rem; }
+.pathways .ct tbody tr.ct__group:hover > th { background: transparent; }
+.pathways .ct__total > th, .pathways .ct__total > td { border-top: 2px solid var(--classic-ink); border-bottom: 0; font-weight: 700; }
+.pathways .ct__total .ct__share { color: var(--classic-ink); }
+.pathways .ct__bar { width: 7.5rem; min-width: 5rem; vertical-align: middle; }
+.pathways .ct__bar-track { display: block; height: .55rem; width: 100%; background: var(--classic-surface-2); }
+.pathways .ct__bar-fill { display: block; height: 100%; max-width: 100%; background: var(--classic-bar); }
+.pathways .ct__spark { width: 8.5rem; vertical-align: middle; }
+.pathways .ct__spark svg { display: block; overflow: visible; }
+.pathways .spark__base { stroke: var(--classic-rule); stroke-width: 1; }
+.pathways .spark__line { fill: none; stroke: var(--classic-bar); stroke-width: 1.5; stroke-linejoin: round; stroke-linecap: round; }
+.pathways .spark__dot { fill: var(--classic-bar); }
+/* Sorting is the primary interaction in a Classic table, and on a phone the control is the
+   column label -- about 28px tall, under the 44px a thumb needs. Every other control in this
+   grammar already carries the same invisible hit expander (.cw__expand, .info-disc > summary,
+   .xrail__btn); this one was the exception. Vertical only, so neighbouring column headers
+   keep their own horizontal edges. */
+.pathways .ct__sort { position: relative; display: inline-flex; align-items: center; gap: .25rem; min-height: 1.75rem; margin: -.3rem 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; text-align: inherit; }
+.pathways .ct__sort::after { content: ""; position: absolute; inset: -.5rem 0; }
+.pathways .ct__sort svg { width: 10px; height: 10px; fill: none; stroke: currentColor; stroke-width: 1.5; opacity: .45; }
+.pathways .ct__sort:hover { color: var(--classic-ink); }
+.pathways .ct th[aria-sort="ascending"] .ct__sort svg, .pathways .ct th[aria-sort="descending"] .ct__sort svg { opacity: 1; }
+.pathways .ct th[aria-sort="ascending"] .ct__sort-down, .pathways .ct th[aria-sort="descending"] .ct__sort-up { display: none; }
+.pathways .ct__sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* ---------- quiet KPI strip ---------- */
+.pathways .kpi-strip { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin: 0; padding: 0; list-style: none; background: var(--classic-rule); border: 1px solid var(--classic-rule); }
+@media (min-width: 48rem) { .pathways .kpi-strip { grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr)); } }
+@media (max-width: 47.98rem) { .pathways .kpi-tile:last-child:nth-child(odd) { grid-column: 1 / -1; } }
+.pathways .kpi-tile { display: flex; flex-direction: column; gap: .2rem; min-width: 0; min-height: 5.6rem; padding: .7rem .8rem .65rem; background-color: var(--classic-surface); color: var(--classic-ink); font-family: var(--classic-body-font); }
+.pathways .kpi-tile[data-state="healthy"] { background-image: linear-gradient(var(--classic-wash-healthy), var(--classic-wash-healthy)); }
+.pathways .kpi-tile[data-state="watch"] { background-image: linear-gradient(var(--classic-wash-watch), var(--classic-wash-watch)); }
+.pathways .kpi-tile[data-state="thin"] { background-image: linear-gradient(var(--classic-wash-thin), var(--classic-wash-thin)); }
+.pathways .kpi-tile[data-state="neutral"] { background-image: linear-gradient(var(--classic-wash-neutral), var(--classic-wash-neutral)); }
+.pathways .kpi-tile[data-state="unknown"] { background-image: linear-gradient(var(--classic-wash-unknown), var(--classic-wash-unknown)); }
+.pathways .kpi-tile__top { display: flex; align-items: center; justify-content: space-between; gap: .3rem; min-width: 0; }
+.pathways .kpi-tile__label { font-size: .74rem; line-height: 1.3; color: var(--classic-muted); overflow-wrap: anywhere; }
+.pathways .kpi-tile__reading { display: flex; align-items: baseline; flex-wrap: wrap; gap: .3rem; margin-top: auto; }
+.pathways .kpi-tile__value { font-family: var(--classic-num-font, Arial, sans-serif); font-size: 1.45rem; font-weight: 700; line-height: 1.1; letter-spacing: -.01em; font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; color: var(--classic-ink); }
+.pathways .kpi-tile__value.is-unavail { font-weight: 400; color: var(--classic-muted); }
+.pathways .kpi-tile__unit { font-size: .78rem; color: var(--classic-muted); }
+.pathways .kpi-tile__delta { font-size: .74rem; line-height: 1.3; font-variant-numeric: tabular-nums; color: var(--classic-muted); }
+.pathways .kpi-tile__delta:empty { display: none; }
+
+/* ---------- mode switch (contract §3 markup) ---------- */
+.pathways .mode-switch { display: inline-flex; width: 100%; gap: 2px; padding: 2px; border: 1px solid var(--classic-rule); background: var(--classic-surface-2); }
+.pathways .mode-switch__btn { flex: 1 1 0; min-height: 2.75rem; padding: 0 1rem; border: 0; background: transparent; color: var(--classic-muted); font-family: var(--classic-body-font); font-size: .82rem; font-weight: 700; letter-spacing: .01em; cursor: pointer; }
+.pathways .mode-switch__btn:hover { color: var(--classic-ink); }
+.pathways .mode-switch__btn[aria-pressed="true"] { background: var(--classic-ink); color: var(--classic-surface); cursor: default; }
+
+/* ---------- (i) disclosure ---------- */
+.pathways .info-disc { display: inline-block; position: relative; vertical-align: middle; flex: none; }
+.pathways .info-disc > summary { position: relative; list-style: none; cursor: pointer; display: inline-grid; place-items: center; width: 1.75rem; height: 1.75rem; }
+.pathways .info-disc > summary::-webkit-details-marker { display: none; }
+.pathways .info-disc > summary::after { content: ""; position: absolute; inset: -.5rem; }
+.pathways .info-disc > summary svg { width: 15px; height: 15px; display: block; }
+.pathways .info-disc > summary svg circle, .pathways .info-disc > summary svg line { fill: none; stroke: var(--classic-muted); stroke-width: 1.4; }
+.pathways .info-disc > summary svg .dotcap { fill: var(--classic-muted); stroke: none; }
+.pathways .info-disc > summary:hover svg circle, .pathways .info-disc > summary:hover svg line { stroke: var(--classic-ink); }
+.pathways .info-disc > summary:hover svg .dotcap { fill: var(--classic-ink); }
+.pathways .info-disc[open] > summary svg circle, .pathways .info-disc[open] > summary svg line { stroke: var(--classic-accent); }
+.pathways .info-disc[open] > summary svg .dotcap { fill: var(--classic-accent); }
+.pathways .info-pop { position: absolute; z-index: 40; top: calc(100% + 6px); left: -8px; width: min(28rem, calc(100vw - 3rem)); padding: .75rem .9rem; background: var(--classic-surface); border: 1px solid var(--classic-rule); color: var(--classic-ink); box-shadow: var(--classic-shadow); font-family: var(--classic-body-font); font-size: .8rem; font-weight: 400; line-height: 1.5; letter-spacing: 0; text-transform: none; text-align: left; white-space: normal; }
+.pathways .info-disc--end .info-pop { left: auto; right: -8px; }
+
+/* The prose mark and its two bubble extensions used to sit here, in the middle of a
+   region that is meant to be a faithful scoped copy of apps/shared/classic-base.css.
+   They are Pathways' own chrome, not the shared contract, so they now live in the
+   override zone at the foot of this file where island rules belong. Ten rules hiding
+   inside the pasted block is why MergedClassicBlockTest could not tell a deliberate
+   island addition from the drift it exists to catch. */
+
+/* ---------- tooltip (mounted by dashboard-tooltip.mjs, #236/#252) ---------- */
+/* One bubble per document, positioned fixed by dashboard-tooltip.mjs's placeNear() -- fixed
+   positioning leaves every ancestor's overflow box, the same reason .info-pop above nudges
+   itself back on screen instead of relying on z-index. */
+.pathways .dashboard-tip { position: fixed; z-index: 1040; top: 0; left: 0; max-width: 18rem; padding: .6rem .75rem; background: var(--classic-surface); border: 1px solid var(--classic-rule); color: var(--classic-ink); box-shadow: var(--classic-shadow); font-family: var(--classic-body-font); font-size: .8rem; line-height: 1.45; pointer-events: none; }
+/* The closed state belongs to the shared contract, not to each island.
+   dashboard-tooltip.mjs only ever flips `data-open`; it deliberately does not touch
+   the `hidden` attribute, because `display: none` cannot be transitioned. An island
+   that never defined the closed half of that pair therefore left the bubble on screen
+   forever: hover filled it, "close" set an attribute nothing read, and the last thing
+   hovered stood there over a pointer that had moved on. That is the "tooltips are too
+   sticky, they still show when you are not hovering" report, and it was never in the
+   JavaScript. Connect Field had carried its own copy of these two rules; every other
+   island shipped the bubble permanently visible. */
+.pathways .dashboard-tip { opacity: 0; visibility: hidden; transition: opacity .12s ease, visibility .12s; }
+.pathways .dashboard-tip[data-open="true"] { opacity: 1; visibility: visible; }
+.pathways .dashboard-tip__head { display: flex; align-items: center; gap: .4rem; margin-bottom: .15rem; }
+.pathways .dashboard-tip__swatch { flex: none; width: .6rem; height: .6rem; background: currentColor; }
+.pathways .dashboard-tip__label { font-weight: 700; color: var(--classic-muted); }
+.pathways .dashboard-tip__value { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+.pathways .dashboard-tip__compare { margin: .1rem 0 0; color: var(--classic-muted); }
+.pathways .dashboard-tip__unit { margin-left: .3rem; color: var(--classic-muted); }
+.pathways .spark__hit { fill: transparent; cursor: pointer; }
+
+/* ---------- export rail (mounted by dashboard-export.mjs) ---------- */
+.pathways .xrail { display: inline-flex; align-items: center; gap: .3rem; }
+.pathways .xrail__btn { position: relative; display: inline-flex; align-items: center; gap: .35rem; min-height: 2rem; padding: 0 .55rem; border: 1px solid var(--classic-rule); border-radius: 4px; background: transparent; color: var(--classic-ink); font-family: var(--classic-body-font); font-size: .72rem; font-weight: 700; line-height: 1; letter-spacing: .01em; cursor: pointer; white-space: nowrap; }
+.pathways .xrail__btn::after { content: ""; position: absolute; inset: -.4rem 0; }
+.pathways .xrail__btn svg { width: 14px; height: 14px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.pathways .xrail__icon { display: inline-flex; align-items: center; }
+.pathways .xrail__label { display: inline-block; }
+.pathways .xrail__suffix { display: inline-block; font-size: .68rem; font-weight: 500; opacity: .75; padding: 1px 4px; border-radius: 3px; background: color-mix(in srgb, currentColor 10%, transparent); margin-left: .25rem; }
+.pathways .xrail__btn:hover { border-color: var(--classic-ink); background: var(--classic-surface-2); }
+.pathways .xrail__btn:active { background: var(--classic-rule); }
+.pathways .xrail__btn.is-busy { cursor: progress; opacity: .65; }
+.pathways .xrail__btn.is-copied, .pathways .xrail__btn.is-done { border-color: var(--classic-accent); color: var(--classic-accent); background: transparent; }
+.pathways .xrail__btn--package { min-height: 2.25rem; padding: 0 .85rem; border-radius: 6px; font-size: .78rem; }
+.pathways .package-control { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; gap: .3rem; }
+.pathways .how-to-tip { margin: 0; font-size: .7rem; line-height: 1.35; color: var(--classic-muted); }
+.pathways .how-to-tip a, .pathways .how-to-tip__link { position: relative; color: inherit; text-decoration: underline; text-underline-offset: .15em; }
+.pathways .how-to-tip a::after, .pathways .how-to-tip__link::after { content: ""; position: absolute; inset: -.6rem -.2rem; }
+/* Honest disabled form: dashed, muted, no hover, still readable, title says why. */
+.pathways .tool__off, .pathways .xrail__btn:disabled, .pathways .xrail__btn[aria-disabled="true"] { border-style: dashed; border-color: var(--classic-rule); color: var(--classic-muted); background: transparent; cursor: not-allowed; opacity: 1; }
+.pathways .tool__off:hover, .pathways .xrail__btn:disabled:hover, .pathways .xrail__btn[aria-disabled="true"]:hover { border-color: var(--classic-rule); background: transparent; color: var(--classic-muted); }
+
+/* ---------- copy prompt (mounted by dashboard-prompt.mjs) ---------- */
+.pathways .copy-prompt { position: relative; display: inline-flex; flex-direction: column; align-items: flex-start; gap: .3rem; }
+.pathways .copy-prompt-btn { position: relative; display: inline-flex; align-items: center; gap: .45rem; min-height: 2.25rem; padding: 0 .85rem; border: 1px solid var(--classic-ink); border-radius: 6px; background: transparent; color: var(--classic-ink); font-family: var(--classic-body-font); font-size: .78rem; font-weight: 700; line-height: 1; cursor: pointer; white-space: nowrap; }
+.pathways .copy-prompt-btn svg { width: 15px; height: 15px; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.pathways .copy-prompt-btn svg.copy-prompt-btn__caret { width: 11px; height: 11px; stroke-width: 2; opacity: .7; margin-left: .1rem; }
+.pathways .copy-prompt-btn:hover, .pathways .copy-prompt-btn[aria-expanded="true"] { background: var(--classic-ink); color: var(--classic-surface); }
+.pathways .copy-prompt-btn.is-copied { background: transparent; border-color: var(--classic-accent); color: var(--classic-accent); }
+/* dashboard-prompt.mjs emits .copy-prompt-popover / .copy-prompt-option(__body|__label|__hint) /
+   .ai-guidelines-tip(__link); the shorter names are the contract's aliases. Both are styled. */
+.pathways .copy-prompt-tip, .pathways .ai-guidelines-tip { margin: 0; font-size: .7rem; line-height: 1.35; color: var(--classic-muted); }
+/* The tip link is set in .72rem type, so its own box is about 11px tall -- readable, but not
+   a thumb target. It gets the same expander, wide enough to be tappable without covering the
+   sentence around it. */
+.pathways .copy-prompt-tip a, .pathways .ai-guidelines-tip__link { position: relative; color: inherit; text-decoration: underline; text-underline-offset: .15em; }
+.pathways .copy-prompt-tip a::after, .pathways .ai-guidelines-tip__link::after { content: ""; position: absolute; inset: -.6rem -.2rem; }
+/* The drawn "opens in a new tab" mark dashboard-prompt.mjs appends to the tip link. Sized in
+   em so it tracks the tip's type, and painted in currentColor so it is the link's own ink. */
+.pathways .ai-guidelines-tip__mark { width: 1em; height: 1em; margin-left: .2em; vertical-align: -.12em; flex: none; }
+/* The popover hangs off the control, and the control is not always on the same side of a
+   masthead. Anchoring therefore follows it: from the start edge by default, from the end
+   edge when the mount says so -- rather than assuming a right-hand control and running off
+   the left of the screen everywhere the control sits at the start. */
+.pathways .copy-prompt-pop, .pathways .copy-prompt-popover { position: absolute; z-index: 50; top: calc(2.25rem + 6px); left: 0; right: auto; display: grid; gap: .2rem; min-width: 18rem; max-width: min(24rem, calc(100vw - 2rem)); padding: .35rem; background: var(--classic-surface); border: 1px solid var(--classic-rule); border-radius: 6px; box-shadow: var(--classic-shadow); }
+.pathways .copy-prompt--end .copy-prompt-pop, .pathways .copy-prompt--end .copy-prompt-popover { left: auto; right: 0; }
+.pathways .copy-prompt-pop[hidden], .pathways .copy-prompt-popover[hidden] { display: none; }
+@media (max-width: 47.98rem) {
+  .pathways .copy-prompt-pop, .pathways .copy-prompt-popover, .pathways .copy-prompt--end .copy-prompt-pop, .pathways .copy-prompt--end .copy-prompt-popover { left: 0; right: auto; min-width: 0; width: min(24rem, calc(100vw - 2rem)); }
+}
+.pathways .copy-prompt-opt, .pathways .copy-prompt-option { display: flex; align-items: flex-start; gap: .7rem; width: 100%; min-height: 2.75rem; padding: .5rem .7rem; border: 1px solid transparent; border-radius: 4px; background: transparent; color: var(--classic-ink); font-family: var(--classic-body-font); text-align: left; cursor: pointer; }
+.pathways .copy-prompt-opt svg, .pathways .copy-prompt-option svg { flex: none; width: 18px; height: 18px; margin-top: .1rem; display: block; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.pathways .copy-prompt-opt:hover, .pathways .copy-prompt-option:hover { background: var(--classic-surface-2); border-color: var(--classic-rule); }
+.pathways .copy-prompt-option__body { display: flex; flex-direction: column; gap: .1rem; min-width: 0; }
+.pathways .copy-prompt-opt__title, .pathways .copy-prompt-option__label { font-size: .82rem; font-weight: 700; line-height: 1.3; }
+.pathways .copy-prompt-opt__desc, .pathways .copy-prompt-option__hint { font-size: .74rem; line-height: 1.35; color: var(--classic-muted); white-space: normal; }
+.pathways .copy-prompt-error { margin: 0; padding: .45rem .65rem; border: 1px solid var(--classic-rule); border-radius: 4px; background-color: var(--classic-surface); background-image: linear-gradient(var(--classic-wash-thin), var(--classic-wash-thin)); color: var(--classic-ink); font-size: .76rem; line-height: 1.4; }
+.pathways .copy-prompt-error:empty { display: none; }
+
+/* ---------- focus: one ring, everywhere ---------- */
+.pathways .cw__expand:focus-visible, .pathways .xrail__btn:focus-visible, .pathways .mode-switch__btn:focus-visible, .pathways .copy-prompt-btn:focus-visible, .pathways .copy-prompt-opt:focus-visible, .pathways .copy-prompt-option:focus-visible, .pathways .ai-guidelines-tip__link:focus-visible, .pathways .ct__sort:focus-visible, .pathways .info-disc > summary:focus-visible, .pathways .kpi-tile__reading:focus-visible, .pathways .ct__unavail:focus-visible, .pathways .arc-chart path:focus-visible, .pathways .spark__hit:focus-visible { outline: 2px solid var(--classic-focus); outline-offset: 2px; }
+
+/* ---------- motion: state communication only ---------- */
+.pathways .cw, .pathways .kpi-strip { transition: opacity 180ms cubic-bezier(.2, .7, .2, 1), transform 180ms cubic-bezier(.2, .7, .2, 1); }
+/* `is-mode-switching` lands on the island ROOT, and §19's prefixing pass turns a descendant
+   selector into `<scope> .is-mode-switching .cw` -- a rule nothing can match, because the
+   scope element is the element carrying the class. Naming the ancestor from inside the
+   subject keeps the rule true both unprefixed and after prefixing. */
+.pathways .cw:is(.is-mode-switching *), .pathways .kpi-strip:is(.is-mode-switching *) { opacity: 0; transform: translateY(4px); }
+.pathways .xrail__btn, .pathways .cw__expand, .pathways .mode-switch__btn, .pathways .copy-prompt-btn, .pathways .copy-prompt-opt, .pathways .copy-prompt-option { transition: background-color 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .pathways .cw, .pathways .kpi-strip, .pathways .xrail__btn, .pathways .cw__expand, .pathways .mode-switch__btn, .pathways .copy-prompt-btn, .pathways .copy-prompt-opt, .pathways .copy-prompt-option { transition: none; }
+  .pathways .cw:is(.is-mode-switching *), .pathways .kpi-strip:is(.is-mode-switching *) { opacity: 1; transform: none; }
+}
+
+/* ---------- print: tables print, chrome does not ---------- */
+@media print {
+  .pathways .cw__rail, .pathways .xrail, .pathways .cw__expand, .pathways .mode-switch, .pathways .copy-prompt, .pathways .copy-prompt-btn, .pathways .copy-prompt-pop, .pathways .copy-prompt-popover, .pathways .copy-prompt-tip, .pathways .ai-guidelines-tip, .pathways .info-disc, .pathways .dashboard-tip { display: none !important; }
+  .pathways .classic-grid { display: block; }
+  .pathways .cw, .pathways .kpi-strip { break-inside: avoid; margin-bottom: 1rem; border-color: var(--classic-ink); }
+  .pathways .cw__body { max-height: none; overflow: visible; }
+  .pathways .cw--has-aid .cw__body { display: block; }
+  .pathways .ct thead th, .pathways .ct thead th:first-child, .pathways .ct tbody th[scope="row"] { position: static; }
+  .pathways .ct th, .pathways .ct td { border-color: var(--classic-ink); white-space: normal; }
+  .pathways .kpi-tile { border: 1px solid var(--classic-rule); }
+}
+
+/* ---------- END pasted apps/shared/classic-base.css ---------- */
+
+/* Both compositions are in the document at once; the mode only chooses which one
+   is on screen, so switching back is instant and nothing is rebuilt. */
+.pathways .classic-mount { display: none; }
+.pathways[data-mode="classic"] .classic-mount { display: block; padding: 2rem 0 1rem; }
+.pathways[data-mode="classic"] .creative-only { display: none; }
+
+/* The switch sits in the console's flex column; it must never be the item that
+   gives way when the console is taller than the viewport. */
+.pathways .mode-switch { flex: none; }
+.pathways .mode-switch__btn { border-radius: 0; }
+
+/* The masthead's right-hand column: scope stamps above, the two agent affordances
+   below, both hugging the end edge (#229). The controls used to sit under the title
+   block, where they read as a footnote; a reader looks to the top-right corner for
+   what a page lets them do. */
+.pathways .masthead__aside {
+  display: flex; flex-direction: column; align-items: flex-end; align-self: flex-end;
+  gap: 0.85rem; text-align: right;
+}
+.pathways .masthead__meta { align-items: flex-start; text-align: left; }
+
+/* Masthead tools: the copy prompt and the surface package control, both modes.
+   Now that the pair sits at the masthead's end edge, both popover and tips anchor
+   there -- the old left-anchoring existed because the control was at the left, and
+   a right-anchored popover hung 23px past the viewport from that position. */
+.pathways .masthead__tools {
+  display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: flex-start;
+  gap: 0.6rem 1rem; margin-top: 0;
+}
+.pathways .masthead__tools .copy-prompt,
+.pathways .masthead__tools .package-control { align-items: flex-end; text-align: right; }
+.pathways .masthead__tools .ai-guidelines-tip,
+.pathways .masthead__tools .how-to-tip { max-width: 15rem; }
+
+/* Colour turns the pair into a choice instead of two identical outlines (#229). Both
+   are the same offer -- hand this page to an assistant -- so both are accent: filled
+   for the shorter path (you already have a chat open), outlined for the file. On this
+   ground the accent carries either way, 7:1 as ink and 8:1 behind --background text. */
+.pathways .masthead__tools .copy-prompt-btn {
+  border-color: var(--accent); background: var(--accent); color: var(--background);
+}
+.pathways .masthead__tools .copy-prompt-btn:hover,
+.pathways .masthead__tools .copy-prompt-btn[aria-expanded="true"] {
+  border-color: var(--ink); background: var(--ink); color: var(--background);
+}
+.pathways .masthead__tools .copy-prompt-btn.is-copied {
+  border-color: var(--accent); background: transparent; color: var(--accent);
+}
+.pathways .masthead__tools .xrail__btn {
+  min-height: 2.75rem; border-color: var(--accent); color: var(--accent); background: transparent;
+}
+.pathways .masthead__tools .xrail__btn:hover {
+  border-color: var(--accent); background: var(--accent); color: var(--background);
+}
+.pathways .masthead__tools .xrail__btn:active { border-color: var(--ink); background: var(--ink); color: var(--background); }
+/* The file type is information, not the point of the button, so it rides at the
+   weight of a caption. Kept inside the button: a reader needs it before the click. */
+.pathways .masthead__tools .xrail__suffix { font-weight: 400; opacity: 0.72; }
+
+.pathways .masthead__tools .how-to-tip { margin: 0; font-size: 0.72rem; line-height: 1.4; color: var(--muted-ink); }
+.pathways .masthead__tools .how-to-tip__link {
+  position: relative; color: inherit; text-decoration: underline;
+  text-underline-offset: 3px; text-decoration-thickness: 1px;
+}
+.pathways .masthead__tools .how-to-tip__link::after { content: ""; position: absolute; inset: -0.6rem -0.2rem; }
+.pathways .masthead__tools .how-to-tip__link:hover { color: var(--accent); }
+/* The merged Classic block's one focus ring names every control that existed when it was
+   pasted; the guide link is newer, so the island grants it the same ring rather than
+   editing the shared block out from under its drift guard. */
+.pathways .masthead__tools .how-to-tip__link:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+@media (max-width: 47.98rem) {
+  /* Phone: the right-hand column unwinds to the left edge. A right-aligned stamp block over
+     a full-width title reads as a second, competing column on a narrow screen. */
+  .pathways .masthead__aside { align-items: flex-start; text-align: left; width: 100%; }
+  .pathways .masthead__tools { justify-content: flex-start; }
+  .pathways .masthead__tools .copy-prompt, .pathways .masthead__tools .package-control { align-items: flex-start; text-align: left; }
+  .pathways .masthead__tools .ai-guidelines-tip, .pathways .masthead__tools .how-to-tip { max-width: none; }
+}
+/* The tip link takes the island's one underline voice; its external mark is drawn
+   (the module's text arrow is swapped for an SVG at mount, see buildMastheadTools). */
+.pathways .ai-guidelines-tip__link { text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.pathways .ai-guidelines-tip__mark {
+  display: inline-block; width: 0.7em; height: 0.7em; margin-left: 0.3em;
+  vertical-align: 0.05em; fill: none; stroke: currentColor; stroke-width: 1.5;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Creative-mode rails: the same control group, quieter, in the same corner of
+   every chapter head. */
+.pathways .chapter__tools { margin-left: auto; display: flex; align-items: center; }
+.pathways .chapter__tools .xrail__btn {
+  min-height: 1.9rem; padding: 0 0.45rem; font-size: 0.68rem;
+  color: var(--muted-ink); border-color: var(--rule); background: transparent;
+}
+.pathways .chapter__tools .xrail__btn:hover { color: var(--ink); border-color: var(--ink); background: var(--depth-2); }
+.pathways .chapter__tools .xrail__btn svg { width: 12px; height: 12px; }
+
+/* The (i) popover carries several sentences on this surface; give the paragraphs
+   air, since the island resets p margins to zero. */
+.pathways .info-pop__p + .info-pop__p { margin-top: 0.5rem; }
+
+/* Widget body: the head's hairline is the top edge, so nothing sits between it and
+   the sticky table head. Chrome insets a sticky cell by the scroll container's
+   padding, and the .35rem the shared block left above the table let scrolled rows
+   peek through above the header. The scrollbar takes the treatment the island's
+   other scroll containers already have: the rule-coloured thumb the root inherits
+   measures 1.3:1 against the surface and never shows a capped table is scrollable. */
+.pathways .cw__body { padding-top: 0; scrollbar-width: thin; scrollbar-color: var(--muted-ink) var(--background); }
+.pathways .ct thead th { padding-top: 0.6rem; }
+/* The same padding inset applies sideways: a wide pivot scrolled inside its body
+   showed the tails of scrolled cells in the .9rem strip left of the sticky row
+   header. Each sticky header paints that strip in its own background. */
+.pathways .ct thead th:first-child::before, .pathways .ct tbody th[scope="row"]::before {
+  content: ""; position: absolute; top: 0; bottom: 0; right: 100%; width: 0.9rem; background: inherit;
+}
+
+/* P1 is a quiet strip that borrows the widget frame for its title, (i) and rail.
+   The strip's own border would make a frame inside a frame, so it runs flush to the
+   widget edge and the widget border is the strip border. The body cannot clip: the
+   tiles carry (i) popovers, and a popover inside an overflow:auto box is cut off. */
+.pathways .cw--strip .cw__body { padding: 0; overflow: visible; max-height: none; }
+.pathways .cw--strip .kpi-strip { border: 0; }
+/* Tiles with an (i) had a taller label row than tiles without one, so labels in one
+   grid row sat on two baselines. Every label row is the glyph's height. */
+.pathways .kpi-tile__top { min-height: 1.75rem; }
+
+/* Leaders Directory tag chips: a narrowing of that one list, never a dashboard
+   filter. Pressed is the surface's one pressed form (ink fill, surface text), the
+   same as the expand button and the mode switch. The tags Rock has no schema for
+   sit here in the honest disabled form -- dashed, muted, no hover -- which the
+   general .dirchip rule below used to overwrite. */
+.pathways .dirchips { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; padding: 0.6rem 0 0.7rem; }
+.pathways .dirchips__label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted-ink); margin-right: 0.2rem;
+}
+.pathways .dirchip {
+  /* The gap chips are spans, not buttons, so they need the box explicitly or they
+     sit a few pixels high and short beside the ones you can actually press. */
+  display: inline-flex; align-items: center;
+  min-height: 1.9rem; padding: 0.2rem 0.55rem; border: 1px solid var(--rule);
+  background: transparent; color: var(--ink); font-family: var(--font-body);
+  font-size: 0.72rem; font-weight: 700; line-height: 1.3; cursor: pointer;
+  transition: background-color 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out;
+}
+.pathways .dirchip:hover { border-color: var(--ink); background: var(--depth-2); }
+.pathways .dirchip.is-active, .pathways .dirchip.is-active:hover { border-color: var(--ink); background: var(--ink); color: var(--surface); }
+.pathways .dirchip.tool__off, .pathways .dirchip.tool__off:hover {
+  border-style: dashed; border-color: var(--rule); background: transparent;
+  color: var(--muted-ink); cursor: not-allowed;
+}
+.pathways .dirchip:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* This island's strip carries eight readings -- a count, the six Favor age groups,
+   and the ratio -- and auto-fit stranded the last tile on a row of its own. Four
+   columns from 48rem gives two even rows and no empty band. */
+@media (min-width: 48rem) {
+  .pathways .kpi-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* Chart aids: compact, beside the table, never above it and never larger.
+
+   classic-grammar.md §2 puts the aid beside the table from 64rem and below it
+   otherwise, but the shared block builds the aid slot before the table, so anything
+   that is not the side-by-side grid renders it above. A plain flex column with the
+   aid ordered last restores the documented fallback. It has to be a forward column:
+   the earlier column-reverse answer flipped the scroll origin, so a capped body
+   opened scrolled to its end with the first rows hidden (movement and freshness on
+   a phone). Half-width widgets stay out of the side-by-side grid entirely: six
+   columns cannot spare a 12rem aid beside a table without the table sliding under it. */
+.pathways .cw--has-aid .cw__body { display: flex; flex-direction: column; gap: 0.4rem; align-items: stretch; }
+.pathways .cw--has-aid .cw__aid { order: 2; position: static; }
+@media (min-width: 64rem) {
+  .pathways .cw--has-aid:not(.cw--half) .cw__body {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(12rem, 18rem);
+    gap: 1rem; align-items: start;
+  }
+  .pathways .cw--has-aid:not(.cw--half) .cw__aid { position: sticky; top: 0; }
+}
+
+/* Chart aid marks. */
+.pathways .cwaid { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+.pathways .cwaid__ring { stroke: var(--depth-2); }
+.pathways .cwaid__axis { stroke: var(--rule); stroke-width: 1; }
+.pathways .cwaid__bar.is-gain { fill: var(--move-gain); }
+.pathways .cwaid__bar.is-loss { fill: var(--move-loss); }
+.pathways .cwaid__ghost { fill: none; stroke: var(--muted-ink); stroke-dasharray: 2 3; stroke-width: 1; }
+.pathways .cwaid__band.is-fresh { fill: var(--move-gain); }
+.pathways .cwaid__band.is-stalled { fill: var(--move-stalled); }
+.pathways .cwaid__band.is-stale { fill: var(--move-loss); }
+/* Freshness bands inside the People bar (one row, one reading), and the off-screen chart
+   the PNG rail still rasterizes at its real size. */
+.pathways .ct__bar-track--bands { display: flex; }
+.pathways .ct__bar-band { display: block; height: 100%; flex: none; }
+.pathways .ct__bar-band.is-fresh { background: var(--move-gain); }
+.pathways .ct__bar-band.is-stalled { background: var(--move-stalled); }
+.pathways .ct__bar-band.is-stale { background: var(--move-loss); }
+.pathways .cw__aid--offstage { position: absolute; left: -10000px; top: 0; width: 220px; pointer-events: none; }
+
+@media print {
+  /* Print. The night chart cannot go to paper: browsers drop backgrounds by default,
+     and near-white ink on white is nothing. Print flips the island tokens to a paper
+     scheme; every --classic-* token maps through them, so the shared print block above
+     prints the tables in real ink. The console, its toggle and the widget-local chips
+     are controls and do not print. (The comment sits inside the at-rule because the
+     scope checker reads a comment before an at-rule as a selector.) */
+  .pathways {
+    --background: #ffffff; --depth-1: #f4f4f2; --depth-2: #f4f4f2; --surface: #ffffff;
+    --ink: #121411; --muted-ink: #625f59; --rule: rgba(18, 20, 17, 0.28); --graticule: transparent;
+    --edge-lit: rgba(18, 20, 17, 0.28);
+    --accent: #c23f00; --secondary: #007fae; --focus: #005eb8;
+    --move-gain: #2f8f6a; --move-loss: #c23f00; --move-stalled: #b0641a; --move-neutral: #625f59;
+    --soft-gain: rgba(47, 143, 106, 0.14); --soft-stalled: rgba(176, 100, 26, 0.14);
+    --soft-loss: rgba(194, 63, 0, 0.12); --ghost-wash: rgba(98, 95, 89, 0.08);
+    --classic-wash-unknown: rgba(98, 95, 89, 0.16); --classic-shadow: none;
+    background: #ffffff; background-image: none; color: var(--ink); padding-bottom: 0;
+  }
+  .pathways .masthead { background-color: transparent; background-image: none; }
+  .pathways .sidebar-toggle-bar, .pathways .filter-sidebar, .pathways .dirchips, .pathways .srlive { display: none !important; }
+  .pathways .dashboard-layout, .pathways .dashboard-layout.is-collapsed { display: block; }
+  .pathways[data-mode="classic"] .classic-mount { padding-top: 1rem; }
+  .pathways .flag--fictional { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+  .pathways .status-beta { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+  .pathways .status-beta span { opacity: 1; }
+  .pathways .cw__body { scrollbar-width: none; }
+  .pathways .cw--strip .kpi-strip { border: 1px solid var(--classic-rule, var(--rule)); }
+  .pathways .cw__aid { position: static; }
+}
+
+/* ----------------------------------------------------------------------------
+   BEGIN merged Markup block (apps/shared/markup-base.css)
+   Source: apps/shared/markup-base.css (canonical; never edit the copy below by hand).
+   Scope: .pathways -- produced by tools/scope_island_css.py scope_css().
+   Guard: tests/test_island_delivery.py MergedMarkupBlockTest.
+   Executive Markup V2 (#598): the pen beside the palette and the island's frozen state;
+   the drawing surface itself ships in apps/markup-app (markup-app.css) outside this scope.
+   ---------------------------------------------------------------------------- */
+.pathways .markup-pen {
+  position: sticky; bottom: 5.75rem; margin-left: 1.25rem; z-index: 95;
+  display: flex; clear: both; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; padding: 0;
+  border: 1px solid var(--rule, rgba(18, 20, 17, .18)); border-radius: 999px;
+  background: color-mix(in srgb, var(--surface, #fff) 88%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  color: var(--ink, #121411); font: inherit; font-size: .8rem; font-weight: 600; letter-spacing: .01em;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink, #121411) 22%, transparent);
+  opacity: .85; cursor: pointer;
+  transition: opacity var(--motion-state, 180ms) var(--motion-ease, ease), border-color var(--motion-feedback, 120ms) var(--motion-ease, ease),
+    background-color var(--motion-feedback, 120ms) var(--motion-ease, ease), color var(--motion-feedback, 120ms) var(--motion-ease, ease),
+    transform var(--motion-feedback, 120ms) var(--motion-ease, ease);
+}
+.pathways .markup-pen:hover, .pathways .markup-pen:focus-within { opacity: 1; border-color: var(--edge-strong, currentColor); }
+.pathways .markup-pen:active { transform: translateY(1px); }
+.pathways .markup-pen:focus-visible { outline: 2px solid var(--focus, #f45500); outline-offset: 3px; }
+.pathways .markup-pen[aria-pressed="true"] { opacity: 1; background: var(--ink, #121411); color: var(--invert-ink, var(--background, #fef1e8)); border-color: var(--ink, #121411); }
+.pathways .markup-pen[aria-busy="true"] { cursor: progress; }
+.pathways .markup-pen[aria-busy="true"] .markup-pen__icon { animation: markup-pen-tap 900ms ease-in-out infinite; }
+.pathways .markup-pen__icon { width: 1.15rem; height: 1.15rem; flex: none; }
+
+/* Animated hover tooltip: explains that it freezes current dashboard view */
+.pathways .markup-pen__tooltip {
+  position: absolute; bottom: calc(100% + .65rem); left: 0; z-index: 120;
+  display: flex; flex-direction: column; gap: 2px; padding: .45rem .65rem;
+  background: color-mix(in srgb, var(--surface, #fff) 94%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--edge-strong, rgba(18, 20, 17, .24));
+  border-radius: 8px;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink, #121411) 20%, transparent);
+  pointer-events: none; opacity: 0; transform: translateY(4px);
+  transition: opacity var(--motion-state, 180ms) var(--motion-ease, ease), transform var(--motion-state, 180ms) var(--motion-ease, ease);
+  white-space: nowrap; text-align: left;
+}
+.pathways .markup-pen:hover .markup-pen__tooltip, .pathways .markup-pen:focus-visible .markup-pen__tooltip {
+  opacity: 1; transform: translateY(0);
+}
+.pathways .markup-pen__label {
+  font-size: .74rem; font-weight: 700; line-height: 1.25; color: var(--ink, #121411);
+}
+.pathways .markup-pen__desc {
+  font-size: .65rem; font-weight: 400; line-height: 1.2; color: var(--muted-ink, #555); letter-spacing: .01em;
+}
+
+@keyframes markup-pen-tap { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-2px) rotate(-6deg) } }
+
+/* Mobile: floating fixed icon on lower left, always outside the filter console */
+@media (max-width: 768px) {
+  .pathways .markup-pen {
+    position: fixed;
+    bottom: calc(max(env(safe-area-inset-bottom, 0px), .5rem) + 4.25rem);
+    left: 1.25rem;
+    margin-left: 0;
+    z-index: 990;
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    box-shadow: 0 4px 18px color-mix(in srgb, var(--shadow-ink, #121411) 28%, transparent);
+  }
+  .pathways .markup-pen__tooltip { display: none; }
+}
+
+/* Instant veil -- mounted at 0ms upon pen button click for immediate user feedback */
+.pathways .fm-instant-veil {
+  position: fixed; inset: 0; z-index: 2147483000;
+  display: grid; place-items: center;
+  background: color-mix(in srgb, var(--surface, #fff) 85%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  pointer-events: auto;
+  font-family: var(--body-font);
+  animation: fm-fade 160ms ease both;
+}
+.pathways .fm-instant-veil .fm-loading-card {
+  display: flex; flex-direction: column; align-items: center; gap: .85rem;
+  padding: 1.75rem 2rem 1.5rem; border-radius: 20px;
+  background: var(--surface, #fff); color: var(--ink, #121411);
+  border: 1px solid var(--rule, rgba(18,20,17,.16));
+  box-shadow: 0 10px 30px rgba(18,20,17,.18);
+  width: min(390px, calc(100vw - 2.5rem)); text-align: center;
+}
+.pathways .fm-instant-veil .fm-progress-bar {
+  width: 100%; height: 7px; border-radius: 999px;
+  background: color-mix(in srgb, var(--surface, #fff) 60%, #e0e0e0);
+  overflow: hidden; position: relative;
+}
+.pathways .fm-instant-veil .fm-progress-bar__fill--animated {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--focus, #f45500), #ff8b4d);
+  animation: fm-instant-pulse 1.8s ease-in-out infinite;
+}
+@keyframes fm-instant-pulse {
+  0% { width: 15%; }
+  50% { width: 75%; }
+  100% { width: 92%; }
+}
+
+/* While a board is open the island sits inert under the overlay; the state is stated by the
+ * attribute, never by colour alone. Paused is the exception -- the dashboard is live again on
+ * purpose, so nothing recedes and the pen only marks that a board is waiting. */
+.pathways [data-markup="canvas"], .pathways [data-markup="saving"], .pathways [data-markup="viewing"] { user-select: none; }
+.pathways [data-markup="paused"] .markup-pen { border-color: var(--warn, #b8860b); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pathways .markup-pen { transition: none; }
+  .pathways .markup-pen__tooltip { transition: none; }
+  .pathways .markup-pen[aria-busy="true"] .markup-pen__icon { animation: none; }
+  .pathways .fm-instant-veil .fm-progress-bar__fill--animated { animation: none; width: 60%; }
+}
+
+/* ----------------------------------------------------------------------------
+   END merged Markup block (apps/shared/markup-base.css)
+   ---------------------------------------------------------------------------- */
+
+/* ---------- profile-card switch (#453) ----------
+   One control, two mounts: the filter console beside the other display controls,
+   and the Freshness heading, which is the chapter the cards actually open over.
+   Both read from one piece of state, so neither can go stale against the other.
+
+   A dot plus a word rather than a bare icon: "cards on" and "cards off" have to
+   be legible at a glance across a room during a staff presentation, and a filled
+   or hollow dot alone carries no meaning to someone meeting the page today. */
+.pathways .cardswitch {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-family: inherit; font-size: .68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .06em;
+  color: var(--muted-ink); background: none; cursor: pointer;
+  border: 1px solid var(--rule); border-radius: 999px;
+  padding: .28rem .6rem; min-height: 28px;
+}
+.pathways .cardswitch__dot {
+  width: .5rem; height: .5rem; border-radius: 50%;
+  border: 1.5px solid currentColor; background: none;
+}
+.pathways .cardswitch[data-on="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
+.pathways .cardswitch[data-on="true"] .cardswitch__dot { background: currentColor; }
+.pathways .cardswitch:hover { color: var(--ink); border-color: var(--ink); }
+.pathways .cardswitch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* The console mount sits on its own row under the head, labelled, because there it
+   is one of several display controls and needs to say which one it is. */
+.pathways .sidebar-cards {
+  display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+  padding: .5rem .1rem .75rem; border-bottom: 1px solid var(--rule);
+}
+.pathways .sidebar-cards__label {
+  font-size: .68rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--muted-ink);
+}
+/* The heading mount needs no label: it is inside the chapter it governs, and the
+   button already says the word "cards". */
+.pathways .cardswitch--head { margin-left: .5rem; }
+
+@media (max-width: 768px) {
+  /* Touch targets stay at the 44px floor on the surface a finger actually uses. */
+  .pathways .cardswitch { min-height: 44px; padding: 0 .75rem; }
+}
+
+/* ---------- readout placement and dismissal (user report, 2026-09-10) ---------- */
+
+/* The segment readout is placed by positionNamecard(), which computes viewport
+   coordinates from event.clientX/clientY. It was `position: absolute` inside the
+   track, so those viewport numbers were read as offsets from the track's own box:
+   the card landed the track's distance from the top of the window BELOW the
+   pointer, which on the Pathway Map put a Build reading two rows down beside Grow.
+   Fixed positioning is the frame the numbers were written in, and it is the same
+   frame .namecard already uses. Below the namecard and the tooltip bubble, above
+   the chapters. */
+.pathways .segcard { position: fixed; z-index: 58; }
+
+/* The closed half of dashboard-tooltip.mjs's `data-open` pair used to be restated here.
+   It now comes through the pasted classic-base.css region above, from the shared contract,
+   which is where it belongs -- see that file for why its absence left the prose bubble
+   standing open on four islands at once. */
+
+/* ---------- prose mark ----------
+   Moved out of the pasted classic-base.css region, where it had no business being: it is
+   Pathways' own chrome, and rules hidden inside that block are indistinguishable from the
+   drift MergedClassicBlockTest exists to catch.
+
+   Explanatory prose is hover-only (standing rule). The mark is what is left of a
+   paragraph in the layout: a 15px glyph on the baseline of whatever it explains.
+   It is a real button, so hover, focus, and tap all open it, and it is the only
+   thing prose costs the page. */
+.pathways .prosemark {
+  display: inline-grid; place-items: center; vertical-align: middle;
+  width: 1.15rem; height: 1.15rem; margin-left: .35rem; padding: 0;
+  flex: none; background: none; border: 0; cursor: help; color: var(--muted-ink);
+}
+/* The hit area is a fingertip even though the glyph is small, which is what lets
+   a 15px mark survive on a phone. */
+.pathways .prosemark::after { content: ""; position: absolute; inset: -.55rem; }
+.pathways .prosemark { position: relative; }
+.pathways .prosemark svg { width: 15px; height: 15px; display: block; }
+.pathways .prosemark svg circle, .pathways .prosemark svg line {
+  fill: none; stroke: currentColor; stroke-width: 1.4;
+}
+.pathways .prosemark svg .dotcap { fill: currentColor; stroke: none; }
+.pathways .prosemark:hover, .pathways .prosemark:focus-visible { color: var(--ink); }
+.pathways .prosemark:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* A readout bubble is sized for two words; prose needs a measure it can be read
+   in, so the mark tells the shared bubble which kind of content it carries. It already
+   outranked the 18rem base rule on specificity; sitting after it now says so plainly. */
+.pathways .dashboard-tip[data-kind="prose"] { max-width: 26rem; }
+.pathways .dashboard-tip__prose { margin: 0; font-weight: 400; }
+
+
+/* BEGIN merged Breadcrumbs block (apps/shared/breadcrumbs-base.css) */
+.pathways .suite-breadcrumbs {
+  box-sizing: border-box;
+  width: auto;
+  margin-left: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 2.4rem)));
+  margin-right: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 2.4rem)));
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: .55rem clamp(1.1rem, 2.5vw, 2.4rem);
+  background:
+    repeating-linear-gradient(135deg, color-mix(in srgb, var(--ink) 5%, transparent) 0 1px, transparent 1px 9px),
+    var(--surface-sunken);
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted-ink);
+  font-family: var(--font-mono, "SF Mono", Monaco, Consolas, monospace);
+  font-size: clamp(.62rem, .58rem + .12vw, .72rem);
+  letter-spacing: .08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.pathways .suite-breadcrumbs__trail { display: flex; flex-wrap: nowrap; align-items: baseline; gap: .25rem .35rem; margin: 0; padding: 0; list-style: none; max-width: 100%; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; touch-action: pan-x; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 1.5rem), transparent 100%); mask-image: linear-gradient(90deg, #000 calc(100% - 1.5rem), transparent 100%); }
+.pathways .suite-breadcrumbs__trail::-webkit-scrollbar { display: none; }
+.pathways .suite-breadcrumbs[data-draggable="true"] .suite-breadcrumbs__trail, .pathways .suite-breadcrumbs__trail.is-draggable { cursor: grab; }
+.pathways .suite-breadcrumbs[data-dragging="true"] .suite-breadcrumbs__trail, .pathways .suite-breadcrumbs__trail.is-dragging { cursor: grabbing; user-select: none; -webkit-user-select: none; scroll-behavior: auto; }
+.pathways .suite-breadcrumbs[data-dragging="true"] .suite-breadcrumbs__link, .pathways .suite-breadcrumbs__trail.is-dragging .suite-breadcrumbs__link { pointer-events: none; }
+.pathways .suite-breadcrumbs__trail::after {
+  content: "";
+  flex: 1 1 0%;
+  min-width: .75rem;
+  align-self: stretch;
+  margin-left: .15rem;
+  background: linear-gradient(90deg, var(--rule), transparent 55%);
+  opacity: .55;
+  pointer-events: none;
+}
+.pathways .suite-breadcrumbs__item { display: inline-flex; align-items: baseline; min-width: 0; flex: 0 0 auto; }
+.pathways .suite-breadcrumbs__item--root { flex-shrink: 0; }
+.pathways .suite-breadcrumbs__peers { display: inline-flex; flex-wrap: nowrap; align-items: baseline; gap: .25rem .35rem; }
+.pathways .suite-breadcrumbs__root-link, .pathways .suite-breadcrumbs__link { color: var(--ink); text-decoration: none; transition: color 120ms ease; white-space: nowrap; }
+.pathways .suite-breadcrumbs__prefix { color: var(--muted-ink); font-weight: 400; }
+.pathways .suite-breadcrumbs__link { color: var(--muted-ink); padding: 4px 6px; margin: -4px -2px; }
+.pathways .suite-breadcrumbs__root-link:hover, .pathways .suite-breadcrumbs__link:hover { color: var(--accent); }
+.pathways .suite-breadcrumbs__link.is-active { color: var(--ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .3em; }
+.pathways .suite-breadcrumbs__divider, .pathways .suite-breadcrumbs__sep { color: var(--rule); user-select: none; flex-shrink: 0; }
+.pathways .suite-breadcrumbs__root-link:focus-visible, .pathways .suite-breadcrumbs__link:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: 2px; border-radius: 2px; }
+@media (max-width: 768px) {
+  .pathways .suite-breadcrumbs {
+    margin-left: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 1.25rem)));
+    margin-right: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 1.25rem)));
+    margin-top: 0;
+    margin-bottom: .85rem;
+    width: auto;
+    max-width: none;
+    padding: .5rem 1rem;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pathways .suite-breadcrumbs__root-link, .pathways .suite-breadcrumbs__link { transition: none; }
+}
+
+/* ------------------------------------------------------------------ nested surfaces (#600)
+   One surface in the suite is three dashboards behind one masthead, and the trail shows it:
+   hovering or tabbing into People reveals the three. Pointer only, and CSS only. A coarse
+   pointer has no hover and a tap on the parent is a navigation, so touch readers reach the
+   three from the page's own lens bar instead of from a menu that opens under their thumb. */
+.pathways .suite-breadcrumbs__nest { position: relative; display: inline-block; }
+.pathways .suite-breadcrumbs__nest.is-open .suite-breadcrumbs__sub, .pathways .suite-breadcrumbs__nest[aria-expanded="true"] .suite-breadcrumbs__sub {
+  display: block;
+}
+/* THE TRAIL CLIPS, so it has to stop while the menu is open. `.suite-breadcrumbs__trail` is a
+   horizontally scrolling rail with a fade mask, and a mask clips a child absolutely positioned
+   outside it just as overflow does: the menu rendered at the right coordinates and was invisible
+   on every real page. While a nest is open the rail drops both, which is safe because the reveal
+   is pointer-only and the rail only scrolls when it is too narrow for the pointer case. */
+.pathways .suite-breadcrumbs__trail.has-open-nest, .pathways .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest.is-open), .pathways .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest[aria-expanded="true"]), .pathways .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest:hover), .pathways .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest:focus-within) {
+  overflow: visible;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.pathways .suite-breadcrumbs__sub {
+  position: absolute;
+  top: 100%;
+  left: -.35rem;
+  z-index: 40;
+  display: none;
+  min-width: 15rem;
+  max-width: calc(100vw - 1rem);
+  box-sizing: border-box;
+  margin-top: .4rem;
+  padding: .3rem;
+  background: var(--surface-raised, var(--surface, #fff));
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--shadow-ink, #121411) 22%, transparent);
+}
+/* The gap between the link and the menu is bridged, so a pointer travelling down does not
+   cross dead space and close the thing it is aiming at. */
+.pathways .suite-breadcrumbs__sub::before { content: ""; position: absolute; inset: -.5rem 0 100%; }
+@media (hover: hover) and (pointer: fine) {
+  .pathways .suite-breadcrumbs__nest:hover .suite-breadcrumbs__sub, .pathways .suite-breadcrumbs__nest:focus-within .suite-breadcrumbs__sub { display: block; }
+}
+.pathways .suite-breadcrumbs__tab {
+  display: block;
+  padding: .4rem .55rem;
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.pathways .suite-breadcrumbs__tab:hover { background: var(--hover-wash, color-mix(in srgb, var(--accent) 10%, transparent)); }
+.pathways .suite-breadcrumbs__tab:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: -2px; }
+.pathways .suite-breadcrumbs__tab-label { display: block; font-weight: 700; font-size: .82rem; }
+.pathways .suite-breadcrumbs__tab-question { display: block; font-size: .72rem; color: var(--muted-ink); }
+
+/* END merged Breadcrumbs block (apps/shared/breadcrumbs-base.css) */
+
+/* BEGIN merged UX block (apps/shared/ux-base.css)
+   The UX bar (#587): motion tokens, pressed feedback, the status chip, the change cue, the
+   busy veil, and the mobile sheet entrance. Generated from the shared source under the scope
+   ".pathways" by tools/scope_island_css.py; edit apps/shared/ux-base.css and re-paste, never this
+   copy. Drift is caught by tools/check_merged_blocks.py and tests/test_island_delivery.py.
+   Island-specific UX rules belong in the override zone AFTER the END delimiter. */
+/* ---------- 1. motion vocabulary ---------- */
+/* Durations are the whole timing story. A control reads one token; nothing in
+   an island states a millisecond value of its own for a UX-bar behaviour. */
+.pathways {
+  --motion-feedback: 120ms;   /* press, hover, toggle acknowledgement */
+  --motion-state: 180ms;      /* a state the eye must follow: selected, mode, chip in/out */
+  --motion-layout: 280ms;     /* a sheet, a panel, a change cue settling */
+  --motion-focus: 360ms;      /* a focal element arriving once */
+  --motion-focal: 550ms;      /* the rare authored moment; one per surface, if any */
+  --motion-ease: cubic-bezier(.16, 1, .3, 1);      /* confident arrival */
+  --motion-ease-exit: cubic-bezier(.4, 0, 1, 1);   /* leaves faster than it came */
+  --host-chrome-bottom: 0px;                       /* shared runtime measurement */
+  --ux-status-gap: .75rem;                         /* one shared clearance, not a surface offset */
+  --ux-status-top: calc(var(--host-chrome-bottom) + var(--ux-status-gap));
+}
+/* Reduced motion is one switch, not a hunt: every duration collapses to zero,
+   so each transition and animation below completes on its first frame while the
+   state it carried (pressed, selected, done, failed) still lands. Reduced motion
+   is never reduced information. */
+@media (prefers-reduced-motion: reduce) {
+  .pathways {
+    --motion-feedback: 0ms;
+    --motion-state: 0ms;
+    --motion-layout: 0ms;
+    --motion-focus: 0ms;
+    --motion-focal: 0ms;
+  }
+}
+
+/* ---------- 2. pressed feedback ---------- */
+/* The shared control vocabulary acknowledges a press before anything else
+   happens: a 1px settle on :active, back on release. Islands add their own
+   control classes to this list in their override zone, never a second rule. */
+.pathways .mode-switch__btn, .pathways .xrail__btn, .pathways .cw__expand, .pathways .ct__sort, .pathways .copy-prompt-btn, .pathways .copy-prompt-option, .pathways .copy-prompt-opt, .pathways .toggle-btn, .pathways .sidebar-back-btn, .pathways .reset-btn, .pathways .scopebar-reset, .pathways .theme-swatch__btn, .pathways .mk-toggle, .pathways .mk-rail__btn, .pathways .opt-btn, .pathways .acronym-btn, .pathways .gender-btn, .pathways .filter-tag__remove {
+  transition: transform var(--motion-feedback) var(--motion-ease),
+              background-color var(--motion-feedback) linear,
+              border-color var(--motion-feedback) linear,
+              color var(--motion-feedback) linear,
+              box-shadow var(--motion-feedback) linear;
+}
+.pathways .mode-switch__btn:active, .pathways .xrail__btn:active:not([disabled]), .pathways .cw__expand:active, .pathways .ct__sort:active, .pathways .copy-prompt-btn:active, .pathways .copy-prompt-option:active, .pathways .copy-prompt-opt:active, .pathways .toggle-btn:active, .pathways .sidebar-back-btn:active, .pathways .reset-btn:active, .pathways .scopebar-reset:active, .pathways .theme-swatch__btn:active, .pathways .mk-toggle:active, .pathways .mk-rail__btn:active, .pathways .opt-btn:active, .pathways .acronym-btn:active, .pathways .gender-btn:active, .pathways .filter-tag__remove:active {
+  transform: translateY(1px);
+}
+
+/* ---------- 3. the status chip ---------- */
+/* One chip per island, mounted by dashboard-status.mjs. It sits top-centre,
+   below the shared host-chrome boundary measured at runtime, so the mobile bottom
+   edge keeps its one occupant (ADR 0020). It is the visible half of every announce():
+   the live region says it to a screen reader, the chip says it to everyone else.
+   Same words, both places. */
+.pathways .ux-status {
+  position: fixed;
+  top: var(--ux-status-top);
+  left: 50%;
+  z-index: 996;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  max-width: min(92vw, 36rem);
+  min-height: 2.5rem;
+  padding: .45rem .9rem .45rem .75rem;
+  border: 1px solid var(--invert-surface, var(--classic-ink, var(--ink, #121411)));
+  border-radius: 999px;
+  background: var(--invert-surface, var(--classic-ink, var(--ink, #121411)));
+  color: var(--invert-ink, var(--classic-surface, var(--surface, #ffffff)));
+  font-family: var(--classic-body-font, var(--font-body, system-ui, sans-serif));
+  font-size: .82rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: .005em;
+  box-shadow: 0 10px 24px -10px var(--shadow-ink, rgba(0, 0, 0, .45));
+  opacity: 0;
+  transform: translate(-50%, -8px);
+  pointer-events: none;
+  transition: opacity var(--motion-feedback) var(--motion-ease-exit),
+              transform var(--motion-feedback) var(--motion-ease-exit);
+}
+.pathways .ux-status[data-open="true"] {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+  transition: opacity var(--motion-state) var(--motion-ease),
+              transform var(--motion-state) var(--motion-ease);
+}
+.pathways .ux-status__text { min-width: 0; overflow-wrap: anywhere; }
+.pathways .ux-status__mark {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+}
+.pathways .ux-status__mark svg { width: 100%; height: 100%; display: block; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+/* done: the mark draws its tick once, then rests. */
+.pathways .ux-status[data-kind="done"] .ux-status__mark { color: var(--state-healthy, var(--classic-healthy, #2f9a52)); }
+.pathways .ux-status[data-kind="done"] .ux-status__mark path { stroke-dasharray: 28; stroke-dashoffset: 28; animation: favor-ux-tick var(--motion-state) var(--motion-ease) forwards; }
+/* busy: the only loop in the block, and it stops the moment the chip changes kind
+   or closes, because the spinning element leaves with it. */
+.pathways .ux-status[data-kind="busy"] .ux-status__mark { animation: favor-ux-spin 900ms linear infinite; }
+/* fail: inverted back to the surface so the red carries the weight, and the chip
+   stays until dismissed -- a failure is never a toast. */
+.pathways .ux-status[data-kind="fail"] {
+  background: var(--classic-surface, var(--surface, #ffffff));
+  color: var(--classic-ink, var(--ink, #121411));
+  border-color: var(--state-critical, var(--classic-critical, #b3261e));
+  box-shadow: 0 10px 24px -10px var(--shadow-ink, rgba(0, 0, 0, .45)), inset 0 0 0 1px var(--state-critical, var(--classic-critical, #b3261e));
+}
+.pathways .ux-status[data-kind="fail"] .ux-status__mark { color: var(--state-critical, var(--classic-critical, #b3261e)); }
+.pathways .ux-status__btn {
+  position: relative;
+  flex: none;
+  margin: -.2rem -.45rem -.2rem 0;
+  min-height: 2rem;
+  padding: 0 .65rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: .76rem;
+  cursor: pointer;
+}
+.pathways .ux-status__btn::after { content: ""; position: absolute; inset: -.45rem -.3rem; }
+.pathways .ux-status__btn:hover { background: var(--hover-wash, rgba(127, 127, 127, .14)); }
+.pathways .ux-status__btn:active { transform: translateY(1px); }
+.pathways .ux-status__btn:focus-visible { outline: 2px solid var(--classic-focus, var(--focus, #005eb8)); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .pathways .ux-status[data-kind="busy"] .ux-status__mark { animation: none; }
+  .pathways .ux-status[data-kind="done"] .ux-status__mark path { animation: none; stroke-dashoffset: 0; }
+}
+
+/* A live region an island can mount when it has none: present to assistive tech, absent
+   from layout. The chip is the sighted half of whatever is written here. */
+.pathways .ux-live { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* ---------- 4. the change cue ---------- */
+/* After a filter or scope change the stations whose reading changed settle
+   once: an accent inset ring that fades over the layout beat. Applied by
+   dashboard-status.mjs markChanged(), to a capped handful of nodes, once per
+   user action -- never ambient, never on load. */
+.pathways .ux-changed { animation: favor-ux-settle var(--motion-layout) var(--motion-ease) 1 both; }
+
+/* ---------- 5. the busy veil ---------- */
+/* A region that is truthfully still working. It keeps the last reading visible
+   under a light veil rather than blanking it, and the cursor says "working". */
+.pathways .ux-busy { position: relative; cursor: progress; }
+.pathways .ux-busy::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: var(--classic-surface, var(--surface, #ffffff));
+  opacity: .42;
+  pointer-events: none;
+  transition: opacity var(--motion-state) linear;
+}
+
+/* ---------- 6. the mobile sheet ---------- */
+/* The console arrives from the edge it lives on and the handle rides up with it
+   (docs/guides/mobile-bottom-edge.md). Closing is instant on the sheet and a beat
+   shorter on the handle: exits are faster than entrances. The state attribute lives
+   on the island root, so :is([data-console="open"] *) reaches it from inside the
+   scope prefix without a per-island exception. */
+@media (max-width: 768px) {
+  .pathways .filter-sidebar:is([data-console="open"] *) { animation: favor-ux-sheet-in var(--motion-layout) var(--motion-ease) 1 both; }
+  .pathways .sidebar-toggle-bar, .pathways .console-toggle-bar { transition: bottom var(--motion-layout) var(--motion-ease); }
+  .pathways .sidebar-toggle-bar:is([data-console="closed"] *), .pathways .console-toggle-bar:is([data-console="closed"] *) { transition-duration: var(--motion-state); transition-timing-function: var(--motion-ease-exit); }
+  .pathways .ux-status { max-width: calc(100vw - 2rem); }
+}
+
+@keyframes favor-ux-tick { to { stroke-dashoffset: 0; } }
+@keyframes favor-ux-spin { to { transform: rotate(360deg); } }
+@keyframes favor-ux-settle {
+  from { box-shadow: inset 0 0 0 2px var(--classic-accent, var(--accent, #f45500)); }
+  to { box-shadow: inset 0 0 0 2px transparent; }
+}
+@keyframes favor-ux-sheet-in {
+  from { transform: translateY(18px); opacity: .001; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ------------------------------------------------------------- the theme swatch (#611)
+   At rest: `Theme` and one disc, the palette showing now, plus shuffle. The rest arrive on
+   hover and stay on a click, the same gesture as every readout (DESIGN.md). Each island keeps
+   its own chrome for the pill and the discs; what lives here is the structure, so a palette
+   added later costs no layout anywhere. */
+/* No `position` here on purpose. Each island places the pill itself (sticky at the page's lower
+   left on desktop), and setting `relative` here silently un-stuck all of them. The menu anchors
+   to whatever the island placed, because sticky is already a positioned ancestor; the one case
+   that needs help is the mobile console row, where the pill is static. */
+.pathways .palette-slot .theme-swatch { position: relative; }
+.pathways .theme-swatch__label {
+  font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted-ink); padding-left: .35rem;
+}
+/* The trigger is the current palette: a disc, and nothing else at rest. It keeps each island's
+   own disc chrome by also carrying .theme-swatch__btn. */
+.pathways .theme-swatch__trigger { position: relative; }
+.pathways .theme-swatch__trigger[aria-expanded="true"] { z-index: 41; }
+.pathways .theme-swatch__menu {
+  position: absolute; bottom: calc(100% + .4rem); left: 0; z-index: 40;
+  display: inline-flex; align-items: center; gap: .15rem; padding: .25rem .3rem;
+  background: var(--surface-raised, var(--surface)); border: 1px solid var(--rule);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--shadow-ink, #121411) 26%, transparent);
+}
+.pathways .theme-swatch__menu[hidden] { display: none; }
+/* The gap between the trigger and the menu is bridged, so a pointer travelling up does not
+   cross dead space and close the thing it is aiming at. */
+.pathways .theme-swatch__menu::after { content: ""; position: absolute; inset: 100% 0 -.5rem; }
+.pathways .theme-swatch__shuffle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.9rem; height: 1.9rem; padding: 0; margin-left: .1rem;
+  border: 0; border-radius: 999px; background: transparent; color: var(--muted-ink);
+  cursor: pointer;
+}
+.pathways .theme-swatch__shuffle svg { width: .9rem; height: .9rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pathways .theme-swatch__shuffle:hover { color: var(--ink); background: var(--hover-wash, color-mix(in srgb, var(--accent) 12%, transparent)); }
+.pathways .theme-swatch__shuffle:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: 2px; }
+/* Pinned reads as held open rather than as hovered. */
+.pathways .theme-swatch[data-pinned="true"] /* The trigger is the current palette: a disc, .pathways and nothing else at rest. It keeps each island's
+   own disc chrome by also carrying .theme-swatch__btn. */
+.theme-swatch__trigger { position: relative; }
+.pathways .theme-swatch__trigger[aria-expanded="true"] { z-index: 41; }
+.pathways .theme-swatch__menu { border-color: var(--edge-strong, var(--ink)); }
+
+/* END merged UX block (apps/shared/ux-base.css) */
+
+.pathways .pathways-trail { padding: 0; }
+
+
+
+/* --- Deferred first paint (#543) ------------------------------------------- */
+/* REPO RULE (operator, 2026-09-21): when a skeleton is needed in order to lazy
+   load, ONLY THE GRAPHS AND BARS are skeleton. The masthead, the breadcrumbs, the
+   chapter headings and their (i) marks, the whole filter console, the mode switch,
+   the export rail and the colophon are all real on first paint, so the reader can
+   already be filtering while the readings are still arriving. A skeleton over a
+   control is a control you took away.
+
+   These bands therefore sit inside .chapter__body and the Classic mount, and
+   nowhere else. They carry no number, label, axis or legend, because a placeholder
+   a reader can mistake for a reading is worse than an empty frame (ADR 0018).
+
+   THE 1.4s SHIMMER IS A DELIBERATE EXCEPTION to the shared motion tokens in
+   apps/shared/ux-base.css. Those tokens (120/180/280/360/550ms) time a STATE
+   CHANGE: one move, from one settled state to another. A loading sweep is not a
+   state change -- it is a continuous "still working" affordance with no end state
+   to arrive at, and at --motion-focal it would read as a strobe. The rule predates
+   #543 and Leadership's copy matches it, so both islands sweep at one rate.
+   Reduced motion stops the sweep and keeps the silhouette. */
+.pathways .markskel { display: flex; flex-direction: column; gap: .9rem; padding: .5rem 0 1.5rem; }
+.pathways .markskel__row { display: flex; align-items: center; }
+.pathways .markskel__band { display: block; width: var(--markskel-w, 60%); height: var(--bar-h); }
+/* Inside a plot that already owns its height -- the freshness strip -- the band fills it
+   rather than standing a bar-height line in the middle of an empty box. */
+.pathways .markskel__band--fill { height: 100%; }
+/* The step ledger keeps every name and prints a shimmer in the two measured columns. */
+.pathways .cellskel { display: block; width: 100%; min-height: 0; height: .85rem; }
+
+@media (max-width: 768px) {
+  .pathways .markskel { gap: .6rem; }
+}
+
+/* --- No vertical scrollable windows (repo rule, operator, 2026-09-21) ------- */
+/* A panel never gets its own vertical scrollbar: the page scrolls, the panel does
+   not. Horizontal scroll is the one exception, for a table or plot genuinely wider
+   than its column.
+
+   An inner vertical scroll hides content behind a gesture the reader has no reason
+   to expect, and hides it from Cmd-F, from print, and from an export too. The panel
+   grows instead. The page was always going to be long; a long page a reader can scan
+   beats a short one with rows they never find.
+
+   THE TRAP THAT MADE THIS RULE FAIL SILENTLY: `overflow-x: auto; overflow-y: visible` does
+   NOT give you a horizontal-only scroller. CSS coerces a `visible` axis to `auto` whenever
+   the other axis is not visible, so every rule written that way was declaring a VERTICAL
+   scroller too. Spell the vertical axis `hidden`. It is the only spelling that holds.
+
+   .cw__body is the shared Classic widget body (apps/shared/classic-base.css), pasted
+   into every island, and it caps at 28rem with overflow:auto. This override sits
+   AFTER the merged block, which is where island rules belong -- the pasted block is
+   never hand-edited. The shared source still carries the cap for the five islands
+   this branch does not deploy; fixing it there is a follow-up, because repasting it
+   changes CSS for islands whose bytes this push does not update. */
+.pathways .cw__body { overflow-x: auto; overflow-y: hidden; max-height: none; }

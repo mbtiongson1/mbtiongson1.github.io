@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Overview (Fictional Workbench)</title>
+  <!-- The stylesheet is reloaded with a cache-busting query on every visit. python3 -m
+     http.server sends no cache headers, so Chrome caches the sheet heuristically and a
+     design iteration silently renders the previous one; this harness exists to show the
+     working tree. Dev-only -- production pins assets by manifest assetVersion instead. -->
+<script>document.write('<link rel="stylesheet" href="./capture/exec-overview.css?dev=' + Date.now() + '">');</script>
+  <style>
+    /* Dev-only font bridge: mirrors apps/pathways-island/index.html. The production asset
+       root serves fonts/ beside the CSS; this workbench reaches back into the repository's
+       single brand-asset copy instead of duplicating font files per island. */
+    @font-face { font-family: "Favorvetica"; src: url("../../../_fonts/Favorvetica-Regular.otf") format("opentype"); font-weight: normal; font-display: swap; }
+    @font-face { font-family: "Favorvetica"; src: url("../../../_fonts/Favorvetica-Bold.otf") format("opentype"); font-weight: bold; font-display: swap; }
+    @font-face { font-family: "Favor Sans"; src: url("../../../_fonts/FavorSans.otf") format("opentype"); font-weight: normal; font-display: swap; }
+    @font-face { font-family: "Favor Sans"; src: url("../../../_fonts/FavorSans-Bold.otf") format("opentype"); font-weight: bold; font-display: swap; }
+    /* The island stylesheet and the production @font-face both name the body face "FavorSans"
+       (no space); the workbench must register that exact name or every screenshot taken here
+       falls back to Arial for body text and the evidence stops being evidence. */
+    @font-face { font-family: "FavorSans"; src: url("../../../_fonts/FavorSans.otf") format("opentype"); font-weight: normal; font-display: swap; }
+    @font-face { font-family: "FavorSans"; src: url("../../../_fonts/FavorSans-Bold.otf") format("opentype"); font-weight: bold; font-display: swap; }
+    body { margin: 0; padding: 0; background: #fef1e8; }
+    .workbench-bar {
+      background: #121411; color: #fef1e8; padding: 10px 20px;
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 12px;
+      font-family: "Favor Sans", Arial, sans-serif; font-size: 14px;
+    }
+    .workbench-badge {
+      background: #c23f00; color: #fff; font-weight: 700; padding: 2px 9px;
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .workbench-note { opacity: .8; }
+  </style>
+</head>
+<body>
+  <div class="workbench-bar">
+    <span><span class="workbench-badge">Fictional</span> Executive Overview island workbench</span>
+    <span class="workbench-note">Every count on this page is invented. Serve this directory and open this file; no build step.</span>
+  </div>
+  <!-- Executive Markup (#598): the workbench loads the locally built micro-app and keeps boards in memory. -->
+  <div id="exec-overview-island" class="block-content" data-markup-assets="/apps/markup-app/capture" data-markup-storage="memory"></div>
+  <script type="module">
+    // Exec Overview has no boot() export to call (#215): the runtime is a plain
+    // top-level script that reads #exec-overview-data directly and wires its own
+    // listeners the moment it loads -- the shape production delivers it in, inlined
+    // verbatim into an IIFE by tools/build_exec_overview_block.py. So this workbench
+    // assembles the same DOM production hands it (shell markup + a JSON data island)
+    // before ever appending the boot module, rather than importing and invoking it.
+    const island = document.getElementById("exec-overview-island");
+
+    const [shellHtml, payload] = await Promise.all([
+      fetch("./capture/exec-overview-shell.html", { credentials: "same-origin" }).then((response) => {
+        if (!response.ok) throw new Error(`fictional shell fetch failed: ${response.status}`);
+        return response.text();
+      }),
+      fetch("./capture/payload-fictional.json", { credentials: "same-origin" }).then((response) => {
+        if (!response.ok) throw new Error(`fictional payload fetch failed: ${response.status}`);
+        return response.json();
+      }),
+    ]);
+
+    island.innerHTML = shellHtml;
+
+    const dataIsland = document.createElement("script");
+    dataIsland.type = "application/json";
+    dataIsland.id = "exec-overview-data";
+    dataIsland.textContent = JSON.stringify(payload);
+    island.appendChild(dataIsland);
+
+    const boot = document.createElement("script");
+    boot.type = "module";
+    boot.src = "./capture/exec-overview-boot.mjs";
+    document.body.appendChild(boot);
+  </script>
+</body>
+</html>

@@ -1,0 +1,1563 @@
+/* Multiplication — the under-construction watershed (#394, #600)
+   =========================================================================================
+   Scope: `.mult`. Confined to the island (tools/scope_island_css.py), because this is injected
+   into a Rock page that already has its own chrome.
+
+   THE WORLD IS WATERSHED: a cool near-white ground with river blue as the identity. Blue is the
+   accent here rather than the secondary, because the subject is water — a watershed branches,
+   tributaries join, flow carries volume and direction, and a dry bed reads as an absence rather
+   than as a zero.
+
+   ONE AUTHORED MOMENT, and it is the flow. Everything else on this page is still. The river
+   moves because movement is the thing the dashboard is about; a second animation would make the
+   first one decoration. Reduced motion stops the flow and keeps every stroke, because a reader
+   who has asked for stillness still needs to see which bed is dry.
+   ========================================================================================= */
+
+/* >>> GENERATED THEME BLOCKS -- tools/build_theme_blocks.py from themes/favor-*.json. Do not hand-edit. <<< */
+
+/* The palette .mult ships today. A page that sets no data-theme is unchanged. */
+.mult {
+  --accent: #0077a4;
+  --accent-deep: #005a7d;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #f6fbfd;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #dbe6ec;
+  --edge-strong: #79868e;
+  --faint-ink: #726f65;
+  --focus: #005a7d;
+  --gap-wash: #e6eef2;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #e2e9ee;
+  --hover-wash: #e9f5fb;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #ffffff;
+  --rule: #cfdde5;
+  --secondary: #00607f;
+  --selected-wash: #d8ecf7;
+  --shadow-ink: #0d2028;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fcfeff;
+  --surface-lit: #fdffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #eaf4f9;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #1f4a5e;
+  --trajectory-line-edge: #2e6076;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+.mult[data-theme="favor-cream"] {
+  --accent: #f45500;
+  --accent-deep: #c23f00;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #fef1e8;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #ded8d1;
+  --edge-strong: #8d8880;
+  --faint-ink: #726f65;
+  --focus: #0077a4;
+  --gap-wash: #f2ece5;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #ece6e2;
+  --hover-wash: #fff2e8;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #121411;
+  --rule: #d8cec6;
+  --secondary: #0077a4;
+  --selected-wash: #ffebd8;
+  --shadow-ink: #121411;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fffaf6;
+  --surface-lit: #fffdfa;
+  --surface-raised: #fdf6f1;
+  --surface-sunken: #fef1e8;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #2f4553;
+  --trajectory-line-edge: #3d5a68;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+.mult[data-theme="favor-dark"] {
+  --accent: #ff7a33;
+  --accent-deep: #ff9459;
+  --age-all-ages: #7b8b93;
+  --age-deaf: #d9675e;
+  --age-adults: #ffc24d;
+  --age-kids: #35b0dc;
+  --age-mature: #a78bfa;
+  --age-seasoned: #b487b6;
+  --age-young-adults: #7fae8c;
+  --age-youth: #ff7a33;
+  --background: #070b0e;
+  --brand-gold: #ffc24d;
+  --cohort-core: #35b0dc;
+  --cohort-crowd: #ffc24d;
+  --cohort-leader: #ff7a33;
+  --cohort-new: #b487b6;
+  --edge-lit: #35505f;
+  --edge-strong: #5c7788;
+  --faint-ink: #7b8b93;
+  --focus: #7fd2f0;
+  --gap-wash: #1a252f;
+  --gender-men: #35b0dc;
+  --gender-unknown: #7b8b93;
+  --gender-women: #ff7a33;
+  --ghost-wash: #16202a;
+  --hover-wash: #1a232d;
+  --ink: #e2edf2;
+  --move-gain: #3fbf8e;
+  --move-gain-text: #5fd0a5;
+  --move-loss: #ff6a3d;
+  --move-loss-text: #ff8a65;
+  --move-neutral: #7b8b93;
+  --move-neutral-text: #9aa8af;
+  --move-stalled: #e8973a;
+  --move-stalled-text: #f0ac5c;
+  --muted-ink: #93a8b3;
+  --on-accent: #131e26;
+  --rule: #1e2c35;
+  --secondary: #56c2e8;
+  --selected-wash: #273039;
+  --shadow-ink: #02050a;
+  --soft-critical: #342325;
+  --soft-gain: #153132;
+  --soft-healthy: #153132;
+  --soft-loss: #342325;
+  --soft-neutral: #1f2932;
+  --soft-stalled: #302b24;
+  --soft-thin: #2e2726;
+  --soft-watch: #302b24;
+  --state-critical: #ff6a3d;
+  --state-critical-text: #ff8a65;
+  --state-healthy: #3fbf8e;
+  --state-healthy-text: #5fd0a5;
+  --state-thin: #d98243;
+  --state-thin-text: #e79a63;
+  --state-unknown: #7b8b93;
+  --state-unknown-text: #9aa8af;
+  --state-watch: #e8973a;
+  --state-watch-text: #f0ac5c;
+  --surface: #0d1620;
+  --surface-lit: #131e26;
+  --surface-raised: #101a21;
+  --surface-sunken: #0c1319;
+  --trajectory-ground: #000000;
+  --trajectory-line: #4a6b7c;
+  --trajectory-line-edge: #a0becd;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+.mult[data-theme="favor-indigo"] {
+  --accent: #8796fc;
+  --accent-deep: #b1bdfc;
+  --age-all-ages: #8b8e9e;
+  --age-deaf: #c4503d;
+  --age-adults: #538059;
+  --age-kids: #ffb42a;
+  --age-mature: #a78bfa;
+  --age-seasoned: #95969d;
+  --age-young-adults: #646cff;
+  --age-youth: #f45500;
+  --background: #0f111c;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #c4503d;
+  --cohort-leader: #f45500;
+  --cohort-new: #8796fc;
+  --edge-lit: #4a5175;
+  --edge-strong: #686f92;
+  --faint-ink: #8b8e9e;
+  --focus: #8796fc;
+  --gap-wash: #262836;
+  --gender-men: #8796fc;
+  --gender-unknown: #73757b;
+  --gender-women: #f45500;
+  --ghost-wash: #202337;
+  --hover-wash: #242632;
+  --ink: #f4efe6;
+  --move-gain: #538059;
+  --move-gain-text: #74a279;
+  --move-loss: #c4503d;
+  --move-loss-text: #eb735e;
+  --move-neutral: #73757b;
+  --move-neutral-text: #95969d;
+  --move-stalled: #bc5915;
+  --move-stalled-text: #e17c3f;
+  --muted-ink: #afb2c1;
+  --on-accent: #23273b;
+  --rule: #2b3047;
+  --secondary: #b1bdfc;
+  --selected-wash: #32333d;
+  --shadow-ink: #060725;
+  --soft-critical: #39272f;
+  --soft-gain: #262f33;
+  --soft-healthy: #262f33;
+  --soft-loss: #39272f;
+  --soft-neutral: #2b2d39;
+  --soft-stalled: #37292a;
+  --soft-thin: #37292a;
+  --soft-watch: #3c2525;
+  --state-critical: #f25852;
+  --state-critical-text: #fa7d73;
+  --state-healthy: #538059;
+  --state-healthy-text: #74a279;
+  --state-thin: #d7712e;
+  --state-thin-text: #e68a54;
+  --state-unknown: #73757b;
+  --state-unknown-text: #95969d;
+  --state-watch: #b7831f;
+  --state-watch-text: #ca9842;
+  --surface: #171926;
+  --surface-lit: #23273b;
+  --surface-raised: #1d2030;
+  --surface-sunken: #12141f;
+  --trajectory-ground: #000000;
+  --trajectory-line: #4a6b7c;
+  --trajectory-line-edge: #a0becd;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+.mult[data-theme="favor-grow-multicolor"] {
+  --accent: #4f3ad0;
+  --accent-deep: #4130b3;
+  --age-all-ages: #66656e;
+  --age-deaf: #2653c2;
+  --age-adults: #2a7f46;
+  --age-kids: #e9b62c;
+  --age-mature: #6a44c4;
+  --age-seasoned: #b8356c;
+  --age-young-adults: #0f8489;
+  --age-youth: #bf5f12;
+  --background: #fbfbfd;
+  --brand-gold: #e9b62c;
+  --cohort-core: #e9b62c;
+  --cohort-crowd: #2653c2;
+  --cohort-leader: #c3441f;
+  --cohort-new: #0a9aa1;
+  --edge-lit: #e3e3ea;
+  --edge-strong: #85848f;
+  --faint-ink: #66656e;
+  --focus: #4130b3;
+  --gap-wash: #ececf2;
+  --gender-men: #2653c2;
+  --gender-unknown: #a5a4ad;
+  --gender-women: #b8356c;
+  --ghost-wash: #e8e8ee;
+  --hover-wash: #f1eefc;
+  --ink: #121411;
+  --move-gain: #2a7f46;
+  --move-gain-text: #256a3d;
+  --move-loss: #a82c1c;
+  --move-loss-text: #922719;
+  --move-neutral: #a5a4ad;
+  --move-neutral-text: #63626b;
+  --move-stalled: #a55e07;
+  --move-stalled-text: #84480a;
+  --muted-ink: #57565f;
+  --on-accent: #fffdfa;
+  --rule: #dcdce4;
+  --secondary: #a8391a;
+  --selected-wash: #e4defa;
+  --shadow-ink: #121411;
+  --soft-critical: #fbe3df;
+  --soft-gain: #e3f2e8;
+  --soft-healthy: #e3f2e8;
+  --soft-loss: #fbe3df;
+  --soft-neutral: #f3f3f7;
+  --soft-stalled: #fbecd8;
+  --soft-thin: #fce8dc;
+  --soft-watch: #fcefd6;
+  --state-critical: #a82c1c;
+  --state-critical-text: #922719;
+  --state-healthy: #2a7f46;
+  --state-healthy-text: #256a3d;
+  --state-thin: #b04f18;
+  --state-thin-text: #8d3f0e;
+  --state-unknown: #c5c5cd;
+  --state-unknown-text: #63626b;
+  --state-watch: #a55e07;
+  --state-watch-text: #84480a;
+  --surface: #ffffff;
+  --surface-lit: #ffffff;
+  --surface-raised: #f6f6f9;
+  --surface-sunken: #f0f0f5;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #3b2f7a;
+  --trajectory-line-edge: #4f3ad0;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+.mult[data-theme="favor-leadership"] {
+  --accent: #95610f;
+  --accent-deep: #6f4809;
+  --age-all-ages: #5d6a72;
+  --age-deaf: #bd5348;
+  --age-adults: #2c5a8b;
+  --age-kids: #ad7b21;
+  --age-mature: #78508d;
+  --age-seasoned: #78508d;
+  --age-young-adults: #2a8878;
+  --age-youth: #ad7b21;
+  --background: #edf0ef;
+  --brand-gold: #ad7b21;
+  --cohort-core: #ad7b21;
+  --cohort-crowd: #bd5348;
+  --cohort-leader: #116a60;
+  --cohort-new: #2c5a8b;
+  --edge-lit: #eaeeec;
+  --edge-strong: #748791;
+  --faint-ink: #5d6a72;
+  --focus: #14202a;
+  --gap-wash: #eef1f0;
+  --gender-men: #41598a;
+  --gender-unknown: #7a868d;
+  --gender-women: #4f8676;
+  --ghost-wash: #e6ebe9;
+  --hover-wash: #f0f4f3;
+  --ink: #14202a;
+  --move-gain: #116a60;
+  --move-gain-text: #0e574f;
+  --move-loss: #a03227;
+  --move-loss-text: #8f2b22;
+  --move-neutral: #7a868d;
+  --move-neutral-text: #5b6a73;
+  --move-stalled: #8a5d0c;
+  --move-stalled-text: #7a520a;
+  --muted-ink: #41535e;
+  --on-accent: #ffffff;
+  --rule: #d7dedc;
+  --secondary: #116a60;
+  --selected-wash: #dfe8e5;
+  --shadow-ink: #14202a;
+  --soft-critical: #fbe9e7;
+  --soft-gain: #e7f2ee;
+  --soft-healthy: #e7f2ee;
+  --soft-loss: #fbe9e7;
+  --soft-neutral: #f0f4f3;
+  --soft-stalled: #fdf1dc;
+  --soft-thin: #fdf1dc;
+  --soft-watch: #fdf1dc;
+  --state-critical: #a03227;
+  --state-critical-text: #8f2b22;
+  --state-healthy: #116a60;
+  --state-healthy-text: #0e574f;
+  --state-thin: #95610f;
+  --state-thin-text: #7d5009;
+  --state-unknown: #768884;
+  --state-unknown-text: #5b6a73;
+  --state-watch: #8a5d0c;
+  --state-watch-text: #7a520a;
+  --surface: #f8faf9;
+  --surface-lit: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #e3e9e7;
+  --swatch-mark: #116a60;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #41598a;
+  --trajectory-line-edge: #2c5a8b;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+.mult[data-theme="favor-watershed"] {
+  --accent: #0077a4;
+  --accent-deep: #005a7d;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #f6fbfd;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #dbe6ec;
+  --edge-strong: #79868e;
+  --faint-ink: #726f65;
+  --focus: #005a7d;
+  --gap-wash: #e6eef2;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #e2e9ee;
+  --hover-wash: #e9f5fb;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #ffffff;
+  --rule: #cfdde5;
+  --secondary: #00607f;
+  --selected-wash: #d8ecf7;
+  --shadow-ink: #0d2028;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fcfeff;
+  --surface-lit: #fdffff;
+  --surface-raised: #ffffff;
+  --surface-sunken: #eaf4f9;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #1f4a5e;
+  --trajectory-line-edge: #2e6076;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+/* A pinned surface keeps its own ground in every theme, because the ground carries
+   meaning. It resolves the whole contract from favor-cream, which is what replaced
+   Connect Health's twelve -deep / -mark-cream tokens. */
+.mult .pinned-cream {
+  --accent: #f45500;
+  --accent-deep: #c23f00;
+  --age-all-ages: #726f65;
+  --age-deaf: #b3402f;
+  --age-adults: #47734d;
+  --age-kids: #ffb42a;
+  --age-mature: #6b46c1;
+  --age-seasoned: #625f59;
+  --age-young-adults: #007fae;
+  --age-youth: #f45500;
+  --background: #fef1e8;
+  --brand-gold: #ffb42a;
+  --cohort-core: #ffb42a;
+  --cohort-crowd: #b3402f;
+  --cohort-leader: #47734d;
+  --cohort-new: #5b9bd5;
+  --edge-lit: #ded8d1;
+  --edge-strong: #8d8880;
+  --faint-ink: #726f65;
+  --focus: #0077a4;
+  --gap-wash: #f2ece5;
+  --gender-men: #0077a4;
+  --gender-unknown: #a7a29c;
+  --gender-women: #f45500;
+  --ghost-wash: #ece6e2;
+  --hover-wash: #fff2e8;
+  --ink: #121411;
+  --move-gain: #34735a;
+  --move-gain-text: #2c6350;
+  --move-loss: #c23f00;
+  --move-loss-text: #b03900;
+  --move-neutral: #a7a29c;
+  --move-neutral-text: #6b6660;
+  --move-stalled: #a65b00;
+  --move-stalled-text: #8f4e00;
+  --muted-ink: #625f59;
+  --on-accent: #121411;
+  --rule: #d8cec6;
+  --secondary: #0077a4;
+  --selected-wash: #ffebd8;
+  --shadow-ink: #121411;
+  --soft-critical: #f6e4de;
+  --soft-gain: #e7eae3;
+  --soft-healthy: #e9eae2;
+  --soft-loss: #f8e4d8;
+  --soft-neutral: #f6f1ed;
+  --soft-stalled: #f4e7d8;
+  --soft-thin: #f6e6da;
+  --soft-watch: #fee6d8;
+  --state-critical: #ae1c21;
+  --state-critical-text: #a5171d;
+  --state-healthy: #47734d;
+  --state-healthy-text: #3d6543;
+  --state-thin: #9d4908;
+  --state-thin-text: #934301;
+  --state-unknown: #c9c2bc;
+  --state-unknown-text: #6b6660;
+  --state-watch: #8b6000;
+  --state-watch-text: #805800;
+  --surface: #fffaf6;
+  --surface-lit: #fffdfa;
+  --surface-raised: #fdf6f1;
+  --surface-sunken: #fef1e8;
+  --trajectory-ground: #ffffff;
+  --trajectory-line: #2f4553;
+  --trajectory-line-edge: #3d5a68;
+
+  /* Classic mode reads the same contract, so a swatch re-themes both modes. */
+  --classic-surface: var(--surface);
+  --classic-surface-2: var(--surface-raised);
+  --classic-ink: var(--ink);
+  --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule);
+  --classic-accent: var(--accent-deep);
+  --classic-focus: var(--focus);
+  --classic-wash-healthy: var(--soft-healthy);
+  --classic-wash-watch: var(--soft-watch);
+  --classic-wash-thin: var(--soft-thin);
+  --classic-wash-neutral: var(--soft-neutral);
+  --classic-wash-unknown: var(--ghost-wash);
+  --classic-bar: var(--secondary);
+  --classic-shadow: 0 10px 28px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+}
+
+/* The #469 spectrum: Favor Grow Multicolor's non-semantic hue ladder, rotated across the
+   page and locked to one hue when a reader narrows to one item (--spectrum-lock). */
+@property --sp { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --sp-ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --sp-band { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --sp-band-ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --background { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --surface { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --surface-raised { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --surface-sunken { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --muted-ink { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --rule { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --accent { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --accent-deep { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --secondary { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --focus { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --hover-wash { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@property --selected-wash { syntax: "<color>"; inherits: true; initial-value: transparent; }
+@media (prefers-reduced-motion: no-preference) {
+  .mult { transition: --background .2s cubic-bezier(.16,1,.3,1), --surface .2s cubic-bezier(.16,1,.3,1), --surface-raised .2s cubic-bezier(.16,1,.3,1), --surface-sunken .2s cubic-bezier(.16,1,.3,1), --ink .2s cubic-bezier(.16,1,.3,1), --muted-ink .2s cubic-bezier(.16,1,.3,1), --rule .2s cubic-bezier(.16,1,.3,1), --accent .2s cubic-bezier(.16,1,.3,1), --accent-deep .2s cubic-bezier(.16,1,.3,1), --secondary .2s cubic-bezier(.16,1,.3,1), --focus .2s cubic-bezier(.16,1,.3,1), --hover-wash .2s cubic-bezier(.16,1,.3,1), --selected-wash .2s cubic-bezier(.16,1,.3,1); }
+  .mult[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard) { transition: --sp .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s), --sp-ink .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s), --sp-band .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s), --sp-band-ink .18s cubic-bezier(.16,1,.3,1) var(--sp-delay, 0s); }
+}
+.mult[data-theme="favor-grow-multicolor"] { --spectrum-1: #5b3ee0; --spectrum-1-text: #3f2aa8; --spectrum-1-on: #ffffff; --spectrum-2: #d6560b; --spectrum-2-text: #9a3a06; --spectrum-2-on: #121411; --spectrum-3: #2f62e0; --spectrum-3-text: #1f45a3; --spectrum-3-on: #ffffff; --spectrum-4: #078f94; --spectrum-4-text: #0b6b70; --spectrum-4-on: #121411; --spectrum-5: #c93b78; --spectrum-5-text: #8f2a55; --spectrum-5-on: #ffffff; --spectrum-6: #2f9a52; --spectrum-6-text: #1f6436; --spectrum-6-on: #121411; --spectrum-7: #1686bf; --spectrum-7-text: #0b5c85; --spectrum-7-on: #121411;
+  --spectrum-band: linear-gradient(90deg, #5b3ee0 0.00% 14.29%, #d6560b 14.29% 28.57%, #2f62e0 28.57% 42.86%, #078f94 42.86% 57.14%, #c93b78 57.14% 71.43%, #2f9a52 71.43% 85.71%, #1686bf 85.71% 100.00%);
+  --sp-own: var(--spectrum-1); --sp-ink-own: var(--spectrum-1-text); --sp-on-own: var(--spectrum-1-on);
+  --sp: var(--spectrum-lock, var(--sp-own)); --sp-ink: var(--sp-ink-own);
+  --sp-band: var(--spectrum-lock-wash, var(--sp-own)); --sp-band-ink: var(--spectrum-lock-ink, var(--sp-on-own)); }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard) { --sp: var(--spectrum-lock, var(--sp-own)); --sp-ink: var(--sp-ink-own); --sp-band: var(--spectrum-lock-wash, var(--sp-own)); --sp-band-ink: var(--spectrum-lock-ink, var(--sp-on-own)); }
+.mult[data-theme="favor-grow-multicolor"] :is(.xrail__btn, .filter-fieldset) { --sp: var(--sp-own); --sp-ink: var(--sp-ink-own); --sp-band: var(--sp-own); --sp-band-ink: var(--sp-on-own); }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+1) { --sp-own: var(--spectrum-1); --sp-ink-own: var(--spectrum-1-text); --sp-on-own: var(--spectrum-1-on); --sp-delay: 0ms; }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+2) { --sp-own: var(--spectrum-2); --sp-ink-own: var(--spectrum-2-text); --sp-on-own: var(--spectrum-2-on); --sp-delay: 10ms; }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+3) { --sp-own: var(--spectrum-3); --sp-ink-own: var(--spectrum-3-text); --sp-on-own: var(--spectrum-3-on); --sp-delay: 20ms; }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+4) { --sp-own: var(--spectrum-4); --sp-ink-own: var(--spectrum-4-text); --sp-on-own: var(--spectrum-4-on); --sp-delay: 30ms; }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+5) { --sp-own: var(--spectrum-5); --sp-ink-own: var(--spectrum-5-text); --sp-on-own: var(--spectrum-5-on); --sp-delay: 40ms; }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+6) { --sp-own: var(--spectrum-6); --sp-ink-own: var(--spectrum-6-text); --sp-on-own: var(--spectrum-6-on); --sp-delay: 50ms; }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .pulse-card, .combo-card, .dir-card, .kpi-tile, .stack-tile, .mode-panel, .groupcard, .xrail__btn, .filter-fieldset):nth-child(7n+7) { --sp-own: var(--spectrum-7); --sp-ink-own: var(--spectrum-7-text); --sp-on-own: var(--spectrum-7-on); --sp-delay: 60ms; }
+.mult[data-theme="favor-grow-multicolor"] { accent-color: var(--spectrum-1); caret-color: var(--spectrum-1); scrollbar-color: var(--spectrum-1) color-mix(in srgb, var(--spectrum-1) 10%, var(--surface)); }
+.mult[data-theme="favor-grow-multicolor"] ::selection { background: color-mix(in srgb, var(--sp) 30%, var(--surface)); color: var(--ink); }
+.mult[data-theme="favor-grow-multicolor"] :focus-visible { outline-color: var(--sp); }
+.mult[data-theme="favor-grow-multicolor"] :is(.title-beta, .masthead h1 .beta) { color: var(--spectrum-1-text); }
+.mult[data-theme="favor-grow-multicolor"] .status-beta { background: var(--spectrum-1); border-color: var(--spectrum-1); color: var(--spectrum-1-on); }
+.mult[data-theme="favor-grow-multicolor"] .sidebar-head { background-image: var(--spectrum-band); background-size: 100% 6px; background-repeat: no-repeat; background-position: 0 100%; border-bottom-color: transparent; }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) { background: var(--sp-band); color: var(--sp-band-ink); border-color: var(--sp); padding: .65rem .95rem; box-shadow: none; }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) :is(h2, h3, .chapter__meta, .chapter__no, .chapter__title-group, .sub, .station-tag, .cw__question, .cw__lead, .cw__title, .combo-card__source, .pathway-section__count, .station-question, .station-note, .station-note strong, .station-note em, .prosemark, .info-disc > summary, .info-tip, .info-disc, .cw__info, .cw__expand) { color: inherit; }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) :is(.station-tag, .prosemark, .info-tip, .info-disc, .cw__info, .cw__expand) { border-color: currentColor; background: transparent; }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .state-badge { background-color: var(--surface); }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .xrail__btn:not(:disabled, [aria-disabled="true"], .tool__off) { background: var(--surface); border-color: var(--surface); color: var(--sp-ink-own); }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .xrail__btn:not(:disabled, [aria-disabled="true"], .tool__off):is(:hover, :focus-visible) { background: var(--sp-ink-own); border-color: var(--surface); color: #ffffff; }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter__head, .station-head, .pathway-section__head, .cw__head, .pulse-card__head, .combo-card__head) .tool__off { background: transparent; border-color: currentColor; color: inherit; opacity: .8; }
+.mult[data-theme="favor-grow-multicolor"] :is(.pulse-card, .combo-card, .dir-card, .cw, .kpi-tile, .stack-tile, .mode-panel, .groupcard) { background-color: color-mix(in srgb, var(--sp) 7%, var(--surface)); box-shadow: inset 0 6px 0 var(--sp); }
+.mult[data-theme="favor-grow-multicolor"] :is(.pulse-kpi, .kpi-tile__value, .queue-rank, .donut-center-total):not(.hero-card *) { color: var(--sp-ink); }
+.mult[data-theme="favor-grow-multicolor"] .pulse-grid { background: repeating-linear-gradient(135deg, var(--rule) 0 1px, var(--surface-raised) 1px 10px); }
+.mult[data-theme="favor-grow-multicolor"] :is(.pulse-track, .combo-row__track) { background-color: color-mix(in srgb, var(--sp) 20%, var(--surface)); }
+.mult[data-theme="favor-grow-multicolor"] .hero-card { --invert-surface: var(--spectrum-1); --invert-ink: var(--spectrum-1-on); background-color: var(--spectrum-1); box-shadow: none; }
+.mult[data-theme="favor-grow-multicolor"] .hero-card .pulse-card__head { background: none; color: var(--invert-ink); padding-inline: 0; }
+.mult[data-theme="favor-grow-multicolor"] .hero-card :is(.info-tip, .info-disc, .cw__info, .cw__expand, a, .pulse-cta) { color: var(--invert-ink); border-color: var(--invert-ink); text-decoration-color: currentColor; opacity: 1; }
+.mult[data-theme="favor-grow-multicolor"] :is(.chapter, .station, .pathway-section, .cw, .combo-card, .dir-card) a:not(.xrail__btn, .copy-prompt-btn, .combo-row, .hero-card *) { color: var(--sp-ink); text-decoration-color: var(--sp); }
+.mult[data-theme="favor-grow-multicolor"] :is(.info-tip, .info-disc, .cw__info, .cw__expand) { color: var(--sp-ink); border-color: var(--sp); }
+.mult[data-theme="favor-grow-multicolor"] thead th { background-color: var(--sp-band); color: var(--sp-band-ink); border-bottom-color: var(--sp); }
+.mult[data-theme="favor-grow-multicolor"] :is(.combo-row, .queue-row, .cohort-row, .rhythm-row, .modes-row, .swarmrow, tbody tr):nth-child(even) { background-color: color-mix(in srgb, var(--sp) 9%, var(--surface)); }
+.mult[data-theme="favor-grow-multicolor"] :is(.combo-row, .queue-row, .cohort-row, .rhythm-row, .modes-row, .swarmrow, tbody tr):hover { background-color: color-mix(in srgb, var(--sp) 20%, var(--surface)); }
+.mult[data-theme="favor-grow-multicolor"] .xrail__btn:not(:disabled, [aria-disabled="true"]) { background: var(--sp); border-color: var(--sp); color: var(--sp-on-own); }
+.mult[data-theme="favor-grow-multicolor"] .xrail__btn:not(:disabled, [aria-disabled="true"]):is(:hover, :focus-visible) { background: var(--sp-ink-own); border-color: var(--sp-ink-own); color: #ffffff; }
+.mult[data-theme="favor-grow-multicolor"] .xrail__btn:is(:disabled, [aria-disabled="true"]) { background: color-mix(in srgb, var(--sp) 10%, var(--surface)); border-color: color-mix(in srgb, var(--sp) 45%, var(--surface)); color: var(--sp-ink-own); }
+.mult[data-theme="favor-grow-multicolor"] .filter-legend { color: var(--sp-ink); }
+.mult[data-theme="favor-grow-multicolor"] .filter-fieldset :is(button, [role="button"]):not([aria-pressed="true"]):hover { background-color: color-mix(in srgb, var(--sp) 14%, var(--surface)); border-color: var(--sp); }
+.mult[data-theme="favor-grow-multicolor"] .filter-fieldset :is(button, [role="button"])[aria-pressed="true"] { background: var(--sp); border-color: var(--sp); color: var(--sp-on-own); box-shadow: none; }
+.mult[data-theme="favor-grow-multicolor"] .filter-fieldset :is(button, [role="button"])[aria-pressed="true"] * { color: inherit; }
+
+/* The #248 theme swatch. Every rule but the disc colours reads the contract, so the
+   control re-themes with the page it sits in. The disc colours are literal on purpose:
+   a swatch has to show the palette it offers, not the one already showing. */
+.mult .theme-swatch { position: sticky; bottom: 3.25rem; margin-left: 1.25rem; z-index: 100;
+  display: inline-flex; align-items: center; gap: .1rem; padding: .1rem .3rem;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--rule); border-radius: 999px;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink) 22%, transparent);
+  opacity: .85; transition: opacity .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.mult .theme-swatch:hover, .mult .theme-swatch:focus-within { opacity: 1; border-color: var(--edge-strong);
+  box-shadow: 0 6px 22px color-mix(in srgb, var(--shadow-ink) 28%, transparent); }
+/* The open menu must be fully opaque whatever the resting pill's opacity is: opacity on a
+   parent applies to its children, and a palette list you can read the page through is not a
+   list (#611). */
+.mult .theme-swatch[data-open="true"] { opacity: 1; }
+.mult .theme-swatch__btn { position: relative; display: inline-flex; align-items: center; justify-content: center;
+  padding: 0; background: transparent; border: 0; color: var(--muted-ink); font: inherit;
+  cursor: pointer; line-height: 0; }
+.mult .theme-swatch__btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 999px; }
+.mult .theme-swatch__disc { width: 1.25rem; height: 1.25rem; border-radius: 50%; flex: none;
+  /* the dual-colour split: ground on one half, accent on the other */
+  background: linear-gradient(115deg, var(--a) 0 50%, var(--b) 50% 100%);
+  box-shadow: inset 0 0 0 1px var(--edge-strong);
+  transition: box-shadow .18s ease, transform .18s cubic-bezier(.16,1,.3,1); }
+.mult .theme-swatch__btn[aria-pressed="true"] .theme-swatch__disc { box-shadow: inset 0 0 0 1px var(--c), 0 0 0 2px var(--ink); }
+.mult .theme-swatch__btn:hover .theme-swatch__disc { transform: scale(1.12); }
+/* THE MENU IS MINIMAL (#611): the other palettes as a row of discs, the same discs the control
+   has always used, with each one's name on its own hover. A list of words would be a second
+   vocabulary for something a reader picks by colour. */
+.mult .theme-swatch__menu .theme-swatch__btn { padding: .1rem; border-radius: 999px; }
+/* The name outside the menu stays the floating label the resting control has always had. */
+.mult .theme-swatch__name { position: absolute; bottom: calc(100% + .65rem); left: 0; z-index: 120;
+  transform: translateY(.25rem); opacity: 0; pointer-events: none; white-space: nowrap;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--edge-strong);
+  padding: .35rem .6rem; border-radius: .35rem; box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink) 30%, transparent);
+  transition: opacity .16s ease, transform .2s cubic-bezier(.16,1,.3,1);
+  display: flex; flex-direction: column; gap: .15rem; text-align: left; }
+.mult .theme-swatch__title { font-size: .74rem; font-weight: 700; line-height: 1.25; color: var(--ink); }
+.mult .theme-swatch__sub { font-size: .65rem; font-weight: 400; line-height: 1.2; color: var(--muted-ink); letter-spacing: .01em; }
+.mult .theme-swatch__btn:hover .theme-swatch__name, .mult .theme-swatch__btn:focus-visible .theme-swatch__name { opacity: 1; transform: translateY(0); }
+/* No stored choice means the palette the stylesheet ships, and the trigger says so by drawing
+   the page's own ground and accent rather than an empty ring. */
+.mult .theme-swatch__trigger[data-theme-pick=""] .theme-swatch__disc { --a: var(--background); --b: var(--swatch-mark, var(--accent)); }
+/* The menu itself is opaque, and its own box: see the structure in apps/shared/ux-base.css. */
+.mult .theme-swatch__menu { background: var(--surface); }
+.mult .theme-swatch__btn[data-theme-pick="favor-cream"] .theme-swatch__disc { --a: #fef1e8; --b: #f45500; --c: #121411; }
+.mult .theme-swatch__btn[data-theme-pick="favor-dark"] .theme-swatch__disc { --a: #070b0e; --b: #ff7a33; --c: #e2edf2; }
+.mult .theme-swatch__btn[data-theme-pick="favor-indigo"] .theme-swatch__disc { --a: #0f111c; --b: #8796fc; --c: #f4efe6; }
+.mult .theme-swatch__btn[data-theme-pick="favor-grow-multicolor"] .theme-swatch__disc { --a: #fbfbfd; --b: #4f3ad0; --c: #121411; }
+.mult .theme-swatch__btn[data-theme-pick="favor-grow-multicolor"] .theme-swatch__disc { background: conic-gradient(#5b3ee0 0% 25%, #d6560b 25% 50%, #078f94 50% 75%, #c93b78 75% 100%); }
+.mult .theme-swatch__btn[data-theme-pick="favor-leadership"] .theme-swatch__disc { --a: #edf0ef; --b: #116a60; --c: #14202a; }
+.mult .theme-swatch__btn[data-theme-pick="favor-watershed"] .theme-swatch__disc { --a: #f6fbfd; --b: #0077a4; --c: #121411; }
+@media (prefers-reduced-motion: reduce) {
+  .mult .theme-swatch__disc { transition: box-shadow .18s ease; }
+  .mult .theme-swatch__btn:hover .theme-swatch__disc { transform: none; }
+  .mult .theme-swatch__name { transform: translateY(0); }
+}
+@media print {
+  .mult .theme-swatch { display: none; }
+}
+
+/* >>> END GENERATED THEME BLOCKS <<< */
+
+.mult {
+  --mult-gap: 1.5rem;
+  --mult-body-font: var(--body-font, "Favor Sans", Arial, sans-serif);
+  --mult-display-font: var(--display-font, "Favorvetica", Arial, sans-serif);
+
+  /* Declared because the merged UX block consumes them with no fallback. Fonts are never
+     themed: a palette changes colour, not voice. */
+  --classic-body-font: var(--mult-body-font);
+  --classic-heading-font: var(--mult-body-font);
+
+  box-sizing: border-box;
+  padding: 0 0 5rem;
+  background: var(--background, #f6fbfd);
+  color: var(--ink, #121411);
+  font-family: var(--mult-body-font);
+  font-size: 15px;
+  line-height: 1.6;
+}
+.mult *, .mult *::before, .mult *::after { box-sizing: border-box; }
+
+.mult ::selection { background: var(--selected-wash, #d8ecf7); color: var(--ink, #121411); }
+.mult :focus-visible { outline: 2px solid var(--focus, #005a7d); outline-offset: 2px; border-radius: 4px; }
+
+.mult .mult-trail { padding: 0 var(--mult-gap); }
+
+.mult .mult-masthead { padding: 1.75rem var(--mult-gap) 0; max-width: 72ch; }
+.mult .mult-masthead__title {
+  margin: 0;
+  font-family: var(--mult-display-font);
+  font-size: clamp(1.9rem, 4.2vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+.mult .mult-masthead__question {
+  margin: .6rem 0 0;
+  max-width: 54ch;
+  color: var(--muted-ink, #625f59);
+  font-size: 1rem;
+  text-wrap: pretty;
+}
+
+/* The status line is the first thing a reader needs, so it sits above the drawing rather than
+   under it: the page is working, and here is what it is waiting for. */
+.mult /* The status is a label, .mult not a banner. A page that is not ready says so in four words. */
+.mult-status {
+  margin: 0 0 .6rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent-deep, #005a7d);
+}
+.mult .mult 
+/* ------------------------------------------------------------------------------- the river --
+   THE GRAMMAR IS THE DESIGN. Each stroke means one thing, .mult and the meanings are disciplined, .mult because the risk with a river is that nearness starts to read as ownership. Nothing here says
+   that anyone belongs to anyone.
+
+   Colours bind to the semantic tokens rather than to hexes, .mult which is the ruling on #394: the
+   Blender study resolves Favor's own palette (blue river from `secondary` / `accent`, orange from
+   `accent`, gold from `brandGold`) instead of inventing a set, and the runtime does the same.
+   Swap the palette and the watershed follows. */
+.mult-river { margin: 2.25rem var(--mult-gap) 0; max-width: 58rem; }
+.mult .mult-river svg { display: block; width: 100%; height: auto; overflow: visible; }
+
+/* The bed. Water sits IN a channel, so the trunk is a pale bed with a darker stream over it.
+   Without the bed a river is just a thick line. */
+.mult .mult-river__bed {
+  fill: none;
+  stroke: var(--surface-sunken, #eaf4f9);
+  stroke-width: 22;
+  stroke-linecap: round;
+}
+/* The canonical Leadership Pathway. Widest, most certain, and present whether or not a single
+   Sphere relationship exists. */
+.mult .mult-river__trunk {
+  fill: none;
+  stroke: var(--accent, #0077a4);
+  stroke-width: 13;
+  stroke-linecap: round;
+  opacity: .92;
+}
+/* The current: a fine bright thread riding the trunk. THIS is what moves, and it is the only
+   thing on the surface that does. A dashed trunk reads as a dashed line; a dashed thread over a
+   solid stream reads as water. */
+.mult .mult-river__current {
+  fill: none;
+  stroke: var(--surface-raised, #ffffff);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 10 54;
+  opacity: .75;
+  animation: favor-mult-flow 6s linear infinite;
+}
+.mult .mult-river__current--branch { stroke-width: 1.5; stroke-dasharray: 7 46; animation-duration: 7.5s; }
+
+/* A structural sphere: hairline, because structure is the weakest claim on the drawing. */
+.mult .mult-river__hairline {
+  fill: none;
+  stroke: var(--accent, #0077a4);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  opacity: .5;
+}
+/* Development actually recorded: stronger than structure, and visibly so. */
+.mult .mult-river__explicit {
+  fill: none;
+  stroke: var(--accent, #0077a4);
+  stroke-width: 6;
+  stroke-linecap: round;
+  opacity: .8;
+}
+/* Multiplication. The one stream that STARTS rather than joins, so it carries the brand's other
+   hue: a new thing beginning is the product, and it should not look like more of the same. */
+.mult .mult-river__new {
+  fill: none;
+  stroke: var(--secondary, #00607f);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.mult .mult-river__leader {
+  fill: var(--surface-raised, #ffffff);
+  stroke: var(--secondary, #00607f);
+  stroke-width: 3;
+}
+
+/* A verified win: small, solid, and placed on the stream it belongs to. Never a KPI firework. */
+.mult .mult-river__win { fill: var(--brand-gold, #ffb42a); stroke: none; }
+/* A win nobody measures yet: hollow. Pending is an honest state and it is not an absence. */
+.mult .mult-river__win--pending {
+  fill: none;
+  stroke: var(--edge-strong, #79868e);
+  stroke-width: 1.5;
+}
+
+/* Not measured. A bed with no water in it: never red, because this is a gap in what Rock holds
+   rather than an error, and never a zero. */
+.mult .mult-river__dry {
+  fill: none;
+  stroke: var(--edge-strong, #79868e);
+  stroke-width: 2;
+  stroke-dasharray: 4 6;
+  stroke-linecap: round;
+  opacity: .75;
+}
+
+@keyframes favor-mult-flow { to { stroke-dashoffset: -64; } }
+
+/* ------------------------------------------------------------------------------ the answers */
+
+.mult 
+.mult 
+.mult .mult .mult 
+.mult 
+.mult .mult 
+@media (max-width: 768px) {
+  .mult { --mult-gap: 1rem; }
+}
+
+/* Stillness keeps every stroke. A reader who has asked for no motion still has to be able to
+   see which bed is dry, so the dash pattern stays and only the drift stops. */
+@media (prefers-reduced-motion: reduce) {
+  .mult .mult-river__trunk, .mult }
+
+@media print {
+  .mult .mult-river__trunk, .mult }
+
+/* BEGIN merged Breadcrumbs block (apps/shared/breadcrumbs-base.css)
+   Shared Executive Suite wayfinding, scoped to ".mult" by tools/scope_island_css.py.
+   Edit apps/shared/breadcrumbs-base.css and re-paste, never this copy. */
+.mult .suite-breadcrumbs {
+  box-sizing: border-box;
+  width: auto;
+  margin-left: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 2.4rem)));
+  margin-right: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 2.4rem)));
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: .55rem clamp(1.1rem, 2.5vw, 2.4rem);
+  background:
+    repeating-linear-gradient(135deg, color-mix(in srgb, var(--ink) 5%, transparent) 0 1px, transparent 1px 9px),
+    var(--surface-sunken);
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted-ink);
+  font-family: var(--font-mono, "SF Mono", Monaco, Consolas, monospace);
+  font-size: clamp(.62rem, .58rem + .12vw, .72rem);
+  letter-spacing: .08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.mult .suite-breadcrumbs__trail { display: flex; flex-wrap: nowrap; align-items: baseline; gap: .25rem .35rem; margin: 0; padding: 0; list-style: none; max-width: 100%; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; touch-action: pan-x; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 1.5rem), transparent 100%); mask-image: linear-gradient(90deg, #000 calc(100% - 1.5rem), transparent 100%); }
+.mult .suite-breadcrumbs__trail::-webkit-scrollbar { display: none; }
+.mult .suite-breadcrumbs[data-draggable="true"] .suite-breadcrumbs__trail, .mult .suite-breadcrumbs__trail.is-draggable { cursor: grab; }
+.mult .suite-breadcrumbs[data-dragging="true"] .suite-breadcrumbs__trail, .mult .suite-breadcrumbs__trail.is-dragging { cursor: grabbing; user-select: none; -webkit-user-select: none; scroll-behavior: auto; }
+.mult .suite-breadcrumbs[data-dragging="true"] .suite-breadcrumbs__link, .mult .suite-breadcrumbs__trail.is-dragging .suite-breadcrumbs__link { pointer-events: none; }
+.mult .suite-breadcrumbs__trail::after {
+  content: "";
+  flex: 1 1 0%;
+  min-width: .75rem;
+  align-self: stretch;
+  margin-left: .15rem;
+  background: linear-gradient(90deg, var(--rule), transparent 55%);
+  opacity: .55;
+  pointer-events: none;
+}
+.mult .suite-breadcrumbs__item { display: inline-flex; align-items: baseline; min-width: 0; flex: 0 0 auto; }
+.mult .suite-breadcrumbs__item--root { flex-shrink: 0; }
+.mult .suite-breadcrumbs__peers { display: inline-flex; flex-wrap: nowrap; align-items: baseline; gap: .25rem .35rem; }
+.mult .suite-breadcrumbs__root-link, .mult .suite-breadcrumbs__link { color: var(--ink); text-decoration: none; transition: color 120ms ease; white-space: nowrap; }
+.mult .suite-breadcrumbs__prefix { color: var(--muted-ink); font-weight: 400; }
+.mult .suite-breadcrumbs__link { color: var(--muted-ink); padding: 4px 6px; margin: -4px -2px; }
+.mult .suite-breadcrumbs__root-link:hover, .mult .suite-breadcrumbs__link:hover { color: var(--accent); }
+.mult .suite-breadcrumbs__link.is-active { color: var(--ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .3em; }
+.mult .suite-breadcrumbs__divider, .mult .suite-breadcrumbs__sep { color: var(--rule); user-select: none; flex-shrink: 0; }
+.mult .suite-breadcrumbs__root-link:focus-visible, .mult .suite-breadcrumbs__link:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: 2px; border-radius: 2px; }
+@media (max-width: 768px) {
+  .mult .suite-breadcrumbs {
+    margin-left: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 1.25rem)));
+    margin-right: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 1.25rem)));
+    margin-top: 0;
+    margin-bottom: .85rem;
+    width: auto;
+    max-width: none;
+    padding: .5rem 1rem;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mult .suite-breadcrumbs__root-link, .mult .suite-breadcrumbs__link { transition: none; }
+}
+
+/* ------------------------------------------------------------------ nested surfaces (#600)
+   One surface in the suite is three dashboards behind one masthead, and the trail shows it:
+   hovering or tabbing into People reveals the three. Pointer only, and CSS only. A coarse
+   pointer has no hover and a tap on the parent is a navigation, so touch readers reach the
+   three from the page's own lens bar instead of from a menu that opens under their thumb. */
+.mult .suite-breadcrumbs__nest { position: relative; display: inline-block; }
+.mult .suite-breadcrumbs__nest.is-open .suite-breadcrumbs__sub, .mult .suite-breadcrumbs__nest[aria-expanded="true"] .suite-breadcrumbs__sub {
+  display: block;
+}
+/* THE TRAIL CLIPS, so it has to stop while the menu is open. `.suite-breadcrumbs__trail` is a
+   horizontally scrolling rail with a fade mask, and a mask clips a child absolutely positioned
+   outside it just as overflow does: the menu rendered at the right coordinates and was invisible
+   on every real page. While a nest is open the rail drops both, which is safe because the reveal
+   is pointer-only and the rail only scrolls when it is too narrow for the pointer case. */
+.mult .suite-breadcrumbs__trail.has-open-nest, .mult .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest.is-open), .mult .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest[aria-expanded="true"]), .mult .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest:hover), .mult .suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest:focus-within) {
+  overflow: visible;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.mult .suite-breadcrumbs__sub {
+  position: absolute;
+  top: 100%;
+  left: -.35rem;
+  z-index: 40;
+  display: none;
+  min-width: 15rem;
+  max-width: calc(100vw - 1rem);
+  box-sizing: border-box;
+  margin-top: .4rem;
+  padding: .3rem;
+  background: var(--surface-raised, var(--surface, #fff));
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--shadow-ink, #121411) 22%, transparent);
+}
+/* The gap between the link and the menu is bridged, so a pointer travelling down does not
+   cross dead space and close the thing it is aiming at. */
+.mult .suite-breadcrumbs__sub::before { content: ""; position: absolute; inset: -.5rem 0 100%; }
+@media (hover: hover) and (pointer: fine) {
+  .mult .suite-breadcrumbs__nest:hover .suite-breadcrumbs__sub, .mult .suite-breadcrumbs__nest:focus-within .suite-breadcrumbs__sub { display: block; }
+}
+.mult .suite-breadcrumbs__tab {
+  display: block;
+  padding: .4rem .55rem;
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.mult .suite-breadcrumbs__tab:hover { background: var(--hover-wash, color-mix(in srgb, var(--accent) 10%, transparent)); }
+.mult .suite-breadcrumbs__tab:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: -2px; }
+.mult .suite-breadcrumbs__tab-label { display: block; font-weight: 700; font-size: .82rem; }
+.mult .suite-breadcrumbs__tab-question { display: block; font-size: .72rem; color: var(--muted-ink); }
+
+/* END merged Breadcrumbs block (apps/shared/breadcrumbs-base.css) */
+
+
+/* BEGIN merged UX block (apps/shared/ux-base.css)
+   The UX bar (#587): motion tokens, pressed feedback, the status chip, the change cue, the
+   busy veil, and the mobile sheet entrance. Generated from the shared source under the scope
+   ".mult" by tools/scope_island_css.py; edit apps/shared/ux-base.css and re-paste, never this
+   copy. Drift is caught by tools/check_merged_blocks.py. */
+/* ---------- 1. motion vocabulary ---------- */
+/* Durations are the whole timing story. A control reads one token; nothing in
+   an island states a millisecond value of its own for a UX-bar behaviour. */
+.mult {
+  --motion-feedback: 120ms;   /* press, hover, toggle acknowledgement */
+  --motion-state: 180ms;      /* a state the eye must follow: selected, mode, chip in/out */
+  --motion-layout: 280ms;     /* a sheet, a panel, a change cue settling */
+  --motion-focus: 360ms;      /* a focal element arriving once */
+  --motion-focal: 550ms;      /* the rare authored moment; one per surface, if any */
+  --motion-ease: cubic-bezier(.16, 1, .3, 1);      /* confident arrival */
+  --motion-ease-exit: cubic-bezier(.4, 0, 1, 1);   /* leaves faster than it came */
+  --host-chrome-bottom: 0px;                       /* shared runtime measurement */
+  --ux-status-gap: .75rem;                         /* one shared clearance, not a surface offset */
+  --ux-status-top: calc(var(--host-chrome-bottom) + var(--ux-status-gap));
+}
+/* Reduced motion is one switch, not a hunt: every duration collapses to zero,
+   so each transition and animation below completes on its first frame while the
+   state it carried (pressed, selected, done, failed) still lands. Reduced motion
+   is never reduced information. */
+@media (prefers-reduced-motion: reduce) {
+  .mult {
+    --motion-feedback: 0ms;
+    --motion-state: 0ms;
+    --motion-layout: 0ms;
+    --motion-focus: 0ms;
+    --motion-focal: 0ms;
+  }
+}
+
+/* ---------- 2. pressed feedback ---------- */
+/* The shared control vocabulary acknowledges a press before anything else
+   happens: a 1px settle on :active, back on release. Islands add their own
+   control classes to this list in their override zone, never a second rule. */
+.mult .mode-switch__btn, .mult .xrail__btn, .mult .cw__expand, .mult .ct__sort, .mult .copy-prompt-btn, .mult .copy-prompt-option, .mult .copy-prompt-opt, .mult .toggle-btn, .mult .sidebar-back-btn, .mult .reset-btn, .mult .scopebar-reset, .mult .theme-swatch__btn, .mult .mk-toggle, .mult .mk-rail__btn, .mult .opt-btn, .mult .acronym-btn, .mult .gender-btn, .mult .filter-tag__remove {
+  transition: transform var(--motion-feedback) var(--motion-ease),
+              background-color var(--motion-feedback) linear,
+              border-color var(--motion-feedback) linear,
+              color var(--motion-feedback) linear,
+              box-shadow var(--motion-feedback) linear;
+}
+.mult .mode-switch__btn:active, .mult .xrail__btn:active:not([disabled]), .mult .cw__expand:active, .mult .ct__sort:active, .mult .copy-prompt-btn:active, .mult .copy-prompt-option:active, .mult .copy-prompt-opt:active, .mult .toggle-btn:active, .mult .sidebar-back-btn:active, .mult .reset-btn:active, .mult .scopebar-reset:active, .mult .theme-swatch__btn:active, .mult .mk-toggle:active, .mult .mk-rail__btn:active, .mult .opt-btn:active, .mult .acronym-btn:active, .mult .gender-btn:active, .mult .filter-tag__remove:active {
+  transform: translateY(1px);
+}
+
+/* ---------- 3. the status chip ---------- */
+/* One chip per island, mounted by dashboard-status.mjs. It sits top-centre,
+   below the shared host-chrome boundary measured at runtime, so the mobile bottom
+   edge keeps its one occupant (ADR 0020). It is the visible half of every announce():
+   the live region says it to a screen reader, the chip says it to everyone else.
+   Same words, both places. */
+.mult .ux-status {
+  position: fixed;
+  top: var(--ux-status-top);
+  left: 50%;
+  z-index: 996;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  max-width: min(92vw, 36rem);
+  min-height: 2.5rem;
+  padding: .45rem .9rem .45rem .75rem;
+  border: 1px solid var(--invert-surface, var(--classic-ink, var(--ink, #121411)));
+  border-radius: 999px;
+  background: var(--invert-surface, var(--classic-ink, var(--ink, #121411)));
+  color: var(--invert-ink, var(--classic-surface, var(--surface, #ffffff)));
+  font-family: var(--classic-body-font, var(--font-body, system-ui, sans-serif));
+  font-size: .82rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: .005em;
+  box-shadow: 0 10px 24px -10px var(--shadow-ink, rgba(0, 0, 0, .45));
+  opacity: 0;
+  transform: translate(-50%, -8px);
+  pointer-events: none;
+  transition: opacity var(--motion-feedback) var(--motion-ease-exit),
+              transform var(--motion-feedback) var(--motion-ease-exit);
+}
+.mult .ux-status[data-open="true"] {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+  transition: opacity var(--motion-state) var(--motion-ease),
+              transform var(--motion-state) var(--motion-ease);
+}
+.mult .ux-status__text { min-width: 0; overflow-wrap: anywhere; }
+.mult .ux-status__mark {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+}
+.mult .ux-status__mark svg { width: 100%; height: 100%; display: block; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+/* done: the mark draws its tick once, then rests. */
+.mult .ux-status[data-kind="done"] .ux-status__mark { color: var(--state-healthy, var(--classic-healthy, #2f9a52)); }
+.mult .ux-status[data-kind="done"] .ux-status__mark path { stroke-dasharray: 28; stroke-dashoffset: 28; animation: favor-ux-tick var(--motion-state) var(--motion-ease) forwards; }
+/* busy: the only loop in the block, and it stops the moment the chip changes kind
+   or closes, because the spinning element leaves with it. */
+.mult .ux-status[data-kind="busy"] .ux-status__mark { animation: favor-ux-spin 900ms linear infinite; }
+/* fail: inverted back to the surface so the red carries the weight, and the chip
+   stays until dismissed -- a failure is never a toast. */
+.mult .ux-status[data-kind="fail"] {
+  background: var(--classic-surface, var(--surface, #ffffff));
+  color: var(--classic-ink, var(--ink, #121411));
+  border-color: var(--state-critical, var(--classic-critical, #b3261e));
+  box-shadow: 0 10px 24px -10px var(--shadow-ink, rgba(0, 0, 0, .45)), inset 0 0 0 1px var(--state-critical, var(--classic-critical, #b3261e));
+}
+.mult .ux-status[data-kind="fail"] .ux-status__mark { color: var(--state-critical, var(--classic-critical, #b3261e)); }
+.mult .ux-status__btn {
+  position: relative;
+  flex: none;
+  margin: -.2rem -.45rem -.2rem 0;
+  min-height: 2rem;
+  padding: 0 .65rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: .76rem;
+  cursor: pointer;
+}
+.mult .ux-status__btn::after { content: ""; position: absolute; inset: -.45rem -.3rem; }
+.mult .ux-status__btn:hover { background: var(--hover-wash, rgba(127, 127, 127, .14)); }
+.mult .ux-status__btn:active { transform: translateY(1px); }
+.mult .ux-status__btn:focus-visible { outline: 2px solid var(--classic-focus, var(--focus, #005eb8)); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .mult .ux-status[data-kind="busy"] .ux-status__mark { animation: none; }
+  .mult .ux-status[data-kind="done"] .ux-status__mark path { animation: none; stroke-dashoffset: 0; }
+}
+
+/* A live region an island can mount when it has none: present to assistive tech, absent
+   from layout. The chip is the sighted half of whatever is written here. */
+.mult .ux-live { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+/* ---------- 4. the change cue ---------- */
+/* After a filter or scope change the stations whose reading changed settle
+   once: an accent inset ring that fades over the layout beat. Applied by
+   dashboard-status.mjs markChanged(), to a capped handful of nodes, once per
+   user action -- never ambient, never on load. */
+.mult .ux-changed { animation: favor-ux-settle var(--motion-layout) var(--motion-ease) 1 both; }
+
+/* ---------- 5. the busy veil ---------- */
+/* A region that is truthfully still working. It keeps the last reading visible
+   under a light veil rather than blanking it, and the cursor says "working". */
+.mult .ux-busy { position: relative; cursor: progress; }
+.mult .ux-busy::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: var(--classic-surface, var(--surface, #ffffff));
+  opacity: .42;
+  pointer-events: none;
+  transition: opacity var(--motion-state) linear;
+}
+
+/* ---------- 6. the mobile sheet ---------- */
+/* The console arrives from the edge it lives on and the handle rides up with it
+   (docs/guides/mobile-bottom-edge.md). Closing is instant on the sheet and a beat
+   shorter on the handle: exits are faster than entrances. The state attribute lives
+   on the island root, so :is([data-console="open"] *) reaches it from inside the
+   scope prefix without a per-island exception. */
+@media (max-width: 768px) {
+  .mult .filter-sidebar:is([data-console="open"] *) { animation: favor-ux-sheet-in var(--motion-layout) var(--motion-ease) 1 both; }
+  .mult .sidebar-toggle-bar, .mult .console-toggle-bar { transition: bottom var(--motion-layout) var(--motion-ease); }
+  .mult .sidebar-toggle-bar:is([data-console="closed"] *), .mult .console-toggle-bar:is([data-console="closed"] *) { transition-duration: var(--motion-state); transition-timing-function: var(--motion-ease-exit); }
+  .mult .ux-status { max-width: calc(100vw - 2rem); }
+}
+
+@keyframes favor-ux-tick { to { stroke-dashoffset: 0; } }
+@keyframes favor-ux-spin { to { transform: rotate(360deg); } }
+@keyframes favor-ux-settle {
+  from { box-shadow: inset 0 0 0 2px var(--classic-accent, var(--accent, #f45500)); }
+  to { box-shadow: inset 0 0 0 2px transparent; }
+}
+@keyframes favor-ux-sheet-in {
+  from { transform: translateY(18px); opacity: .001; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ------------------------------------------------------------- the theme swatch (#611)
+   At rest: `Theme` and one disc, the palette showing now, plus shuffle. The rest arrive on
+   hover and stay on a click, the same gesture as every readout (DESIGN.md). Each island keeps
+   its own chrome for the pill and the discs; what lives here is the structure, so a palette
+   added later costs no layout anywhere. */
+/* No `position` here on purpose. Each island places the pill itself (sticky at the page's lower
+   left on desktop), and setting `relative` here silently un-stuck all of them. The menu anchors
+   to whatever the island placed, because sticky is already a positioned ancestor; the one case
+   that needs help is the mobile console row, where the pill is static. */
+.mult .palette-slot .theme-swatch { position: relative; }
+.mult .theme-swatch__label {
+  font-size: .68rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted-ink); padding-left: .35rem;
+}
+/* The trigger is the current palette: a disc, and nothing else at rest. It keeps each island's
+   own disc chrome by also carrying .theme-swatch__btn. */
+.mult .theme-swatch__trigger { position: relative; }
+.mult .theme-swatch__trigger[aria-expanded="true"] { z-index: 41; }
+.mult .theme-swatch__menu {
+  position: absolute; bottom: calc(100% + .4rem); left: 0; z-index: 40;
+  display: inline-flex; align-items: center; gap: .15rem; padding: .25rem .3rem;
+  background: var(--surface-raised, var(--surface)); border: 1px solid var(--rule);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--shadow-ink, #121411) 26%, transparent);
+}
+.mult .theme-swatch__menu[hidden] { display: none; }
+/* The gap between the trigger and the menu is bridged, so a pointer travelling up does not
+   cross dead space and close the thing it is aiming at. */
+.mult .theme-swatch__menu::after { content: ""; position: absolute; inset: 100% 0 -.5rem; }
+.mult .theme-swatch__shuffle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.9rem; height: 1.9rem; padding: 0; margin-left: .1rem;
+  border: 0; border-radius: 999px; background: transparent; color: var(--muted-ink);
+  cursor: pointer;
+}
+.mult .theme-swatch__shuffle svg { width: .9rem; height: .9rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.mult .theme-swatch__shuffle:hover { color: var(--ink); background: var(--hover-wash, color-mix(in srgb, var(--accent) 12%, transparent)); }
+.mult .theme-swatch__shuffle:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: 2px; }
+/* Pinned reads as held open rather than as hovered. */
+.mult .theme-swatch[data-pinned="true"] /* The trigger is the current palette: a disc, .mult and nothing else at rest. It keeps each island's
+   own disc chrome by also carrying .theme-swatch__btn. */
+.theme-swatch__trigger { position: relative; }
+.mult .theme-swatch__trigger[aria-expanded="true"] { z-index: 41; }
+.mult .theme-swatch__menu { border-color: var(--edge-strong, var(--ink)); }
+
+/* END merged UX block (apps/shared/ux-base.css) */
+
+.mult .mult-masthead__line {
+  margin: .7rem 0 0;
+  max-width: 52ch;
+  color: var(--muted-ink, #625f59);
+  font-size: .92rem;
+}
+
+/* One way out, in the surface's own words. Finance Tithes carries the same link, in the same
+   place, for the same reason: a page that cannot answer yet should point somewhere that can. */
+.mult .mult-back {
+  display: inline-block;
+  margin-top: 1.2rem;
+  color: var(--accent-deep, #005a7d);
+  font-size: .85rem;
+  font-weight: 700;
+  text-underline-offset: 4px;
+}
+
+/* The (i), the same object it is on every other surface. */
+.mult .info-tip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  vertical-align: middle;
+  margin-left: .45rem;
+  width: 1.15rem; height: 1.15rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted-ink, #625f59);
+  cursor: help;
+  flex: none;
+}
+.mult .info-tip::after { content: ""; position: absolute; inset: -.75rem; }
+.mult .info-tip svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.mult .info-tip .dotcap { fill: currentColor; stroke: none; }
+.mult .info-tip:hover, .mult .info-tip:focus-visible { color: var(--accent-deep, #005a7d); }
+
+.mult .dashboard-tip {
+  position: fixed;
+  /* Above Rock's chrome: its left nav is z-index 1025 and its top header 1030, so 1000 put the
+   * bubble UNDER both and any mark in the left third of the page opened a tooltip the sidebar
+   * covered. Matches the shared floor in apps/shared/classic-base.css. */
+  z-index: 1040;
+  max-width: 24rem;
+  padding: .6rem .75rem;
+  border: 1px solid var(--edge-strong, #79868e);
+  border-radius: 8px;
+  background: var(--surface-raised, #ffffff);
+  color: var(--ink, #121411);
+  box-shadow: 0 2px 6px color-mix(in srgb, var(--shadow-ink, #0d2028) 12%, transparent),
+              0 14px 32px color-mix(in srgb, var(--shadow-ink, #0d2028) 14%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--motion-feedback, 120ms) linear;
+}
+.mult .dashboard-tip[data-open="true"] { opacity: 1; }
+.mult .dashboard-tip[data-pinned="true"] { pointer-events: auto; border-color: var(--accent, #0077a4); }
+.mult .dashboard-tip__card { display: flex; flex-direction: column; gap: .2rem; }
+.mult .dashboard-tip__head { display: flex; align-items: center; gap: .4rem; }
+.mult .dashboard-tip__swatch { width: .6rem; height: .6rem; border-radius: 2px; flex: none; }
+.mult .dashboard-tip__label {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--faint-ink, #726f65);
+}
+.mult .dashboard-tip__value { margin: 0; font-size: .92rem; font-weight: 700; line-height: 1.3; }
+.mult .dashboard-tip__compare { margin: 0; font-size: .82rem; line-height: 1.5; color: var(--muted-ink, #625f59); }
+.mult .dashboard-tip__unit { font-size: .74rem; color: var(--faint-ink, #726f65); }
+.mult [data-tip] { cursor: help; }
+
+/* ----------------------------------------------------------------------------
+   BEGIN merged Markup block (apps/shared/markup-base.css)
+   Source: apps/shared/markup-base.css (canonical; never edit the copy below by hand).
+   Scope: .mult -- produced by tools/scope_island_css.py scope_css().
+   Guard: tests/test_island_delivery.py MergedMarkupBlockTest.
+   Executive Markup V2 (#598): the pen beside the palette and the island's frozen state;
+   the drawing surface itself ships in apps/markup-app (markup-app.css) outside this scope.
+   ---------------------------------------------------------------------------- */
+/* Executive Markup V2 -- the pen and the island's frozen state (#598).
+ * Pasted under each island's own scope by tools/scope_island_css.py. Everything the drawing
+ * surface itself needs ships inside markup-app.css and mounts outside the island, so this
+ * block only styles the pen beside the palette and what the live dashboard does while a board
+ * is open. Every selector starts with `.` or `[` so the scoping pass confines it. */
+
+.mult .markup-pen {
+  position: sticky; bottom: 5.75rem; margin-left: 1.25rem; z-index: 95;
+  display: flex; clear: both; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; padding: 0;
+  border: 1px solid var(--rule, rgba(18, 20, 17, .18)); border-radius: 999px;
+  background: color-mix(in srgb, var(--surface, #fff) 88%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  color: var(--ink, #121411); font: inherit; font-size: .8rem; font-weight: 600; letter-spacing: .01em;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink, #121411) 22%, transparent);
+  opacity: .85; cursor: pointer;
+  transition: opacity var(--motion-state, 180ms) var(--motion-ease, ease), border-color var(--motion-feedback, 120ms) var(--motion-ease, ease),
+    background-color var(--motion-feedback, 120ms) var(--motion-ease, ease), color var(--motion-feedback, 120ms) var(--motion-ease, ease),
+    transform var(--motion-feedback, 120ms) var(--motion-ease, ease);
+}
+.mult .markup-pen:hover, .mult .markup-pen:focus-within { opacity: 1; border-color: var(--edge-strong, currentColor); }
+.mult .markup-pen:active { transform: translateY(1px); }
+.mult .markup-pen:focus-visible { outline: 2px solid var(--focus, #f45500); outline-offset: 3px; }
+.mult .markup-pen[aria-pressed="true"] { opacity: 1; background: var(--ink, #121411); color: var(--invert-ink, var(--background, #fef1e8)); border-color: var(--ink, #121411); }
+.mult .markup-pen[aria-busy="true"] { cursor: progress; }
+.mult .markup-pen[aria-busy="true"] .markup-pen__icon { animation: markup-pen-tap 900ms ease-in-out infinite; }
+.mult .markup-pen__icon { width: 1.15rem; height: 1.15rem; flex: none; }
+
+/* Animated hover tooltip: explains that it freezes current dashboard view */
+.mult .markup-pen__tooltip {
+  position: absolute; bottom: calc(100% + .65rem); left: 0; z-index: 120;
+  display: flex; flex-direction: column; gap: 2px; padding: .45rem .65rem;
+  background: color-mix(in srgb, var(--surface, #fff) 94%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--edge-strong, rgba(18, 20, 17, .24));
+  border-radius: 8px;
+  box-shadow: 0 4px 16px color-mix(in srgb, var(--shadow-ink, #121411) 20%, transparent);
+  pointer-events: none; opacity: 0; transform: translateY(4px);
+  transition: opacity var(--motion-state, 180ms) var(--motion-ease, ease), transform var(--motion-state, 180ms) var(--motion-ease, ease);
+  white-space: nowrap; text-align: left;
+}
+.mult .markup-pen:hover .markup-pen__tooltip, .mult .markup-pen:focus-visible .markup-pen__tooltip {
+  opacity: 1; transform: translateY(0);
+}
+.mult .markup-pen__label {
+  font-size: .74rem; font-weight: 700; line-height: 1.25; color: var(--ink, #121411);
+}
+.mult .markup-pen__desc {
+  font-size: .65rem; font-weight: 400; line-height: 1.2; color: var(--muted-ink, #555); letter-spacing: .01em;
+}
+
+@keyframes markup-pen-tap { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-2px) rotate(-6deg) } }
+
+/* Mobile: floating fixed icon on lower left, always outside the filter console */
+@media (max-width: 768px) {
+  .mult .markup-pen {
+    position: fixed;
+    bottom: calc(max(env(safe-area-inset-bottom, 0px), .5rem) + 4.25rem);
+    left: 1.25rem;
+    margin-left: 0;
+    z-index: 990;
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    box-shadow: 0 4px 18px color-mix(in srgb, var(--shadow-ink, #121411) 28%, transparent);
+  }
+  .mult .markup-pen__tooltip { display: none; }
+}
+
+/* Instant veil -- mounted at 0ms upon pen button click for immediate user feedback */
+.mult .fm-instant-veil {
+  position: fixed; inset: 0; z-index: 2147483000;
+  display: grid; place-items: center;
+  background: color-mix(in srgb, var(--surface, #fff) 85%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  pointer-events: auto;
+  font-family: var(--body-font);
+  animation: fm-fade 160ms ease both;
+}
+.mult .fm-instant-veil .fm-loading-card {
+  display: flex; flex-direction: column; align-items: center; gap: .85rem;
+  padding: 1.75rem 2rem 1.5rem; border-radius: 20px;
+  background: var(--surface, #fff); color: var(--ink, #121411);
+  border: 1px solid var(--rule, rgba(18,20,17,.16));
+  box-shadow: 0 10px 30px rgba(18,20,17,.18);
+  width: min(390px, calc(100vw - 2.5rem)); text-align: center;
+}
+.mult .fm-instant-veil .fm-progress-bar {
+  width: 100%; height: 7px; border-radius: 999px;
+  background: color-mix(in srgb, var(--surface, #fff) 60%, #e0e0e0);
+  overflow: hidden; position: relative;
+}
+.mult .fm-instant-veil .fm-progress-bar__fill--animated {
+  height: 100%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--focus, #f45500), #ff8b4d);
+  animation: fm-instant-pulse 1.8s ease-in-out infinite;
+}
+@keyframes fm-instant-pulse {
+  0% { width: 15%; }
+  50% { width: 75%; }
+  100% { width: 92%; }
+}
+
+/* While a board is open the island sits inert under the overlay; the state is stated by the
+ * attribute, never by colour alone. Paused is the exception -- the dashboard is live again on
+ * purpose, so nothing recedes and the pen only marks that a board is waiting. */
+.mult [data-markup="canvas"], .mult [data-markup="saving"], .mult [data-markup="viewing"] { user-select: none; }
+.mult [data-markup="paused"] .markup-pen { border-color: var(--warn, #b8860b); }
+
+@media (prefers-reduced-motion: reduce) {
+  .mult .markup-pen { transition: none; }
+  .mult .markup-pen__tooltip { transition: none; }
+  .mult .markup-pen[aria-busy="true"] .markup-pen__icon { animation: none; }
+  .mult .fm-instant-veil .fm-progress-bar__fill--animated { animation: none; width: 60%; }
+}
+
+/* END merged Markup block (apps/shared/markup-base.css) */

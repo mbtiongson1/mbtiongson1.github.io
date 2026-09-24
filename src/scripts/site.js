@@ -69,3 +69,37 @@ if ('IntersectionObserver' in window) {
     }, { rootMargin: '-40% 0px -55% 0px' }).observe(suite);
   }
 }
+
+// Dashboard reel: plays the chosen live demo inline. Without this script each item opens its demo in a new tab.
+const reelStage = document.querySelector('[data-reel-stage]');
+if (reelStage) {
+  const items = [...document.querySelectorAll('[data-demo]')];
+  const frameBox = reelStage.querySelector('[data-reel-frame]');
+  const name = reelStage.querySelector('[data-reel-name]');
+  const open = reelStage.querySelector('[data-reel-open]');
+  const start = reelStage.querySelector('[data-reel-start]');
+  let current = items[0];
+  const load = () => {
+    const frame = document.createElement('iframe');
+    frame.src = current.getAttribute('href');
+    frame.title = `${current.querySelector('.reel-title').textContent}, live demo on invented data`;
+    frame.loading = 'lazy';
+    frameBox.replaceChildren(frame);
+  };
+  const select = (item, play) => {
+    current = item;
+    items.forEach((other) => other.setAttribute('aria-current', String(other === item)));
+    name.textContent = item.querySelector('.reel-title').textContent;
+    open.href = item.getAttribute('href');
+    if (play || frameBox.querySelector('iframe')) load();
+  };
+  items.forEach((item) => item.addEventListener('click', (event) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey) return;
+    event.preventDefault();
+    select(item, true);
+    reelStage.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }));
+  start.addEventListener('click', load);
+  reelStage.hidden = false;
+  select(current, false);
+}

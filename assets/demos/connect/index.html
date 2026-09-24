@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<base href="../_src/apps/connect-field-island/">
+<meta name="demo-root" content="../../../../">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connect Health — dev workbench (fictional data only)</title>
+<!-- The stylesheet is reloaded with a cache-busting query on every visit. python3 -m
+     http.server sends no cache headers, so Chrome caches the sheet heuristically and a
+     design iteration silently renders the previous one; this harness exists to show the
+     working tree. Dev-only -- production pins assets by manifest assetVersion instead. -->
+<script>document.write('<link rel="stylesheet" href="./capture/connect-field.css?dev=' + Date.now() + '">');</script>
+<script>document.write('<link rel="stylesheet" href="./capture/maplibre-gl.css?dev=' + Date.now() + '">');</script>
+<script src="./capture/maplibre-gl.js"></script>
+<style>
+  html, body { margin: 0; background: #0f111c; color: #f4efe6; font-family: FavorSans, Arial, sans-serif; }
+  .workbench-flag {
+    margin: 0; padding: .5rem clamp(1rem, 2.5vw, 2.4rem);
+    background: #f45500; color: #0f111c;
+    font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  }
+  /* Rock's chrome loads Bootstrap, and this is the ONE Bootstrap declaration that
+     changes how an island button the stylesheet forgot to paint actually renders:
+     `color: inherit` hands it the island's cream ink while the UA's
+     `background: buttonface` (#efefef) stays put. Mirrored here because without it
+     this workbench is KINDER than production -- a bare button keeps the UA's black
+     buttontext locally and reads as merely ugly, then ships at contrast 1.00. Two
+     families of button went out that way. The workbench exists to show what ships. */
+  button, input, optgroup, select, textarea { color: inherit; font: inherit; margin: 0; }
+  .workbench-check {
+    margin: 0; padding: .45rem clamp(1rem, 2.5vw, 2.4rem);
+    border-bottom: 1px solid #2b3047; background: #171926; color: #afb2c1;
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .72rem;
+  }
+</style>
+</head>
+<body>
+<!--
+  DEVELOPMENT WORKBENCH — not a packaged asset.
+
+  tools/package_connect_island.py packages capture/ by an explicit ASSET_NAMES list;
+  this file sits at the island root and is never in it. It exists so Classic mode,
+  the export rails and the copy prompt can be built and screenshotted against the
+  fictional bundle without a Rock block.
+
+  Everything it renders is FICTIONAL. capture/bundle-fictional.json is the same
+  fixture the island's own tests read; the production wrapper never serves it, and
+  the masthead's own provenance flag says so on every render.
+
+  The two fetches below are this harness reading its own repository over
+  python3 -m http.server. The island itself never fetches: it is handed the parsed
+  payload through boot(root, payload), exactly as the module's development-router
+  contract describes.
+-->
+<p class="workbench-flag">Dev workbench · fictional prototype data · nothing here is a fact about the church</p>
+<p class="workbench-check" id="view-check">view contract: not checked yet</p>
+<div id="connect-field-host"></div>
+<script type="module">
+  /* The same cache-busting the stylesheet links get, and for the same reason: with
+     no cache headers Chrome holds the previous module and a design iteration is
+     silently measured against the code it replaced. Production pins by manifest
+     assetVersion instead; this value is never the one that ships. */
+  const ASSET_VERSION = `dev-${Date.now()}`;
+
+  /* cache: "no-store" -- python3 -m http.server sends no cache headers, so Chrome caches
+     these heuristically and a design iteration silently renders the previous shell. This
+     harness exists to show the working tree; it must never show a stale copy of it. */
+  const [shellHtml, payload] = await Promise.all([
+    fetch("./capture/connect-field-shell.html", { cache: "no-store" }).then((response) => response.text()),
+    fetch("./capture/bundle-fictional.json", { cache: "no-store" }).then((response) => response.json()),
+  ]);
+
+  document.getElementById("connect-field-host").innerHTML = shellHtml;
+
+  // The module self-boots off data-source="dashboard-prod-read" the moment it is
+  // imported, expecting a real #connect-field-data JSON island. This harness calls
+  // boot() manually instead, so the manual-boot flag has to be set BEFORE the import
+  // evaluates the module.
+  const root = document.getElementById("connect-field");
+  root.dataset.manualBoot = "true";
+
+  const { boot, buildView } = await import(`./capture/connect-field-boot.mjs?v=${ASSET_VERSION}`);
+  await boot(root, payload);
+
+  // Evidence convenience only: on a narrow viewport the console starts folded (by
+  // design -- "the field leads"), so open it so the mode switch and the filters are
+  // visible in a static screenshot without a click step.
+  const layout = document.querySelector(".dashboard-layout");
+  if (layout && layout.classList.contains("is-collapsed")) {
+    document.getElementById("btn-toggle-sidebar")?.click();
+  }
+
+  // The DashboardView contract, asserted where it can actually be asserted: the
+  // view is composed from live DOM/state, so a node test cannot build one. This
+  // line is read back off --dump-dom in the evidence run.
+  const [{ validateView }, { buildDashboardPackage }] = await Promise.all([
+    import(`./capture/dashboard-view.mjs?v=${ASSET_VERSION}`),
+    import(`./capture/dashboard-prompt.mjs?v=${ASSET_VERSION}`),
+  ]);
+  const check = document.getElementById("view-check");
+  try {
+    const view = buildView();
+    const problems = validateView(view);
+    const pkg = await buildDashboardPackage(view);
+    check.textContent = problems.length
+      ? `view contract: FAILED — ${problems.join("; ")}`
+      : `view contract: ok · ${view.sections.length} sections · ${view.controls.length} controls · package ${pkg.chunks.length} chunks · mode ${view.mode}`;
+  } catch (error) {
+    check.textContent = `view contract: FAILED — ${error && error.message}`;
+  }
+</script>
+</body>
+</html>

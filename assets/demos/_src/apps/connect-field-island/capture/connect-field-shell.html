@@ -1,0 +1,322 @@
+<!--
+THESIS: One operations room over the whole Connect field. The page watches ~300
+Connect Groups as one living network — a field you read, not a report you scroll —
+and refuses the KPI-card graveyard, the 300-row table, and the black-box score.
+OWN-WORLD: Mission-control console. Warm graphite ground, engraved panel legends,
+backlit legend tiles, phosphor data marks in Favor's semantic hues (Healthy green /
+Watch orange / Thin amber / Critical red, hue-stable), Favorvetica caps as the
+display voice, mono telemetry numerals, and one luminous cream Favor-ink plotboard
+map as the lit front screen of the dark room. Raises carried from the dealt hand:
+designed absence (unlit ghost cells, never blank) · struck-forward selection with
+stale afterglow · achromatic restraint (only semantic color speaks) · one label
+anatomy across queue, hover card and map card · fixed console frame around the one
+live map window · poster-scale type hierarchy on the signal board.
+STORY: A pastor reads the board, sees where pressure concentrates across cohorts,
+rhythm, leader load, hierarchy, and geography, understands WHY a group is surfaced,
+and opens the exact Connect where action happens.
+FIRST VIEWPORT: Masthead (CONNECT HEALTH, provenance flag, field stamps) over the
+Signal station — poster-type briefing lines plus the field strip — with the sticky
+filter console on the right.
+FORM: Mission-control flight operations telemetry; candidate 5 of my grounded
+list; seed key 42eead1a.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish
+review, the verdict, and DESIGN.md
+
+BUILD NOTE (favor-exec-connect, issue 164) — the direction above is the prototype's
+own contract and is kept verbatim so the shipped island can be read against it. Two
+clauses of it did NOT survive the move from fixtures to Rock, and the difference is
+deliberate rather than accidental:
+
+  · THE MAP DOES NOT SHIP. There is no plotboard, no basemap, no vendored MapLibre
+    runtime, no coordinate in the DOM. Islands are zero-dependency by policy and the
+    packaging decision record was never approved. #station-map keeps the question
+    ("the network is also a place") and answers the part that has a real source —
+    the locality aggregation, as a table — then says plainly that the map itself is
+    unavailable, and why.
+  · NOTHING HERE IS FICTIONAL ANY MORE. The masthead's fictional flag is replaced by
+    #flag-provenance, which the runtime fills from the live read. Retention, Progression
+    and Demand have no approved Rock resolver, so every place the prototype showed a
+    derived number for them now renders the unavailable state instead. Unavailable is
+    not zero, and a refusal isn't zero either.
+
+This file is a MARKUP FRAGMENT, not a page: no doctype, no <html>, no <head>, no
+<body>, no <link>, no <script>. The Rock block server-renders it, appends the JSON
+data island (#connect-field-data) and loads connect-field-boot.mjs, which fills every
+mount below. Nothing in this fragment fetches anything.
+-->
+<div id="connect-field" data-source="dashboard-prod-read" data-dev-only="false">
+  <nav class="suite-breadcrumbs" data-ux-host-chrome="suite" aria-label="Executive Suite"><ol class="suite-breadcrumbs__trail"><li class="suite-breadcrumbs__item suite-breadcrumbs__item--root"><a href="/exec" class="suite-breadcrumbs__root-link">Executive Dashboards</a></li><li class="suite-breadcrumbs__divider" aria-hidden="true">/</li><li class="suite-breadcrumbs__item suite-breadcrumbs__item--siblings"><span class="suite-breadcrumbs__peers"><a href="/exec" class="suite-breadcrumbs__link" data-surface="exec-overview">Overview</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><span class="suite-breadcrumbs__nest"><a href="/exec/people" class="suite-breadcrumbs__link" data-surface="pathways">People</a><span class="suite-breadcrumbs__sub" role="group" aria-label="People &amp; Leaders"><a href="/exec/people" class="suite-breadcrumbs__tab" data-tab="pathways"><span class="suite-breadcrumbs__tab-label">Pathways</span><span class="suite-breadcrumbs__tab-question">Who is becoming ready?</span></a><a href="/exec/people?tab=leadership" class="suite-breadcrumbs__tab" data-tab="leadership"><span class="suite-breadcrumbs__tab-label">Leadership</span><span class="suite-breadcrumbs__tab-question">Who carries responsibility now?</span></a><a href="/exec/people?tab=multiplication" class="suite-breadcrumbs__tab" data-tab="multiplication"><span class="suite-breadcrumbs__tab-label">Multiplication</span><span class="suite-breadcrumbs__tab-question">Who are those leaders building?</span></a></span></span><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/connect" class="suite-breadcrumbs__link is-active" data-surface="connect-field" aria-current="page">Connect</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/grow" class="suite-breadcrumbs__link" data-surface="grow">Grow</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/finance" class="suite-breadcrumbs__link" data-surface="finance">Finance</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/events" class="suite-breadcrumbs__link" data-surface="events">Events</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/TechStatsNew" class="suite-breadcrumbs__link" data-surface="sunday-report">Sunday</a></span></li></ol></nav>
+  <header class="masthead">
+    <div class="masthead__top">
+      <div class="masthead__id">        <h1>CONNECT<br>HEALTH <span class="title-beta">(Beta)</span>
+          <details class="info-disc info-disc-h1">
+            <summary aria-label="About this page"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+            <div class="info-pop">Every active Connect Group, watched as one living network. Exec tells you <em>where to look</em>; this page tells you <em>what is happening and why</em>; <span class="nowrap">connect.example.invalid</span> is where you act. Rock stays the record: this page only reads it, through reviewed read-only queries, and never changes anything.</div>
+          </details>
+        </h1>
+        <div class="masthead__meta masthead__stamps" role="group" aria-label="Field status stamps">
+          <div class="stamp"><span class="stamp-key">Field scope</span><span class="stamp-val" id="stamp-scope">—</span></div>
+          <div class="stamp"><span class="stamp-key">Connect Groups in view</span><span class="stamp-val mono" id="stamp-count">—</span></div>
+          <div class="stamp"><span class="stamp-key">Snapshot</span><span class="stamp-val mono" id="stamp-asof">—</span></div>
+          <div class="stamp"><span class="stamp-key">Weeks covered</span><span class="stamp-val mono" id="stamp-window">—</span></div>
+        </div>
+      </div>
+      <!-- Masthead right-hand corner (#229): agent affordances mount into #masthead-tools. -->
+      <div class="masthead__aside">
+        <div class="masthead__tools" id="masthead-tools"></div>
+      </div>
+    </div>
+    <div class="masthead__flags">
+      <p class="status-beta"><strong>Beta</strong><span>Numbers are real; what each one counts is still under review and can change</span></p>
+      <p class="flag-provenance" id="flag-provenance"></p>
+    </div>
+  </header>
+
+  <div class="scopebar" id="scopebar">
+    <span class="scopebar-lead">FIELD SLICE</span>
+    <span class="scopebar-summary" id="scope-summary">—</span>
+    <span class="scopebar-tags" id="scope-tags"></span>
+    <button type="button" class="scopebar-reset" id="scope-reset" hidden>Show the whole field</button>
+  </div>
+
+  <div class="sidebar-toggle-bar">
+    <button type="button" class="toggle-btn" id="btn-toggle-sidebar" aria-expanded="true" aria-controls="filter-sidebar">Filter console <span class="arrow" aria-hidden="true">▸</span></button>
+  </div>
+
+  <div class="dashboard-layout" id="app-layout">
+    <main class="main-column">
+
+      <!-- CLASSIC · the second reading of the same filtered slice (#219). Empty in
+           Creative mode; the runtime fills it from the same data every station
+           below renders from, and CSS shows one composition or the other. -->
+      <div class="classic-mount" id="classic-mount"></div>
+
+      <!-- STATION · SIGNAL -->
+      <section class="station" id="station-signal" aria-labelledby="h-signal">
+        <div class="station-head">
+          <h2 id="h-signal"><span class="station-tag">SIGNAL</span>What deserves attention right now?
+            <details class="info-disc"><summary aria-label="How to read Signal"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop"><strong>A board to read, not a wall of numbers.</strong> The bigger the line, the more urgent it is. <em>Unled</em> is the plain fact: an active group with no Leader or Assistant Leader on record in Rock. <em>Under strain</em> counts the Critical and Thin groups; each one says exactly what is wrong, never a blended score. <em>Watch</em> is softer pressure, the cheapest place to prevent next month's strain. The fourth line is <em>Retention</em>, and it says Unavailable: we don't track how many people stay in a group over time, so this page shows the gap rather than a number nobody can stand behind. The strip below the board is the whole field, one tick per group, sorted Critical → Healthy; the groups you have filtered to stay lit and the rest dim. Arrow keys walk the strip, Enter opens a group. Clicking a board line reshapes the whole page.</div>
+            </details>
+          </h2>
+          <p class="station-note" id="signal-note">—</p>
+        </div>
+        <div class="board" id="signal-board" aria-live="polite"></div>
+        <div class="fieldstrip-wrap">
+          <div class="fieldstrip" id="fieldstrip" role="group" aria-label="Every Connect Group in the field as one strip of ticks, sorted from Critical to Healthy. Use the arrow keys to walk it and Enter to open a group."></div>
+          <p class="fieldstrip-legend" id="fieldstrip-legend"></p>
+        </div>
+      </section>
+
+      <!-- STATION · PLOTBOARD -->
+      <section class="station" id="station-map" aria-labelledby="h-map">
+        <div class="station-head">
+          <h2 id="h-map"><span class="station-tag">PLOTBOARD</span>Where should I look first, and why?
+            <details class="info-disc"><summary aria-label="How to read the Plotboard"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop"><strong>A locality operations board, not a map application.</strong> Every mark is a locality and nothing else: <em>where</em> it sits is the locality's own coarse centroid, <em>how big</em> it is and the numeral inside it are both the number of Connect Groups there, and the label is the place name. Only the emphasis changes when you change the reading, so the same object answers 4 questions without becoming 4 objects. The board lights exactly the places the rail beside it ranks: a filled mark is one of the 8 the rail is naming, a ringed mark has the same signal lower down the list, and a quiet mark has nothing to say in this reading. Everything stays on the board either way; what changes is which places are speaking. <em>Pressure</em> ranks by how many groups are Thin or Critical, and the hue of a lit mark is the worst state actually present in it. One Critical group makes the place Critical, because that is the group somebody has to go and see. <em>Capacity</em> ranks and shades by open seats we can actually count; a place where nobody has set a capacity in Rock draws as a dashed outline and reads <span class="mono">Unknown</span>, which isn't a zero, and is never ranked as if it were. <em>Network</em> is presence, not a judgement, so it lights nothing: the size of a mark is the whole message. <em>Opportunity</em> says Unavailable: we can't yet count who asked to join against how many places there are, and a made-up number would be worse than an empty panel. The composition (which states, how many leaders, how much capacity) is in the rail beside the board, where there is room to name it. Picking a campus moves the board <em>and</em> every other station together; <em>Recenter</em> only moves the camera. Zoom stops at locality because the data stops at locality: no street, no landmark and no person's coordinate is on this page or in this build. The table below is the full record, including the groups with no locality on record.</div>
+            </details>
+          </h2>
+        </div>
+        <div class="map-console" id="map-console" data-plotmode="pressure">
+          <div class="map-console-bar">
+            <div class="plot-modes" role="group" aria-label="Plotboard reading">
+              <button type="button" class="btn btn-sm legend-btn active" data-plotmode="pressure" aria-pressed="true">Pressure</button>
+              <button type="button" class="btn btn-sm legend-btn" data-plotmode="capacity" aria-pressed="false">Capacity</button>
+              <button type="button" class="btn btn-sm legend-btn" data-plotmode="network" aria-pressed="false">Network</button>
+              <button type="button" class="btn btn-sm legend-btn" data-plotmode="opportunity" aria-pressed="false">Opportunity</button>
+            </div>
+            <div class="plot-scope">
+              <div class="campus-acronym-row plot-campus-row" id="plot-campus-row" role="group" aria-label="Campus scope"></div>
+              <button type="button" class="btn btn-sm recenter-btn" data-recenter>Recenter</button>
+            </div>
+          </div>
+          <p class="map-mode-copy"><span id="plot-mode-copy">Places where Thin / Critical pressure is concentrating.</span></p>
+          <p class="plot-legend" id="plot-legend">size = groups · fill = the 8 places this reading ranks · hatched = no Connect</p>
+          <p class="plot-unplaced" id="plot-unplaced" hidden></p>
+          <div class="map-frame">
+            <div id="map-canvas" class="map-canvas-container" role="application" aria-label="Plotboard. Connect localities drawn as bubbles: the size of a bubble and the numeral inside it are both the number of Connect Groups in that locality, and the places the current reading ranks are the ones drawn filled. Use the reading and campus buttons, the ranked rail beside the board, or the locality table below; every place on the board is in that table, ranked or not."></div>
+          </div>
+          <aside class="plot-rail" id="plot-rail" aria-labelledby="plot-rail-title">
+            <h3 class="rail-title" id="plot-rail-title">Needs attention</h3>
+            <div class="rail-body" id="plot-rail-body"></div>
+          </aside>
+        </div>
+        <div class="locality-wrap" id="locality-table"></div>
+        <div id="map-unavailable" hidden></div>
+        <p class="station-foot" id="map-foot"></p>
+      </section>
+
+      <!-- STATION · PRESSURE -->
+      <section class="station" id="station-pressure" aria-labelledby="h-pressure">
+        <div class="station-head">
+          <h2 id="h-pressure"><span class="station-tag">PRESSURE</span>Is leadership overloaded?
+            <details class="info-disc"><summary aria-label="How to read Pressure"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop">Each mark is a group: left to right is people per leader, the size of the mark is how many active members it has, and the colour is the group's state. This station was designed with a second axis (how many people stay) because <em>a full group people stay in</em> is a different pastoral conversation from <em>a well-supported group people drift away from</em>. We don't track that yet, so the marks sit on one rail: <strong>how high or low a mark sits means nothing here</strong>, and the page says so rather than spreading the dots out to look like data. Unled groups sit in their own labelled column instead of being plotted as if one leader were carrying everybody. The line at one leader per 12 people is a working guide, said out loud rather than hidden. The table under the chart is the same groups, reachable by keyboard, with no picture required.</div>
+            </details>
+          </h2>
+        </div>
+        <div class="plot-wrap">
+          <svg id="pressure-plot" class="pressure-plot" viewBox="0 0 860 340" role="img" aria-label="One mark per group, placed left to right by how many people each leader carries."></svg>
+        </div>
+        <div id="pressure-retention"></div>
+        <p class="station-foot" id="pressure-foot"></p>
+        <details class="disclosure" id="pressure-table"></details>
+      </section>
+
+      <!-- STATION · COHORTS -->
+      <section class="station" id="station-cohort" aria-labelledby="h-cohort">
+        <div class="station-head">
+          <h2 id="h-cohort"><span class="station-tag">COHORTS</span>Do some kinds of group struggle more than others?
+            <details class="info-disc"><summary aria-label="How to read Cohorts"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop">Who a group is for, against what kind of group it is, both straight from Rock. A group can be more than one kind, so one group can sit in more than one column and the columns deliberately don't add up to the row. The number is groups in your current selection; the bar and the wash are the share currently Thin or Critical. A hatched cell is a shape the church doesn't have anywhere. That's different from a zero. A cell holding <span class="mono">0</span> is a real zero: the shape exists, and no group in this selection has it. <strong>It describes, it never explains</strong>: a hot cell says "these groups currently differ from the rest," never "being this kind of group causes it." Click or press Enter on a cell and the whole page follows it.</div>
+            </details>
+          </h2>
+        </div>
+        <div class="matrix-scroll">
+          <div class="cohort-grid" id="cohort-grid"></div>
+        </div>
+      </section>
+
+      <!-- STATION · RHYTHM -->
+      <section class="station" id="station-rhythm" aria-labelledby="h-rhythm">
+        <div class="station-head">
+          <h2 id="h-rhythm"><span class="station-tag">RHYTHM</span>When does the Connect network actually breathe?
+            <details class="info-disc"><summary aria-label="How to read Weekly Rhythm"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop">The day and the time of day groups meet, then the week-by-week attendance table underneath. The times of day are <em>this page's reading</em>, not a Rock field: Rock stores the meet-up time as free text, so a time we can't read as a clock time lands in <em>Not set</em> rather than being guessed into an evening the group may not meet in. In the table below, <strong>no meeting on record</strong> is its own state: Rock holds no meeting for that group that week at all, which is neither a cancelled meeting nor one nobody entered attendance for. It never counts as a group going quiet. Click a pocket to focus the whole page on it; what you see here is worth exploring, not a verdict.</div>
+            </details>
+          </h2>
+        </div>
+        <div class="matrix-scroll">
+          <div class="rhythm-grid" id="rhythm-grid"></div>
+        </div>
+        <p class="station-foot" id="rhythm-foot"></p>
+        <div class="logging-wrap" id="logging-grid"></div>
+        <p class="station-foot" id="logging-foot"></p>
+      </section>
+
+      <!-- STATION · MODES -->
+      <section class="station" id="station-modes" aria-labelledby="h-modes">
+        <div class="station-head">
+          <h2 id="h-modes"><span class="station-tag">MODES</span>Does the room change the pattern?
+            <details class="info-disc"><summary aria-label="How to read Meeting Modes"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop">Every kind of meeting place in the field, compared <em>on the same scales</em>: the same mix of group states, the same share of meetings answered, the same seat arithmetic. How many people stay isn't something we track yet, and every panel says so on purpose; an empty row would read as agreement. A mode with no groups in your selection reports a real <span class="mono">0</span>: we looked, and there are none. Click a mode to focus the whole page on it.</div>
+            </details>
+          </h2>
+        </div>
+        <div class="modes-row" id="modes-row"></div>
+      </section>
+
+      <!-- STATION · QUEUE -->
+      <section class="station" id="station-queue" aria-labelledby="h-queue">
+        <div class="station-head">
+          <h2 id="h-queue"><span class="station-tag">QUEUE</span>Which exact groups should I open next?
+            <details class="info-disc"><summary aria-label="How the Intervention Queue is ordered"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop">Only after you have read the field: the 8 groups under the most pressure in your current selection, never a spreadsheet. Unled groups come first, then the ones whose attendance has gone quiet, then the ones where each leader is carrying the most people, then the ones with no capacity set in Rock. The order uses <em>only what this page can actually work out</em>: something we don't have never quietly counts as healthy, and never counts at all. Every entry says <em>why now</em> in plain terms: no hidden score, no person's name, no group name. The 6 squares are the last 6 weeks; a week with no meeting on record in Rock is drawn as its own state and never counted as a group going quiet. "Open Connect" lands on the group's attendance page at connect.example.invalid.</div>
+            </details>
+          </h2>
+        </div>
+        <div class="queue" id="queue"></div>
+      </section>
+
+      <!-- STATION · CANOPY -->
+      <section class="station" id="station-canopy" aria-labelledby="h-canopy">
+        <div class="station-head">
+          <h2 id="h-canopy"><span class="station-tag">CANOPY</span>Which parts of the organization carry the field?
+            <details class="info-disc"><summary aria-label="How to read the canopy"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7"/><line x1="8" y1="7" x2="8" y2="11.4"/><circle class="dotcap" cx="8" cy="4.7" r=".4"/></svg></summary>
+              <div class="info-pop">The canopy is weight, not an org chart: how wide a band is, is how many groups it carries, and the fill is the mix of their states, bottom to top. The heaviest bands come first. A band is named after the highest level of the Connect structure whose name is a place in the organisation. The Region and Cluster levels in between are named after the people who lead them, so this page shows only the <em>level word</em> and a reference number, never the parent's name. No person's name appears anywhere on this page. The structure is uneven: a group that sits directly under a band is counted where it actually sits, and the band says how many. Click a band to focus the page on it.</div>
+            </details>
+          </h2>
+        </div>
+        <div class="canopy" id="canopy"></div>
+        <p class="station-foot" id="canopy-foot"></p>
+      </section>
+
+      <!-- COLOPHON -->
+      <footer class="colophon">
+        <details class="colophon-disclosure">
+          <summary class="colophon-summary">
+            <h2 class="colophon-title" style="display:inline;margin:0;font-size:0.95rem;">How to read this page &amp; methodology</h2>
+            <span class="colophon-toggle-hint">Click to expand details ▾</span>
+          </summary>
+          <div class="colophon-cols">
+            <div>
+              <h3>How a group's state is decided</h3>
+              <p>A group's state is the worst of the things we can actually check: <strong>Leadership</strong>, <strong>Meetings and attendance</strong>, and <strong>Capacity</strong>, never a blended score. A group with no Leader or Assistant Leader on record is Critical whatever else is true. Every group this page surfaces says plainly which of those is wrong.</p>
+              <p>Two more things belong in that picture and aren't in it: <strong>Retention</strong> (how many people stay) and <strong>Progression</strong> between groups. We don't track either yet. They are <em>not</em> quietly counted as healthy and they aren't dropped either: a group is judged on leadership, capacity, and attendance alone, and it says out loud which parts we couldn't check.</p>
+            </div>
+            <div>
+              <h3>States that aren't the same thing</h3>
+              <ul class="state-legend" id="state-legend">
+                <li><span class="occ occ-submitted" aria-hidden="true"></span><strong>Attendance entered</strong>: the meeting is on record and someone entered who came.</li>
+                <li><span class="occ occ-didnotmeet" aria-hidden="true"></span><strong>Meeting cancelled</strong>: the group told us they did not meet. That is an answer, not a gap.</li>
+                <li><span class="occ occ-notlogged" aria-hidden="true"></span><strong>Attendance not entered</strong>: the meeting is on record and nobody wrote down who came. This is the one that means silence.</li>
+                <li><span class="occ occ-none" aria-hidden="true"></span><strong>No meeting on record</strong>: Rock holds no meeting for that group that week at all. Not a cancelled meeting, and not a missed one.</li>
+                <li><span class="occ occ-unavailable" aria-hidden="true"></span><strong>Unavailable</strong>: we couldn't load this from Rock. Hollow and dashed everywhere it appears, and it always says why.</li>
+                <li><span class="mono" aria-hidden="true">0</span> <strong>A real zero</strong>: we looked, and the answer is none. It is written as the numeral, in reading ink, and never dashed or hollow.</li>
+                <li><span class="mono" aria-hidden="true">?</span> <strong>Still loading</strong>: shimmering and purple, carrying a question mark. The page is still working; this isn't a value.</li>
+              </ul>
+              <div id="colophon-unavailable"></div>
+            </div>
+            <div>
+              <h3>Boundaries this page keeps</h3>
+              <p>Rock stays the record; this page reads it and never changes it. <span class="nowrap">connect.example.invalid</span> is where the work happens; every group link here lands on that group's attendance page and nowhere else. Directory is still the place for questions about a person; it isn't where a group link should take you.</p>
+            </div>
+          </div>
+        </details>
+      </footer>
+    </main>
+
+    <aside class="filter-sidebar" id="filter-sidebar" role="region" aria-label="Field filters">
+      <div id="mode-switch-mount"></div>
+      <div class="sidebar-head">
+        <button type="button" class="sidebar-back-btn" id="btn-sidebar-back" aria-label="Close console"><span class="back-arrow" aria-hidden="true">←</span> Back</button>
+        <h2>Console</h2>
+        <span class="active-summary-pill" id="active-summary">All</span>
+        <button type="button" class="reset-btn" id="btn-reset-filters">Reset</button>
+      </div>
+      <form class="filter-form" id="filter-form" role="search" aria-label="Field filters">
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend"><span>Campus</span><span class="sub">scope</span></legend>
+          <div class="campus-acronym-row" id="campus-row"></div>
+        </fieldset>
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend"><span>Health</span><span class="sub">how the group is doing</span></legend>
+          <div class="chip-grid-2" id="health-btns"></div>
+        </fieldset>
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend"><span>Age group</span><span class="sub">who it is for</span></legend>
+          <div class="chip-grid-2" id="age-btns"></div>
+        </fieldset>
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend"><span>Group types</span><span class="sub">a group can be more than one</span></legend>
+          <div class="chip-grid-2" id="type-btns"></div>
+        </fieldset>
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend"><span>Meeting</span><span class="sub">where it meets</span></legend>
+          <div class="meet-row" id="meet-btns"></div>
+        </fieldset>
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend"><span>Locality</span><span class="sub">place</span></legend>
+          <select class="field-select" id="sel-locality" aria-label="Locality"><option value="">All localities</option></select>
+        </fieldset>
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend"><span>Rhythm</span><span class="sub">day · time of day</span></legend>
+          <div class="select-pair">
+            <select class="field-select" id="sel-day" aria-label="Meet-up day"><option value="">All days</option></select>
+            <select class="field-select" id="sel-band" aria-label="Time of day"><option value="">All times</option></select>
+          </div>
+        </fieldset>
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend"><span>Canopy</span><span class="sub">part of the organisation</span></legend>
+          <select class="field-select" id="sel-region" aria-label="Canopy band"><option value="">All canopy bands</option></select>
+        </fieldset>
+        <p class="filter-count-note" id="filter-count-note">—</p>
+      </form>
+    </aside>
+  </div>
+
+  <div class="filter-backdrop" id="filter-backdrop" aria-hidden="true"></div>
+
+  <div class="groupcard" id="groupcard" hidden></div>
+  <div class="srlive" id="connect-live" aria-live="polite"></div>
+</div>

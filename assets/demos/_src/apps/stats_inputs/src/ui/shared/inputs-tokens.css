@@ -1,0 +1,76 @@
+/* ==========================================================================
+   Input Apps: the token layer (#677, plan D5/D6).
+   One world for every staff Input App. Colour encodes STATE (complete,
+   attention, failed, untouched) and the single primary action. It never
+   encodes which app or which data-model section the viewer is looking at.
+   Values come from design/tokens/brand-2026.json; state hues from the
+   runtime theme contract (docs/design/theme-token-contract.md).
+   Scope root: .favor-inputs (the page's #si-app carries it, and so does the
+   Page 12 home card). Nothing here styles an element.
+   ========================================================================== */
+.favor-inputs {
+  --in-bg: #fef1e8;
+  --in-surface: #ffffff;
+  --in-surface-sunken: #f6ece3;
+  --in-ink: #121411;
+  --in-muted: #625f59;
+  --in-faint: #9a948c;
+  --in-rule: #ded8d1;
+  --in-rule-strong: #c9c1b7;
+  --in-shell: #121411;
+  --in-shell-ink: #fef1e8;
+  --in-shell-muted: #b9b1a6;
+  --in-accent: #f45500;
+  --in-accent-deep: #c23f00;
+  --in-accent-wash: #ffe2d2;
+  --in-focus: #005eb8;
+  --in-ok: #34735a;
+  --in-ok-wash: #e3efe7;
+  --in-warn: #a65b00;
+  --in-warn-wash: #fff1d6;
+  --in-bad: #b3261e;
+  --in-bad-wash: #fbe9e7;
+  --in-hover-wash: rgba(18, 20, 17, .045);
+  --in-shadow: 0 1px 2px rgba(18, 20, 17, .08);
+  --in-shadow-raised: 0 10px 24px -14px rgba(18, 20, 17, .35);
+  --in-radius-card: 12px;
+  --in-radius-control: 10px;
+  --in-font-body: "FavorSans", "Favor Sans", Arial, sans-serif;
+  --in-font-display: "Favorvetica", "FavorSans", "Favor Sans", Arial, sans-serif;
+  --in-size-xs: .75rem;
+  --in-size-sm: .875rem;
+  --in-size-md: 1rem;
+  --in-size-lg: 1.2rem;
+  --in-size-xl: 1.44rem;
+  --in-size-2xl: 1.75rem;
+  --in-size-num: 2rem;
+  --in-target: 44px;
+  --in-target-primary: 52px;
+  /* the UX bar's motion vocabulary (docs/design/ux-bar.md), one copy per island */
+  --motion-feedback: 120ms;
+  --motion-state: 180ms;
+  --motion-layout: 280ms;
+  --motion-focus: 360ms;
+  --motion-focal: 550ms;
+  --motion-ease: cubic-bezier(.16, 1, .3, 1);
+  --motion-ease-exit: cubic-bezier(.4, 0, 1, 1);
+  /* the status chip reads these (apps/shared/ux-base.css names) */
+  --invert-surface: var(--in-ink);
+  --invert-ink: var(--in-shell-ink);
+  --state-healthy: var(--in-ok);
+  --state-critical: var(--in-bad);
+  --surface: var(--in-surface);
+  --ink: var(--in-ink);
+  --focus: var(--in-focus);
+  --font-body: var(--in-font-body);
+  --console-top: 3.25rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .favor-inputs {
+    --motion-feedback: 0ms;
+    --motion-state: 0ms;
+    --motion-layout: 0ms;
+    --motion-focus: 0ms;
+    --motion-focal: 0ms;
+  }
+}
