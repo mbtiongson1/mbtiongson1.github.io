@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-24T15:41:05+08:00",
+  "title": "Design System: Marcus Rafael B. Tiongson — Classic Index",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "#f7f8f7",
+        "tonalRamp": ["oklch(15% 0.004 150)", "oklch(25% 0.004 150)", "oklch(35% 0.004 150)", "oklch(45% 0.004 150)", "oklch(55% 0.004 150)", "oklch(65% 0.004 150)", "oklch(75% 0.004 150)", "oklch(95% 0.004 150)"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Deep Ink",
+        "canonical": "#17191d",
+        "tonalRamp": ["oklch(15% 0.01 260)", "oklch(25% 0.01 260)", "oklch(35% 0.01 260)", "oklch(45% 0.01 260)", "oklch(55% 0.01 260)", "oklch(65% 0.01 260)", "oklch(75% 0.01 260)", "oklch(95% 0.01 260)"]
+      },
+      "body-ink": {
+        "role": "neutral",
+        "displayName": "Working Ink",
+        "canonical": "#303840",
+        "tonalRamp": ["oklch(15% 0.018 250)", "oklch(25% 0.018 250)", "oklch(35% 0.018 250)", "oklch(45% 0.018 250)", "oklch(55% 0.018 250)", "oklch(65% 0.018 250)", "oklch(75% 0.018 250)", "oklch(95% 0.018 250)"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Slate Text",
+        "canonical": "#5b646d",
+        "tonalRamp": ["oklch(15% 0.018 250)", "oklch(25% 0.018 250)", "oklch(35% 0.018 250)", "oklch(45% 0.018 250)", "oklch(55% 0.018 250)", "oklch(65% 0.018 250)", "oklch(75% 0.018 250)", "oklch(95% 0.018 250)"]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline Rule",
+        "canonical": "#d4d9dd",
+        "tonalRamp": ["oklch(15% 0.008 250)", "oklch(25% 0.008 250)", "oklch(35% 0.008 250)", "oklch(45% 0.008 250)", "oklch(55% 0.008 250)", "oklch(65% 0.008 250)", "oklch(75% 0.008 250)", "oklch(95% 0.008 250)"]
+      },
+      "soft": {
+        "role": "neutral",
+        "displayName": "Soft Field",
+        "canonical": "#edf1f4",
+        "tonalRamp": ["oklch(15% 0.009 250)", "oklch(25% 0.009 250)", "oklch(35% 0.009 250)", "oklch(45% 0.009 250)", "oklch(55% 0.009 250)", "oklch(65% 0.009 250)", "oklch(75% 0.009 250)", "oklch(95% 0.009 250)"]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Portfolio Blue",
+        "canonical": "#1457b8",
+        "tonalRamp": ["oklch(15% 0.15 258)", "oklch(25% 0.15 258)", "oklch(35% 0.15 258)", "oklch(45% 0.15 258)", "oklch(55% 0.15 258)", "oklch(65% 0.15 258)", "oklch(75% 0.15 258)", "oklch(95% 0.15 258)"]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "Deep Link Blue",
+        "canonical": "#103f82",
+        "tonalRamp": ["oklch(15% 0.13 258)", "oklch(25% 0.13 258)", "oklch(35% 0.13 258)", "oklch(45% 0.13 258)", "oklch(55% 0.13 258)", "oklch(65% 0.13 258)", "oklch(75% 0.13 258)", "oklch(95% 0.13 258)"]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Focus Blue",
+        "canonical": "#1457b8",
+        "tonalRamp": ["oklch(15% 0.15 258)", "oklch(25% 0.15 258)", "oklch(35% 0.15 258)", "oklch(45% 0.15 258)", "oklch(55% 0.15 258)", "oklch(65% 0.15 258)", "oklch(75% 0.15 258)", "oklch(95% 0.15 258)"]
+      },
+      "artifact-ground": {
+        "role": "neutral",
+        "displayName": "Artifact Ground",
+        "canonical": "#10131a",
+        "tonalRamp": ["oklch(15% 0.017 260)", "oklch(25% 0.017 260)", "oklch(35% 0.017 260)", "oklch(45% 0.017 260)", "oklch(55% 0.017 260)", "oklch(65% 0.017 260)", "oklch(75% 0.017 260)", "oklch(95% 0.017 260)"]
+      },
+      "on-accent": {
+        "role": "neutral",
+        "displayName": "On-Accent White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["oklch(15% 0 0)", "oklch(25% 0 0)", "oklch(35% 0 0)", "oklch(45% 0 0)", "oklch(55% 0 0)", "oklch(65% 0 0)", "oklch(75% 0 0)", "oklch(95% 0 0)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Owner name", "purpose": "Full owner name in the masthead." },
+      "headline": { "displayName": "Project headline", "purpose": "Featured and archive project titles." },
+      "body": { "displayName": "Body copy", "purpose": "Project descriptions and page context." },
+      "label": { "displayName": "Functional label", "purpose": "Short navigation, kind, and archive labels." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "index-feedback", "value": "160ms ease-out color and fill; 220ms cubic-bezier(0.16, 1, 0.3, 1) marker and arrow transform", "purpose": "One restrained response on project-index hover and keyboard focus." },
+      { "name": "reduced-motion", "value": "scroll-behavior: auto; transitions reduced to 0.01ms; image scale removed", "purpose": "Keep anchor navigation and imagery calm for visitors who request reduced motion." }
+    ],
+    "breakpoints": [
+      { "name": "tablet-stack", "value": "820px" },
+      { "name": "single-column-archive", "value": "600px" },
+      { "name": "compact-world-navigation", "value": "360px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Owner link",
+      "kind": "nav",
+      "refersTo": "owner-link",
+      "description": "Full owner name, linking to the portfolio lobby.",
+      "html": "<a class=\"ds-owner-link\" href=\"/\">Marcus Rafael B. Tiongson</a>",
+      "css": ".ds-owner-link { display: inline-flex; min-height: 2.75rem; align-items: center; color: var(--ink); font: 600 clamp(1.35rem, 2vw, 1.9rem)/1.1 'Barlow', Arial, sans-serif; letter-spacing: -0.035em; text-decoration: none; } .ds-owner-link:hover { color: var(--accent-dark); } .ds-owner-link:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }"
+    },
+    {
+      "name": "Page navigation link",
+      "kind": "nav",
+      "refersTo": "page-navigation-link",
+      "description": "Ordinary section navigation with a distinct current location.",
+      "html": "<a class=\"ds-page-link\" href=\"#about\" aria-current=\"location\">About</a>",
+      "css": ".ds-page-link { position: relative; display: inline-flex; min-height: 2.75rem; align-items: center; color: var(--muted); font: 400 1rem/1.4 'Barlow', Arial, sans-serif; text-decoration: none; } .ds-page-link:hover, .ds-page-link[aria-current] { color: var(--accent); } .ds-page-link[aria-current]::after { position: absolute; right: 0; bottom: 0.12rem; left: 0; height: 2px; background: var(--accent); content: ''; } .ds-page-link:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }"
+    },
+    {
+      "name": "Project index link",
+      "kind": "nav",
+      "refersTo": "project-index-link",
+      "description": "Named no-JavaScript path to one shared-catalog project section.",
+      "html": "<a class=\"ds-index-link\" href=\"#people-compiled\"><span class=\"ds-index-pin\" aria-hidden=\"true\"></span><span>People, compiled</span><svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M2 10h15m-6-6 6 6-6 6\"/></svg></a>",
+      "css": ".ds-index-link { display: grid; min-height: 3.45rem; grid-template-columns: 0.65rem minmax(0, 1fr) 1.1rem; align-items: center; gap: 0.7rem; padding: 0.5rem 0.2rem 0.5rem 0; border-bottom: 1px solid var(--rule); color: var(--ink); font: 600 0.96rem/1.2 'Barlow', Arial, sans-serif; text-decoration: none; } .ds-index-pin { width: 0.48rem; height: 0.48rem; border: 1px solid var(--muted); transform: rotate(45deg); transition: border-color 160ms ease-out, background-color 160ms ease-out, transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-index-link svg { width: 1rem; height: 1rem; color: var(--accent); transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-index-link svg path { fill: none; stroke: currentColor; stroke-width: 1.6; } .ds-index-link:hover, .ds-index-link:focus-visible { color: var(--accent-dark); } .ds-index-link:hover .ds-index-pin, .ds-index-link:focus-visible .ds-index-pin { border-color: var(--accent); background: var(--accent); transform: rotate(45deg) scale(1.16); } .ds-index-link:hover svg, .ds-index-link:focus-visible svg { transform: translateX(2px); } .ds-index-link:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; } @media (prefers-reduced-motion: reduce) { .ds-index-pin, .ds-index-link svg { transition: none; } }"
+    },
+    {
+      "name": "Artifact action",
+      "kind": "custom",
+      "refersTo": "artifact-action",
+      "description": "Plain-text action that opens an artifact or verified public site.",
+      "html": "<a class=\"ds-artifact-action\" href=\"/assets/demos/people-compiled/favor-people-compiled.html\" target=\"_blank\" rel=\"noopener noreferrer\">Open interactive prototype <svg viewBox=\"0 0 20 20\" aria-hidden=\"true\"><path d=\"M5 15 15 5M6 5h9v9\"/></svg><span class=\"ds-sr-only\">(opens in a new tab)</span></a>",
+      "css": ".ds-artifact-action { display: inline-flex; min-height: 2.75rem; align-items: center; justify-content: center; gap: 0.45rem; color: var(--accent-dark); font: 600 0.95rem/1.25 'Barlow', Arial, sans-serif; text-decoration: none; } .ds-artifact-action:hover { text-decoration: underline; } .ds-artifact-action svg { width: 1.1rem; height: 1.1rem; flex: none; } .ds-artifact-action svg path { fill: none; stroke: currentColor; stroke-width: 1.6; } .ds-artifact-action:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; } .ds-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }"
+    },
+    {
+      "name": "Artifact disclosure",
+      "kind": "custom",
+      "refersTo": "artifact-disclosure",
+      "description": "High-contrast context kept adjacent to the project it describes.",
+      "html": "<p class=\"ds-disclosure\"><strong>About this artifact</strong> Fictional prototype data. This is not a live connection or actual people records.</p>",
+      "css": ".ds-disclosure { margin: 0.65rem 0 0; padding: 0.62rem 0.8rem; background: var(--soft); color: var(--body-ink); font: 400 0.9rem/1.45 'Barlow', Arial, sans-serif; } .ds-disclosure strong { color: var(--ink); font-weight: 600; }"
+    },
+    {
+      "name": "World navigation link",
+      "kind": "nav",
+      "refersTo": "world-navigation-link",
+      "description": "One route among six distinct experiences over the shared archive.",
+      "html": "<a class=\"ds-world-link\" href=\"/worlds/classic-index/\" aria-current=\"page\"><span>Classic Index</span></a>",
+      "css": ".ds-world-link { display: flex; min-height: 3rem; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--rule); color: var(--body-ink); font: 600 0.92rem/1.3 'Barlow', Arial, sans-serif; text-decoration: none; } .ds-world-link:hover, .ds-world-link[aria-current='page'] { color: var(--accent); } .ds-world-link:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The open work index",
+    "overview": "Classic Index is a deliberately familiar portfolio: a visitor recognizes the owner, finds the lead interface, and reaches the complete archive through ordinary named links. The page stays bright and spacious so the actual prototype or reviewed project image—not a decorative portfolio motif—provides the strongest visual material. Project facts and disclosures remain sourced from the shared catalog.\n\nThe system is authored through precise Barlow typography, measured columns, fine rules, square image frames, and one blue navigation accent. It avoids rounded card stacks and hidden interactions while keeping the useful affordances of a standard portfolio.",
+    "keyCharacteristics": [
+      "Light neutral canvas with dark, highly legible copy and a single blue accent.",
+      "A two-column opening: the actual featured artifact and a complete named project index.",
+      "Archive entries remain inspectable, with each static, fictional, WIP, or external item described honestly."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Reserve blue for wayfinding, link affordances, and focus; do not turn it into a background skin for project imagery.", "section": "colors" }
+    ],
+    "dos": [
+      "Do source all six titles, kinds, descriptions, artifacts, and disclosures from the shared project catalog.",
+      "Do make the project index, Work/About/Contact links, and six-world navigation work as named anchors or regular links without JavaScript.",
+      "Do keep static, fictional, WIP, sample-data, and external-site disclosures beside their corresponding artifact.",
+      "Do keep every actionable link at least 44px high, with visible keyboard focus and reduced-motion support."
+    ],
+    "donts": [
+      "Don't use the generated decision comp as portfolio evidence or copy, crop, trace, or recreate its pixels and claims.",
+      "Don't invent project categories, tags, metrics, client outcomes, or local previews for external-only records.",
+      "Don't add search/filter controls without a clear catalog-backed implementation, or add a second project metadata source.",
+      "Don't import remote fonts, style other worlds, or turn the shared project archive into a single global visual skin."
+    ]
+  }
+}
