@@ -61,12 +61,12 @@ components:
 
 **Creative North Star: “The working screening bay”**
 
-This route is an interface critique room: the authentic project artifact is the feature, while the portfolio shell names what is on screen and how it can be inspected. It opens on the actual, sandboxed People, compiled dashboard rather than a device mockup, fabricated case-study image, or promotional hero. The shared archive supplies every title, description, disclosure, image, local demo, and verified public link.
+This route is an interface critique room: the authentic project artifact is the feature, while the portfolio shell names what is on screen and how it can be inspected. It opens on the actual, sandboxed People, compiled dashboard rather than a device mockup, fabricated case-study image, or promotional hero. The visible identity is exactly **Marcus Rafael B. Tiongson**, deliberately set across three lines: Marcus / Rafael / B. Tiongson. The shared archive supplies every title, description, disclosure, image, local demo, and verified public link.
 
 Electric midnight is cut by a precise off-white projection field and small coral, mint, and sunflower registration signals. The signals identify focus, selection, and publication status; they never imply data or performance. Each displayed project keeps its own visual identity inside the screening frame.
 
 **Key Characteristics:**
-- A narrow identity-and-filmstrip rail gives the live artifact most of the desktop width.
+- A narrow identity-and-filmstrip rail displays the full owner name—Marcus / Rafael / B. Tiongson—and gives the live artifact most of the desktop width.
 - The current project's name, type, publication boundary, and real action stay adjacent to its artifact.
 - The filmstrip is text-led; it does not invent thumbnails for records without reviewed media.
 - The same named archive links work without JavaScript; enhanced buttons add project switching.
@@ -102,7 +102,7 @@ The surface uses a committed dark field with a warm display ground and three pur
 **Character:** Condensed display lettering gives the maker's name a strong vertical footprint without crowding the actual interface. Barlow keeps labels, status, and project context direct and readable. The route uses the repository's licensed local font files; it does not fetch remote fonts.
 
 ### Hierarchy
-- **Display** (800, fluid 3.25–5.25rem, 0.78 line-height): the three-line owner name and large link-only state titles.
+- **Display** (800, fluid 3.25–5.25rem, 0.78 line-height): “Marcus / Rafael / B. Tiongson” as three intentional block lines, and large link-only state titles.
 - **Project title** (800, fluid 1.55–2.65rem, 0.98 line-height): the selected work's catalog title, held in the frame header.
 - **Body** (400, 1rem, 1.5 line-height): summaries and context, constrained to roughly 72ch.
 - **Label** (600, 0.72rem, 1.4 line-height, tracked uppercase for short strings): navigation, status, filmstrip metadata, and section labels. Longer descriptive copy remains sentence case.
@@ -111,7 +111,7 @@ The surface uses a committed dark field with a warm display ground and three pur
 
 The desktop masthead carries the owner mark and six real world links. Below it, a two-column screening layout keeps a narrow identity / project rail beside a broad project frame. The outer frame begins immediately; there is no standard hero above the work. The active artifact receives the broadest and tallest area.
 
-At 1120px the header drops its redundant route label. At 800px the rail and projection reflow into a vertical sequence; at 560px the project strip becomes a horizontally scrollable, keyboard-operable sequence above the full-width artifact. The inner dashboard is responsive HTML at its actual viewport width, never a desktop screenshot scaled to a phone. A linear, server-rendered project archive remains visible if JavaScript or the catalog request is unavailable. The project count is generic in that fallback and derived from public catalog records when the enhanced strip loads.
+At 1120px the header drops its redundant route label. At 800px the rail and projection reflow into a vertical sequence; at 560px the project strip becomes a horizontally scrollable, keyboard-operable sequence above the full-width artifact. At 380px and below, the identity descriptor moves beneath the three-line name so “B. Tiongson” keeps a full-width line. The inner dashboard is responsive HTML at its actual viewport width, never a desktop screenshot scaled to a phone. A linear, server-rendered project archive remains visible if JavaScript or the catalog request is unavailable. The project count is generic in that fallback and derived from public catalog records when the enhanced strip loads.
 
 ## Elevation & Depth
 

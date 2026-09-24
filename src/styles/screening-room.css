@@ -224,6 +224,8 @@ main { width: min(100%, 1920px); margin-inline: auto; }
   line-height: 0.78;
 }
 
+.identity h1 > span { display: block; }
+
 .identity-descriptor {
   margin: 1.45rem 0 0;
   color: var(--mist);
@@ -696,6 +698,11 @@ main { width: min(100%, 1920px); margin-inline: auto; }
   .fallback-heading h2 { margin-top: 0.35rem; }
   .room-footer { gap: 0.75rem; font-size: 0.72rem; }
   .room-footer p { max-width: 13rem; }
+}
+
+@media (max-width: 380px) {
+  .identity { display: block; }
+  .identity-descriptor { max-width: none; margin: 0.65rem 0 0; text-align: left; }
 }
 
 @media (prefers-reduced-motion: reduce) {
