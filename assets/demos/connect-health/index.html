@@ -1,0 +1,3053 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark">
+    <meta name="description" content="Connect Health interactive local prototype for the portfolio screening room.">
+    <title>Connect Health — Interactive Prototype</title>
+    <link rel="stylesheet" href="./connect-health.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#dashboard-content">Skip to the dashboard</a>
+    <div class="connect-health-demo" id="connect-health" data-mode="creative" data-console="closed">
+      <div class="console-shell">
+        <header class="masthead">
+          <div class="masthead-ruler">
+            <span>FAVOR / SCREENING ROOM DEMO</span>
+            <span class="masthead-signal"><i aria-hidden="true"></i> STANDALONE READOUT</span>
+          </div>
+          <div class="masthead-grid">
+            <div class="masthead-copy">
+              <p class="console-label">Mission-control console · local readout</p>
+              <h1>CONNECT<br><span>HEALTH</span></h1>
+              <p class="thesis">A dense, honest view of a fictional Connect field: read the pressure, find the pattern, then focus the same slice from another angle.</p>
+            </div>
+            <dl class="field-stamps" aria-label="Local snapshot facts">
+              <div><dt>Field scope</dt><dd id="stamp-scope">All campuses</dd></div>
+              <div><dt>Groups in view</dt><dd id="stamp-count">60</dd></div>
+              <div><dt>Snapshot</dt><dd id="stamp-asof">2026-08-23</dd></div>
+              <div><dt>Window</dt><dd id="stamp-window">6 weeks</dd></div>
+            </dl>
+          </div>
+          <div class="provenance-banner" role="note" aria-label="Prototype boundary">
+            <strong>FICTIONAL LOCAL DATA · INTERACTIVE PROTOTYPE · NOT CONNECTED TO ROCK</strong>
+            <span>Explore the controls freely. This artifact reads one fixed, anonymized fixture and never syncs.</span>
+          </div>
+        </header>
+
+        <div class="command-strip">
+          <div class="mode-switch" role="group" aria-label="Dashboard presentation mode">
+            <span class="command-label">Presentation</span>
+            <button type="button" class="mode-button is-active" data-action="mode" data-value="creative" aria-pressed="true">Creative reading</button>
+            <button type="button" class="mode-button" data-action="mode" data-value="classic" aria-pressed="false">Classic register</button>
+          </div>
+          <button type="button" class="console-toggle" data-action="toggle-console" aria-expanded="false" aria-controls="filter-console">
+            <span class="console-toggle-mark" aria-hidden="true">+</span> Filter console
+          </button>
+          <p class="keyboard-note">Tab to move · Enter to focus a group · Esc clears focus</p>
+        </div>
+
+        <div class="scope-bar" id="scope-bar" aria-live="polite">
+          <span class="scope-label">FIELD SLICE</span>
+          <strong id="scope-summary">All campuses · 60 fictional groups</strong>
+          <div class="scope-tags" id="scope-tags"></div>
+          <button type="button" class="scope-reset" data-action="reset" hidden>Show the whole field</button>
+        </div>
+
+        <div class="dashboard-layout">
+          <aside class="filter-console" id="filter-console" aria-label="Field filters" aria-hidden="true">
+            <div class="filter-console-head">
+              <div>
+                <p class="console-label">Control surface</p>
+                <h2>Filter console</h2>
+              </div>
+              <button type="button" class="filter-reset" data-action="reset">Reset</button>
+            </div>
+            <fieldset class="filter-group">
+              <legend><span>Campus</span><small>scope</small></legend>
+              <div class="filter-buttons campus-buttons" id="campus-filters" role="group" aria-label="Campus scope"></div>
+            </fieldset>
+            <fieldset class="filter-group">
+              <legend><span>Health</span><small>current signal</small></legend>
+              <div class="filter-buttons two-up" id="health-filters" role="group" aria-label="Health signal"></div>
+            </fieldset>
+            <fieldset class="filter-group">
+              <legend><span>Age group</span><small>who it is for</small></legend>
+              <div class="filter-buttons two-up" id="age-filters" role="group" aria-label="Age group"></div>
+            </fieldset>
+            <fieldset class="filter-group">
+              <legend><span>Meeting mode</span><small>where it meets</small></legend>
+              <div class="filter-buttons two-up" id="meeting-filters" role="group" aria-label="Meeting mode"></div>
+            </fieldset>
+            <fieldset class="filter-group select-group">
+              <legend><span>Locality</span><small>safe place label</small></legend>
+              <label class="select-label" for="locality-filter">Place in the fictional field</label>
+              <select id="locality-filter" data-filter="locality" aria-label="Locality"></select>
+            </fieldset>
+            <fieldset class="filter-group select-group">
+              <legend><span>Rhythm</span><small>meet-up day</small></legend>
+              <label class="select-label" for="day-filter">Day of week</label>
+              <select id="day-filter" data-filter="day" aria-label="Meet-up day"></select>
+            </fieldset>
+            <p class="filter-count-note" id="filter-count-note">60 groups in the current slice.</p>
+            <p class="offline-note"><span aria-hidden="true">▦</span> Local fixture only. No map, export, analytics, or live route is attached.</p>
+          </aside>
+          <div class="filter-backdrop" data-action="close-console" aria-hidden="true"></div>
+
+          <main class="main-column" id="dashboard-content" tabindex="-1">
+            <section class="station signal-station" aria-labelledby="signal-heading">
+              <div class="station-head">
+                <div>
+                  <div class="station-title-line"><span class="station-tag">SIGNAL</span><h2 id="signal-heading">What deserves attention right now?</h2></div>
+                  <p class="station-note" id="signal-note">The same fictional groups, sorted by the clearest pressure we can name.</p>
+                </div>
+                <span class="station-meta" id="signal-meta">4 health bands · select a line to narrow the field</span>
+              </div>
+              <div class="summary-metrics" id="summary-metrics"></div>
+              <div class="signal-board" id="signal-board" aria-live="polite"></div>
+              <div class="fieldstrip-wrap">
+                <div class="fieldstrip-head"><span>FIELD STRIP / each mark is one fictional group</span><span id="fieldstrip-count">60 marks</span></div>
+                <div class="fieldstrip" id="fieldstrip" role="group" aria-label="Fictional groups ordered from highest pressure to healthy"></div>
+                <p class="fieldstrip-legend"><span class="legend-key critical"></span>critical <span class="legend-key thin"></span>thin <span class="legend-key watch"></span>watch <span class="legend-key healthy"></span>healthy · arrow keys move the focus</p>
+              </div>
+            </section>
+
+            <div id="focus-panel" class="focus-panel" hidden></div>
+
+            <div class="creative-view" id="creative-view">
+              <section class="station" aria-labelledby="plotboard-heading">
+                <div class="station-head">
+                  <div>
+                    <div class="station-title-line"><span class="station-tag">PLOTBOARD</span><h2 id="plotboard-heading">Where is the pressure collecting?</h2></div>
+                    <p class="station-note">A locality lattice, not a map. Size is group presence; color is the worst signal present in that place.</p>
+                  </div>
+                  <span class="station-meta">safe locality labels · no coordinates</span>
+                </div>
+                <div class="plotboard" id="plotboard"></div>
+                <p class="station-foot">The fixture carries place-level labels only. Selecting a tile filters every station to that same locality.</p>
+              </section>
+
+              <section class="station" aria-labelledby="pressure-heading">
+                <div class="station-head">
+                  <div>
+                    <div class="station-title-line"><span class="station-tag">PRESSURE</span><h2 id="pressure-heading">Who is carrying the most?</h2></div>
+                    <p class="station-note">Leader load is shown as members per leader. A group with no leader stays explicit instead of becoming a fabricated ratio.</p>
+                  </div>
+                  <span class="station-meta">guide: 12 members / leader</span>
+                </div>
+                <div class="pressure-layout">
+                  <div class="pressure-chart" id="pressure-chart" aria-label="Leader load plot"></div>
+                  <div class="pressure-aside" id="pressure-aside"></div>
+                </div>
+              </section>
+
+              <section class="station" aria-labelledby="rhythm-heading">
+                <div class="station-head">
+                  <div>
+                    <div class="station-title-line"><span class="station-tag">RHYTHM</span><h2 id="rhythm-heading">When does the field breathe?</h2></div>
+                    <p class="station-note">Day-of-week pockets keep the same health language, so a pattern can be explored without becoming a verdict.</p>
+                  </div>
+                  <span class="station-meta">click a day to focus it</span>
+                </div>
+                <div class="rhythm-grid" id="rhythm-grid"></div>
+              </section>
+
+              <section class="station" aria-labelledby="queue-heading">
+                <div class="station-head">
+                  <div>
+                    <div class="station-title-line"><span class="station-tag">QUEUE</span><h2 id="queue-heading">Which groups should open next?</h2></div>
+                    <p class="station-note">A short, named queue built from the same facts above: no hidden score and no drill-through.</p>
+                  </div>
+                  <span class="station-meta" id="queue-meta">top 8 in the current slice</span>
+                </div>
+                <div class="queue" id="queue"></div>
+              </section>
+            </div>
+
+            <div class="classic-view" id="classic-view" hidden>
+              <section class="classic-intro">
+                <div>
+                  <div class="station-title-line"><span class="station-tag">CLASSIC REGISTER</span><h2>Same field. A quieter read.</h2></div>
+                  <p>The local fixture does not change when the composition changes. Classic mode makes the same totals, groups, and places easier to compare line by line.</p>
+                </div>
+                <div class="classic-key"><span class="key-line"></span><span>measured signal</span><span class="key-hollow"></span><span>not measured / unavailable</span></div>
+              </section>
+              <section class="classic-panel" aria-labelledby="classic-health-heading">
+                <div class="classic-panel-head"><div><span class="table-label">Health register</span><h3 id="classic-health-heading">Signal distribution</h3></div><span id="classic-health-count">60 groups</span></div>
+                <div id="classic-health-table" class="table-wrap"></div>
+              </section>
+              <section class="classic-panel" aria-labelledby="classic-groups-heading">
+                <div class="classic-panel-head"><div><span class="table-label">Group register</span><h3 id="classic-groups-heading">Every group in the slice</h3></div><span id="classic-group-count">60 rows</span></div>
+                <div id="classic-group-table" class="table-wrap"></div>
+              </section>
+              <section class="classic-panel" aria-labelledby="classic-locality-heading">
+                <div class="classic-panel-head"><div><span class="table-label">Locality register</span><h3 id="classic-locality-heading">Place-level rollup</h3></div><span>same local facts</span></div>
+                <div id="classic-locality-table" class="table-wrap"></div>
+              </section>
+            </div>
+
+            <footer class="demo-footer">
+              <div>
+                <span class="footer-label">Prototype boundary</span>
+                <p><strong>This is a portfolio artifact, not an operating system.</strong> It uses a sanitized subset of a fictional fixture, replaces group and place labels, and keeps every action inside this page.</p>
+              </div>
+              <div>
+                <span class="footer-label">Reading notes</span>
+                <p>Healthy means healthy on the measured leadership and activity signals. Retention, progression, and demand are intentionally not measured here; absence is never presented as zero.</p>
+              </div>
+            </footer>
+          </main>
+        </div>
+      </div>
+      <div class="live-region" id="live-region" aria-live="polite" aria-atomic="true"></div>
+    </div>
+    <script type="application/json" id="connect-health-data">{
+  "snapshot": "2026-08-23",
+  "weeks": [
+    "2026-07-19",
+    "2026-07-26",
+    "2026-08-02",
+    "2026-08-09",
+    "2026-08-16",
+    "2026-08-23"
+  ],
+  "campuses": [
+    {
+      "id": "campus-01",
+      "label": "Campus 01"
+    },
+    {
+      "id": "campus-02",
+      "label": "Campus 02"
+    },
+    {
+      "id": "campus-03",
+      "label": "Campus 03"
+    }
+  ],
+  "groups": [
+    {
+      "id": "g001",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Couples",
+      "day": "Wednesday",
+      "time": "19:00",
+      "location": "Home Connect",
+      "locality": "unmapped",
+      "collecting": false,
+      "capacity": null,
+      "members": 10,
+      "leaders": 3,
+      "openSeats": null,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g002",
+      "campus": "campus-01",
+      "age": "Youth",
+      "ageRange": "12-17",
+      "type": "Men Only",
+      "day": "Friday",
+      "time": "18:30",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 30,
+      "members": 22,
+      "leaders": 1,
+      "openSeats": 8,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g003",
+      "campus": "campus-01",
+      "age": "Youth",
+      "ageRange": "12-17",
+      "type": "Men & Women",
+      "day": "Saturday",
+      "time": "15:30",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 7,
+      "members": 9,
+      "leaders": 3,
+      "openSeats": -2,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g004",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Couples",
+      "day": "Thursday",
+      "time": "19:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 15,
+      "members": 14,
+      "leaders": 4,
+      "openSeats": 1,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "cancelled",
+          "attendance": 0
+        }
+      ]
+    },
+    {
+      "id": "g005",
+      "campus": "campus-01",
+      "age": "Youth",
+      "ageRange": "12-17",
+      "type": "Men & Women",
+      "day": "Saturday",
+      "time": "15:30",
+      "location": "Cafe",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 21,
+      "members": 22,
+      "leaders": 4,
+      "openSeats": -1,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "cancelled",
+          "attendance": 0
+        }
+      ]
+    },
+    {
+      "id": "g006",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Couples",
+      "day": "Friday",
+      "time": "19:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 18,
+      "members": 20,
+      "leaders": 2,
+      "openSeats": -2,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g007",
+      "campus": "campus-01",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Women Only",
+      "day": "Friday",
+      "time": "18:30",
+      "location": "Cafe",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 21,
+      "members": 13,
+      "leaders": 2,
+      "openSeats": 8,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g008",
+      "campus": "campus-01",
+      "age": "Seasoned",
+      "ageRange": "55+",
+      "type": "Men & Women",
+      "day": "Tuesday",
+      "time": "09:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 30,
+      "members": 21,
+      "leaders": 1,
+      "openSeats": 9,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g009",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Men & Women",
+      "day": "Tuesday",
+      "time": "17:30",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 14,
+      "members": 12,
+      "leaders": 4,
+      "openSeats": 2,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g010",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Couples",
+      "day": "Thursday",
+      "time": "19:30",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 24,
+      "members": 17,
+      "leaders": 0,
+      "openSeats": 7,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g011",
+      "campus": "campus-01",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Women Only",
+      "day": "Friday",
+      "time": "20:30",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 19,
+      "members": 13,
+      "leaders": 1,
+      "openSeats": 6,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g012",
+      "campus": "campus-01",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Men Only",
+      "day": "Thursday",
+      "time": "19:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 15,
+      "members": 16,
+      "leaders": 0,
+      "openSeats": -1,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g013",
+      "campus": "campus-01",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Men & Women",
+      "day": "Thursday",
+      "time": "18:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 13,
+      "members": 14,
+      "leaders": 1,
+      "openSeats": -1,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g014",
+      "campus": "campus-01",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Single",
+      "day": "Wednesday",
+      "time": "19:30",
+      "location": "Cafe",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 10,
+      "members": 10,
+      "leaders": 1,
+      "openSeats": 0,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-07-26",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-23",
+          "state": "cancelled",
+          "attendance": 0
+        }
+      ]
+    },
+    {
+      "id": "g015",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Men & Women",
+      "day": "Saturday",
+      "time": "09:30",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": true,
+      "capacity": 5,
+      "members": 3,
+      "leaders": 1,
+      "openSeats": 2,
+      "attendance": []
+    },
+    {
+      "id": "g016",
+      "campus": "campus-01",
+      "age": "Kids",
+      "ageRange": "5-11",
+      "type": "Men & Women",
+      "day": "Sunday",
+      "time": "08:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 24,
+      "members": 14,
+      "leaders": 3,
+      "openSeats": 10,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g017",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Couples",
+      "day": "Monday",
+      "time": "15:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 29,
+      "members": 19,
+      "leaders": 3,
+      "openSeats": 10,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g018",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Couples",
+      "day": "Tuesday",
+      "time": "09:30",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 25,
+      "members": 22,
+      "leaders": 2,
+      "openSeats": 3,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g019",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Men & Women",
+      "day": "Tuesday",
+      "time": "18:30",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 14,
+      "members": 14,
+      "leaders": 2,
+      "openSeats": 0,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g020",
+      "campus": "campus-01",
+      "age": "Seasoned",
+      "ageRange": "55+",
+      "type": "Women Only",
+      "day": "Tuesday",
+      "time": "09:30",
+      "location": "Cafe",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 20,
+      "members": 14,
+      "leaders": 2,
+      "openSeats": 6,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g021",
+      "campus": "campus-01",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Couples",
+      "day": "Saturday",
+      "time": "17:30",
+      "location": "Cafe",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 17,
+      "members": 16,
+      "leaders": 2,
+      "openSeats": 1,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g022",
+      "campus": "campus-01",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Women Only",
+      "day": "Monday",
+      "time": "20:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 12,
+      "members": 8,
+      "leaders": 1,
+      "openSeats": 4,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g023",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Couples",
+      "day": "Saturday",
+      "time": "18:30",
+      "location": "Cafe",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 11,
+      "members": 12,
+      "leaders": 1,
+      "openSeats": -1,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g024",
+      "campus": "campus-01",
+      "age": "Seasoned",
+      "ageRange": "55+",
+      "type": "Men & Women",
+      "day": "Saturday",
+      "time": "10:30",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 29,
+      "members": 20,
+      "leaders": 1,
+      "openSeats": 9,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g025",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Couples",
+      "day": "Saturday",
+      "time": "19:30",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 15,
+      "members": 14,
+      "leaders": 4,
+      "openSeats": 1,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g026",
+      "campus": "campus-01",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Women Only",
+      "day": "Saturday",
+      "time": "19:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 22,
+      "members": 15,
+      "leaders": 1,
+      "openSeats": 7,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g027",
+      "campus": "campus-01",
+      "age": "Youth",
+      "ageRange": "12-17",
+      "type": "Men Only",
+      "day": "Friday",
+      "time": "16:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": null,
+      "members": 6,
+      "leaders": 1,
+      "openSeats": null,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g028",
+      "campus": "campus-01",
+      "age": "Youth",
+      "ageRange": "12-17",
+      "type": "Men & Women",
+      "day": "Saturday",
+      "time": "15:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 25,
+      "members": 16,
+      "leaders": 2,
+      "openSeats": 9,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g029",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Couples",
+      "day": "Friday",
+      "time": "18:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 18,
+      "members": 20,
+      "leaders": 2,
+      "openSeats": -2,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g030",
+      "campus": "campus-01",
+      "age": "Seasoned",
+      "ageRange": "55+",
+      "type": "Men & Women",
+      "day": "Saturday",
+      "time": "13:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 22,
+      "members": 16,
+      "leaders": 2,
+      "openSeats": 6,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g031",
+      "campus": "campus-01",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Women Only",
+      "day": "Tuesday",
+      "time": "17:30",
+      "location": "Cafe",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 22,
+      "members": 16,
+      "leaders": 1,
+      "openSeats": 6,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-07-26",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-02",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-23",
+          "state": "not-logged",
+          "attendance": 0
+        }
+      ]
+    },
+    {
+      "id": "g032",
+      "campus": "campus-01",
+      "age": "Kids",
+      "ageRange": "5-11",
+      "type": "Men & Women",
+      "day": "Saturday",
+      "time": "09:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 18,
+      "members": 12,
+      "leaders": 2,
+      "openSeats": 6,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g033",
+      "campus": "campus-01",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Men Only",
+      "day": "Sunday",
+      "time": "13:00",
+      "location": "Cafe",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 16,
+      "members": 16,
+      "leaders": 2,
+      "openSeats": 0,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "not-logged",
+          "attendance": 0
+        }
+      ]
+    },
+    {
+      "id": "g034",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Men Only",
+      "day": "Tuesday",
+      "time": "20:00",
+      "location": "Home Connect",
+      "locality": "locality-01",
+      "collecting": false,
+      "capacity": 14,
+      "members": 15,
+      "leaders": 1,
+      "openSeats": -1,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g035",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Couples",
+      "day": "Thursday",
+      "time": "18:00",
+      "location": "Cafe",
+      "locality": "locality-02",
+      "collecting": false,
+      "capacity": null,
+      "members": 21,
+      "leaders": 1,
+      "openSeats": null,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g036",
+      "campus": "campus-01",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Men & Women",
+      "day": "Friday",
+      "time": "19:00",
+      "location": "Home Connect",
+      "locality": "locality-02",
+      "collecting": false,
+      "capacity": 23,
+      "members": 13,
+      "leaders": 3,
+      "openSeats": 10,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g037",
+      "campus": "campus-02",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Women Only",
+      "day": "Saturday",
+      "time": "18:30",
+      "location": "Cafe",
+      "locality": "locality-03",
+      "collecting": false,
+      "capacity": 6,
+      "members": 6,
+      "leaders": 1,
+      "openSeats": 0,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-07-26",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "not-logged",
+          "attendance": 0
+        }
+      ]
+    },
+    {
+      "id": "g038",
+      "campus": "campus-02",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "College Students",
+      "day": "Tuesday",
+      "time": "15:30",
+      "location": "Home Connect",
+      "locality": "locality-03",
+      "collecting": false,
+      "capacity": 21,
+      "members": 11,
+      "leaders": 1,
+      "openSeats": 10,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g039",
+      "campus": "campus-02",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Women Only",
+      "day": "Friday",
+      "time": "17:30",
+      "location": "Home Connect",
+      "locality": "locality-03",
+      "collecting": false,
+      "capacity": 22,
+      "members": 18,
+      "leaders": 2,
+      "openSeats": 4,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g040",
+      "campus": "campus-02",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Men & Women",
+      "day": "Saturday",
+      "time": "18:30",
+      "location": "Home Connect",
+      "locality": "locality-03",
+      "collecting": false,
+      "capacity": null,
+      "members": 12,
+      "leaders": 2,
+      "openSeats": null,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "cancelled",
+          "attendance": 0
+        }
+      ]
+    },
+    {
+      "id": "g041",
+      "campus": "campus-02",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Men & Women",
+      "day": "Thursday",
+      "time": "21:00",
+      "location": "Cafe",
+      "locality": "locality-03",
+      "collecting": false,
+      "capacity": null,
+      "members": 15,
+      "leaders": 2,
+      "openSeats": null,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g042",
+      "campus": "campus-02",
+      "age": "Seasoned",
+      "ageRange": "55+",
+      "type": "Men & Women",
+      "day": "Tuesday",
+      "time": "16:00",
+      "location": "Home Connect",
+      "locality": "locality-03",
+      "collecting": false,
+      "capacity": 25,
+      "members": 17,
+      "leaders": 1,
+      "openSeats": 8,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g043",
+      "campus": "campus-02",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "College Students",
+      "day": "Thursday",
+      "time": "17:30",
+      "location": "Cafe",
+      "locality": "locality-04",
+      "collecting": false,
+      "capacity": 9,
+      "members": 7,
+      "leaders": 1,
+      "openSeats": 2,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g044",
+      "campus": "campus-02",
+      "age": "Youth",
+      "ageRange": "12-17",
+      "type": "Women Only",
+      "day": "Saturday",
+      "time": "16:00",
+      "location": "Home Connect",
+      "locality": "locality-04",
+      "collecting": false,
+      "capacity": 10,
+      "members": 8,
+      "leaders": 1,
+      "openSeats": 2,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g045",
+      "campus": "campus-02",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Men & Women",
+      "day": "Friday",
+      "time": "15:00",
+      "location": "Cafe",
+      "locality": "locality-04",
+      "collecting": false,
+      "capacity": 19,
+      "members": 17,
+      "leaders": 2,
+      "openSeats": 2,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g046",
+      "campus": "campus-02",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Men & Women",
+      "day": "Tuesday",
+      "time": "21:00",
+      "location": "Cafe",
+      "locality": "locality-04",
+      "collecting": false,
+      "capacity": 16,
+      "members": 18,
+      "leaders": 2,
+      "openSeats": -2,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g047",
+      "campus": "campus-02",
+      "age": "Youth",
+      "ageRange": "12-17",
+      "type": "Men Only",
+      "day": "Saturday",
+      "time": "18:00",
+      "location": "Home Connect",
+      "locality": "locality-05",
+      "collecting": false,
+      "capacity": 9,
+      "members": 7,
+      "leaders": 1,
+      "openSeats": 2,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "cancelled",
+          "attendance": 0
+        }
+      ]
+    },
+    {
+      "id": "g048",
+      "campus": "campus-02",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "College Students",
+      "day": "Thursday",
+      "time": "19:30",
+      "location": "Cafe",
+      "locality": "locality-05",
+      "collecting": false,
+      "capacity": 9,
+      "members": 6,
+      "leaders": 1,
+      "openSeats": 3,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g049",
+      "campus": "campus-03",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Men & Women",
+      "day": "Tuesday",
+      "time": "19:00",
+      "location": "Cafe",
+      "locality": "locality-06",
+      "collecting": false,
+      "capacity": 17,
+      "members": 13,
+      "leaders": 0,
+      "openSeats": 4,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "not-logged",
+          "attendance": 0
+        }
+      ]
+    },
+    {
+      "id": "g050",
+      "campus": "campus-03",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Women Only",
+      "day": "Wednesday",
+      "time": "19:30",
+      "location": "Home Connect",
+      "locality": "locality-06",
+      "collecting": false,
+      "capacity": 8,
+      "members": 6,
+      "leaders": 1,
+      "openSeats": 2,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g051",
+      "campus": "campus-03",
+      "age": "Youth",
+      "ageRange": "12-17",
+      "type": "Women Only",
+      "day": "Saturday",
+      "time": "15:30",
+      "location": "Home Connect",
+      "locality": "locality-06",
+      "collecting": false,
+      "capacity": 18,
+      "members": 16,
+      "leaders": 2,
+      "openSeats": 2,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g052",
+      "campus": "campus-03",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Men & Women",
+      "day": "Thursday",
+      "time": "17:30",
+      "location": "Home Connect",
+      "locality": "locality-06",
+      "collecting": false,
+      "capacity": 22,
+      "members": 17,
+      "leaders": 2,
+      "openSeats": 5,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-02",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g053",
+      "campus": "campus-03",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Couples",
+      "day": "Friday",
+      "time": "20:30",
+      "location": "Cafe",
+      "locality": "locality-06",
+      "collecting": false,
+      "capacity": null,
+      "members": 8,
+      "leaders": 1,
+      "openSeats": null,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "cancelled",
+          "attendance": 0
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g054",
+      "campus": "campus-03",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Men Only",
+      "day": "Saturday",
+      "time": "18:00",
+      "location": "Home Connect",
+      "locality": "locality-07",
+      "collecting": true,
+      "capacity": 9,
+      "members": 2,
+      "leaders": 1,
+      "openSeats": 7,
+      "attendance": []
+    },
+    {
+      "id": "g055",
+      "campus": "campus-03",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Women Only",
+      "day": "Saturday",
+      "time": "08:00",
+      "location": "Home Connect",
+      "locality": "locality-07",
+      "collecting": false,
+      "capacity": 19,
+      "members": 20,
+      "leaders": 3,
+      "openSeats": -1,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g056",
+      "campus": "campus-03",
+      "age": "Young Adults",
+      "ageRange": "18-25",
+      "type": "Single",
+      "day": "Thursday",
+      "time": "20:00",
+      "location": "Cafe",
+      "locality": "locality-07",
+      "collecting": false,
+      "capacity": 25,
+      "members": 22,
+      "leaders": 1,
+      "openSeats": 3,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g057",
+      "campus": "campus-03",
+      "age": "Seasoned",
+      "ageRange": "55+",
+      "type": "Men & Women",
+      "day": "Saturday",
+      "time": "09:30",
+      "location": "Home Connect",
+      "locality": "locality-07",
+      "collecting": false,
+      "capacity": 15,
+      "members": 7,
+      "leaders": 1,
+      "openSeats": 8,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g058",
+      "campus": "campus-03",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Men & Women",
+      "day": "Tuesday",
+      "time": "19:30",
+      "location": "Home Connect",
+      "locality": "locality-07",
+      "collecting": false,
+      "capacity": 16,
+      "members": 18,
+      "leaders": 2,
+      "openSeats": -2,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g059",
+      "campus": "campus-03",
+      "age": "Seasoned",
+      "ageRange": "55+",
+      "type": "Men & Women",
+      "day": "Tuesday",
+      "time": "09:00",
+      "location": "Home Connect",
+      "locality": "locality-08",
+      "collecting": false,
+      "capacity": null,
+      "members": 10,
+      "leaders": 0,
+      "openSeats": null,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-09",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    },
+    {
+      "id": "g060",
+      "campus": "campus-03",
+      "age": "Adults",
+      "ageRange": "26-54",
+      "type": "Single",
+      "day": "Tuesday",
+      "time": "17:30",
+      "location": "Home Connect",
+      "locality": "locality-08",
+      "collecting": false,
+      "capacity": 29,
+      "members": 22,
+      "leaders": 3,
+      "openSeats": 7,
+      "attendance": [
+        {
+          "week": "2026-07-19",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-07-26",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-02",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-09",
+          "state": "not-logged",
+          "attendance": 0
+        },
+        {
+          "week": "2026-08-16",
+          "state": "recorded",
+          "attendance": 1
+        },
+        {
+          "week": "2026-08-23",
+          "state": "recorded",
+          "attendance": 1
+        }
+      ]
+    }
+  ]
+}</script>
+    <script src="./connect-health.js"></script>
+  </body>
+</html>
+
