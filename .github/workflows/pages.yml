@@ -20,9 +20,11 @@ jobs:
           node-version: '22'
       - name: Build static site
         run: npm run build
-      - name: Validate static routes, disclosures and publication boundary
+      - name: Validate hierarchy, voice, provenance and publication boundary
         run: npm run check
-      - name: Require completed worlds before manual publication
+      - name: Run focused tests
+        run: npm test
+      - name: Require release gates before manual publication
         if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
         run: npm run check -- --release
       - name: Upload Pages artifact

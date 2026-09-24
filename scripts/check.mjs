@@ -24,9 +24,9 @@ assert(order.every((index, i) => i === 0 || index > order[i - 1]), 'Sections are
 assert(/<section class="opening"[\s\S]*?class="home-stage"[\s\S]*?<\/section>/.test(html), 'The Favor Home artifact must sit in the opening viewport');
 assert(/<section class="chapter chapter--home"[\s\S]*?data-lens-stage[\s\S]*?<\/section>/.test(html), 'The Favor, by People island belongs inside the Favor Home chapter');
 assert.equal((html.match(/class="chapter /g) || []).length, 3, 'Exactly three primary bodies of work');
-for (const layer of ['Research', 'Registry', 'Runtime']) assert(html.includes(`<span class="p-step">${layer}</span>`), `Gaia must read as Research → Registry → Runtime (${layer})`);
-assert(html.indexOf('>Research<') < html.indexOf('>Registry<') && html.indexOf('>Registry<') < html.indexOf('>Runtime<'), 'Gaia layers out of order');
-for (const step of ['Truth', 'Legibility', 'Action', 'Proof']) assert(html.includes(`<span class="p-step">${step}</span>`), `Dashboards principle missing: ${step}`);
+for (const layer of ['Research', 'Registry', 'Runtime']) assert(html.includes(`<span class="p-step">${layer}.</span>`), `Gaia must read as Research → Registry → Runtime (${layer})`);
+assert(html.indexOf('>Research.<') < html.indexOf('>Registry.<') && html.indexOf('>Registry.<') < html.indexOf('>Runtime.<'), 'Gaia layers out of order');
+for (const step of ['Truth', 'Legibility', 'Action', 'Proof']) assert(html.includes(`<span class="p-step">${step}.</span>`), `Dashboards principle missing: ${step}`);
 
 // Voice and naming: first person, no concept branding, the formal name only in metadata and the footer.
 const banned = [/field atlas/i, /screening room/i, /project reel/i, /\bon screen\b/i, /world[- ]select/i, /choose another lens/i, /all worlds/i, /expedition/i, /founder story/i, /marcus built/i, /what marcus/i, /\bMRBT\b/, /\bworlds?\b/i];

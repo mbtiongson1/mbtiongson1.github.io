@@ -12,15 +12,15 @@ delegated: static HTML, CSS, and JavaScript for GitHub Pages, chosen from the de
 
 ## Users
 
-**Inferred from the request:** design-focused hiring managers, collaborators, and peers arriving from GitHub or a professional profile link. They need to recognize the maker's design range quickly, then inspect real interfaces and details at their own pace.
+Recruiters, hiring managers, collaborators and peers arriving from GitHub or LinkedIn. They need to understand who Marco is, what he is building now, and how he thinks, within one scroll, then open real evidence at their own pace.
 
 ## Product Purpose
 
-A personal portfolio for Marcus Rafael B. Tiongson that makes existing web and interface work easy to discover and experience. The same growing archive is presented through six distinct browsing experiences: Field Atlas, Screening Room, Arcade Marquee, Dada Contact Sheet, VU Meter Bridge, and the category-standard index. Success means a visitor can scan the work, choose a lens, experience a real artifact safely, and find the GitHub profile or professional contact path.
+Marco Tiongson's (mbtiongson1) personal portfolio. It presents three current bodies of work, Favor Home, Favor Dashboards, and Gaia (Research → Registry → Runtime), each through tension, conviction, what changed, and receipts, with earlier work kept in a quiet archive. Success means a visitor leaves knowing the point of view ("I build systems that make complex work easier to see, trust, and act on") and having seen real interfaces and verifiable receipts.
 
 ## Positioning
 
-The portfolio prioritizes actual demos, rendered work, and project files over speculative mockup-only case studies. This is a product decision inferred from the request to showcase existing designs and use the actual served files.
+Judgment first, technical depth as proof. Current living systems, not a flat project reel. Real artifacts over speculative case studies; nothing re-made or re-imagined.
 
 ## Operating Context
 
@@ -29,23 +29,22 @@ The portfolio will be hosted as a GitHub Pages site and linked from the `mbtiong
 ## Capabilities and Constraints
 
 - Static hosting; no server-side runtime or secrets.
-- Existing project artifacts may be copied into the portfolio while preserving required relative files and paths. The content catalog should let future work be added once and surfaced in every experience.
-- Six browsing experiences are intentional, not merely mockups: each must be a usable, responsive route and share the same verified work archive.
+- Favor repositories are private: cite PRs as text, never link them. Gaia repositories are public.
+- One page, first person, no concept branding. Favor Home, Favor Dashboards and Gaia lead; older work stays visibly secondary.
 - Only assets verified safe to publish should be included. Synthetic/demo data must be labeled; real or sensitive data must not be exposed.
 - Do not invent client endorsements, awards, outcomes, or metrics. Keep project descriptions grounded in available source material.
 - The profile README and Pages site should cross-link rather than duplicate the portfolio.
 
 ## Brand Commitments
 
-The owner is Marcus Rafael B. Tiongson (`mbtiongson1`). The request commits to a web-designer-focused portfolio, breadth beyond web design, authentic existing work where possible, and a high-craft result. Visual identity remains open for the surface direction.
+Primary identity is **Marco Tiongson** / **mbtiongson1**; the formal name Marcus Rafael B. Tiongson appears in metadata and the footer only. The teal/ink, condensed-type, ruled visual grammar carries the atmosphere without being named.
 
 ## Evidence on Hand
 
-- Existing local web and design projects include `rock-dashboards`, `gaia-research`, and `rock-steward`.
-- A reviewed `rock-dashboards/build/rendered/favor-people-compiled.html` is a self-contained interactive fictional-data prototype with inline runtime and only seven local dependencies. It is publishable as a standalone demo, not a live Rock connection.
-- Reviewed media-only captures include a WIP fictional-data watershed render, a static AutoMerge prototype screen (not live/connected), and a sample-data watershed visualization (not the Steward control-plane UI). Their disclosures must stay adjacent to the work.
-- The user's public GitHub profile identifies their professional links and public repositories.
-- No approved portfolio copy, personal portrait, testimonial, or resume download was supplied for this project. Do not fabricate any.
+- Fictional-data workbenches in `favorchurch/rock-dashboards` render the real dashboard islands with invented counts; captures of them are publishable with adjacent disclosure.
+- An owner-supplied staff homepage capture, published only after sanitization (every figure invented, personal details removed).
+- Live public Gaia sites (gaiaskilltree.com, research.gaiaskilltree.com, Skill Heaven) and an owner-supplied Gaia founder banner.
+- No approved portrait, testimonial, or résumé download was supplied. Do not fabricate any.
 
 ## Product Principles
 

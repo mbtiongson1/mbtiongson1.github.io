@@ -1,32 +1,40 @@
-# Marcus Rafael B. Tiongson — Portfolio
+# Marco Tiongson — portfolio
 
-A web-design-focused portfolio at `https://mbtiongson1.github.io/`: six independently art-directed ways into one growing, reviewed project archive. This branch builds the root world-selection lobby and the complete Field Atlas route; the other five routes currently use honest fallback pages in this PR and are supplied by separate PRs before the site is published.
+Source for `https://mbtiongson1.github.io/`: one page, written in first person, around the three systems I'm building now.
+
+1. **Favor Home** — Favor Church's staff homepage on Rock RMS, the front door into the operating system.
+2. **Favor Dashboards** — the executive suite as one product: truth, legibility, action, proof.
+3. **Gaia** — Research → Registry (Gaia Skill Tree) → Runtime (Skill Heaven).
+
+Earlier work, experiments and small tools sit in a quiet index near the bottom.
 
 ## Local preview
 
-Requires Node 22+ for the build and Python 3 for the optional local server. No npm install, backend, secret, or external service is needed.
+Node 22+ builds it; nothing needs installing.
 
 ```sh
-npm run build
-npm run check
+npm run build              # dist/
+npm run check              # hierarchy, voice, links, provenance, publication boundary
+npm run check -- --release # adds size budgets and no-provisional-copy gates
+npm test                   # focused tests for the page script
 python3 -m http.server 8000 --directory dist
 ```
 
-Open `http://localhost:8000/`, `http://localhost:8000/worlds/field-atlas/`, and the compiled artifact at `http://localhost:8000/assets/demos/people-compiled/favor-people-compiled.html`. If port 8000 is occupied, choose another port. The project index and all project sections are generated in the HTML, so they still work with JavaScript disabled. Portfolio JavaScript only updates the active chart/index state. In the compiled demo, the chart-view cycler changes the selected mode and URL; campus links only rewrite the URL and **do not filter the embedded dataset**. No CSV-export behavior is claimed here because it was not verified. The demo makes no remote data requests.
-
 ## Structure
 
-- `data/projects.json` — one record per reviewed project; `data/asset-provenance.json` names each original source file.
-- `data/worlds.json` — six final live route slugs and display names. The five other routes have temporary, honest source placeholders in this PR, replaced in their own world PRs before deployment. `docs/worlds.md` maps each route to its isolated page/CSS/JS seam.
-- `src/pages/`, `src/styles/`, `src/scripts/` — page templates and independent visual treatments. `scripts/build.mjs` renders static `dist/` from those sources and copies `assets/`; incoming world agents edit their own source files without modifying it.
-- `assets/demos/people-compiled/` — **only** the owner-provided compiled fictional-data HTML, CSS, four local fonts, and two textures. This is an interactive prototype, not a live Rock connection.
-- `assets/media/` — optimized, disclosed visual samples, including the owner-provided, metric-free Gaia Skill Tree Open Graph illustration. Image provenance sidecars stay beside WebP files; Gaia Research remains link-only because its hero image has unverified metrics.
-- `docs/add-a-project.md` — record schema, safety review, media rules, and integration contract for every world.
+- `src/pages/index.html` — the page, authored directly. `src/pages/404.html` — not-found page.
+- `src/styles/site.css`, `src/scripts/site.js` — one stylesheet, one progressive-enhancement script (lens switch, reading-position cues). Everything works without JavaScript.
+- `assets/media/{favor,gaia,archive}/` — every raster ships with a `.webp.json` provenance sidecar naming its source and treatment.
+- `archive/experimental-worlds/` — the earlier six-world explorations, kept for history and never built.
 
-## Deployment and publication
+## Publication boundary
 
-`.github/workflows/pages.yml` builds and checks on pull requests and pushes to `main`; it does **not** publish on push. After the five other world PRs replace their fallback routes and the central desktop/mobile review is complete, an operator can manually run the workflow on `main`. That run requires `npm run check -- --release` to pass (no placeholder routes) before uploading and deploying `dist/` through GitHub Pages Actions. Set the repository Pages source to **GitHub Actions**. The GitHub personal-profile README is a separate repository, outside this branch's write boundary; after the Pages deployment is verified, link `https://mbtiongson1.github.io/` from that profile.
+- Favor interfaces appear only as captures of their own fictional-data workbenches, a sanitized homepage capture (every figure invented, personal details removed), or drawn schematics. No production data, real people, credentials, or internal hosts.
+- Favor repositories are private, so their PRs are cited as text, not links. Gaia repositories are public and linked.
+- `npm run check` enforces these rules; see `scripts/check.mjs`.
 
-## Publishing safeguards
+## Deployment
 
-Every visible prototype is clearly identified at the point of viewing. Never copy the gitignored `out/evidence` harness, live Rock variants, source/app code, production data, `.blend` files, or private contact material. The static AutoMerge capture is **not** evidence of a live connection; the Steward-adjacent sample image is **not** its control-plane UI. No client outcomes, metrics, or connected behavior are claimed by this portfolio. The development-only `.impeccable/mocks/decision/` comps are not shipped.
+`.github/workflows/pages.yml` builds, checks and tests every pull request and push to `main`. It never publishes on push: an operator runs the workflow manually on `main`, which requires `npm run check -- --release` before deploying `dist/` to GitHub Pages.
+
+The GitHub profile README (`mbtiongson1/mbtiongson1`) is a separate doorway that links here.
