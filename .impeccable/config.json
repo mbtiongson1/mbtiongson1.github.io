@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "src/pages/index.html"
+        ],
+        "createdAt": "2026-09-24T18:55:41.357Z",
+        "reason": "model triage: ruled-ledger structure; each flagged block (principle, layer, earlier, about, contact, schematic svg) already carries 1.6-4rem padding under a hairline top rule, verified in the 1440/390 captures"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "src/pages/index.html"
+        ],
+        "createdAt": "2026-09-24T18:55:41.860Z",
+        "reason": "model triage: measured roles are h1 96px, h2 96px, h3 30-45px, h4 18-21px, body 16px; detector read unstyled defaults"
+      }
+    ]
+  }
+}

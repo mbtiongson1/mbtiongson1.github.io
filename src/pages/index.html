@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#092b33">
+  <title>Marco Tiongson: systems for seeing, trusting, and acting</title>
+  <meta name="description" content="Marco Tiongson (mbtiongson1) builds systems that make complex work easier to see, trust, and act on: Favor Church's staff homepage and executive dashboards on Rock RMS, and Gaia, an evidence-backed registry and runtime for AI agent skills.">
+  <meta name="author" content="Marcus Rafael B. Tiongson">
+  <link rel="canonical" href="https://mbtiongson1.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Marco Tiongson">
+  <meta property="og:description" content="I build systems that make complex work easier to see, trust, and act on.">
+  <meta property="og:url" content="https://mbtiongson1.github.io/">
+  <meta property="og:image" content="https://mbtiongson1.github.io/assets/media/favor/dash-exec-overview.webp">
+  <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/barlow-condensed-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/barlow-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/site.css">
+  <script src="/scripts/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the work</a>
+
+  <header class="masthead">
+    <a class="wordmark" href="#top">Marco Tiongson</a>
+    <nav class="masthead-nav" aria-label="Sections">
+      <a href="#favor-home" data-nav="favor-home">Favor Home</a>
+      <a href="#favor-dashboards" data-nav="favor-dashboards">Dashboards</a>
+      <a href="#gaia" data-nav="gaia">Gaia</a>
+      <a href="#earlier" data-nav="earlier">Earlier work</a>
+      <a href="#about" data-nav="about">About</a>
+    </nav>
+    <a class="masthead-out" href="https://github.com/mbtiongson1" rel="noopener noreferrer" target="_blank">GitHub<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 11.5 11.5 4.5M5.5 4.5h6v6"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+  </header>
+
+  <main id="main">
+    <!-- Opening: identity, point of view, the three bodies of work, and the first artifact -->
+    <section class="opening" id="top" aria-labelledby="name">
+      <div class="opening-copy">
+        <h1 id="name"><span>Marco</span> <span>Tiongson</span></h1>
+        <p class="byline"><a href="https://github.com/mbtiongson1" rel="noopener noreferrer" target="_blank">mbtiongson1<span class="sr-only"> on GitHub (new tab)</span></a> · Philippines</p>
+        <p class="pov">I build systems that make complex work easier to see, trust, and act on.</p>
+        <p class="now">Right now that is two things: the operating system Favor Church's staff use every week, built on Rock&nbsp;RMS, and Gaia, the evidence-backed registry and runtime for AI agent skills that I founded.</p>
+        <nav class="work-index" aria-label="Current work">
+          <ol>
+            <li><a href="#favor-home"><span class="wi-title">Favor Home</span><span class="wi-line">The front door into the operating system</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v13m-5-5 5 5 5-5"/></svg></a></li>
+            <li><a href="#favor-dashboards"><span class="wi-title">Favor Dashboards</span><span class="wi-line">One executive suite, built to be believed</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v13m-5-5 5 5 5-5"/></svg></a></li>
+            <li><a href="#gaia"><span class="wi-title">Gaia</span><span class="wi-line">Research, registry, and runtime for agent skills</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v13m-5-5 5 5 5-5"/></svg></a></li>
+          </ol>
+        </nav>
+      </div>
+
+      <figure class="home-stage" aria-labelledby="home-caption">
+        <div class="stage-bar"><span class="stage-name">Favor Home: the staff homepage on Rock</span><a class="stage-link" href="#favor-home">How it's built<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v11m-4-4 4 4 4-4"/></svg></a></div>
+        <img src="/assets/media/favor/home-staff-homepage.webp" width="1800" height="1096" alt="Favor's staff homepage inside Rock: an orange Rock header and icon rail; a profile card; a True Attendance card reading 2,221 against a raw 3,120 with an estimated range and an Open Sunday Report link; a Sunday Stats panel with campus buttons and headcount, kids, staff and kids-leader tiles; and the Favor, by People panel with a donut of 5,995 people. Every figure is invented." fetchpriority="high">
+        <figcaption id="home-caption" class="boundary"><strong>Real homepage, invented numbers.</strong> Every figure replaced and personal details removed; the Favor, by People panel is the real widget on its fictional workbench.</figcaption>
+      </figure>
+    </section>
+
+    <!-- 1. Favor Home -->
+    <section class="chapter chapter--home" id="favor-home" aria-labelledby="favor-home-title" data-chapter="favor-home">
+      <div class="chapter-body">
+        <header class="chapter-head">
+          <h2 id="favor-home-title">Favor Home</h2>
+          <p class="chapter-lede">The homepage is the front door into the operating system. When someone on staff signs in, it should tell them what matters this week and where to go next, not hand them one more dashboard to decode.</p>
+        </header>
+
+        <div class="beats">
+          <div class="beat">
+            <h3>The tension</h3>
+            <p>Rock's staff homepage was rendering several unrelated visual languages at once: my cream "Favor, by People" island, a purple Sunday Stats panel on slate, a dark signups widget, and stock Bootstrap panels from blocks Rock compiles itself. It looked like several products arguing about who owned the page.</p>
+          </div>
+          <div class="beat">
+            <h3>The conviction</h3>
+            <p>The homepage should borrow the operating system, not imitate it. If the front door and the rooms behind it speak different languages, nobody trusts either.</p>
+          </div>
+        </div>
+
+        <h3 class="decisions-title">What I changed</h3>
+        <ol class="decisions">
+          <li>
+            <h4>The page belongs to Rock; the island belongs to the dashboards.</h4>
+            <p>The homepage itself lives in rock-pages. The Favor, by People panel in its sidebar is a copy that comes from the dashboards repo, through a block that is only a placement and security seam: a literal smaller instance of Executive Overview's own components, with the same data model, category colours, labels and tooltip. The campus defaults to the viewer's own, and a campus you are not cleared for reads <em>unavailable</em>, never a wrong number.</p>
+          </li>
+          <li>
+            <h4>One ground for every block.</h4>
+            <p>Instead of reskinning blocks one at a time, I restated Rock's own primitives (panels, tables, buttons, form controls, selection and focus) in the Executive Overview vocabulary, on that one page. Blocks this repo cannot template, and any block added later, inherit it for free.</p>
+          </li>
+          <li>
+            <h4>Count what actually happened.</h4>
+            <p>The attendance card read its service count from a stored settings list that still named four retired services. True Attendance now counts the services actually submitted for the Sunday being viewed, and applies its multiplier only to the headcount nobody checked in. Known people are never multiplied.</p>
+          </li>
+          <li>
+            <h4>Doors appear for the people who can open them.</h4>
+            <p>The link from True Attendance into the Sunday Report renders only for viewers Rock authorises for that page. It is politeness, not the security boundary: the report still enforces its own permission either way.</p>
+          </li>
+        </ol>
+
+        <div class="home-evidence">
+          <figure class="lens-stage home-island" data-lens-stage aria-labelledby="lens-caption">
+            <div class="stage-bar">
+              <span class="stage-name">Favor, by People: the island in its sidebar</span>
+              <div class="lens-switch" role="group" aria-label="Change the lens" hidden data-lens-switch>
+                <button type="button" aria-pressed="true" data-lens="age">Age</button>
+                <button type="button" aria-pressed="false" data-lens="connection">Connection</button>
+                <button type="button" aria-pressed="false" data-lens="gender">Gender</button>
+                <button type="button" aria-pressed="false" data-lens="campus">Campus</button>
+              </div>
+            </div>
+            <div class="lens-frame">
+              <img src="/assets/media/favor/home-favor-by-people-age.webp" width="1000" height="827" alt="The Favor, by People island from the staff homepage: campus buttons ALL, MNL, BNE and SEL, a lens switch, a donut of 5,995 people and a ruled legend by age band, and an Open Executive Overview link. Every count is invented." data-lens-image loading="lazy" decoding="async">
+            </div>
+            <figcaption id="lens-caption" class="boundary"><strong>Real widget, invented numbers.</strong> Four lenses, captured from the island's own fictional workbench.</figcaption>
+          </figure>
+          <figure class="seam" aria-labelledby="seam-caption">
+            <svg viewBox="0 0 560 420" role="img" aria-labelledby="seam-title seam-desc">
+              <title id="seam-title">How the staff homepage is assembled</title>
+              <desc id="seam-desc">Rock's page 12 contains a host block. The host block renders an island owned by the dashboards repository. That island shares its components and data model with Executive Overview, and its link carries the viewer's campus into Executive Overview. A separate Sunday Stats panel shows True Attendance, whose Sunday Report link appears only for authorised viewers.</desc>
+              <g class="sch-frame"><rect x="8" y="8" width="544" height="404"/></g>
+              <text class="sch-label" x="28" y="40">ROCK · STAFF HOMEPAGE</text>
+              <g class="sch-box"><rect x="28" y="62" width="236" height="150"/></g>
+              <text class="sch-label" x="44" y="88">HOST BLOCK</text>
+              <text class="sch-text" x="44" y="112">placement + page security</text>
+              <g class="sch-box sch-box--own"><rect x="44" y="128" width="204" height="68"/></g>
+              <text class="sch-text sch-strong" x="58" y="156">Favor, by People</text>
+              <text class="sch-text" x="58" y="180">island owned by dashboards</text>
+              <g class="sch-box"><rect x="28" y="232" width="236" height="160"/></g>
+              <text class="sch-label" x="44" y="258">SUNDAY STATS PANEL</text>
+              <text class="sch-text sch-strong" x="44" y="286">True Attendance</text>
+              <text class="sch-text" x="44" y="310">submitted services only</text>
+              <g class="sch-box sch-box--gate"><rect x="44" y="330" width="204" height="44"/></g>
+              <text class="sch-text" x="58" y="357">Report link, if authorised</text>
+              <g class="sch-box sch-box--dest"><rect x="312" y="96" width="220" height="84"/></g>
+              <text class="sch-label" x="328" y="122">EXECUTIVE OVERVIEW</text>
+              <text class="sch-text" x="328" y="146">same components,</text>
+              <text class="sch-text" x="328" y="166">same data model</text>
+              <g class="sch-box sch-box--dest"><rect x="312" y="310" width="220" height="84"/></g>
+              <text class="sch-label" x="328" y="336">SUNDAY REPORT</text>
+              <text class="sch-text" x="328" y="360">enforces its own</text>
+              <text class="sch-text" x="328" y="380">permission</text>
+              <g class="sch-route"><path d="M248 162H280V138H312"/><path d="M248 352H312"/></g>
+              <text class="sch-note" x="312" y="204">↑ campus travels with the link</text>
+            </svg>
+            <figcaption id="seam-caption">Schematic, drawn for this page. It shows the structure, not a screen.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <aside class="ledger" aria-label="Favor Home receipts">
+        <div class="ledger-inner">
+        <h3 class="ledger-title">Receipts</h3>
+        <p class="ledger-note">Private repositories; PR numbers are verifiable on request.</p>
+        <ol>
+          <li><span class="rc-ref">rock-dashboards #726</span><span class="rc-what">Executive Home island, a smaller instance of Executive Overview</span></li>
+          <li><span class="rc-ref">rock-pages #661</span><span class="rc-what">Homepage block becomes a host for the dashboard-owned island</span></li>
+          <li><span class="rc-ref">rock-pages #664</span><span class="rc-what">One cream art direction for every block on the page</span></li>
+          <li><span class="rc-ref">rock-pages #670</span><span class="rc-what">Service count from submitted data, not stale settings</span></li>
+          <li><span class="rc-ref">rock-pages #667</span><span class="rc-what">Multiplier scoped to unknown headcount, with a range</span></li>
+          <li><span class="rc-ref">rock-pages #671</span><span class="rc-what">Sunday Report link for authorised viewers only</span></li>
+          <li><span class="rc-ref">rock-dashboards #797</span><span class="rc-what">Legend container-queried, not viewport-queried</span></li>
+        </ol>
+        </div>
+      </aside>
+    </section>
+
+    <!-- 2. Favor Dashboards -->
+    <section class="chapter chapter--dash" id="favor-dashboards" aria-labelledby="favor-dashboards-title" data-chapter="favor-dashboards">
+      <div class="chapter-body">
+        <header class="chapter-head">
+          <h2 id="favor-dashboards-title">Favor Dashboards</h2>
+          <p class="chapter-lede">Executive Overview, People &amp; Leaders, Pathways, Grow, the Sunday Report, Stats Inputs, Markup, and Events, which is still being built. I treat them as one product, not a gallery of charts, and every surface has to earn four things in order.</p>
+        </header>
+
+        <figure class="suite">
+          <div class="suite-lead">
+            <img src="/assets/media/favor/dash-exec-overview.webp" width="1800" height="1125" alt="Executive Overview: the shared breadcrumb trail, the Executive Overview masthead with a fictional prototype data badge, Church Pulse cards for leader coverage, 28-day reach and ministry team members, and the filter console with campus, gender and age distribution." loading="lazy" decoding="async">
+          </div>
+          <div class="suite-side">
+            <img src="/assets/media/favor/dash-grow-continuity.webp" width="1800" height="1125" alt="Grow Continuity: the same trail and console, a chaptered reading order, and this season's running and upcoming courses." loading="lazy" decoding="async">
+          </div>
+          <figcaption class="boundary"><strong>Real interfaces, invented numbers.</strong> Each surface captured from its own fictional-data workbench. Same trail, same filter console, same Classic/Creative switch, on every one.</figcaption>
+        </figure>
+
+        <ol class="principles">
+          <li class="principle" id="truth" data-principle="truth">
+            <div class="principle-copy">
+              <h3><span class="p-step">Truth.</span> A number I can't defend doesn't ship.</h3>
+              <p>The Sunday Report is where the week gets decided, so its arithmetic has to be the source of record. True Attendance now resolves the current, previous and historical weeks through one canonical contract, using each week's real service count. "Headcount" became Raw Attendance, so two different numbers stop sharing one name.</p>
+              <p>When the inputs can't support a figure, the card says so. In the workbench fixture the service count is missing, and True Attendance reads as a dash, not a guess.</p>
+            </div>
+            <figure class="principle-art">
+              <img src="/assets/media/favor/dash-sunday-report.webp" width="1800" height="1125" alt="The Sunday Report's headline row: True Attendance shown as a dash with 'unavailable, service count unavailable or invalid', next to volunteers and hands raised." loading="lazy" decoding="async">
+            </figure>
+          </li>
+          <li class="principle" id="legibility" data-principle="legibility">
+            <div class="principle-copy">
+              <h3><span class="p-step">Legibility.</span> Paint the page before the query.</h3>
+              <p>People Pathways kept readers on a blank tab for 4.7 seconds while one server block ran ten reads, and Rock sends no byte until that block finishes. Tuning the queries couldn't fix first paint: the hint that rescued Overview made every one of these slower. So the page now runs no query at all. It paints the surface, then fetches its data from the same page, route and permission, under a written, fenced exemption.</p>
+              <p>The loading skeleton carries no number, label or axis. A placeholder someone could mistake for a reading is worse than an empty page. Across the suite the same discipline holds: one status chip, one set of motion tokens, one reduced-motion switch, and on a phone the bottom edge holds exactly one thing.</p>
+            </div>
+            <figure class="principle-art principle-art--pair">
+              <img src="/assets/media/favor/dash-people-pathways.webp" width="1800" height="1125" alt="People Pathways with its Pathway Map and stacked signals." loading="lazy" decoding="async">
+              <img class="phone" src="/assets/media/favor/dash-pathways-sheet-mobile.webp" width="600" height="1134" alt="Pathways at phone width with the filter console open as a bottom sheet whose top edge is its handle." loading="lazy" decoding="async">
+            </figure>
+          </li>
+          <li class="principle" id="action" data-principle="action">
+            <div class="principle-copy">
+              <h3><span class="p-step">Action.</span> Dashboards you can argue with.</h3>
+              <p>Most dashboards are a dead end: you read them, then take the conversation somewhere else. Markup keeps it on the surface: press the pen and the visible dashboard freezes into paper. Draw, write, stick a note, then save an immutable snapshot that anyone allowed to see that dashboard can reopen exactly as you saw it. An anonymous request for a snapshot gets Rock's login page, not the file.</p>
+              <p>A save Rock can't serve back is a failed save, not a silent one. Before the gallery says "saved", Markup reads the file back through the same path a reload would use.</p>
+            </div>
+            <figure class="principle-art principle-art--pair">
+              <img src="/assets/media/favor/dash-markup-drawn.webp" width="1440" height="900" alt="Markup on a frozen Executive Overview: a hand-written question about leader coverage, an arrow, a highlighted number and a flame sticker, with the drawing toolbar above." loading="lazy" decoding="async">
+              <img class="phone" src="/assets/media/favor/dash-markup-mobile.webp" width="390" height="844" alt="Markup's canvas at phone width." loading="lazy" decoding="async">
+            </figure>
+          </li>
+          <li class="principle" id="proof" data-principle="proof">
+            <div class="principle-copy">
+              <h3><span class="p-step">Proof.</span> Production is not the test.</h3>
+              <p>These dashboards sit on the church's live database, so every change has to arrive already proven. The gates are code, not a checklist anyone can skip.</p>
+            </div>
+            <table class="gates">
+              <caption class="sr-only">Delivery gates and what each one refuses</caption>
+              <thead><tr><th scope="col">Gate</th><th scope="col">What it refuses</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Query rehearsal</th><td>SQL that hasn't run against production out of band first, or that needs more than 60% of its timeout.</td></tr>
+                <tr><th scope="row">Clean tree</th><td>A production apply from anything but a committed tree, with a snapshot taken before the first write.</td></tr>
+                <tr><th scope="row">Read boundary</th><td>Any query the browser didn't get from a registered, hash-verified, role-fenced catalogue.</td></tr>
+                <tr><th scope="row">Regression guard</th><td>A fix without a test that fails when the fix is reverted.</td></tr>
+              </tbody>
+            </table>
+          </li>
+        </ol>
+        <p class="credit">I build this suite with Rico Tiongson (<a href="https://github.com/rico-favor" rel="noopener noreferrer" target="_blank">rico-favor<span class="sr-only"> on GitHub, opens in a new tab</span></a>), whose work includes the Stats Inputs matrix and the shared metric contract.</p>
+      </div>
+
+      <aside class="ledger" aria-label="Favor Dashboards receipts">
+        <div class="ledger-inner">
+        <h3 class="ledger-title">Receipts</h3>
+        <p class="ledger-note">rock-dashboards, private; verifiable on request.</p>
+        <ol>
+          <li data-for="truth"><span class="rc-ref">#801</span><span class="rc-what">Canonical True Attendance baseline, with a regression fixture</span></li>
+          <li data-for="truth"><span class="rc-ref">#741</span><span class="rc-what">Reads the submitted schedule count, not stale settings</span></li>
+          <li data-for="truth"><span class="rc-ref">#745</span><span class="rc-what">Headcount becomes Raw Attendance; three headline KPIs</span></li>
+          <li data-for="legibility"><span class="rc-ref">#750</span><span class="rc-what">Pathways paints first, then fetches its ten reads</span></li>
+          <li data-for="legibility"><span class="rc-ref">#819</span><span class="rc-what">People &amp; Leaders shell paints before reads</span></li>
+          <li data-for="legibility"><span class="rc-ref">#590</span><span class="rc-what">One UX and motion bar for every shipped dashboard</span></li>
+          <li data-for="action"><span class="rc-ref">#599</span><span class="rc-what">Executive Markup: freeze, draw, save, play</span></li>
+          <li data-for="action"><span class="rc-ref">#805</span><span class="rc-what">A save Rock can't prove is a failed save</span></li>
+          <li data-for="proof"><span class="rc-ref">#733</span><span class="rc-what">Rehearse the push before it lands; budget the latency</span></li>
+          <li data-for="proof"><span class="rc-ref">#708</span><span class="rc-what">Snapshot and dirty-tree fences on production applies</span></li>
+        </ol>
+        </div>
+      </aside>
+    </section>
+
+    <!-- 3. Gaia -->
+    <section class="chapter chapter--gaia" id="gaia" aria-labelledby="gaia-title" data-chapter="gaia">
+      <figure class="gaia-banner">
+        <img src="/assets/media/gaia/gaia-founder-banner.webp" width="2025" height="776" alt="Founder banner: the word Founder beside three illustrated figures labelled Gaia Research, Gaia Skill Tree and Skill Heaven." loading="lazy" decoding="async">
+      </figure>
+      <div class="chapter-body chapter-body--wide">
+        <header class="chapter-head">
+          <h2 id="gaia-title">Gaia</h2>
+          <p class="chapter-lede">I founded Gaia because agent capability gets passed around without evidence: skills copied, renamed, and ranked by popularity. Gaia asks a question and measures it, records who proved a capability first and on what evidence, then lets an agent use it for one session without carrying it forever.</p>
+        </header>
+
+        <ol class="gaia-flow">
+          <li class="layer layer--research">
+            <h3><span class="p-step">Research.</span> Ask, measure, publish the receipt.</h3>
+            <a class="layer-shot" href="https://research.gaiaskilltree.com/" rel="noopener noreferrer" target="_blank"><img src="/assets/media/gaia/research-home.webp" width="1440" height="900" alt="The Gaia Research homepage: 'Pushing the limits of agent capability' beside the lab's mascot and a laboratory status panel." loading="lazy" decoding="async"><span class="sr-only">Open Gaia Research (new tab)</span></a>
+            <p>Every public number on the research site traces to a committed ledger row, and CI fails a page that cites one that doesn't. Context Diet took a <code>CLAUDE.md</code> of 49,687 characters, 24% over the 40,000 limit, down to 29,040 with all 124 of its rules still recoverable.</p>
+            <ul class="layer-links">
+              <li><a href="https://research.gaiaskilltree.com/" rel="noopener noreferrer" target="_blank">research.gaiaskilltree.com<span class="sr-only"> (new tab)</span></a></li>
+              <li><a href="https://research.gaiaskilltree.com/labs/context-diet" rel="noopener noreferrer" target="_blank">Context Diet lab<span class="sr-only"> (new tab)</span></a></li>
+              <li><a href="https://github.com/gaia-research/gaia-research/pull/141" rel="noopener noreferrer" target="_blank">Claim index, #141<span class="sr-only"> (new tab)</span></a></li>
+            </ul>
+          </li>
+          <li class="layer layer--registry">
+            <h3><span class="p-step">Registry.</span> Who proved it first, and on what evidence.</h3>
+            <a class="layer-shot" href="https://gaiaskilltree.com/" rel="noopener noreferrer" target="_blank"><img src="/assets/media/gaia/skill-tree-home.webp" width="1440" height="900" alt="The Gaia Skill Tree homepage: a glowing golden skill graph beside the title, an install command, and the counts 294 skills, 93 named, 2 ultimates." loading="lazy" decoding="async"><span class="sr-only">Open Gaia Skill Tree (new tab)</span></a>
+            <p>Gaia Skill Tree maps what agents can do, and the people who built and proved each skill. On 24 September 2026 it listed 294 skills and 93 named implementations. Trust is earned across evidence types: repository stars have diminishing returns and can never reach the top grade alone. A wrapper has to credit the maker of the tool it wraps, and governance separates an imposter from an honest early stub before anything is removed.</p>
+            <ul class="layer-links">
+              <li><a href="https://gaiaskilltree.com/" rel="noopener noreferrer" target="_blank">gaiaskilltree.com<span class="sr-only"> (new tab)</span></a></li>
+              <li><a href="https://gaiaskilltree.com/heroes/" rel="noopener noreferrer" target="_blank">Hall of Heroes<span class="sr-only"> (new tab)</span></a></li>
+              <li><a href="https://github.com/gaia-research/gaia-skill-tree/pull/1718" rel="noopener noreferrer" target="_blank">Star curve, #1718<span class="sr-only"> (new tab)</span></a></li>
+              <li><a href="https://github.com/gaia-research/gaia-skill-tree/pull/1814" rel="noopener noreferrer" target="_blank">Anti-purge tiers, #1814<span class="sr-only"> (new tab)</span></a></li>
+            </ul>
+          </li>
+          <li class="layer layer--runtime">
+            <h3><span class="p-step">Runtime.</span> Summon, don't install.</h3>
+            <a class="layer-shot" href="https://gaia-research.github.io/gaia-skill-heaven/" rel="noopener noreferrer" target="_blank"><img src="/assets/media/gaia/skill-heaven-home.webp" width="1440" height="900" alt="The Skill Heaven site: an illustrated figure in shattered crystal, an install command, the zero-to-ultra ladder, and the word Heaven." loading="lazy" decoding="async"><span class="sr-only">Open Skill Heaven (new tab)</span></a>
+            <p>Skill Heaven brings the right skill into an agent session for the task at hand, then leaves, instead of permanently stuffing context and config. Retrieval is allowed to refuse when nothing fits. Postures route skills and never issue orders to the model. Clean-room doors launch Claude, pi, Codex, Hermes, Grok and Antigravity without touching the user's setup.</p>
+            <ul class="layer-links">
+              <li><a href="https://gaia-research.github.io/gaia-skill-heaven/" rel="noopener noreferrer" target="_blank">Skill Heaven<span class="sr-only"> (new tab)</span></a></li>
+              <li><a href="https://github.com/gaia-research/gaia-skill-heaven/pull/128" rel="noopener noreferrer" target="_blank">Honest refusal, #128<span class="sr-only"> (new tab)</span></a></li>
+              <li><a href="https://github.com/gaia-research/gaia-skill-heaven/pull/92" rel="noopener noreferrer" target="_blank">No borrowed authority, #92<span class="sr-only"> (new tab)</span></a></li>
+            </ul>
+          </li>
+        </ol>
+        <p class="gaia-close">It's the same thing I care about at Favor, pointed at agents: a claim should carry its receipt, and the person who proved it should keep their name on it. My own record is on <a href="https://gaiaskilltree.com/u/mbtiongson1/" rel="noopener noreferrer" target="_blank">my Skill Tree profile<span class="sr-only"> (new tab)</span></a>.</p>
+      </div>
+    </section>
+
+    <!-- Earlier work: quiet index -->
+    <section class="earlier" id="earlier" aria-labelledby="earlier-title" data-chapter="earlier">
+      <h2 id="earlier-title">Earlier work, experiments, small tools</h2>
+      <ul class="archive">
+        <li>
+          <span class="ar-title">macdash</span>
+          <span class="ar-what">A dependency-free terminal dashboard reading native macOS tools: CPU, GPU, memory, network, battery, thermals.</span>
+          <span class="ar-links"><a href="https://github.com/mbtiongson1/macdash" rel="noopener noreferrer" target="_blank">Source<span class="sr-only"> (new tab)</span></a></span>
+        </li>
+        <li>
+          <span class="ar-title">Rock MCP</span>
+          <span class="ar-what">An MCP server for Rock RMS: OAuth caller context, read-only by default, narrowly authorised writes.</span>
+          <span class="ar-links"><a href="https://github.com/mbtiongson1/rock-mcp-dashboards" rel="noopener noreferrer" target="_blank">Source<span class="sr-only"> (new tab)</span></a></span>
+        </li>
+        <li class="has-thumb">
+          <span class="ar-title">Fuel ABEMIS</span>
+          <span class="ar-what">A pilot study with Rosas modelling farm-machinery fuel use from national inventory and lab data, read through SHAP and LIME.</span>
+          <span class="ar-links"><a href="https://mbtiongson1.github.io/fuel-abemis/" rel="noopener noreferrer" target="_blank">Slides<span class="sr-only"> (new tab)</span></a><a href="https://github.com/mbtiongson1/fuel-abemis" rel="noopener noreferrer" target="_blank">Source<span class="sr-only"> (new tab)</span></a></span>
+          <img class="ar-thumb" src="/assets/media/archive/fuel-abemis-shap-summary.webp" width="2370" height="1381" alt="SHAP global feature-importance bar chart from the Fuel ABEMIS pilot study." loading="lazy" decoding="async">
+        </li>
+        <li class="has-thumb">
+          <span class="ar-title">AutoMerge review queue</span>
+          <span class="ar-what">A static prototype of how a duplicate-person review queue and manual merge controls might be laid out. Not connected to anything.</span>
+          <span class="ar-links"></span>
+          <img class="ar-thumb" src="/assets/media/archive/01-overview.webp" width="1440" height="900" alt="Static AutoMerge prototype: an overview screen of a review queue with merge controls." loading="lazy" decoding="async">
+        </li>
+        <li class="has-thumb">
+          <span class="ar-title">Watershed studies</span>
+          <span class="ar-what">Work-in-progress terrain renders exploring a leadership pathway as a watershed. Illustrative and fictional, not geography.</span>
+          <span class="ar-links"></span>
+          <img class="ar-thumb" src="/assets/media/archive/lane1-smoke-draft-whole.webp" width="1440" height="960" alt="Work-in-progress terrain study with ridges, a blue river and an illustrative watershed, on fictional data." loading="lazy" decoding="async">
+        </li>
+      </ul>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about" aria-labelledby="about-title" data-chapter="about">
+      <h2 id="about-title">How I work</h2>
+      <div class="about-copy">
+        <p>I studied at the University of the Philippines Diliman (MEng) and work where engineering meets the people who have to live with it: church staff reading a Sunday Report on a phone, or an agent deciding which skill to trust.</p>
+        <p>I work with coding agents every day and hold them to the bar I hold myself: small pull requests, a written reason, a test that fails without the fix, and a receipt from the real environment before anyone calls it done.</p>
+      </div>
+      <ul class="contact">
+        <li><a href="https://github.com/mbtiongson1" rel="noopener noreferrer" target="_blank">GitHub · mbtiongson1<span class="sr-only"> (new tab)</span></a></li>
+        <li><a href="https://www.linkedin.com/in/marcus-tiongson" rel="noopener noreferrer" target="_blank">LinkedIn<span class="sr-only"> (new tab)</span></a></li>
+        <li><a href="https://gaiaskilltree.com/u/mbtiongson1/" rel="noopener noreferrer" target="_blank">Gaia Skill Tree profile<span class="sr-only"> (new tab)</span></a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-name">Marcus Rafael B. Tiongson</p>
+    <p class="footer-boundary">Favor interfaces appear only as captures of fictional-data workbenches or as drawn schematics: no production data, real people, or credentials. Gaia captures are of my own public sites. Every image carries a provenance record in this site's source.</p>
+  </footer>
+</body>
+</html>

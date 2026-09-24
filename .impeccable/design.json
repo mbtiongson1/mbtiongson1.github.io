@@ -1,42 +1,339 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-23T20:40:07Z",
-  "title": "Design System: Marcus Portfolio — Field Atlas foundation",
+  "generatedAt": "2026-09-25T02:30:00Z",
+  "title": "Design System: Marco Tiongson Portfolio: Teal Field, Condensed Type, Ruled Receipts",
   "extensions": {
     "colorMeta": {
-      "atlas-sea": { "role": "primary", "displayName": "Atlas Sea", "canonical": "#092b33", "tonalRamp": ["oklch(15% 0.035 200)", "oklch(26% 0.035 200)", "oklch(37% 0.035 200)", "oklch(48% 0.035 200)", "oklch(59% 0.035 200)", "oklch(70% 0.035 200)", "oklch(82% 0.035 200)", "oklch(94% 0.035 200)"] },
-      "atlas-deep": { "role": "primary", "displayName": "Atlas Deep", "canonical": "#06232b", "tonalRamp": ["oklch(15% 0.035 200)", "oklch(26% 0.035 200)", "oklch(37% 0.035 200)", "oklch(48% 0.035 200)", "oklch(59% 0.035 200)", "oklch(70% 0.035 200)", "oklch(82% 0.035 200)", "oklch(94% 0.035 200)"] },
-      "atlas-ink": { "role": "neutral", "displayName": "Atlas Ink", "canonical": "#f4f2e9", "tonalRamp": ["oklch(15% 0.01 90)", "oklch(26% 0.01 90)", "oklch(37% 0.01 90)", "oklch(48% 0.01 90)", "oklch(59% 0.01 90)", "oklch(70% 0.01 90)", "oklch(82% 0.01 90)", "oklch(94% 0.01 90)"] },
-      "atlas-muted": { "role": "neutral", "displayName": "Atlas Muted", "canonical": "#c1d6d0", "tonalRamp": ["oklch(15% 0.025 175)", "oklch(26% 0.025 175)", "oklch(37% 0.025 175)", "oklch(48% 0.025 175)", "oklch(59% 0.025 175)", "oklch(70% 0.025 175)", "oklch(82% 0.025 175)", "oklch(94% 0.025 175)"] },
-      "atlas-rule": { "role": "neutral", "displayName": "Survey Rule", "canonical": "#537d7e", "tonalRamp": ["oklch(15% 0.025 185)", "oklch(26% 0.025 185)", "oklch(37% 0.025 185)", "oklch(48% 0.025 185)", "oklch(59% 0.025 185)", "oklch(70% 0.025 185)", "oklch(82% 0.025 185)", "oklch(94% 0.025 185)"] },
-      "atlas-current": { "role": "primary", "displayName": "Atlas Current", "canonical": "#cafa53", "tonalRamp": ["oklch(15% 0.13 120)", "oklch(26% 0.13 120)", "oklch(37% 0.13 120)", "oklch(48% 0.13 120)", "oklch(59% 0.13 120)", "oklch(70% 0.13 120)", "oklch(82% 0.13 120)", "oklch(94% 0.13 120)"] },
-      "atlas-cyan": { "role": "secondary", "displayName": "Route Cyan", "canonical": "#62d4e7", "tonalRamp": ["oklch(15% 0.08 210)", "oklch(26% 0.08 210)", "oklch(37% 0.08 210)", "oklch(48% 0.08 210)", "oklch(59% 0.08 210)", "oklch(70% 0.08 210)", "oklch(82% 0.08 210)", "oklch(94% 0.08 210)"] },
-      "lobby-paper": { "role": "neutral", "displayName": "Lobby Paper", "canonical": "#e6e7df", "tonalRamp": ["oklch(15% 0.008 115)", "oklch(26% 0.008 115)", "oklch(37% 0.008 115)", "oklch(48% 0.008 115)", "oklch(59% 0.008 115)", "oklch(70% 0.008 115)", "oklch(82% 0.008 115)", "oklch(94% 0.008 115)"] },
-      "lobby-ink": { "role": "neutral", "displayName": "Lobby Ink", "canonical": "#18232b", "tonalRamp": ["oklch(15% 0.018 240)", "oklch(26% 0.018 240)", "oklch(37% 0.018 240)", "oklch(48% 0.018 240)", "oklch(59% 0.018 240)", "oklch(70% 0.018 240)", "oklch(82% 0.018 240)", "oklch(94% 0.018 240)"] },
-      "lobby-signal": { "role": "secondary", "displayName": "Lobby Signal", "canonical": "#b23a27", "tonalRamp": ["oklch(15% 0.11 35)", "oklch(26% 0.11 35)", "oklch(37% 0.11 35)", "oklch(48% 0.11 35)", "oklch(59% 0.11 35)", "oklch(70% 0.11 35)", "oklch(82% 0.11 35)", "oklch(94% 0.11 35)"] }
+      "sea": {
+        "role": "primary",
+        "displayName": "Deep Teal Ground",
+        "canonical": "#092b33",
+        "tonalRamp": [
+          "oklch(15% 0.04 208)",
+          "oklch(26% 0.04 208)",
+          "oklch(37% 0.04 208)",
+          "oklch(48% 0.04 208)",
+          "oklch(59% 0.04 208)",
+          "oklch(70% 0.04 208)",
+          "oklch(82% 0.04 208)",
+          "oklch(94% 0.04 208)"
+        ]
+      },
+      "deep": {
+        "role": "primary",
+        "displayName": "Deep Well",
+        "canonical": "#06232b",
+        "tonalRamp": [
+          "oklch(14% 0.035 208)",
+          "oklch(24% 0.035 208)",
+          "oklch(35% 0.035 208)",
+          "oklch(46% 0.035 208)",
+          "oklch(58% 0.035 208)",
+          "oklch(70% 0.035 208)",
+          "oklch(82% 0.035 208)",
+          "oklch(94% 0.035 208)"
+        ]
+      },
+      "abyss": {
+        "role": "neutral",
+        "displayName": "Abyss Ground",
+        "canonical": "#041a20",
+        "tonalRamp": [
+          "oklch(12% 0.03 208)",
+          "oklch(22% 0.03 208)",
+          "oklch(34% 0.03 208)",
+          "oklch(46% 0.03 208)",
+          "oklch(58% 0.03 208)",
+          "oklch(70% 0.03 208)",
+          "oklch(82% 0.03 208)",
+          "oklch(94% 0.03 208)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Bone Ink",
+        "canonical": "#f4f2e9",
+        "tonalRamp": [
+          "oklch(15% 0.01 95)",
+          "oklch(26% 0.01 95)",
+          "oklch(38% 0.01 95)",
+          "oklch(50% 0.01 95)",
+          "oklch(62% 0.01 95)",
+          "oklch(74% 0.01 95)",
+          "oklch(85% 0.01 95)",
+          "oklch(96% 0.01 95)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted Teal",
+        "canonical": "#bdd2cc",
+        "tonalRamp": [
+          "oklch(15% 0.025 175)",
+          "oklch(26% 0.025 175)",
+          "oklch(38% 0.025 175)",
+          "oklch(50% 0.025 175)",
+          "oklch(62% 0.025 175)",
+          "oklch(74% 0.025 175)",
+          "oklch(84% 0.025 175)",
+          "oklch(94% 0.025 175)"
+        ]
+      },
+      "quiet": {
+        "role": "neutral",
+        "displayName": "Quiet Teal",
+        "canonical": "#8fb0aa",
+        "tonalRamp": [
+          "oklch(15% 0.035 175)",
+          "oklch(26% 0.035 175)",
+          "oklch(38% 0.035 175)",
+          "oklch(50% 0.035 175)",
+          "oklch(62% 0.035 175)",
+          "oklch(72% 0.035 175)",
+          "oklch(83% 0.035 175)",
+          "oklch(94% 0.035 175)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Hairline Rule",
+        "canonical": "#24505a",
+        "tonalRamp": [
+          "oklch(15% 0.035 195)",
+          "oklch(26% 0.035 195)",
+          "oklch(38% 0.035 195)",
+          "oklch(50% 0.035 195)",
+          "oklch(62% 0.035 195)",
+          "oklch(74% 0.035 195)",
+          "oklch(84% 0.035 195)",
+          "oklch(94% 0.035 195)"
+        ]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Strong Rule",
+        "canonical": "#537d7e",
+        "tonalRamp": [
+          "oklch(15% 0.035 185)",
+          "oklch(26% 0.035 185)",
+          "oklch(38% 0.035 185)",
+          "oklch(50% 0.035 185)",
+          "oklch(62% 0.035 185)",
+          "oklch(74% 0.035 185)",
+          "oklch(84% 0.035 185)",
+          "oklch(94% 0.035 185)"
+        ]
+      },
+      "signal": {
+        "role": "primary",
+        "displayName": "Signal Lime",
+        "canonical": "#cafa53",
+        "tonalRamp": [
+          "oklch(18% 0.15 125)",
+          "oklch(30% 0.16 125)",
+          "oklch(42% 0.17 125)",
+          "oklch(55% 0.18 125)",
+          "oklch(68% 0.19 125)",
+          "oklch(80% 0.19 125)",
+          "oklch(88% 0.19 125)",
+          "oklch(94% 0.18 125)"
+        ]
+      },
+      "cyan": {
+        "role": "secondary",
+        "displayName": "Receipt Cyan",
+        "canonical": "#62d4e7",
+        "tonalRamp": [
+          "oklch(18% 0.09 215)",
+          "oklch(30% 0.10 215)",
+          "oklch(42% 0.11 215)",
+          "oklch(55% 0.11 215)",
+          "oklch(68% 0.11 215)",
+          "oklch(78% 0.11 215)",
+          "oklch(87% 0.10 215)",
+          "oklch(95% 0.06 215)"
+        ]
+      },
+      "cream": {
+        "role": "secondary",
+        "displayName": "Island Cream",
+        "canonical": "#fef1e8",
+        "tonalRamp": [
+          "oklch(15% 0.015 55)",
+          "oklch(28% 0.018 55)",
+          "oklch(42% 0.02 55)",
+          "oklch(56% 0.02 55)",
+          "oklch(70% 0.02 55)",
+          "oklch(82% 0.02 55)",
+          "oklch(91% 0.02 55)",
+          "oklch(97% 0.015 55)"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Expedition display", "purpose": "Large world and project headings only." },
-      "body": { "displayName": "Reading text", "purpose": "Disclosures and project context." },
-      "label": { "displayName": "Survey label", "purpose": "Short functional labels and wayfinding." }
+      "display": {
+        "displayName": "Condensed Display",
+        "purpose": "Opening hero identity and poster-scale lead headings."
+      },
+      "headline": {
+        "displayName": "Chapter Headline",
+        "purpose": "Primary section titles for each living system."
+      },
+      "title": {
+        "displayName": "Section Title",
+        "purpose": "Beats, decisions headings, and work index titles."
+      },
+      "body": {
+        "displayName": "Editorial Body",
+        "purpose": "Tension, conviction, and technical narrative copy."
+      },
+      "label": {
+        "displayName": "Structural Label",
+        "purpose": "Masthead navigation, stage bars, and table header cells."
+      }
     },
-    "shadows": [ { "name": "artifact-frame", "value": "0 18px 38px rgba(0,13,17,.25)", "purpose": "Quiet downward lift for the interactive artifact frame." } ],
-    "motion": [ { "name": "route-ease", "value": "cubic-bezier(.16,1,.3,1)", "purpose": "One optional route-trace and image-hover response; removed for reduced motion." } ],
-    "breakpoints": [ { "name": "tablet", "value": "1050px" }, { "name": "mobile", "value": "760px" }, { "name": "small", "value": "420px" } ]
+    "shadows": [
+      {
+        "name": "stage-shadow",
+        "value": "0 22px 44px -14px rgba(0,10,13,.6)",
+        "purpose": "Downward grounding shadow for interactive artifact stage frames."
+      },
+      {
+        "name": "lens-stage-shadow",
+        "value": "0 24px 50px -12px rgba(0,10,13,.55)",
+        "purpose": "Elevation shadow under the island workbench stage."
+      },
+      {
+        "name": "phone-shadow",
+        "value": "0 18px 36px -10px rgba(0,10,13,.7)",
+        "purpose": "Drop shadow separating mobile viewport captures from desktop canvas."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Authoritative easing function for hover states, arrivals, and lens transitions."
+      },
+      {
+        "name": "rule-in",
+        "value": "0.9s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Ruled line animation sequence on work index arrival."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "desktop-max",
+        "value": "1760px"
+      },
+      {
+        "name": "tablet",
+        "value": "1100px"
+      },
+      {
+        "name": "phone",
+        "value": "760px"
+      }
+    ]
   },
   "components": [
-    { "name": "Atlas Artifact Link", "kind": "button", "refersTo": "atlas-artifact-link", "description": "Opens a full-size local artifact; separate from the sandboxed preview.", "html": "<a class=\"ds-artifact-link\" href=\"#\">Open artifact</a>", "css": ".ds-artifact-link{display:inline-block;background:#06232b;color:#f4f2e9;border:1px solid #f4f2e9;padding:.6rem .8rem;font:600 13px Barlow,Arial,sans-serif;text-decoration:none}.ds-artifact-link:hover{background:#cafa53;color:#06232b;border-color:#cafa53}.ds-artifact-link:focus-visible{outline:3px solid #cafa53;outline-offset:4px}" },
-    { "name": "Atlas Disclosure", "kind": "custom", "refersTo": "atlas-disclosure", "description": "Adjacent fictional-data boundary above the embedded prototype.", "html": "<p class=\"ds-disclosure\"><strong>About this artifact</strong> Fictional prototype data. Not a live connection.</p>", "css": ".ds-disclosure{background:#cafa53;color:#06232b;padding:.5rem .8rem;font:400 13px/1.4 Barlow,Arial,sans-serif}.ds-disclosure strong{font-weight:600;margin-right:.3rem}" },
-    { "name": "Atlas Project Index", "kind": "nav", "description": "Direct named route independent of map gestures.", "html": "<nav class=\"ds-index\" aria-label=\"Project index\"><a href=\"#work\">People, compiled</a></nav>", "css": ".ds-index a{display:block;color:#f4f2e9;border-top:1px solid #537d7e;padding:.7rem;font:600 17px Barlow,Arial,sans-serif;text-decoration:none}.ds-index a:hover{color:#cafa53}.ds-index a:focus-visible{outline:3px solid #cafa53;outline-offset:4px}" },
-    { "name": "Lobby Enter Route", "kind": "button", "refersTo": "lobby-enter", "description": "The world selector's primary route action.", "html": "<a class=\"ds-lobby-enter\" href=\"#\">Enter Field Atlas</a>", "css": ".ds-lobby-enter{display:inline-block;background:#cafa53;color:#092b33;padding:1rem 1.2rem;font:600 16px Barlow,Arial,sans-serif;text-decoration:none}.ds-lobby-enter:hover{background:#f4f2e9}.ds-lobby-enter:focus-visible{outline:3px solid #b23a27;outline-offset:4px}" },
-    { "name": "Lobby Departure Row", "kind": "nav", "description": "One of five independent world routes, not an equal card.", "html": "<a class=\"ds-departure\" href=\"#\">Screening Room</a>", "css": ".ds-departure{display:block;color:#18232b;border-top:1px solid #18232b;padding:1rem 0;font:800 32px 'Barlow Condensed',sans-serif;text-decoration:none}.ds-departure:hover{background:#d7dcd4}.ds-departure:focus-visible{outline:3px solid #b23a27;outline-offset:4px}" }
+    {
+      "name": "Publication Boundary Banner",
+      "kind": "custom",
+      "refersTo": "boundary-banner",
+      "description": "Adjacent high-contrast band declaring synthetic fixture and fictional workbench boundaries.",
+      "html": "<div class=\"ds-boundary\"><strong>Real interfaces, invented numbers.</strong> Captured from fictional-data workbenches.</div>",
+      "css": ".ds-boundary { background: #cafa53; color: #06232b; padding: 0.6rem 1rem; font: 400 0.84rem/1.4 Barlow, Arial, sans-serif; } .ds-boundary strong { font-weight: 600; margin-right: 0.25rem; }"
+    },
+    {
+      "name": "Lens Switcher Button",
+      "kind": "button",
+      "refersTo": "lens-button",
+      "description": "Segmented lens control toggling between age, connection, gender, and campus perspectives.",
+      "html": "<div class=\"ds-lens-switch\"><button class=\"ds-lens-btn\" type=\"button\" aria-pressed=\"false\">Age</button><button class=\"ds-lens-btn ds-lens-btn--active\" type=\"button\" aria-pressed=\"true\">Connection</button></div>",
+      "css": ".ds-lens-switch { display: inline-flex; gap: 3px; padding: 3px; border: 1px solid #537d7e; background: #06232b; } .ds-lens-btn { min-height: 38px; min-width: 44px; padding: 0 0.9rem; border: 0; background: transparent; color: #f4f2e9; font: 600 0.8rem/1 Barlow, Arial, sans-serif; letter-spacing: 0.04em; cursor: pointer; transition: background 0.2s, color 0.2s; } .ds-lens-btn:hover { background: #092b33; } .ds-lens-btn--active, .ds-lens-btn[aria-pressed=\"true\"] { background: #cafa53; color: #06232b; } .ds-lens-btn:focus-visible { outline: 3px solid #cafa53; outline-offset: 2px; }"
+    },
+    {
+      "name": "Stage Link",
+      "kind": "button",
+      "refersTo": "stage-link",
+      "description": "Navigation jump link embedded in stage header bars.",
+      "html": "<a class=\"ds-stage-link\" href=\"#\">How it's built <svg viewBox=\"0 0 16 16\" width=\"14\" height=\"14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><path d=\"M8 2v11m-4-4 4 4 4-4\"/></svg></a>",
+      "css": ".ds-stage-link { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 40px; padding: 0 0.4rem; font: 600 0.8rem Barlow, Arial, sans-serif; text-decoration: none; color: #f4f2e9; transition: color 0.2s; } .ds-stage-link:hover { color: #cafa53; } .ds-stage-link:focus-visible { outline: 3px solid #cafa53; outline-offset: 3px; }"
+    },
+    {
+      "name": "Work Index Row",
+      "kind": "nav",
+      "refersTo": "work-index-row",
+      "description": "Ruled hero entry row leading directly to one of the three primary bodies of work.",
+      "html": "<a class=\"ds-wi-link\" href=\"#\"><span class=\"ds-wi-title\">Favor Home</span><span class=\"ds-wi-line\">The front door into the operating system</span><svg viewBox=\"0 0 20 20\" width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M10 3v13m-5-5 5 5 5-5\"/></svg></a>",
+      "css": ".ds-wi-link { display: grid; grid-template-columns: minmax(0,1fr) 22px; column-gap: 1rem; align-items: center; padding: 0.85rem 0.2rem; text-decoration: none; border-top: 1px solid #537d7e; border-bottom: 1px solid #537d7e; background: transparent; transition: background 0.3s; } .ds-wi-title { font: 800 1.7rem/1 'Barlow Condensed', 'Arial Narrow', sans-serif; text-transform: uppercase; letter-spacing: 0.01em; color: #f4f2e9; transition: transform 0.45s cubic-bezier(.16,1,.3,1), color 0.2s; } .ds-wi-line { grid-column: 1; margin-top: 0.3rem; color: #bdd2cc; font: 400 0.9rem Barlow, Arial, sans-serif; transition: transform 0.45s cubic-bezier(.16,1,.3,1); } .ds-wi-link svg { grid-column: 2; grid-row: 1/3; color: #f4f2e9; transition: transform 0.45s cubic-bezier(.16,1,.3,1); } .ds-wi-link:hover { background: #06232b; } .ds-wi-link:hover .ds-wi-title { color: #cafa53; transform: translateX(0.6rem); } .ds-wi-link:hover .ds-wi-line { transform: translateX(0.6rem); } .ds-wi-link:hover svg { transform: translateY(3px); } .ds-wi-link:focus-visible { outline: 3px solid #cafa53; outline-offset: 3px; }"
+    },
+    {
+      "name": "Receipt Ledger Citation",
+      "kind": "custom",
+      "refersTo": "receipt-item",
+      "description": "Verifiable pull request reference and change note within the chapter margin ledger.",
+      "html": "<div class=\"ds-receipt\"><span class=\"ds-rc-ref\">#801</span><span class=\"ds-rc-what\">Canonical True Attendance baseline, with a regression fixture</span></div>",
+      "css": ".ds-receipt { display: grid; gap: 0.15rem; padding: 0.7rem 0 0.75rem; border-bottom: 1px solid #24505a; font-family: Barlow, Arial, sans-serif; } .ds-rc-ref { font-weight: 600; font-size: 0.86rem; font-variant-numeric: tabular-nums; color: #62d4e7; } .ds-rc-what { color: #bdd2cc; font-size: 0.84rem; line-height: 1.4; }"
+    }
   ],
   "narrative": {
-    "northStar": "The navigable survey sheet",
-    "overview": "This document records the implemented foundation, not a common skin for all six worlds. The root lobby uses its own paper, ink, signal-red and departure-board typography to choose a route. Field Atlas changes physical scene: a visitor studies a fictional-data interactive interface against a dark blue-green chart field, with contour linework and a direct project index. The real artifact and its disclosure stay legible. The other five routes own their own systems when their separate PRs arrive; their temporary placeholders inherit the lobby only because they are not finished worlds.",
-    "keyCharacteristics": ["The lobby is a typographic selector, not six equal cards.", "Field Atlas has one dominant artifact frame, a named index, restrained contour linework, and honest media captions.", "Content/provenance are shared; palettes and component systems are not."],
-    "rules": [ { "name": "The Boundary Rule", "body": "A fictional-data label is adjacent to the artifact and contrasts with its own ground; it is not a quiet footnote.", "section": "colors" }, { "name": "The Artifact Name Rule", "body": "Project titles are content, not anonymous card headings; every world gets the same title from the shared record.", "section": "typography" } ],
-    "dos": ["Do let source artifacts determine the visual center and preserve their source names and publication caveats.", "Do route every world through the same project catalog while letting its own page, stylesheet, and optional script define its experience.", "Do keep a direct named list and clear keyboard focus alongside the chart metaphor."],
-    "donts": ["Don't infer geography, rankings, live connections, actual people data, or client outcomes from the chart or prototype screenshots.", "Don't ship the generated decision comps or the private Rock harness and live variants.", "Don't turn upcoming independently art-directed worlds into palette swaps of Field Atlas or the lobby."]
+    "northStar": "The Builder's Working Sheet",
+    "overview": "This system structures Marco Tiongson's personal portfolio as a dense, honest technical sheet rather than a decorative showcase. The design establishes a deep teal foundation (#092b33) where work leads from the very first viewport. Three primary bodies of work—Favor Home, Favor Dashboards, and Gaia—are each framed as an authentic technical artifact supported by verified architectural decisions and ruled margin ledgers citing pull request numbers. The aesthetic combines industrial density with editorial precision. Poster-scale condensed uppercase typography commands section entries, while high-contrast lime signals (#cafa53) delineate publication boundaries, active wayfinding, and focus states. Artifacts sit within recessed deep-ink frames (#06232b) and authentic cream backgrounds (#fef1e8), establishing clear boundaries between the portfolio canvas and the systems being examined.",
+    "keyCharacteristics": [
+      "A dark teal canvas (#092b33) recessed with deep-well frames (#06232b) and an abyss footer (#041a20).",
+      "Heavy Barlow Condensed display headings at poster scale with ultra-tight line-height (0.84–0.86).",
+      "Ruled margins, tabular receipts, and architectural schematics establishing empirical proof over assertion.",
+      "High-visibility lime signal bands (#cafa53) explicitly declaring synthetic or fictional data boundaries adjacent to every artifact.",
+      "Zero border radius across all containers, buttons, and frames; form language is strictly rectilinear."
+    ],
+    "rules": [
+      {
+        "name": "The Publication Boundary Rule",
+        "body": "Every fictional-data artifact is framed by an adjacent high-contrast signal lime (#cafa53) boundary band with deep ink (#06232b) text. Synthetic or demo fixtures must never be disguised or relegated to footnotes.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signal Rarity Rule",
+        "body": "Signal lime is applied to less than 5% of any viewport. Its power comes from restraint; it is reserved for truth boundaries, active navigation, and keyboard focus.",
+        "section": "colors"
+      },
+      {
+        "name": "The Receipt Cyan Rule",
+        "body": "Cyan (#62d4e7) is strictly an evidentiary accent. It identifies pull requests, ledger citations, and process step prefixes (Research., Registry., Runtime.), never generic body links.",
+        "section": "colors"
+      },
+      {
+        "name": "The Lining Numerals Rule",
+        "body": "Body and heading copy enforce font-variant-numeric: lining-nums; ensuring numbers align uniformly across tabular ledgers, dates, and pull request citations.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tight Leading Rule",
+        "body": "Large condensed headings maintain line-heights below 0.9 (0.84 to 0.86) to render headlines as solid typographic blocks rather than loose lines.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tonal Layering Rule",
+        "body": "Depth is created through value contrast across tonal zones (--sea ground, --deep containers, --abyss footer) separated by hairline rules, not card lifts.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do place an adjacent signal lime publication boundary (#cafa53) next to any artifact showing fictional or synthetic data.",
+      "Do maintain strict 0px border radius on all cards, buttons, frames, and interactive elements.",
+      "Do reserve receipt cyan (#62d4e7) for pull request numbers, step prefixes, and ledger citations.",
+      "Do provide high-contrast keyboard focus outlines with 3px solid var(--signal) and 3px outline-offset.",
+      "Do preserve the cream background (#fef1e8) inside Favor Home island containers to reflect authentic widget presentation.",
+      "Do disable animations and transitions completely when prefers-reduced-motion: reduce is active."
+    ],
+    "donts": [
+      "Don't use rounded corners, circular pills, or floating card elevated panels.",
+      "Don't use signal lime as a general decorative fill or background outside of boundaries, active wayfinding, and focus rings.",
+      "Don't give the design system or its components a conceptual brand name; describe surfaces and patterns plainly.",
+      "Don't link to private repository pull requests; cite repository and PR number as text.",
+      "Don't invent testimonials, unverified metric badges, or client endorsements."
+    ]
   }
 }
