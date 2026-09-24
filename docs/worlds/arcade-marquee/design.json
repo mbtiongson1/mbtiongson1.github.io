@@ -24,6 +24,7 @@
       "body": { "displayName": "Archive Reading Text", "purpose": "Project summaries, context, and disclosure copy in Barlow 400." },
       "label": { "displayName": "Cabinet Label", "purpose": "Short functional labels and wayfinding in Barlow 600; longer text stays sentence case." }
     },
+    "interaction": { "minimumTarget": "2.75rem / 44px", "purpose": "All route-owned links, buttons, and the project-index summary retain this minimum at every breakpoint." },
     "motion": [
       { "name": "attract-interval", "value": "8500ms", "purpose": "Optional project preview rotation; paused for selection, pointer/focus, hidden page, offscreen state, and reduced motion." }
     ],
@@ -48,7 +49,7 @@
       "refersTo": "project-index",
       "description": "An ordered, direct list; selected and keyboard states are visible without gesture-only cues.",
       "html": "<nav aria-label=\"Project index\"><ol class=\"ds-project-list\"><li><a href=\"#people-compiled\" aria-current=\"location\">People, compiled <span>Interactive interface prototype</span></a></li></ol></nav>",
-      "css": ".ds-project-list{margin:0;padding:0;list-style:none}.ds-project-list a{display:block;border-bottom:1px solid var(--aisle-rule);color:var(--ink);padding:.65rem .3rem;font:600 1rem/1.25 Barlow,Arial,sans-serif;text-decoration:none}.ds-project-list a span{display:block;color:var(--muted);font-size:.72rem;font-weight:400}.ds-project-list a[aria-current=location],.ds-project-list a:hover{color:var(--cyan)}.ds-project-list a:focus-visible{outline:3px solid var(--amber);outline-offset:4px}"
+      "css": ".ds-project-list{margin:0;padding:0;list-style:none}.ds-project-list a{display:block;min-height:2.75rem;border-bottom:1px solid var(--aisle-rule);color:var(--ink);padding:.65rem .3rem;font:600 1rem/1.25 Barlow,Arial,sans-serif;text-decoration:none}.ds-project-list a span{display:block;color:var(--muted);font-size:.72rem;font-weight:400}.ds-project-list a[aria-current=location],.ds-project-list a:hover{color:var(--cyan)}.ds-project-list a:focus-visible{outline:3px solid var(--amber);outline-offset:4px}"
     },
     {
       "name": "Selected Cabinet Frame",
@@ -80,7 +81,7 @@
       "refersTo": "attract-toggle",
       "description": "A visible, explicit choice to start or stop optional preview rotation.",
       "html": "<button class=\"ds-attract-toggle\" type=\"button\" aria-pressed=\"true\">Attract mode on</button>",
-      "css": ".ds-attract-toggle{min-height:2.45rem;border:1px solid var(--rule);background:var(--screen-well);color:var(--ink);padding:.4rem .7rem;font:600 .72rem/1.2 Barlow,Arial,sans-serif}.ds-attract-toggle:hover,.ds-attract-toggle[aria-pressed=false]{border-color:var(--amber);color:var(--amber)}.ds-attract-toggle:focus-visible{outline:3px solid var(--amber);outline-offset:4px}"
+      "css": ".ds-attract-toggle{display:inline-flex;align-items:center;justify-content:center;min-height:2.75rem;border:1px solid var(--rule);background:var(--screen-well);color:var(--ink);padding:.4rem .7rem;font:600 .72rem/1.2 Barlow,Arial,sans-serif}.ds-attract-toggle:hover,.ds-attract-toggle[aria-pressed=false]{border-color:var(--amber);color:var(--amber)}.ds-attract-toggle:focus-visible{outline:3px solid var(--amber);outline-offset:4px}"
     }
   ],
   "narrative": {

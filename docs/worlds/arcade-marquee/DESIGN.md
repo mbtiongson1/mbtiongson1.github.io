@@ -35,6 +35,16 @@ typography:
     lineHeight: 1.3
     letterSpacing: "0.07em"
 components:
+  skip-link:
+    minHeight: "2.75rem"
+  maker-lockup:
+    minHeight: "2.75rem"
+  world-navigation-link:
+    minHeight: "2.75rem"
+  project-index-summary:
+    minHeight: "2.75rem"
+  project-index-link:
+    minHeight: "3.1rem at 390px; 3.25rem mobile; 3.55rem desktop"
   marquee-sign:
     backgroundColor: "{colors.cabinet}"
     textColor: "{colors.ink}"
@@ -59,7 +69,13 @@ components:
     textColor: "{colors.amber}"
     borderColor: "{colors.amber}"
     padding: "0.62rem 0.8rem"
+    minHeight: "2.85rem"
+  image-artifact-link:
+    minHeight: "2.75rem"
+  footer-link:
+    minHeight: "2.75rem"
   attract-toggle:
+    minHeight: "2.75rem"
     backgroundColor: "{colors.screen-well}"
     textColor: "{colors.ink}"
     borderColor: "{colors.rule}"
@@ -109,7 +125,7 @@ The title is broad, condensed, uppercase lettering with a tight line-height. Pro
 
 At wide widths, the masthead and six-world navigation sit above the marquee. The stage uses a narrow project rail beside a dominant cabinet. The archive index is an ordered list of real anchors. A selected record’s heading and reading copy move into the rail while its actual artifact and disclosure occupy the cabinet.
 
-At 760px and below, the stage stacks into a project selector and one cabinet at a time. The index remains a native `<details>` disclosure with the complete list. At 390px and below, the marquee becomes a two-column sign and the archive list becomes one column. Without JavaScript, the server-built index, selected record, and all remaining project sections stay visible and usable; the attract control is absent.
+At 760px and below, the stage stacks into a project selector and one cabinet at a time. The index remains a native `<details>` disclosure with the complete list. At 390px and below, the marquee becomes a two-column sign and the archive list becomes one column. Every route-owned interactive target has a minimum 2.75rem (44 CSS px) block size, defined by `--tap-target-min`; larger project rows remain larger at every breakpoint. Compact layouts preserve these target heights and allow world navigation to scroll horizontally rather than shrinking links. Without JavaScript, the server-built index, selected record, and all remaining project sections stay visible and usable; the attract control is absent.
 
 The selected project is addressable by fragment. Selection updates browser history, supports Back/Forward, and announces manual changes to assistive technology. Shared records and routes remain generated from `data/projects.json` and `data/worlds.json` by the project build.
 
@@ -127,7 +143,7 @@ Cabinet and sign edges are square and ruled. The only rounded form is the small 
 The sign labels the world and communicates the real-work premise. A double enamel rule and small fasteners carry the physical metaphor; the three accent lights remain discrete. On mobile the headline and side labels reflow without hiding the world name.
 
 ### Project index
-A real ordered list provides every project name and kind, with an anchor to the corresponding record. The active item receives cyan text and a filled pin. `:focus-visible` remains explicit and stronger than hover. On mobile the list is collapsed with native details only after JavaScript enhancement; without it, the list is open.
+A real ordered list provides every project name and kind, with an anchor to the corresponding record. The active item receives cyan text and a filled pin. `:focus-visible` remains explicit and stronger than hover. Project links and the native disclosure summary exceed the 44px target floor. On mobile the list is collapsed with native details only after JavaScript enhancement; without it, the list is open.
 
 ### Cabinet and artifact boundary
 The cabinet is a square, ruled frame with one selected record visible. The `People, compiled` page is the only local HTML preview and uses the existing restricted sandbox. Every catalog disclosure remains directly beside its media or preview. Image artifacts link to their original local file; projects with no verified local media use an explicit link-only note.

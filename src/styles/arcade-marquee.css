@@ -41,6 +41,7 @@
   --type: Barlow, Arial, sans-serif;
   --display: 'Barlow Condensed', sans-serif;
   --page-gutter: clamp(1rem, 3.2vw, 3rem);
+  --tap-target-min: 2.75rem;
   background: var(--aisle);
   color: var(--ink);
   font-family: var(--type);
@@ -81,6 +82,9 @@ a {
 a:hover { text-decoration-color: var(--cyan); }
 
 .skip-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target-min);
   position: fixed;
   z-index: 20;
   top: -5rem;
@@ -119,6 +123,8 @@ a:hover { text-decoration-color: var(--cyan); }
 .maker-lockup {
   display: flex;
   min-width: 0;
+  min-height: var(--tap-target-min);
+  justify-content: center;
   flex-direction: column;
   gap: .28rem;
   text-decoration: none;
@@ -156,7 +162,7 @@ a:hover { text-decoration-color: var(--cyan); }
 
 .world-navigation a {
   flex: 0 0 auto;
-  min-height: 2.75rem;
+  min-height: var(--tap-target-min);
   padding: .62rem .1rem .4rem;
   border-bottom: 2px solid transparent;
   color: var(--muted);
@@ -305,6 +311,7 @@ a:hover { text-decoration-color: var(--cyan); }
   list-style: none;
 }
 
+.project-index summary { min-height: var(--tap-target-min); }
 .rail-heading h2 { margin: 0; font: inherit; }
 .project-index summary::-webkit-details-marker { display: none; }
 .project-index summary::marker { content: ""; }
@@ -427,7 +434,10 @@ a:hover { text-decoration-color: var(--cyan); }
 }
 
 .attract-toggle {
-  min-height: 2.45rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap-target-min);
   padding: .4rem .7rem;
   border: 1px solid var(--rule);
   background: var(--screen-well);
@@ -572,6 +582,7 @@ a:hover { text-decoration-color: var(--cyan); }
 
 .image-artifact a {
   display: block;
+  min-height: var(--tap-target-min);
   overflow: hidden;
   border: 1px solid var(--rule);
   background: var(--screen-well);
@@ -691,7 +702,14 @@ a:hover { text-decoration-color: var(--cyan); }
 }
 
 .arcade-footer p { margin: 0; }
-.arcade-footer a { color: var(--ink); font-weight: 600; }
+.arcade-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target-min);
+  padding-inline: .15rem;
+  color: var(--ink);
+  font-weight: 600;
+}
 
 @media (max-width: 1100px) {
   .arcade-masthead { grid-template-columns: minmax(11rem, .6fr) minmax(0, 1.4fr); }
@@ -715,7 +733,7 @@ a:hover { text-decoration-color: var(--cyan); }
   .maker-lockup { gap: .22rem; }
   .maker-name { font-size: 1.5rem; }
   .world-navigation { justify-content: flex-start; gap: 1.05rem; margin: 0 -.15rem; }
-  .world-navigation a { min-height: 2.55rem; font-size: .72rem; }
+  .world-navigation a { min-height: var(--tap-target-min); font-size: .72rem; }
 
   .marquee-sign {
     grid-template-columns: minmax(0, 1fr) auto;
