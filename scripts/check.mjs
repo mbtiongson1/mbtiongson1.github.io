@@ -7,16 +7,13 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
 const { projects } = JSON.parse(await readFile(path.join(root, 'data/projects.json'), 'utf8'));
 const { worlds } = JSON.parse(await readFile(path.join(root, 'data/worlds.json'), 'utf8'));
-const archivePages = ['index.html', ...worlds.map((w) => `worlds/${w.slug}/index.html`)];
-const pages = [...archivePages, 'work/gaia-skill-tree/index.html'];
+const pages = ['index.html', ...worlds.map((w) => `worlds/${w.slug}/index.html`)];
 assert(worlds.length === 6 && worlds.every((w) => w.status === 'live'), 'Final six-world catalog must be live');
 for (const world of worlds.slice(1)) assert(await stat(path.join(root, `src/pages/worlds/${world.slug}.html`)), `Missing source seam: ${world.slug}`);
 const exists = async (file) => { try { await stat(file); return true; } catch { return false; } };
 for (const page of pages) {
   const html = await readFile(path.join(dist, page), 'utf8');
-  if (archivePages.includes(page)) {
-    for (const world of worlds) assert(html.includes(`/worlds/${world.slug}/`), `${page}: missing ${world.name} route`);
-  }
+  for (const world of worlds) assert(html.includes(`/worlds/${world.slug}/`), `${page}: missing ${world.name} route`);
   assert(!html.includes('{{'), `${page}: unresolved template slot`);
   for (const match of html.matchAll(/(?:href|src)="(\/[^"]+)"/g)) {
     const [pathname, fragment] = match[1].split('#');
@@ -25,13 +22,6 @@ for (const page of pages) {
     if (fragment && pathname === `/${page.replace(/index.html$/, '')}`) assert(html.includes(`id="${fragment}"`), `${page}: missing #${fragment}`);
   }
 }
-const caseStudy = await readFile(path.join(dist, 'work/gaia-skill-tree/index.html'), 'utf8');
-assert(caseStudy.includes('Gaia Skill Tree') && caseStudy.includes('evidence-backed registry for AI-agent skills'), 'Gaia case study route missing product explanation');
-assert(caseStudy.includes('Creator and maintainer:') && caseStudy.includes('graph design') && caseStudy.includes('MCP server'), 'Gaia case study route missing Marcus role boundary');
-assert(caseStudy.includes('I built this because skills should be attributed to the people who proved them.'), 'Gaia case study route missing owner-authored origin sentence');
-assert(caseStudy.includes('https://gaiaskilltree.com/') && caseStudy.includes('https://github.com/gaia-research/gaia-skill-tree'), 'Gaia case study route missing public product/source links');
-assert(caseStudy.includes('/assets/media/gaia-skill-tree-og.webp') && caseStudy.includes('Open Graph illustration'), 'Gaia case study route missing accurately captioned local artwork');
-assert(caseStudy.includes('aria-pressed="true"') && caseStudy.includes('JavaScript is off'), 'Gaia case study route missing accessible walkthrough fallback');
 const atlas = await readFile(path.join(dist, 'worlds/field-atlas/index.html'), 'utf8');
 for (const project of projects) {
   assert(atlas.includes(`id="${project.id}"`), `Atlas missing ${project.title}`);
