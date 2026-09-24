@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#081818">
+  <meta name="description" content="A Screening Room case study of Gaia Skill Tree: an evidence-backed AI-agent skill registry and Marcus Rafael B. Tiongson's documented role in building it.">
+  <title>Gaia Skill Tree — Case study — Marcus Rafael B. Tiongson</title>
+  <link rel="preload" href="/assets/fonts/barlow-condensed-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/gaia-skill-tree-case-study.css">
+  <script src="/scripts/gaia-skill-tree-case-study.js" defer></script>
+</head>
+<body class="gaia-case-study">
+  <a class="skip-link" href="#main">Skip to the case study</a>
+
+  <header class="case-header">
+    <a class="case-wordmark" href="/" aria-label="Marcus Rafael B. Tiongson portfolio home">
+      <span class="wordmark-mark">MRBT</span>
+      <span class="wordmark-caption">Six ways into<br>one archive</span>
+    </a>
+    <p class="case-location">Gaia Skill Tree <span>/ case study</span></p>
+    <nav class="case-header-nav" aria-label="Case study links">
+      <a href="/worlds/screening-room/">Screening Room</a>
+      <a href="https://gaiaskilltree.com/" target="_blank" rel="noopener noreferrer">Public product <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+      <a href="https://github.com/gaia-research/gaia-skill-tree" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="case-hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <div class="hero-meta-line">
+          <span>Work / 01</span>
+          <span class="hero-live"><span class="signal-dot" aria-hidden="true"></span> Public product</span>
+        </div>
+        <h1 id="page-title"><span>Gaia</span><span>Skill Tree</span></h1>
+        <p class="hero-lede">An evidence-backed registry for AI-agent skills — built to keep capability attached to the people who proved it.</p>
+        <p class="hero-clarifier"><strong>Not a marketplace. Not an installer.</strong> Gaia verifies and organizes skills, then gives their human authors a durable public record.</p>
+        <div class="hero-actions" aria-label="Primary case study actions">
+          <a class="signal-action signal-action--primary" href="https://gaiaskilltree.com/" target="_blank" rel="noopener noreferrer">Explore the public product <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="signal-action" href="https://github.com/gaia-research/gaia-skill-tree" target="_blank" rel="noopener noreferrer">Read the source <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        </div>
+        <dl class="hero-facts">
+          <div>
+            <dt>Product type</dt>
+            <dd>Open-source skill registry</dd>
+          </div>
+          <div>
+            <dt>Portfolio role</dt>
+            <dd>Creator &amp; maintainer</dd>
+          </div>
+          <div>
+            <dt>Documented scope</dt>
+            <dd>Graph design · CLI · MCP · curation</dd>
+          </div>
+        </dl>
+      </div>
+
+      <figure class="mechanism-figure" aria-labelledby="mechanism-caption">
+        <div class="stage-meta">
+          <span>Documented mechanism</span>
+          <span>Authored guide / not live data</span>
+        </div>
+        <div class="mechanism-map" role="img" aria-label="An authored explanation of Gaia's documented flow from human author to evidence to named skill to graph">
+          <div class="map-node map-node--author">
+            <span class="map-node-index">01</span>
+            <strong>Human author</strong>
+            <small>the person who proved it</small>
+          </div>
+          <span class="map-connector" aria-hidden="true"></span>
+          <div class="map-node map-node--evidence">
+            <span class="map-node-index">02</span>
+            <strong>Evidence</strong>
+            <small>types, grades, appraisal</small>
+          </div>
+          <span class="map-connector" aria-hidden="true"></span>
+          <div class="map-node map-node--skill">
+            <span class="map-node-index">03</span>
+            <strong>Named skill</strong>
+            <small>stars and Trust Magnitude</small>
+          </div>
+          <span class="map-connector map-connector--branch" aria-hidden="true"></span>
+          <div class="map-node map-node--graph">
+            <span class="map-node-index">04</span>
+            <strong>Skill graph</strong>
+            <small>paths, fusions, public surfaces</small>
+          </div>
+        </div>
+        <figcaption id="mechanism-caption">A case-study map of the product vocabulary documented in the source README. It is an explanation of the mechanism, not a capture of the live registry.</figcaption>
+      </figure>
+    </section>
+
+    <nav class="case-index" aria-label="Case study sections">
+      <a href="#walkthrough"><span>Explore</span><strong>How the registry works</strong><span aria-hidden="true">↓</span></a>
+      <a href="#contribution"><span>Role</span><strong>What Marcus built</strong><span aria-hidden="true">↓</span></a>
+      <a href="#origin"><span>Origin</span><strong>Why attribution matters</strong><span aria-hidden="true">↓</span></a>
+      <a href="#artifact"><span>Source trail</span><strong>Live product &amp; repository</strong><span aria-hidden="true">↓</span></a>
+    </nav>
+
+    <section class="case-section walkthrough-section" id="walkthrough" aria-labelledby="walkthrough-title">
+      <header class="section-heading">
+        <span class="section-mark" aria-hidden="true">A</span>
+        <div>
+          <h2 id="walkthrough-title">Read the registry as a system.</h2>
+          <p>Four documented moves explain how Gaia turns a skill from a private prompt artifact into an attributed, evidence-backed public record.</p>
+        </div>
+      </header>
+
+      <div class="walkthrough-controls" id="walkthrough-controls" hidden>
+        <p class="controls-label">Choose a chapter</p>
+        <div class="walkthrough-buttons" role="group" aria-label="Choose a feature walkthrough chapter">
+          <button type="button" class="walkthrough-button" aria-pressed="true" aria-controls="walkthrough-attribution" data-panel="walkthrough-attribution"><span>01</span> Attribute</button>
+          <button type="button" class="walkthrough-button" aria-pressed="false" aria-controls="walkthrough-evidence" data-panel="walkthrough-evidence"><span>02</span> Appraise</button>
+          <button type="button" class="walkthrough-button" aria-pressed="false" aria-controls="walkthrough-graph" data-panel="walkthrough-graph"><span>03</span> Connect</button>
+          <button type="button" class="walkthrough-button" aria-pressed="false" aria-controls="walkthrough-use" data-panel="walkthrough-use"><span>04</span> Use</button>
+        </div>
+        <p class="walkthrough-status" id="walkthrough-status" role="status" aria-live="polite">Showing chapter 01: Attribute.</p>
+      </div>
+
+      <noscript><p class="no-script-note">JavaScript is off, so the complete walkthrough remains expanded below. The explanations and source links do not require the controls.</p></noscript>
+
+      <div class="walkthrough-panels">
+        <article class="walkthrough-panel" id="walkthrough-attribution" aria-labelledby="attribution-title">
+          <div class="panel-heading">
+            <span class="panel-index">01 / 04</span>
+            <h3 id="attribution-title">Attribution is the first record.</h3>
+          </div>
+          <div class="panel-body">
+            <div class="panel-copy">
+              <p>Gaia starts with a human author, not with a model claiming the result. Its README describes the registry as a place to verify a skill, check its capability, and credit the person who authored it.</p>
+              <p>That distinction is the product's north star: the skill can move through an agent ecosystem while its provenance stays attached to a developer.</p>
+              <p class="panel-note"><strong>Product boundary:</strong> the source explicitly says Gaia is not a marketplace or an installer.</p>
+            </div>
+            <div class="panel-exhibit">
+              <div class="ledger-flow" aria-label="Authored attribution flow">
+                <div class="ledger-step"><span>A</span><strong>Author</strong><small>contributor</small></div>
+                <span aria-hidden="true">→</span>
+                <div class="ledger-step ledger-step--active"><span>+</span><strong>Skill record</strong><small>attributed</small></div>
+                <span aria-hidden="true">→</span>
+                <div class="ledger-step"><span>↗</span><strong>Public graph</strong><small>discoverable</small></div>
+              </div>
+              <p class="exhibit-caption">Authored explanation / the durable link between a capability and its human source.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="walkthrough-panel" id="walkthrough-evidence" aria-labelledby="evidence-title">
+          <div class="panel-heading">
+            <span class="panel-index">02 / 04</span>
+            <h3 id="evidence-title">Appraisal gives the skill a legible basis.</h3>
+          </div>
+          <div class="panel-body">
+            <div class="panel-copy">
+              <p>The README names nine evidence types, from an arXiv paper or repository link to peer review, benchmark results, verifier attestation, and Gaia's own fusion recipe.</p>
+              <p>Evidence is also graded: Platinum / S, Gold / A, Silver / B, Bronze / C, or Grey / ungraded. Trust Magnitude is described as the evidence grade at the skill level.</p>
+              <p class="panel-note"><strong>Read this as:</strong> an evidence vocabulary, not a promise that every skill has the same proof.</p>
+            </div>
+            <div class="panel-exhibit">
+              <div class="exhibit-label">Evidence types named in the README</div>
+              <ul class="evidence-list">
+                <li>arxiv</li>
+                <li>repo / repo-own</li>
+                <li>github-stars</li>
+                <li>peer-review</li>
+                <li>social-signal</li>
+                <li>proxy</li>
+                <li>benchmark-result</li>
+                <li>verifier-attestation</li>
+                <li>fusion-recipe</li>
+              </ul>
+              <dl class="grade-strip">
+                <div><dt>S</dt><dd>Platinum</dd></div>
+                <div><dt>A</dt><dd>Gold</dd></div>
+                <div><dt>B</dt><dd>Silver</dd></div>
+                <div><dt>C</dt><dd>Bronze</dd></div>
+                <div><dt>—</dt><dd>Grey</dd></div>
+              </dl>
+            </div>
+          </div>
+        </article>
+
+        <article class="walkthrough-panel" id="walkthrough-graph" aria-labelledby="graph-title">
+          <div class="panel-heading">
+            <span class="panel-index">03 / 04</span>
+            <h3 id="graph-title">The graph makes relationships visible.</h3>
+          </div>
+          <div class="panel-body">
+            <div class="panel-copy">
+              <p>Gaia's registry is organized as a skill tree. Stars name the rank axis; named skills can sit in a wider graph, connect through paths, or emerge through a fusion.</p>
+              <p>The source README shows a fusion example where <code>grill-me</code> and <code>ubiquitous-language</code> lead to <code>grill-with-docs</code>. The relationship is the point: a capability can gain shape through its connections.</p>
+              <p class="panel-note"><strong>Source boundary:</strong> the tree below reproduces the README's example, not a live registry query.</p>
+            </div>
+            <div class="panel-exhibit panel-exhibit--graph">
+              <figure class="fusion-example">
+                <pre><code>mattpocock/grill-me  ────────────┐
+                                   ├──▶  mattpocock/grill-with-docs  ◇
+mattpocock/ubiquitous-language  ─┘</code></pre>
+                <figcaption>README fusion example / relationship authored in the source.</figcaption>
+              </figure>
+              <div class="rank-rail" aria-label="Gaia star ranks documented in the README">
+                <div><strong>0★</strong><span>Starless</span></div>
+                <div><strong>1★</strong><span>Awakened</span></div>
+                <div><strong>2★</strong><span>Named</span></div>
+                <div><strong>3★</strong><span>Evolved</span></div>
+                <div><strong>4★</strong><span>Extra / Unique</span></div>
+                <div><strong>5★</strong><span>Ultimate</span></div>
+                <div><strong>6★</strong><span>Apex</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="walkthrough-panel" id="walkthrough-use" aria-labelledby="use-title">
+          <div class="panel-heading">
+            <span class="panel-index">04 / 04</span>
+            <h3 id="use-title">The record is meant to travel.</h3>
+          </div>
+          <div class="panel-body">
+            <div class="panel-copy">
+              <p>The registry is not only a web destination. The documented CLI can initialize a repository, scan for skills, push a submission, and open the skills explorer.</p>
+              <p>The source also documents a static read-only JSON API, named-skill and graph surfaces, badges, and a public Trust Ledger/leaderboard. These are links into Gaia's real surfaces, not integrations run by this portfolio page.</p>
+              <p class="panel-note"><strong>Operational boundary:</strong> this case study makes no remote API request and does not install or summon anything.</p>
+            </div>
+            <div class="panel-exhibit panel-exhibit--terminal">
+              <div class="terminal-bar"><span>Documented CLI path</span><span>local illustration</span></div>
+              <pre><code><span class="terminal-prompt">$</span> gaia init
+<span class="terminal-prompt">$</span> gaia scan
+<span class="terminal-prompt">$</span> gaia push
+<span class="terminal-prompt">$</span> gaia skills</code></pre>
+              <div class="public-surface-list">
+                <a href="https://gaiaskilltree.com/api/v1/" target="_blank" rel="noopener noreferrer"><span>Static registry API</span><span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+                <a href="https://gaiaskilltree.com/named/" target="_blank" rel="noopener noreferrer"><span>Named skills</span><span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+                <a href="https://gaiaskilltree.com/badges/" target="_blank" rel="noopener noreferrer"><span>Badges</span><span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+                <a href="https://gaiaskilltree.com/trust/ledger/" target="_blank" rel="noopener noreferrer"><span>Trust Ledger / leaderboard</span><span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="case-section contribution-section" id="contribution" aria-labelledby="contribution-title">
+      <header class="section-heading">
+        <span class="section-mark" aria-hidden="true">B</span>
+        <div>
+          <h2 id="contribution-title">What Marcus built is a set of rails.</h2>
+          <p>The repository credits <strong>@mbtiongson1</strong> with a specific, cross-layer role. This page keeps that scope visible without turning a collaborative open-source project into a solo-build claim.</p>
+        </div>
+      </header>
+
+      <div class="role-layout">
+        <aside class="role-plaque" aria-label="Source credit for Marcus's role">
+          <p>Source credit</p>
+          <blockquote>Creator and maintainer:<br><strong>graph design,<br>CLI,<br>MCP server,<br>curation pipeline</strong></blockquote>
+          <a href="https://github.com/gaia-research/gaia-skill-tree#contributors" target="_blank" rel="noopener noreferrer">Read the contributor table <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        </aside>
+        <div class="scope-list">
+          <article class="scope-row">
+            <div class="scope-label">Graph design</div>
+            <div><h3>Make capability relational.</h3><p>The tree, named skills, stars, paths, and fusion model give the registry its organizing structure. The graph is how individual evidence becomes a public map rather than a loose list.</p></div>
+          </article>
+          <article class="scope-row">
+            <div class="scope-label">CLI</div>
+            <div><h3>Carry the registry into a developer's repo.</h3><p>The README documents the command surface around <code>init</code>, <code>scan</code>, <code>push</code>, <code>tree</code>, <code>appraise</code>, <code>fuse</code>, and <code>skills</code>. The CLI is the path from local skill work to a public record.</p></div>
+          </article>
+          <article class="scope-row">
+            <div class="scope-label">MCP server</div>
+            <div><h3>Make the graph available to agents.</h3><p>The source credits the MCP server in Marcus's documented scope. The README also documents the Agent Plugin &amp; MCP path; this portfolio explains the role but does not reproduce or run that server.</p></div>
+          </article>
+          <article class="scope-row">
+            <div class="scope-label">Curation pipeline</div>
+            <div><h3>Give evidence a governed place to land.</h3><p>Evidence types, grades, named-skill review, fusion structure, and the Trust Ledger are the curation vocabulary described by the source. They make attribution more durable than a single repository page.</p></div>
+          </article>
+        </div>
+      </div>
+
+      <aside class="collaboration-note">
+        <span class="note-mark" aria-hidden="true">+</span>
+        <p><strong>Shared project, named scope.</strong> The repository also credits collaborators including @rico-favor, @MariTiongson, and @Juno, alongside a wider contributor community. The source, not this portfolio, remains the complete record of who contributed what.</p>
+      </aside>
+    </section>
+
+    <section class="origin-section" id="origin" aria-labelledby="origin-title">
+      <div class="origin-copy">
+        <div class="origin-rule" aria-hidden="true"></div>
+        <h2 id="origin-title">Attribution is the reason to build the tree.</h2>
+        <blockquote>“I built this because skills should be attributed to the people who proved them. Permanently, not just until the repo goes private.”</blockquote>
+        <p>This is the founder-story seed from the project's own README, kept verbatim. It is a product premise, not a fabricated biography.</p>
+      </div>
+      <aside class="origin-source">
+        <span>README / origin note</span>
+        <p>Gaia frames the registry as open source: developers who make skills are part of the system, and contributions can expand the map.</p>
+        <a href="https://github.com/gaia-research/gaia-skill-tree#who-maintains-this" target="_blank" rel="noopener noreferrer">Read the source context <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+      </aside>
+    </section>
+
+    <section class="case-section artifact-section" id="artifact" aria-labelledby="artifact-title">
+      <header class="section-heading">
+        <span class="section-mark" aria-hidden="true">C</span>
+        <div>
+          <h2 id="artifact-title">The identity image is not the interface.</h2>
+          <p>The portfolio carries one owned static asset and labels it precisely. Current behavior belongs on Gaia's public surface.</p>
+        </div>
+      </header>
+
+      <div class="artifact-layout">
+        <figure class="og-artifact">
+          <a href="/assets/media/gaia-skill-tree-og.webp" target="_blank" rel="noopener noreferrer" aria-label="Open the full-size Gaia Skill Tree Open Graph illustration in a new tab"><img src="/assets/media/gaia-skill-tree-og.webp" width="1200" height="627" alt="Dark Gaia Skill Tree Open Graph illustration with a gold branching tree, colored nodes, and the words Gaia Skill Tree" loading="lazy" decoding="async"></a>
+          <figcaption><strong>Open Graph illustration.</strong> Owner-provided static artwork; not a screenshot of the live registry, 3D exploration, or product behavior.</figcaption>
+        </figure>
+        <div class="artifact-notes">
+          <h3>Follow the source trail.</h3>
+          <p>Use the external links for the genuine product and the complete repository. The public product currently exposes the registry and interactive 3D exploration; this page does not iframe either surface or imply that its authored diagrams are live Gaia data.</p>
+          <div class="artifact-links">
+            <a class="artifact-link artifact-link--primary" href="https://gaiaskilltree.com/" target="_blank" rel="noopener noreferrer"><span>Open gaiaskilltree.com</span><span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+            <a class="artifact-link" href="https://github.com/gaia-research/gaia-skill-tree" target="_blank" rel="noopener noreferrer"><span>Open the public source</span><span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+          <dl class="artifact-facts">
+            <div><dt>Asset status</dt><dd>Owned static illustration</dd></div>
+            <div><dt>Live surface</dt><dd>External product link</dd></div>
+            <div><dt>Source status</dt><dd>Public GitHub repository</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-section" aria-labelledby="closing-title">
+      <div>
+        <h2 id="closing-title">Keep the proof attached to the person.</h2>
+        <p>Gaia's public record is the work: attribution, evidence, graph, and the tools that let a skill travel.</p>
+      </div>
+      <div class="closing-actions">
+        <a class="signal-action signal-action--primary" href="https://gaiaskilltree.com/" target="_blank" rel="noopener noreferrer">Explore Gaia <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+        <a class="signal-action" href="/worlds/screening-room/">Return to Screening Room <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="case-footer">
+    <div class="footer-topline">
+      <p>Marcus Rafael B. Tiongson <span>/</span> Gaia Skill Tree case study</p>
+      <a href="/">All six worlds <span aria-hidden="true">↗</span></a>
+    </div>
+    <nav class="footer-worlds" aria-label="Portfolio experiences">
+      <a href="/worlds/field-atlas/">Field Atlas</a>
+      <a href="/worlds/screening-room/" aria-current="page">Screening Room</a>
+      <a href="/worlds/arcade-marquee/">Arcade Marquee</a>
+      <a href="/worlds/dada-contact-sheet/">Dada Contact Sheet</a>
+      <a href="/worlds/vu-meter-bridge/">VU Meter Bridge</a>
+      <a href="/worlds/classic-index/">Classic Index</a>
+    </nav>
+    <p class="footer-note">Public product and source links are external. The case study uses no live API data.</p>
+  </footer>
+</body>
+</html>

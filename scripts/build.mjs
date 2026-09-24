@@ -47,6 +47,9 @@ await cp(path.join(root, 'assets'), path.join(out, 'assets'), { recursive: true 
 await cp(path.join(root, 'src', 'styles'), path.join(out, 'styles'), { recursive: true });
 await cp(path.join(root, 'src', 'scripts'), path.join(out, 'scripts'), { recursive: true });
 await cp(path.join(root, 'data'), path.join(out, 'data'), { recursive: true });
+const caseStudy = await read('src/pages/work/gaia-skill-tree.html');
+await mkdir(path.join(out, 'work', 'gaia-skill-tree'), { recursive: true });
+await writeFile(path.join(out, 'work', 'gaia-skill-tree', 'index.html'), caseStudy);
 const hub = await read('src/pages/hub.html');
 const selected = worlds[0];
 const departures = worlds.slice(1).map((world) => `<li><a href="${href(world)}"><span class="departure-name">${escape(world.name)}</span><span class="departure-note">${escape(world.description)}</span><span class="departure-status">Enter experience <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 10h15m-6-6 6 6-6 6"/></svg></span></a></li>`).join('');
