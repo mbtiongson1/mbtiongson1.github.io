@@ -1,5 +1,71 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#e6e7df"><meta name="description" content="{{WORLD_NAME}} is being built. Explore the shared work archive in Field Atlas now."><title>{{WORLD_NAME}} — in preparation</title><link rel="stylesheet" href="/styles/lobby.css"></head>
-<body class="lobby preview-page"><a class="skip-link" href="#preview">Skip to preview</a><header class="lobby-header"><a href="/" class="lobby-mark" aria-label="Portfolio home">MRBT<span class="mark-rule"></span>Studio index</a><a href="/">All six worlds</a></header><main id="preview"><div class="preview-intro"><p class="preview-status">In preparation / route reserved</p><h1>{{WORLD_NAME}}</h1><p>{{WORLD_DESCRIPTION}} This independent experience is not yet built. The project archive is already available in Field Atlas.</p><a class="preview-action" href="/worlds/field-atlas/">Explore real work in Field Atlas <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12h19m-7-7 7 7-7 7"/></svg></a></div><div class="preview-index"><h2>Work available now</h2><ul>{{PROJECT_LINKS}}</ul></div></main><footer class="lobby-footer"><span>Six ways into one archive</span><nav aria-label="Portfolio experiences">{{WORLD_NAV}}</nav></footer></body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8f7">
+  <meta name="description" content="Marcus Rafael B. Tiongson — a clear, direct portfolio of interface work, prototypes, visual studies, and public projects.">
+  <title>Marcus Rafael B. Tiongson — Classic Index</title>
+  <link rel="preload" href="/assets/fonts/barlow-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/barlow-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles/classic-index.css">
+</head>
+<body class="classic-index">
+  <a class="skip-link" href="#main">Skip to the work</a>
+  <header class="site-header">
+    <a class="owner-name" href="/" aria-label="Marcus Rafael B. Tiongson — portfolio home">Marcus Rafael B. Tiongson</a>
+    <nav class="page-nav" aria-label="Page sections">
+      <a href="#work" aria-current="location">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <div class="opening-layout" id="work">
+      <section class="featured" aria-label="Featured project">
+        <p class="featured-label">Featured project</p>
+        <div class="featured-content">{{PROJECT_LEAD}}</div>
+      </section>
+
+      <aside class="project-rail" aria-labelledby="index-heading">
+        <nav class="project-index" aria-labelledby="index-heading">
+          <h1 id="index-heading">Work</h1>
+          <ol>{{PROJECT_INDEX}}</ol>
+        </nav>
+        <p class="rail-note">Interfaces, research, and systems—shown through real artifacts and clearly labeled prototypes.</p>
+      </aside>
+    </div>
+
+    <section class="archive" id="projects" aria-labelledby="archive-heading">
+      <div class="archive-heading">
+        <h2 id="archive-heading">Other projects</h2>
+        <p>Selected work from the shared archive</p>
+      </div>
+      <div class="project-grid">{{PROJECT_REST}}</div>
+    </section>
+
+    <section class="about-section" id="about" aria-labelledby="about-heading">
+      <div class="about-copy">
+        <h2 id="about-heading">About</h2>
+        <p>Marcus Rafael B. Tiongson designs interfaces, tools, and visual systems for complex work. This archive favors working prototypes and source-backed captures over invented case studies; every project states what is live, static, synthetic, or in progress.</p>
+      </div>
+      <a class="about-link" href="https://github.com/mbtiongson1" target="_blank" rel="noopener noreferrer">GitHub profile <span class="sr-only">(opens in a new tab)</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9"/></svg></a>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>For a professional introduction or project conversation, reach out through the public GitHub profile.</p>
+      <a class="contact-link" href="https://github.com/mbtiongson1" target="_blank" rel="noopener noreferrer">Visit GitHub <span class="sr-only">(opens in a new tab)</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9"/></svg></a>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="worlds">
+    <div class="footer-top">
+      <p>Marcus Rafael B. Tiongson <span>·</span> One archive, six ways to browse.</p>
+      <a href="/">Portfolio home</a>
+    </div>
+    <nav class="world-nav" aria-label="Six portfolio experiences">{{WORLD_NAV}}</nav>
+  </footer>
+</body>
 </html>
