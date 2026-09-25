@@ -82,7 +82,10 @@ for (const file of rasters) {
   assert(!/\/Users\/|C:\\\\/.test(prompt), `Provenance cites a local machine path: ${path.relative(dist, file)}`);
   if (file.includes(`${path.sep}favor${path.sep}`)) assert(/fictional|invented/i.test(prompt), `Favor raster must be fictional-data evidence: ${path.relative(dist, file)}`);
 }
-const referenced = [...html.matchAll(/src="(\/assets\/media\/[^"]+)"/g)].map((match) => match[1]);
+const referenced = [
+  ...html.matchAll(/src="(\/assets\/media\/[^"]+)"/g),
+  ...html.matchAll(/content="(?:https:\/\/mbtiongson1\.github\.io)?(\/assets\/media\/[^"]+)"/g),
+].map((match) => match[1]);
 const lensImages = ['age', 'connection', 'gender', 'campus'].map((lens) => `/assets/media/favor/home-favor-by-people-${lens}.webp`);
 for (const url of [...referenced, ...lensImages]) assert(await exists(path.join(dist, url)), `Missing image: ${url}`);
 for (const file of rasters) {
