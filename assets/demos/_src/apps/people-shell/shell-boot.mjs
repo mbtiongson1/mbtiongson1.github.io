@@ -184,15 +184,17 @@ function el(tag, className, text) {
 
 function renderMasthead(activeId) {
   const head = el("header", "pshell__masthead");
-  // No eyebrow. The breadcrumb trail directly above already names this destination, and
-  // repeating "People & Leaders" under it is a second heading that adds nothing.
+  const titleBox = el("div", "pshell__masthead-title");
+  const h1 = el("h1", null, SHELL_TITLE);
+  const subtitle = el("p", "pshell__masthead-subtitle", "Three peer views: Pathways (readiness), Leadership (responsibility), and Multiplication (reproduction)");
+  titleBox.append(h1, subtitle);
+  head.append(titleBox);
+
   const list = el("div", "pshell__tabs");
   list.setAttribute("role", "tablist");
   list.setAttribute("aria-label", SHELL_TITLE);
 
   for (const tab of TABS) {
-    // A real link, so middle-click and copy-link behave. The handler intercepts the ordinary
-    // click; everything else the browser already does correctly.
     const item = document.createElement(tab.available ? "a" : "span");
     item.className = "pshell__tab";
     item.setAttribute("role", "tab");
@@ -205,6 +207,29 @@ function renderMasthead(activeId) {
       item.href = tabHref(window.location.pathname, window.location.search, window.location.hash, tab.id);
       item.tabIndex = tab.id === activeId ? 0 : -1;
       if (tab.id === activeId) item.setAttribute("aria-current", "page");
+
+      item.addEventListener("click", async (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (tab.id === state.active) return;
+
+        list.querySelectorAll(".pshell__tab").forEach((t) => {
+          const isSelected = t.dataset.tab === tab.id;
+          t.setAttribute("aria-selected", String(isSelected));
+          t.tabIndex = isSelected ? 0 : -1;
+          if (isSelected) t.setAttribute("aria-current", "page");
+          else t.removeAttribute("aria-current");
+        });
+
+        const newUrl = tabHref(window.location.pathname, window.location.search, window.location.hash, tab.id);
+        if (window.history && window.history.pushState) {
+          window.history.pushState({ tab: tab.id }, "", newUrl);
+        }
+
+        const mountId = cancelMount();
+        state.panel.querySelectorAll("#pathways-root, #leadership-root, #multiplication-root").forEach((r) => r.remove());
+        await mount(tab, state.bundles || {}, mountId);
+      });
     } else {
       item.setAttribute("aria-disabled", "true");
       item.dataset.available = "false";
@@ -212,7 +237,6 @@ function renderMasthead(activeId) {
     }
 
     item.append(el("span", "pshell__tab-label", tab.label));
-    // The question is the product. It is the tab's accessible description, not decoration.
     const question = el("span", "pshell__tab-question", tab.question);
     question.id = `pshell-q-${tab.id}`;
     item.setAttribute("aria-describedby", question.id);
@@ -308,7 +332,8 @@ async function mount(tab, bundles, mountId) {
   let module;
   try {
     module = await loader();
-  } catch {
+  } catch (err) {
+    console.error("[shell-boot loader error]", tab.id, err);
     if (isCurrentMount(mountId, host)) notice(`${tab.label} could not be loaded on this page.`);
     return;
   }
@@ -319,7 +344,8 @@ async function mount(tab, bundles, mountId) {
   state.active = tab.id;
   try {
     await module.boot(host, bundles[tab.id] ?? null);
-  } catch {
+  } catch (err) {
+    console.error("[shell-boot module.boot error]", tab.id, err);
     if (isCurrentMount(mountId, host)) notice(`${tab.label} could not be loaded on this page.`);
     return;
   }
@@ -351,6 +377,7 @@ function placeTabBar(head) {
 
 export async function boot(root, { bundles = {}, announce = null } = {}) {
   if (!root) return;
+  state.bundles = bundles;
   const active = readActiveTab(window.location.search, window.location.hash);
   if (active.legacy) {
     // A link from before the tab moved to the query string. One redirect puts the tab where

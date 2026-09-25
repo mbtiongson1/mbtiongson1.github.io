@@ -10,7 +10,7 @@
      http.server sends no cache headers, so Chrome caches the sheet heuristically and a
      design iteration silently renders the previous one; this harness exists to show the
      working tree. Dev-only — production pins assets by manifest assetVersion instead. -->
-<script>document.write('<link rel="stylesheet" href="./capture/grow.css?dev=' + Date.now() + '">');</script>
+<link rel="stylesheet" href="./capture/grow.css">
 <style>
   html, body { margin: 0; background: #fef1e8; color: #121411; font-family: FavorSans, Arial, sans-serif; }
   .workbench-flag {

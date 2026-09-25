@@ -30,6 +30,26 @@
   src: url("../../../../_fonts/FavorSans-Bold.otf") format("opentype");
   font-weight: bold; font-style: normal; font-display: swap;
 }
+@font-face {
+  font-family: "FavorSans";
+  src: url("../../../../_fonts/FavorSans.otf") format("opentype");
+  font-weight: normal; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "FavorSans";
+  src: url("../../../../_fonts/FavorSans-Bold.otf") format("opentype");
+  font-weight: bold; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Favor Headline";
+  src: url("../../../../_fonts/Favor-Headline.otf") format("opentype");
+  font-weight: normal; font-style: normal; font-display: swap;
+}
+
+:root {
+  --body-font: "Favor Sans", "FavorSans", Arial, sans-serif;
+  --display-font: "Favorvetica", "Favor Sans", Arial, sans-serif;
+}
 
 /* >>> GENERATED THEME BLOCKS -- tools/build_theme_blocks.py from themes/favor-*.json. Do not hand-edit. <<< */
 
@@ -895,8 +915,8 @@
   --bar-h: 5rem;
   /* Duplicates of the contract's --body-font / --display-font under this
      island's older names -- follow the theme instead of re-declaring it. */
-  --font-body: var(--body-font);
-  --font-display: var(--display-font);
+  --font-body: var(--body-font, "Favor Sans", Arial, sans-serif);
+  --font-display: var(--display-font, "Favorvetica", Arial, sans-serif);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   background: var(--background);
   color: var(--ink);

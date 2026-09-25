@@ -5749,12 +5749,22 @@ function renderPlotMap(rows) {
         style: {
           version: 8,
           sources: {
-            
+            basemap: {
+              type: "raster",
+              tiles: [
+                "https://a.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                "https://b.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                "https://c.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              ],
+              tileSize: 256,
+              maxzoom: 19,
+              attribution: "&copy; OpenStreetMap contributors",
+            },
             localities: { type: "geojson", data: geojson },
           },
           layers: [
             { id: "bg", type: "background", paint: { "background-color": "#e9e4dc" } },
-            
+            { id: "basemap", type: "raster", source: "basemap", paint: { "raster-opacity": 1 } },
           ],
         },
         center: (CAMPUS_CAMERA_VIEWS[(state.filters.campus || "ALL").toUpperCase()] || CAMPUS_CAMERA_VIEWS.ALL).center,

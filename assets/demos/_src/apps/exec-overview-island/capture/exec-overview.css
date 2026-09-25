@@ -972,7 +972,13 @@
     grid-template-columns: minmax(0, 1fr) 0px;
     gap: 0;
   }
-  #exec-overview-island .main-column { min-width: 0; }
+  #exec-overview-island .main-column { min-width: 0; container-type: inline-size; }
+  @container (max-width: 780px) {
+    #exec-overview-island .combo-grid { grid-template-columns: 1fr; }
+  }
+  @media(max-width: 1100px) {
+    #exec-overview-island .combo-grid { grid-template-columns: 1fr; }
+  }
 
   /* Collapsible Toggle Bar */
   /* The toggle travels with the console it controls. The console is sticky, so on
@@ -1323,7 +1329,10 @@
   #exec-overview-island .atlas-hero__desc strong { color: var(--ink); }
 
   /* Combo Chart Cards */
-  #exec-overview-island .combo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.15rem; }
+  #exec-overview-island .combo-grid { display: grid; grid-template-columns: 1fr; gap: 1.15rem; }
+  @media (min-width: 1080px) {
+    #exec-overview-island .combo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
   #exec-overview-island .combo-card { border: 2px solid var(--ink); background: var(--surface); padding: 1.25rem; display: flex; flex-direction: column; justify-content: space-between; }
   #exec-overview-island .combo-card__head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--rule); padding-bottom: .6rem; margin-bottom: 1rem; }
   #exec-overview-island .combo-card__head h2 { font-size: 1.15rem; }
@@ -1358,8 +1367,8 @@
   }
   #exec-overview-island .filter-tag__remove:hover, #exec-overview-island .filter-tag__remove:focus-visible { color: var(--accent); }
 
-  /* Combo Layout: Donut on Left, Benchmarks/Bars on Right */
-  #exec-overview-island .combo-stage { display: grid; grid-template-columns: 165px minmax(0, 1fr); gap: 1.25rem; align-items: center; }
+  /* Combo Layout: Donut centered on top, legends underneath (adapted like Favor Home) */
+  #exec-overview-island .combo-stage { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; width: 100%; }
   #exec-overview-island .donut-box { position: relative; width: 165px; height: 165px; margin: 0 auto; flex: none; }
   #exec-overview-island .donut-svg { width: 100%; height: 100%; transform: rotate(-90deg); overflow: visible; }
   #exec-overview-island .donut-circle { fill: none; stroke-width: 24; transition: stroke-dasharray .35s ease, stroke-dashoffset .35s ease, stroke-width .18s ease-out, filter .18s ease-out; }
@@ -1369,10 +1378,72 @@
   #exec-overview-island .donut-center-total { font-family: Favorvetica, Arial, sans-serif; font-size: 1.4rem; line-height: 1; }
   #exec-overview-island .donut-center-unit { font-size: .66rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted-ink); font-weight: 700; margin-top: 2px; }
 
+  /* Visual Redactions (matching portfolio WebP asset redactions) */
+  #exec-overview-island .is-redacted,
+  #exec-overview-island .redacted-bar {
+    display: inline-block !important;
+    position: relative;
+    color: transparent !important;
+    background: currentColor;
+    opacity: 0.25;
+    border-radius: 4px;
+    vertical-align: middle;
+    letter-spacing: 0;
+    user-select: none;
+    pointer-events: none;
+    line-height: 1;
+  }
+  #exec-overview-island .atlas-hero__kpi.is-redacted {
+    display: block !important;
+    width: max-content;
+    min-width: 9rem;
+    height: 0.72em;
+    margin-top: 0.18em;
+    border-radius: 6px;
+    opacity: 0.25;
+  }
+  #exec-overview-island .pulse-kpi.is-redacted {
+    display: block !important;
+    width: max-content;
+    min-width: 6rem;
+    height: 0.72em;
+    margin-top: 0.16em;
+    border-radius: 6px;
+    opacity: 0.25;
+  }
+  #exec-overview-island .donut-center-total.is-redacted {
+    display: inline-block !important;
+    min-width: 4rem;
+    height: 0.72em;
+    border-radius: 4px;
+    opacity: 0.25;
+  }
+  #exec-overview-island .combo-row__count.is-redacted,
+  #exec-overview-island .combo-row__pct.is-redacted {
+    min-width: 2.2rem;
+    height: 0.72em;
+    opacity: 0.25;
+  }
+  #exec-overview-island .filter-btn .tag.is-redacted {
+    min-width: 2.6rem;
+    height: 0.72em;
+    opacity: 0.25;
+  }
+  #exec-overview-island .kpi-tile__value {
+    color: transparent !important;
+    background: currentColor;
+    opacity: 0.25;
+    border-radius: 4px;
+    min-width: 4rem;
+    height: 0.75em;
+    display: inline-block;
+    user-select: none;
+  }
+
   /* Combo Bar List & Benchmarks with Hover Animations */
   #exec-overview-island .combo-bars { display: flex; flex-direction: column; gap: .55rem; width: 100%; }
-  #exec-overview-island .combo-row { display: grid; grid-template-columns: minmax(75px, auto) 1fr 42px 36px 14px; gap: .45rem; align-items: center; font-size: .82rem; padding: .25rem .45rem; border-radius: 3px; color: inherit; text-decoration: none; cursor: pointer; transition: background-color .15s ease-out, transform .15s ease-out, box-shadow .15s ease-out; }
-  #exec-overview-island .combo-row.is-unlinked { grid-template-columns: minmax(75px, auto) 1fr 42px 36px; cursor: default; }
+  #exec-overview-island .combo-row { display: grid; grid-template-columns: minmax(110px, auto) 1fr 48px 42px 14px; gap: .5rem; align-items: center; font-size: .82rem; padding: .25rem .45rem; border-radius: 3px; color: inherit; text-decoration: none; cursor: pointer; transition: background-color .15s ease-out, transform .15s ease-out, box-shadow .15s ease-out; }
+  #exec-overview-island .combo-row.is-unlinked { grid-template-columns: minmax(110px, auto) 1fr 48px 42px; cursor: default; }
   #exec-overview-island .combo-row:not(.is-unlinked):hover { background: var(--hover-wash); transform: translateX(3px); box-shadow: 0 1px 4px rgba(18, 20, 17, 0.08); }
   #exec-overview-island .combo-row:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
   #exec-overview-island .combo-row__name { font-weight: 700; display: flex; align-items: center; gap: .35rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

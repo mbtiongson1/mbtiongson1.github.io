@@ -1,0 +1,3 @@
+{
+  "prompt": "Model Observability dashboard displaying Stage-2 LightGBM classifier telemetry, precision at threshold, calibration error, gold anchor pairs, and queue triage across synthetic clusters."
+}

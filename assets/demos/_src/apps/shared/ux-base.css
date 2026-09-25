@@ -28,6 +28,8 @@
 /* Durations are the whole timing story. A control reads one token; nothing in
    an island states a millisecond value of its own for a UX-bar behaviour. */
 :root {
+  --body-font: "Favor Sans", "FavorSans", Arial, sans-serif;
+  --display-font: "Favorvetica", "Favor Sans", Arial, sans-serif;
   --motion-feedback: 120ms;   /* press, hover, toggle acknowledgement */
   --motion-state: 180ms;      /* a state the eye must follow: selected, mode, chip in/out */
   --motion-layout: 280ms;     /* a sheet, a panel, a change cue settling */

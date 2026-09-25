@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Finance Pulse design mock (fictional)</title>
+<!--
+Design mock for #354 (/exec/finance). Planning artifact, not island source. It exists so the plan's
+design section (docs/plans/2026-09-05-finance-pulse-dashboard.md §9) can be read against a render:
+the favor-finance-green runtime palette (themes/favor-finance-green.json), the ledger-paper world, the
+quiet KPI strip, the hero ledger with its three absence glyphs, the Finance Pivot Console, the Capacity
+Bridge with its deterministic forecast, and the Creative hero. Every number is fictional. Nothing here
+fetches anything.
+-->
+<link rel="stylesheet" href="../_src/apps/shared/breadcrumbs-base.css">
+<style>
+@font-face { font-family: Favorvetica; src: url('/assets/demos/_fonts/Favorvetica-Bold.otf') format('opentype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: FavorSans; src: url('/assets/demos/_fonts/FavorSans.otf') format('opentype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: FavorSans; src: url('/assets/demos/_fonts/FavorSans-Bold.otf') format('opentype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: FavorHeadline; src: url('/assets/demos/_fonts/Favor-Headline.otf') format('opentype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: Marked; src: url('/assets/demos/_fonts/FavorSans-Bold.otf') format('opentype'); font-weight: 400; font-display: swap; }
+
+/* favor-finance-green runtime palette, verbatim from themes/favor-finance-green.json */
+.fin {
+  --background: #eef3ea; --surface: #f8faf5; --surface-raised: #fbfcf8; --surface-lit: #ffffff; --surface-sunken: #eef3ea;
+  --ink: #0f1a12; --muted-ink: #4b5a4c; --faint-ink: #5f6d5e; --rule: #cfdccb; --edge-strong: #6f7f6d; --shadow-ink: #0f1a12; --edge-lit: #ffffff;
+  --accent: #1c6f4a; --accent-deep: #155a3a; --secondary: #1f5f8b; --focus: #0f5fa8;
+  --state-healthy: #4a7c3f; --state-healthy-text: #3a6531; --state-watch: #b8690a; --state-watch-text: #8a4f06;
+  --state-thin: #b4531a; --state-thin-text: #8f4212; --state-critical: #b0301f; --state-critical-text: #962819;
+  --state-unknown: #c5cdc1; --state-unknown-text: #5f6d5e;
+  --move-gain-text: #3a6531; --move-loss-text: #962819;
+  --soft-healthy: #dfeadb; --soft-gain: #dfeadb; --soft-watch: #f3e7cc; --soft-thin: #f3dfcf; --soft-critical: #f2d9d4; --soft-loss: #f2d9d4; --soft-neutral: #eef1ec;
+  --gap-wash: #e6ece3; --ghost-wash: #e3e9e0; --hover-wash: #eaf2e6; --selected-wash: #dcebd6;
+  /* classic map (tools/build_theme_blocks.py CLASSIC_MAP) */
+  --classic-surface: var(--surface); --classic-surface-2: var(--surface-raised); --classic-ink: var(--ink); --classic-muted: var(--muted-ink);
+  --classic-rule: var(--rule); --classic-accent: var(--accent-deep); --classic-focus: var(--focus); --classic-bar: var(--secondary);
+  --font-display: Favorvetica, "Favor Sans", Arial, sans-serif;
+  --font-headline: FavorHeadline, Favorvetica, Arial, sans-serif;
+  --font-body: FavorSans, "Favor Sans", Arial, sans-serif;
+  --font-num: Arial, sans-serif;
+  --font-stamp: Marked, Impact, sans-serif;
+  color-scheme: light;
+  background: var(--background); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.45;
+  min-height: 100vh; margin: 0;
+}
+html, body { margin: 0; }
+body { background: #eef3ea; }
+.fin *, .fin *::before, .fin *::after { box-sizing: border-box; }
+.fin ::selection { background: var(--selected-wash); color: var(--ink); }
+.fin :focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+.fin a { color: var(--accent-deep); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+.fin .num { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+.fin .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.fin details > summary { list-style: none; cursor: pointer; }
+.fin details > summary::-webkit-details-marker { display: none; }
+
+/* ---- masthead: ruled ledger paper, the one place the world speaks ---- */
+.fin .masthead { position: relative; overflow: hidden; padding: 1.3rem 1.1rem 1.35rem; border-bottom: 1px solid var(--rule); background: var(--surface); }
+.fin .masthead::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .55;
+  background-image: repeating-linear-gradient(to bottom, transparent 0 27px, var(--rule) 27px 28px);
+  mask-image: linear-gradient(to right, rgba(0,0,0,.35), rgba(0,0,0,.05) 55%, transparent); }
+.fin .masthead::after { content: ""; position: absolute; top: 0; bottom: 0; left: .7rem; width: 1px; background: var(--state-critical); opacity: .22; pointer-events: none; }
+.fin .masthead > * { position: relative; }
+.fin .masthead__row { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: flex-end; justify-content: space-between; max-width: 82rem; margin: 0 auto; }
+.fin .masthead__id { flex: 1 1 20rem; min-width: 0; }
+.fin .breadcrumb { font-size: .78rem; color: var(--muted-ink); margin: 0 0 .7rem; }
+.fin .breadcrumb strong { color: var(--ink); }
+.fin .masthead h1 { font-family: var(--font-display); font-size: 1.9rem; line-height: 1.05; letter-spacing: -.01em; margin: 0 0 .35rem; }
+.fin .period { margin: 0; color: var(--muted-ink); font-size: .86rem; }
+.fin .period .num { color: var(--ink); font-weight: 700; }
+.fin .masthead__controls { display: flex; flex-wrap: wrap; gap: .5rem .6rem; align-items: center; }
+.fin .ctl { display: inline-flex; align-items: center; gap: .4rem; min-height: 2.25rem; padding: 0 .7rem; border: 1px solid var(--rule); border-radius: .35rem; background: var(--surface-lit); font: inherit; font-size: .82rem; color: var(--ink); }
+.fin .ctl--select { padding-right: 1.9rem; appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--muted-ink) 50%), linear-gradient(135deg, var(--muted-ink) 50%, transparent 50%); background-position: calc(100% - 13px) 50%, calc(100% - 8px) 50%; background-size: 5px 5px; background-repeat: no-repeat; }
+.fin .ctl--step { padding: 0 .55rem; color: var(--muted-ink); }
+.fin .mode-switch { display: inline-flex; border: 1px solid var(--rule); border-radius: .35rem; overflow: hidden; background: var(--surface-lit); }
+.fin .mode-switch button { font: inherit; font-size: .8rem; min-height: 2.15rem; padding: 0 .8rem; border: 0; background: transparent; color: var(--muted-ink); cursor: pointer; }
+.fin .mode-switch button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.fin .swatch { display: inline-flex; gap: .3rem; padding: .25rem .4rem; border: 1px solid var(--rule); border-radius: 999px; background: var(--surface-lit); }
+.fin .swatch span { width: 1.15rem; height: 1.15rem; border-radius: 50%; border: 1px solid var(--edge-strong); background: linear-gradient(135deg, var(--a) 50%, var(--b) 50%); }
+.fin .swatch span[aria-current] { outline: 2px solid var(--ink); outline-offset: 1px; }
+.fin .badge { display: inline-flex; align-items: center; gap: .35rem; font-size: .74rem; font-weight: 700; color: var(--state-critical-text); background: var(--soft-critical); border-radius: .3rem; padding: .25rem .5rem; }
+.fin .badge::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: var(--state-critical); }
+.fin .fresh { font-size: .74rem; color: var(--muted-ink); margin: .5rem 0 0; }
+
+/* ---- page ---- */
+.fin .page { max-width: 82rem; margin: 0 auto; padding: 1rem 1.1rem 3rem; display: grid; gap: 1.4rem; }
+.fin .chapter { border-top: 1px solid var(--rule); padding-top: 1rem; }
+.fin .chapter__q { font-family: var(--font-headline); font-size: 1.15rem; margin: 0 0 .15rem; letter-spacing: -.005em; }
+.fin .chapter__lede { margin: 0 0 .9rem; color: var(--muted-ink); font-size: .86rem; max-width: 62ch; }
+.fin .chapter__lede .num { color: var(--ink); font-weight: 700; }
+
+/* quiet KPI strip: a hairline grid */
+.fin .kpi-strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.fin .kpi-tile { background: var(--classic-surface); padding: .7rem .8rem .75rem; min-width: 0; }
+.fin .kpi-tile[data-state="healthy"] { background-image: linear-gradient(var(--soft-healthy), var(--soft-healthy)); }
+.fin .kpi-tile[data-state="watch"] { background-image: linear-gradient(var(--soft-watch), var(--soft-watch)); }
+.fin .kpi-tile[data-state="unknown"] { background-image: linear-gradient(var(--ghost-wash), var(--ghost-wash)); }
+.fin .kpi-tile__label { font-size: .74rem; font-weight: 700; color: var(--muted-ink); display: flex; justify-content: space-between; gap: .4rem; }
+.fin .kpi-tile__value { font-family: var(--font-num); font-variant-numeric: tabular-nums; font-size: 1.45rem; font-weight: 700; line-height: 1.15; margin-top: .2rem; }
+.fin .kpi-tile__value .cur { font-size: .9rem; font-weight: 400; color: var(--muted-ink); margin-right: .1rem; }
+.fin .kpi-tile__unit { font-size: .78rem; color: var(--muted-ink); margin-left: .25rem; font-family: var(--font-body); font-weight: 400; }
+.fin .kpi-tile__delta { display: block; font-size: .74rem; color: var(--muted-ink); margin-top: .15rem; font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+.fin .kpi-tile--ghost .kpi-tile__value { color: var(--muted-ink); font-weight: 400; }
+.fin .kpi-strip li:nth-child(9) { grid-column: span 2; }
+.fin .info { width: 1.1rem; height: 1.1rem; border-radius: 50%; border: 1px solid var(--edge-strong); color: var(--muted-ink); font-size: .68rem; display: inline-grid; place-items: center; font-style: italic; font-family: Georgia, serif; flex: none; }
+
+/* classic widget */
+.fin .cw { background: var(--classic-surface); border: 1px solid var(--rule); border-radius: .3rem; overflow: hidden; }
+.fin .cw--expanded { grid-column: 1 / -1; }
+.fin .cw__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1rem; padding: .8rem .9rem .55rem; }
+.fin .cw__title { font-size: 1.05rem; font-weight: 700; margin: 0; display: flex; align-items: center; gap: .45rem; }
+.fin .cw__question { margin: .1rem 0 0; color: var(--muted-ink); font-size: .84rem; }
+.fin .cw__tools { display: flex; gap: .35rem; align-items: center; flex: none; }
+.fin .xrail { display: inline-flex; border: 1px solid var(--rule); border-radius: .3rem; overflow: hidden; }
+.fin .xrail button { font: inherit; font-size: .74rem; padding: .3rem .55rem; border: 0; border-right: 1px solid var(--rule); background: var(--surface-lit); color: var(--ink); cursor: pointer; }
+.fin .xrail button:last-child { border-right: 0; }
+.fin .xrail button:hover { background: var(--hover-wash); }
+.fin .xrail button[disabled] { color: var(--faint-ink); text-decoration: line-through; cursor: not-allowed; }
+.fin .cw__expand { font: inherit; font-size: .74rem; padding: .3rem .5rem; border: 1px solid var(--rule); border-radius: .3rem; background: var(--surface-lit); color: var(--muted-ink); cursor: pointer; }
+.fin .cw__body { padding: 0 .9rem .5rem; overflow-x: auto; }
+.fin .cw__note { margin: 0; padding: .55rem .9rem .8rem; font-size: .84rem; border-top: 1px solid var(--rule); }
+.fin .cw__note em { font-style: normal; color: var(--muted-ink); }
+
+/* ledger table */
+.fin .ct { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.fin .ct caption { caption-side: bottom; text-align: left; color: var(--muted-ink); font-size: .74rem; padding: .5rem 0 .2rem; }
+.fin .ct th, .fin .ct td { padding: .42rem .55rem; border-bottom: 1px solid var(--rule); text-align: left; white-space: nowrap; vertical-align: middle; }
+.fin .ct thead th { font-size: .74rem; font-weight: 700; color: var(--muted-ink); border-bottom: 1px solid var(--ink); position: sticky; top: 0; background: var(--classic-surface); }
+.fin .ct th[scope="row"] { font-weight: 600; position: sticky; left: 0; background: var(--classic-surface); }
+.fin .ct thead th:first-child { left: 0; z-index: 1; }
+.fin .ct__num { text-align: right !important; font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+.fin .ct__share { color: var(--muted-ink); }
+.fin .ct__ghost { background: var(--ghost-wash); color: var(--muted-ink); text-align: center !important; }
+.fin .ct__unavail { color: var(--muted-ink); text-align: center !important; }
+.fin .ct tbody tr:hover > * { background: var(--hover-wash); }
+.fin .ct__bar { width: 7.5rem; padding-left: .2rem; }
+.fin .bar { position: relative; display: block; height: .55rem; background: var(--classic-surface-2); border: 1px solid var(--rule); }
+.fin .bar__fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--classic-bar); }
+.fin .bar__fill--short { background: repeating-linear-gradient(135deg, var(--state-critical) 0 2px, transparent 2px 5px); }
+.fin .bar__fill--ghost { background: repeating-linear-gradient(135deg, var(--state-unknown) 0 2px, transparent 2px 5px); }
+.fin .bar__tick { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--ink); }
+.fin .ct__group th { font-size: .74rem; font-weight: 700; color: var(--muted-ink); border-bottom: 1px solid var(--ink); padding-top: .9rem; }
+.fin .ct__total th, .fin .ct__total td { border-top: 2px solid var(--ink); border-bottom: 0; font-weight: 700; }
+.fin .ct__sub th, .fin .ct__sub td { font-weight: 700; background: var(--surface-raised); }
+.fin .ct__spark { width: 8.5rem; }
+.fin .spark { display: block; width: 8rem; height: 1.5rem; }
+.fin .spark .base { stroke: var(--rule); stroke-width: 1; }
+.fin .spark .line { stroke: var(--classic-bar); stroke-width: 1.5; fill: none; }
+.fin .spark .ghost { stroke: var(--state-unknown); stroke-width: 1; stroke-dasharray: 3 3; fill: none; }
+.fin .spark .dot { fill: var(--classic-bar); }
+.fin .sort { display: inline-flex; flex-direction: column; margin-left: .25rem; opacity: .45; font-size: .5rem; line-height: .55; vertical-align: middle; }
+.fin th[aria-sort] .sort { opacity: 1; }
+.fin .cw__aid { margin-top: .6rem; }
+
+/* hero layout: table + aid */
+.fin .hero-grid { display: grid; gap: 1rem; }
+.fin .aid { border: 1px solid var(--rule); background: var(--surface-lit); padding: .5rem .6rem .35rem; }
+.fin .aid__title { font-size: .74rem; font-weight: 700; color: var(--muted-ink); margin: 0 0 .3rem; display: flex; justify-content: space-between; gap: .6rem; }
+.fin .legend { display: inline-flex; gap: .7rem; font-weight: 400; }
+.fin .legend i { display: inline-block; width: 1rem; height: 0; border-top: 2px solid var(--secondary); vertical-align: middle; margin-right: .3rem; }
+.fin .legend i.dash { border-top: 1px dashed var(--muted-ink); }
+.fin .aid svg { display: block; width: 100%; height: auto; }
+.fin .aid .grid { stroke: var(--rule); stroke-width: 1; }
+.fin .aid .t { stroke: var(--secondary); stroke-width: 2; fill: none; }
+.fin .aid .e { stroke: var(--muted-ink); stroke-width: 1.2; stroke-dasharray: 4 3; fill: none; }
+.fin .aid .e-ghost { stroke: var(--state-unknown); stroke-width: 1.2; stroke-dasharray: 2 3; fill: none; }
+.fin .aid .lbl { font: .62rem var(--font-num); fill: var(--muted-ink); }
+.fin .aid .ghostband { fill: var(--ghost-wash); }
+
+/* pivot console */
+.fin .pivot-grid { display: grid; gap: 1rem; }
+.fin .console { border: 1px solid var(--rule); background: var(--surface-lit); padding: .8rem .85rem .9rem; display: grid; gap: .65rem; align-content: start; }
+.fin .console__title { font-size: .84rem; font-weight: 700; margin: 0; display: flex; justify-content: space-between; align-items: center; }
+.fin .console__title span { font-weight: 400; color: var(--muted-ink); font-size: .74rem; }
+.fin .presets { display: flex; flex-wrap: wrap; gap: .35rem; }
+.fin .preset { font: inherit; font-size: .76rem; padding: .3rem .6rem; border: 1px solid var(--rule); border-radius: 999px; background: var(--surface); color: var(--ink); cursor: pointer; }
+.fin .preset[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.fin .preset:hover:not([aria-pressed="true"]) { background: var(--hover-wash); }
+.fin .field { display: grid; gap: .25rem; }
+.fin .field label { font-size: .72rem; font-weight: 700; color: var(--muted-ink); display: flex; justify-content: space-between; }
+.fin .field label small { font-weight: 400; }
+.fin .field .ctl { width: 100%; justify-content: space-between; }
+.fin .chips { display: flex; flex-wrap: wrap; gap: .3rem; }
+.fin .chip { display: inline-flex; align-items: center; gap: .3rem; font-size: .74rem; padding: .22rem .5rem; border: 1px solid var(--rule); border-radius: .3rem; background: var(--surface); }
+.fin .chip b { font-weight: 400; color: var(--muted-ink); }
+.fin .chip--add { color: var(--accent-deep); border-style: dashed; }
+.fin .field--off .ctl { color: var(--faint-ink); background: var(--surface); }
+.fin .field__why { font-size: .72rem; color: var(--muted-ink); margin: 0; }
+.fin .console__foot { border-top: 1px solid var(--rule); padding-top: .55rem; font-size: .72rem; color: var(--muted-ink); display: grid; gap: .25rem; }
+.fin .console__foot code { font-family: var(--font-num); font-size: .7rem; color: var(--ink); word-break: break-all; }
+.fin .insight { margin: 0; padding: .55rem .9rem .8rem; font-size: .86rem; border-top: 1px solid var(--rule); }
+
+/* capacity bridge */
+.fin .chain { list-style: none; margin: .2rem 0 .9rem; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.fin .chain li { background: var(--surface-lit); padding: .55rem .6rem; position: relative; }
+.fin .chain li.is-changed { background: var(--selected-wash); }
+.fin .chain small { display: block; font-size: .7rem; font-weight: 700; color: var(--muted-ink); }
+.fin .chain .num { display: block; font-size: 1.1rem; font-weight: 700; }
+.fin .chain .op { display: block; font-size: .68rem; color: var(--faint-ink); }
+.fin .chain li:not(:last-child)::after { content: "→"; position: absolute; right: -.35rem; top: 50%; transform: translateY(-50%); font-size: .8rem; color: var(--edge-strong); z-index: 1; }
+.fin .chain li:nth-child(3)::after { display: none; }
+.fin .cap-grid { display: grid; gap: 1rem; }
+.fin .inputs { display: grid; gap: .6rem; border: 1px solid var(--rule); background: var(--surface-lit); padding: .8rem .85rem; align-content: start; }
+.fin .inputs .field label { color: var(--ink); }
+.fin .inputs input[type="range"] { width: 100%; accent-color: var(--accent); }
+.fin .inputs .val { font-family: var(--font-num); font-variant-numeric: tabular-nums; font-weight: 400; }
+.fin .assume { margin: 0; font-size: .78rem; color: var(--muted-ink); border-top: 1px solid var(--rule); padding-top: .5rem; }
+.fin .fc .base { stroke: var(--muted-ink); stroke-width: 1.2; stroke-dasharray: 5 4; fill: none; }
+.fin .fc .scen { stroke: var(--accent); stroke-width: 2; fill: none; }
+.fin .fc .tgt { stroke: var(--ink); stroke-width: 1; fill: none; }
+.fin .fc .hist { stroke: var(--secondary); stroke-width: 2; fill: none; }
+
+/* creative hero */
+.fin .creative { position: relative; border: 1px solid var(--rule); background: var(--surface); padding: 1rem .9rem 1.1rem; overflow: hidden; }
+.fin .creative::before { content: ""; position: absolute; inset: 0; opacity: .5; pointer-events: none;
+  background-image: repeating-linear-gradient(to bottom, transparent 0 27px, var(--rule) 27px 28px); mask-image: linear-gradient(to bottom, rgba(0,0,0,.6), transparent 70%); }
+.fin .creative > * { position: relative; }
+.fin .creative__q { font-family: var(--font-headline); font-size: 1.5rem; margin: 0 0 .9rem; max-width: 24ch; line-height: 1.15; }
+.fin .figures { display: grid; grid-template-columns: repeat(2, 1fr); gap: .9rem 1.2rem; margin-bottom: 1rem; }
+.fin .fig small { display: block; font-size: .74rem; font-weight: 700; color: var(--muted-ink); }
+.fin .fig .big { font-family: var(--font-display); font-size: 2.3rem; line-height: 1; letter-spacing: -.015em; font-variant-numeric: tabular-nums; }
+.fin .fig .big .cur { font-size: 1.1rem; margin-right: .1rem; color: var(--muted-ink); }
+.fin .fig .sub { display: block; font-size: .76rem; color: var(--muted-ink); margin-top: .2rem; font-family: var(--font-num); }
+.fin .fig--net .big { color: var(--move-gain-text); }
+.fin .fig--ghost .big { color: var(--muted-ink); }
+.fin .hero-chart { border: 1px solid var(--rule); background: var(--surface-lit); padding: .6rem .6rem .3rem; position: relative; }
+.fin .hero-chart svg { display: block; width: 100%; height: auto; }
+.fin .hero-chart .gain { fill: var(--soft-gain); }
+.fin .hero-chart .loss { fill: var(--soft-loss); }
+.fin .hero-chart .ghostband { fill: var(--ghost-wash); }
+.fin .hero-chart .t { stroke: var(--secondary); stroke-width: 2.2; fill: none; }
+.fin .hero-chart .e { stroke: var(--muted-ink); stroke-width: 1.4; stroke-dasharray: 5 3; fill: none; }
+.fin .hero-chart .e-ghost { stroke: var(--state-unknown); stroke-width: 1.4; stroke-dasharray: 2 3; fill: none; }
+.fin .hero-chart .grid { stroke: var(--rule); }
+.fin .hero-chart .lbl { font: .66rem var(--font-num); fill: var(--muted-ink); }
+.fin .hero-chart .ann { font: .72rem var(--font-body); fill: var(--ink); }
+.fin .stamp { position: absolute; right: .6rem; top: .45rem; transform: rotate(6deg); font-family: var(--font-stamp); font-size: 1.55rem; letter-spacing: .06em; color: var(--state-critical-text); opacity: .7; border: 2px solid currentColor; padding: .05rem .45rem; border-radius: .2rem; pointer-events: none; }
+.fin .hero-chart details { margin-top: .4rem; font-size: .78rem; }
+.fin .hero-chart summary { color: var(--accent-deep); }
+
+.fin .colophon { font-size: .78rem; color: var(--muted-ink); max-width: 72ch; margin: 0; }
+.fin .colophon b { color: var(--ink); }
+.fin .glyphs { display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; margin: .5rem 0 0; padding: 0; list-style: none; font-size: .76rem; color: var(--muted-ink); }
+.fin .glyphs code { font-family: var(--font-num); background: var(--surface-lit); border: 1px solid var(--rule); padding: 0 .3rem; color: var(--ink); }
+.fin .glyphs code.g { background: var(--ghost-wash); }
+
+@media (min-width: 48rem) {
+  .fin .kpi-strip { grid-template-columns: repeat(3, 1fr); }
+  .fin .kpi-strip li:nth-child(9) { grid-column: auto; }
+  .fin .hero-grid { grid-template-columns: minmax(0, 1fr) 20rem; }
+  .fin .cap-grid { grid-template-columns: 17rem minmax(0, 1fr); }
+  .fin .chain { grid-template-columns: repeat(6, 1fr); }
+  .fin .chain li:nth-child(3)::after { display: block; }
+  .fin .figures { grid-template-columns: repeat(4, 1fr); }
+  .fin .creative__q { font-size: 1.85rem; }
+  .fin .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+}
+@media (min-width: 64rem) {
+  .fin .pivot-grid { grid-template-columns: minmax(0, 1fr) 19rem; }
+  .fin .kpi-strip { grid-template-columns: repeat(9, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .fin .chain li, .fin .preset, .fin .xrail button { transition: background-color 150ms ease-out; }
+}
+</style>
+</head>
+<body>
+<div class="fin" id="finance-island" data-mode="classic" data-theme="favor-finance-green">
+
+<nav class="suite-breadcrumbs" data-ux-host-chrome="suite" aria-label="Executive Suite" data-breadcrumbs-bound="true"><ol class="suite-breadcrumbs__trail"><li class="suite-breadcrumbs__item suite-breadcrumbs__item--root"><a href="/assets/demos/exec-overview/" class="suite-breadcrumbs__root-link" draggable="false">Executive Dashboards</a></li><li class="suite-breadcrumbs__divider" aria-hidden="true">/</li><li class="suite-breadcrumbs__item suite-breadcrumbs__item--siblings"><span class="suite-breadcrumbs__peers"><a href="/assets/demos/exec-overview/" class="suite-breadcrumbs__link" data-surface="exec-overview" draggable="false">Overview</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><span class="suite-breadcrumbs__nest"><a href="/assets/demos/people-leaders/" class="suite-breadcrumbs__link" data-surface="pathways" draggable="false">People</a><span class="suite-breadcrumbs__sub" role="group" aria-label="People &amp; Leaders"><a href="/assets/demos/people-leaders/?tab=pathways" class="suite-breadcrumbs__tab" data-tab="pathways" draggable="false"><span class="suite-breadcrumbs__tab-label">Pathways</span><span class="suite-breadcrumbs__tab-question">Who is becoming ready?</span></a><a href="/assets/demos/people-leaders/?tab=leadership" class="suite-breadcrumbs__tab" data-tab="leadership" draggable="false"><span class="suite-breadcrumbs__tab-label">Leadership</span><span class="suite-breadcrumbs__tab-question">Who carries responsibility now?</span></a><a href="/assets/demos/people-leaders/?tab=multiplication" class="suite-breadcrumbs__tab" data-tab="multiplication" draggable="false"><span class="suite-breadcrumbs__tab-label">Multiplication</span><span class="suite-breadcrumbs__tab-question">Who are those leaders building?</span></a></span></span><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/assets/demos/connect/" class="suite-breadcrumbs__link" data-surface="connect-field" draggable="false">Connect</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/assets/demos/grow/" class="suite-breadcrumbs__link" data-surface="grow" draggable="false">Grow</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/assets/demos/finance/" class="suite-breadcrumbs__link is-active" data-surface="finance" aria-current="page" draggable="false">Finance</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/assets/demos/events/" class="suite-breadcrumbs__link" data-surface="events" draggable="false">Events</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/assets/demos/sunday-report/" class="suite-breadcrumbs__link" data-surface="sunday-report" draggable="false">Sunday</a></span></li></ol></nav>
+
+<header class="masthead">
+  <div class="masthead__row">
+    <div class="masthead__id">
+      <p class="breadcrumb">Executive Dashboards › <strong>Finance Pulse</strong> · <span class="badge">Fictional prototype data</span></p>
+      <h1>Finance Pulse</h1>
+      <p class="period">Week ending <span class="num">Sun 30 Aug 2026</span> · Asia/Manila · all campuses</p>
+      <p class="fresh">Source: fictional bundle · generated 2026-09-05 · <a href="#colophon">what the glyphs mean</a></p>
+    </div>
+    <div class="masthead__controls">
+      <button class="ctl ctl--step" aria-label="Previous week">‹</button>
+      <select class="ctl ctl--select" aria-label="Reporting week"><option>w/e 30 Aug 2026</option></select>
+      <button class="ctl ctl--step" aria-label="Next week" disabled>›</button>
+      <select class="ctl ctl--select" aria-label="Campus"><option>All campuses</option></select>
+      <div class="mode-switch" role="group" aria-label="Reading mode"><button aria-pressed="false">Creative</button><button aria-pressed="true">Classic</button></div>
+      <div class="swatch" role="group" aria-label="Palette">
+        <span style="--a:#fef1e8;--b:#f45500" title="Favor Cream"></span>
+        <span style="--a:#0d1620;--b:#ff7a33" title="Favor Dark"></span>
+        <span style="--a:#171926;--b:#8796fc" title="Favor Indigo"></span>
+        <span style="--a:#f5e6d2;--b:#5b3fd6" title="Favor Grow"></span>
+        <span style="--a:#eef3ea;--b:#1c6f4a" title="Favor Finance Green" aria-current="true"></span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- NOW -->
+  <section class="chapter" data-section="now" id="cw-now">
+    <ul class="kpi-strip" aria-label="Key readings">
+      <li class="kpi-tile" data-state="healthy"><div class="kpi-tile__label">Tithes <span class="info" aria-hidden="true">i</span></div><div class="kpi-tile__value"><span class="cur">₱</span>1,284,500</div><span class="kpi-tile__delta">+3.1% vs prior week</span></li>
+      <li class="kpi-tile" data-state="neutral"><div class="kpi-tile__label">Expenses</div><div class="kpi-tile__value"><span class="cur">₱</span>1,146,200</div><span class="kpi-tile__delta">−0.8% vs prior week</span></li>
+      <li class="kpi-tile" data-state="healthy"><div class="kpi-tile__label">Net</div><div class="kpi-tile__value"><span class="cur">₱</span>138,300</div><span class="kpi-tile__delta">surplus, 4th week running</span></li>
+      <li class="kpi-tile" data-state="healthy"><div class="kpi-tile__label">Coverage</div><div class="kpi-tile__value">1.12<span class="kpi-tile__unit">×</span></div><span class="kpi-tile__delta">covering · provisional words</span></li>
+      <li class="kpi-tile kpi-tile--ghost" data-state="unknown"><div class="kpi-tile__label">Bank balance</div><div class="kpi-tile__value" title="Not yet measured"><span class="cur">₱</span>?</div><span class="kpi-tile__delta">not yet wired</span></li>
+      <li class="kpi-tile" data-state="neutral"><div class="kpi-tile__label">Avg weekly tithe</div><div class="kpi-tile__value"><span class="cur">₱</span>1,211,900</div><span class="kpi-tile__delta">13-week mean</span></li>
+      <li class="kpi-tile" data-state="neutral"><div class="kpi-tile__label">3-month avg</div><div class="kpi-tile__value"><span class="cur">₱</span>1,198,400</div><span class="kpi-tile__delta">+2.4% vs prior 3 months</span></li>
+      <li class="kpi-tile" data-state="watch"><div class="kpi-tile__label">Sunday attendance</div><div class="kpi-tile__value">1,480<span class="kpi-tile__unit">people</span></div><span class="kpi-tile__delta">−36 vs prior Sunday</span></li>
+      <li class="kpi-tile" data-state="neutral"><div class="kpi-tile__label">Givers</div><div class="kpi-tile__value">412<span class="kpi-tile__unit">givers</span></div><span class="kpi-tile__delta">27.8% participation</span></li>
+    </ul>
+  </section>
+
+  <!-- HERO -->
+  <section class="cw" data-section="tithes-vs-spending" id="cw-tithes-vs-spending" aria-labelledby="h-hero">
+    <header class="cw__head">
+      <div><h2 class="cw__title" id="h-hero">Tithes vs spending <span class="info" aria-hidden="true">i</span></h2><p class="cw__question">Are we spending more than what is coming in?</p></div>
+      <div class="cw__tools"><div class="xrail" aria-label="Export"><button>.xlsx</button><button>Copy table</button><button disabled title="PNG is not faithful for this widget">PNG</button></div><button class="cw__expand" aria-pressed="false">Expand</button></div>
+    </header>
+    <div class="cw__body">
+      <div class="hero-grid">
+        <table class="ct" data-section="tithes-vs-spending">
+          <caption>Weekly operating ledger, latest 8 of 13 weeks shown. Coverage = tithes ÷ expenses; the ink tick on each bar marks 1.00×. Expenses are not yet wired for the last two weeks, so their derived cells read <code>?</code>.</caption>
+          <thead><tr><th scope="col">Week ending</th><th scope="col" class="ct__num">Tithes</th><th scope="col" class="ct__num">Expenses</th><th scope="col" class="ct__num">Net</th><th scope="col" class="ct__num">Coverage</th><th scope="col" class="ct__bar"><span class="sr">Coverage as a bar</span></th><th scope="col" class="ct__num">3-mo avg</th><th scope="col" class="ct__num">Sunday</th><th scope="col" class="ct__num">Givers</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">30 Aug</th><td class="ct__num">1,284,500</td><td class="ct__num ct__ghost" title="Not yet measured">?</td><td class="ct__num ct__ghost" title="Not yet measured">?</td><td class="ct__num ct__ghost" title="Not yet measured">?</td><td class="ct__bar"><span class="bar"><span class="bar__fill bar__fill--ghost" style="width:60%"></span></span></td><td class="ct__num">1,198,400</td><td class="ct__num">1,480</td><td class="ct__num">412</td></tr>
+            <tr><th scope="row">23 Aug</th><td class="ct__num">1,246,000</td><td class="ct__num ct__ghost" title="Not yet measured">?</td><td class="ct__num ct__ghost" title="Not yet measured">?</td><td class="ct__num ct__ghost" title="Not yet measured">?</td><td class="ct__bar"><span class="bar"><span class="bar__fill bar__fill--ghost" style="width:60%"></span></span></td><td class="ct__num">1,187,100</td><td class="ct__num">1,516</td><td class="ct__num">405</td></tr>
+            <tr><th scope="row">16 Aug</th><td class="ct__num">1,231,800</td><td class="ct__num">1,155,900</td><td class="ct__num">75,900</td><td class="ct__num">1.07×</td><td class="ct__bar"><span class="bar"><span class="bar__fill" style="width:64%"></span><span class="bar__tick" style="left:60%"></span></span></td><td class="ct__num">1,176,300</td><td class="ct__num">1,498</td><td class="ct__num">399</td></tr>
+            <tr><th scope="row">9 Aug</th><td class="ct__num">1,018,400</td><td class="ct__num">1,157,300</td><td class="ct__num">−138,900</td><td class="ct__num">0.88×</td><td class="ct__bar"><span class="bar"><span class="bar__fill bar__fill--short" style="width:53%"></span><span class="bar__tick" style="left:60%"></span></span></td><td class="ct__num">1,171,000</td><td class="ct__num">1,402</td><td class="ct__num">368</td></tr>
+            <tr><th scope="row">2 Aug</th><td class="ct__num">1,202,600</td><td class="ct__num">1,149,800</td><td class="ct__num">52,800</td><td class="ct__num">1.05×</td><td class="ct__bar"><span class="bar"><span class="bar__fill" style="width:63%"></span><span class="bar__tick" style="left:60%"></span></span></td><td class="ct__num">1,168,200</td><td class="ct__num">1,471</td><td class="ct__num">391</td></tr>
+            <tr><th scope="row">26 Jul</th><td class="ct__num">1,190,300</td><td class="ct__num">1,151,400</td><td class="ct__num">38,900</td><td class="ct__num">1.03×</td><td class="ct__bar"><span class="bar"><span class="bar__fill" style="width:62%"></span><span class="bar__tick" style="left:60%"></span></span></td><td class="ct__num">1,160,500</td><td class="ct__num">1,455</td><td class="ct__num">388</td></tr>
+            <tr><th scope="row">19 Jul</th><td class="ct__num">1,309,900</td><td class="ct__num">1,140,600</td><td class="ct__num">169,300</td><td class="ct__num">1.15×</td><td class="ct__bar"><span class="bar"><span class="bar__fill" style="width:69%"></span><span class="bar__tick" style="left:60%"></span></span></td><td class="ct__num">1,151,700</td><td class="ct__num">1,532</td><td class="ct__num">417</td></tr>
+            <tr><th scope="row">12 Jul</th><td class="ct__num">1,144,200</td><td class="ct__num">1,138,200</td><td class="ct__num">6,000</td><td class="ct__num">1.01×</td><td class="ct__bar"><span class="bar"><span class="bar__fill" style="width:60.5%"></span><span class="bar__tick" style="left:60%"></span></span></td><td class="ct__num">1,142,800</td><td class="ct__num">1,446</td><td class="ct__num">379</td></tr>
+          </tbody>
+          <tbody><tr class="ct__total"><th scope="row">13 weeks</th><td class="ct__num">15,754,600</td><td class="ct__num ct__ghost" title="Not yet measured">?</td><td class="ct__num ct__ghost" title="Not yet measured">?</td><td class="ct__num ct__ghost" title="Not yet measured">?</td><td></td><td class="ct__num">—</td><td class="ct__num">1,478</td><td class="ct__num">396</td></tr></tbody>
+        </table>
+        <aside class="aid" aria-label="Tithes versus expenses, 13 weeks">
+          <p class="aid__title">Tithes vs expenses <span class="legend"><span><i></i>Tithes</span><span><i class="dash"></i>Expenses</span></span></p>
+          <svg viewBox="0 0 300 150" role="img" aria-label="Tithes and expenses across 13 weeks; expenses unmeasured for the last two">
+            <rect class="ghostband" x="255" y="10" width="45" height="120"/>
+            <line class="grid" x1="0" y1="130" x2="300" y2="130"/><line class="grid" x1="0" y1="70" x2="300" y2="70"/><line class="grid" x1="0" y1="10" x2="300" y2="10"/>
+            <text class="lbl" x="0" y="8">₱1.4m</text><text class="lbl" x="0" y="68">₱1.2m</text><text class="lbl" x="0" y="128">₱1.0m</text>
+            <polyline class="e" points="0,74 25,73 50,75 75,72 100,73 125,71 150,70 175,72 200,74 225,72 250,71"/>
+            <polyline class="e-ghost" points="250,71 275,71 300,71"/>
+            <polyline class="t" points="0,86 25,68 50,79 75,52 100,84 125,61 150,68 175,67 200,110 225,58 250,55 275,49 300,38"/>
+            <text class="lbl" x="188" y="146">9 Aug 0.88×</text><text class="lbl" x="262" y="146">? ?</text>
+          </svg>
+        </aside>
+      </div>
+    </div>
+    <p class="cw__note">Tithes covered spending <b class="num">1.07×</b> in the latest measured week; coverage dipped below 1.00× in <b class="num">1</b> of 11 measured weeks, the thinnest at w/e 9 Aug (<b class="num">0.88×</b>). <em>Expenses for the last two weeks are not yet wired.</em></p>
+  </section>
+
+  <!-- PIVOT -->
+  <section class="cw cw--expanded" data-section="pivot" id="cw-pivot" aria-labelledby="h-pivot">
+    <header class="cw__head">
+      <div><h2 class="cw__title" id="h-pivot">Finance pivot <span class="info" aria-hidden="true">i</span></h2><p class="cw__question">Pivot the financial reading: same trusted aggregate, a different question.</p></div>
+      <div class="cw__tools"><div class="xrail" aria-label="Export"><button>.xlsx</button><button>Copy table</button><button disabled title="PNG is not faithful for a pivot">PNG</button></div><button class="cw__expand" aria-pressed="true">Collapse</button></div>
+    </header>
+    <div class="cw__body">
+      <div class="pivot-grid">
+        <div>
+          <table class="ct ct--pivot" data-section="pivot">
+            <caption>Funds by quarter, current vs prior quarter. Fund totals are gifts designated to the fund in the period. Legacy did not exist before Q2, so its earlier cells read <code>—</code>. Restricted funds are excluded from operating cash (policy provisional).</caption>
+            <thead><tr><th scope="col">Fund · quarter</th><th scope="col" class="ct__num" aria-sort="descending">Fund total<span class="sort" aria-hidden="true">▲<br>▼</span></th><th scope="col" class="ct__bar"><span class="sr">Fund total as a bar</span></th><th scope="col" class="ct__num">Prior quarter<span class="sort" aria-hidden="true">▲<br>▼</span></th><th scope="col" class="ct__num">Change<span class="sort" aria-hidden="true">▲<br>▼</span></th><th scope="col" class="ct__num">Share of fund gifts</th><th scope="col" class="ct__spark">13 weeks</th></tr></thead>
+            <tbody>
+              <tr class="ct__group"><th scope="rowgroup" colspan="7">Building Fund · restricted</th></tr>
+              <tr><th scope="row">Q3 2026 to date</th><td class="ct__num">612,400</td><td class="ct__bar"><span class="bar"><span class="bar__fill" style="width:78%"></span></span></td><td class="ct__num">548,900</td><td class="ct__num" style="color:var(--move-gain-text)">+11.6%</td><td class="ct__num ct__share">58.4%</td><td class="ct__spark"><svg class="spark" viewBox="0 0 128 24" role="img" aria-label="Building Fund weekly, 13 weeks, 38,000 to 52,000"><line class="base" x1="0" y1="23" x2="128" y2="23"/><polyline class="line" points="0,16 10,14 20,15 30,11 40,13 50,9 60,12 70,8 80,10 90,6 100,9 110,5 120,4"/><circle class="dot" cx="120" cy="4" r="2"/></svg></td></tr>
+              <tr><th scope="row">Q2 2026</th><td class="ct__num">548,900</td><td class="ct__bar"><span class="bar"><span class="bar__fill" style="width:70%"></span></span></td><td class="ct__num">501,200</td><td class="ct__num" style="color:var(--move-gain-text)">+9.5%</td><td class="ct__num ct__share">61.0%</td><td class="ct__spark">—</td></tr>
+              <tr class="ct__sub"><th scope="row">Building, 2026 to date</th><td class="ct__num">1,662,500</td><td class="ct__bar"></td><td class="ct__num">—</td><td class="ct__num">—</td><td class="ct__num ct__share">59.1%</td><td class="ct__spark"></td></tr>
+            </tbody>
+            <tbody>
+              <tr class="ct__group"><th scope="rowgroup" colspan="7">Legacy · restricted</th></tr>
+              <tr><th scope="row">Q3 2026 to date</th><td class="ct__num">241,000</td><td class="ct__bar"><span class="bar"><span class="bar__fill" style="width:31%"></span></span></td><td class="ct__num">189,500</td><td class="ct__num" style="color:var(--move-gain-text)">+27.2%</td><td class="ct__num ct__share">23.0%</td><td class="ct__spark"><svg class="spark" viewBox="0 0 128 24" role="img" aria-label="Legacy weekly, 13 weeks"><line class="base" x1="0" y1="23" x2="128" y2="23"/><polyline class="line" points="0,20 10,19 20,18 30,19 40,16 50,17 60,14 70,15 80,12 90,13 100,11 110,9 120,9"/><circle class="dot" cx="120" cy="9" r="2"/></svg></td></tr>
+              <tr><th scope="row">Q2 2026</th><td class="ct__num">189,500</td><td class="ct__bar"><span class="bar"><span class="bar__fill" style="width:24%"></span></span></td><td class="ct__num ct__unavail" title="Cannot exist: fund did not exist in Q1">—</td><td class="ct__num ct__unavail">—</td><td class="ct__num ct__share">21.1%</td><td class="ct__spark">—</td></tr>
+              <tr class="ct__sub"><th scope="row">Legacy, 2026 to date</th><td class="ct__num">430,500</td><td class="ct__bar"></td><td class="ct__num">—</td><td class="ct__num">—</td><td class="ct__num ct__share">15.3%</td><td class="ct__spark"></td></tr>
+            </tbody>
+            <tbody>
+              <tr class="ct__group"><th scope="rowgroup" colspan="7">Love Offering · unrestricted</th></tr>
+              <tr><th scope="row">Q3 2026 to date</th><td class="ct__num">194,800</td><td class="ct__bar"><span class="bar"><span class="bar__fill" style="width:25%"></span></span></td><td class="ct__num">161,300</td><td class="ct__num" style="color:var(--move-gain-text)">+20.8%</td><td class="ct__num ct__share">18.6%</td><td class="ct__spark"><svg class="spark" viewBox="0 0 128 24" role="img" aria-label="Love Offering weekly, 13 weeks"><line class="base" x1="0" y1="23" x2="128" y2="23"/><polyline class="line" points="0,18 10,12 20,19 30,10 40,20 50,9 60,17 70,8 80,18 90,7 100,16 110,6 120,14"/><circle class="dot" cx="120" cy="14" r="2"/></svg></td></tr>
+              <tr><th scope="row">Q2 2026</th><td class="ct__num">161,300</td><td class="ct__bar"><span class="bar"><span class="bar__fill" style="width:21%"></span></span></td><td class="ct__num">158,900</td><td class="ct__num" style="color:var(--move-gain-text)">+1.5%</td><td class="ct__num ct__share">17.9%</td><td class="ct__spark">—</td></tr>
+              <tr class="ct__sub"><th scope="row">Love Offering, 2026 to date</th><td class="ct__num">515,000</td><td class="ct__bar"></td><td class="ct__num">—</td><td class="ct__num">—</td><td class="ct__num ct__share">18.3%</td><td class="ct__spark"></td></tr>
+            </tbody>
+            <tbody><tr class="ct__total"><th scope="row">All funds, 2026 to date</th><td class="ct__num">2,813,000</td><td></td><td class="ct__num">—</td><td class="ct__num">—</td><td class="ct__num">100%</td><td></td></tr></tbody>
+          </table>
+        </div>
+        <form class="console" aria-labelledby="console-title" onsubmit="return false">
+          <h3 class="console__title" id="console-title">Pivot console <span>closed vocabulary · 6 controls</span></h3>
+          <div class="presets" role="group" aria-label="Presets">
+            <button type="button" class="preset" aria-pressed="false">Weekly ledger</button>
+            <button type="button" class="preset" aria-pressed="false">Sunday count</button>
+            <button type="button" class="preset" aria-pressed="true">Funds by quarter</button>
+            <button type="button" class="preset" aria-pressed="false">Year over year</button>
+            <button type="button" class="preset" aria-pressed="false" disabled title="No event-level readings in this bundle">Events</button>
+          </div>
+          <div class="field"><label for="pv-grain">Grain</label><select class="ctl ctl--select" id="pv-grain"><option>Quarter</option></select></div>
+          <div class="field"><label for="pv-rows">Rows <small>one dimension</small></label><select class="ctl ctl--select" id="pv-rows"><option>Fund</option></select></div>
+          <div class="field"><label for="pv-cols">Columns</label><select class="ctl ctl--select" id="pv-cols"><option>Current vs prior</option></select></div>
+          <div class="field"><label>Measures <small>1 of 6</small></label><div class="chips"><span class="chip">Fund total <b>₱</b></span><span class="chip chip--add">+ add measure</span></div></div>
+          <div class="field"><label for="pv-cmp">Compare</label><select class="ctl ctl--select" id="pv-cmp"><option>Prior period</option></select></div>
+          <div class="field field--off"><label for="pv-slice">Slice <small>0 of 2</small></label><select class="ctl ctl--select" id="pv-slice" disabled><option>Campus</option></select><p class="field__why">Campus is not carried by finance data yet.</p></div>
+          <div class="console__foot"><span>Span: 2026 to date · 13-week sparks</span><span>Share this view</span><code>?pv=quarter.fund.current-vs-prior.fundTotal.prior-period.ytd</code></div>
+        </form>
+      </div>
+    </div>
+    <p class="insight" aria-live="polite">Building Fund carries <b class="num">59.1%</b> of fund gifts this year; Legacy grew fastest quarter on quarter (<b class="num">+27.2%</b>). <em style="color:var(--muted-ink);font-style:normal">Insight computed from the visible rows only.</em></p>
+  </section>
+
+  <!-- CAPACITY -->
+  <section class="cw" data-section="capacity" id="cw-capacity" aria-labelledby="h-cap">
+    <header class="cw__head">
+      <div><h2 class="cw__title" id="h-cap">Capacity bridge and forecast <span class="info" aria-hidden="true">i</span></h2><p class="cw__question">What people and giving growth would fund the next target?</p></div>
+      <div class="cw__tools"><div class="xrail" aria-label="Export"><button>.xlsx</button><button>Copy table</button><button disabled>PNG</button></div><button class="cw__expand" aria-pressed="false">Expand</button></div>
+    </header>
+    <div class="cw__body">
+      <ol class="chain" aria-label="People to giving bridge">
+        <li><small>Sunday attendance</small><span class="num">1,478</span><span class="op">13-week mean</span></li>
+        <li><small>× participation</small><span class="num">26.8%</span><span class="op">givers ÷ attendance</span></li>
+        <li><small>= givers</small><span class="num">396</span><span class="op">per week</span></li>
+        <li class="is-changed"><small>× gift per giver</small><span class="num">₱3,060</span><span class="op">tithes ÷ givers</span></li>
+        <li><small>= expected tithe</small><span class="num">₱1,211,900</span><span class="op">per week</span></li>
+        <li><small>÷ expenses = coverage</small><span class="num">1.05×</span><span class="op">on 13-week avg expense</span></li>
+      </ol>
+      <div class="cap-grid">
+        <div class="inputs">
+          <div class="field"><label for="in-t">Target weekly tithe <span class="val">₱1,400,000</span></label><input type="range" id="in-t" min="1000000" max="2000000" value="1400000"></div>
+          <div class="field"><label for="in-p">Giving participation <span class="val">30.0%</span></label><input type="range" id="in-p" min="10" max="60" value="30"></div>
+          <div class="field"><label for="in-g">Gift per giver <span class="val">₱3,060</span></label><input type="range" id="in-g" min="1000" max="6000" value="3060"></div>
+          <div class="field"><label for="in-a">Projected Sunday attendance <span class="val">1,525</span></label><input type="range" id="in-a" min="1000" max="3000" value="1525"></div>
+          <div class="field"><label for="in-n">Weeks to target <span class="val">26</span></label><input type="range" id="in-n" min="4" max="52" value="26"></div>
+          <p class="assume">Deterministic scenario: tithe ramps linearly from ₱1,211,900 to ₱1,400,000 over 26 weeks at 30.0% participation and ₱3,060 per giver. Not a statistical forecast.</p>
+        </div>
+        <div>
+          <table class="ct" data-section="capacity">
+            <caption>Scenario outputs against the current 13-week baseline. Runway implication reads <code>?</code> until operating cash is wired.</caption>
+            <thead><tr><th scope="col">Output</th><th scope="col" class="ct__num">Scenario</th><th scope="col" class="ct__num">Current</th><th scope="col" class="ct__num">Delta</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Required givers</th><td class="ct__num">458</td><td class="ct__num">396</td><td class="ct__num" style="color:var(--move-gain-text)">+62</td></tr>
+              <tr><th scope="row">Required Sunday attendance</th><td class="ct__num">1,525</td><td class="ct__num">1,478</td><td class="ct__num" style="color:var(--move-gain-text)">+47</td></tr>
+              <tr><th scope="row">Expected weekly tithe</th><td class="ct__num">1,400,000</td><td class="ct__num">1,211,900</td><td class="ct__num" style="color:var(--move-gain-text)">+188,100</td></tr>
+              <tr><th scope="row">Growth multiple</th><td class="ct__num">1.16×</td><td class="ct__num">1.00×</td><td class="ct__num">+0.16×</td></tr>
+              <tr><th scope="row">Expected coverage</th><td class="ct__num">1.22×</td><td class="ct__num">1.05×</td><td class="ct__num">+0.17×</td></tr>
+              <tr><th scope="row">Runway implication</th><td class="ct__num ct__ghost" title="Not yet measured">? weeks</td><td class="ct__num ct__ghost" title="Not yet measured">? weeks</td><td class="ct__num ct__unavail">—</td></tr>
+            </tbody>
+          </table>
+          <div class="cw__aid aid fc" aria-label="Forecast, 13 weeks of actuals and 26 weeks of scenario">
+            <p class="aid__title">Forecast <span class="legend"><span><i></i>Actual</span><span><i class="dash"></i>Baseline</span><span><i style="border-color:var(--accent)"></i>Scenario</span><span><i style="border-top:1px solid var(--ink)"></i>Target</span></span></p>
+            <svg viewBox="0 0 600 150" role="img" aria-label="Actual tithes for 13 weeks, then a flat baseline and a linear scenario ramp to the target over 26 weeks">
+              <line class="grid" x1="0" y1="130" x2="600" y2="130"/><line class="grid" x1="0" y1="70" x2="600" y2="70"/><line class="grid" x1="0" y1="10" x2="600" y2="10"/>
+              <text class="lbl" x="0" y="8">₱1.4m</text><text class="lbl" x="0" y="68">₱1.2m</text><text class="lbl" x="0" y="128">₱1.0m</text>
+              <line class="grid" x1="200" y1="0" x2="200" y2="140" stroke-dasharray="2 3"/><text class="lbl" x="204" y="146">today</text>
+              <polyline class="hist" points="0,86 17,68 33,79 50,52 67,84 83,61 100,68 117,67 133,110 150,58 167,55 183,49 200,38"/>
+              <line class="base" x1="200" y1="66" x2="600" y2="66"/>
+              <line class="scen" x1="200" y1="66" x2="600" y2="10"/>
+              <line class="tgt" x1="0" y1="10" x2="600" y2="10"/><text class="lbl" x="300" y="22">target ₱1.4m</text>
+              <text class="lbl" x="560" y="146">+26 wks</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="cw__note">To fund <b class="num">₱1,400,000</b> a week at 30% participation, Sundays need <b class="num">+47</b> people and <b class="num">+62</b> givers. <em>Seoul's figures are one fictional row of this bundle, not product logic.</em></p>
+  </section>
+
+  <!-- CREATIVE TWIN -->
+  <section class="chapter" aria-labelledby="h-creative">
+    <h2 class="chapter__q" id="h-creative">Creative twin of the hero, same view model</h2>
+    <p class="chapter__lede">Favor Headline asks the question, Favorvetica carries four figures, the gap between the lines is the answer. The stamp is the fictional guard in this mode.</p>
+    <div class="creative" data-section="tithes-vs-spending" data-mode="creative">
+      <h3 class="creative__q">Are we spending more than what is coming in?</h3>
+      <div class="figures">
+        <div class="fig"><small>Tithes this week</small><div class="big"><span class="cur">₱</span>1,284,500</div><span class="sub">+3.1% vs prior week</span></div>
+        <div class="fig"><small>Expenses</small><div class="big"><span class="cur">₱</span>1,146,200</div><span class="sub">−0.8% vs prior week</span></div>
+        <div class="fig fig--net"><small>Net</small><div class="big"><span class="cur">₱</span>138,300</div><span class="sub">surplus, 4th week running</span></div>
+        <div class="fig"><small>Coverage</small><div class="big">1.12×</div><span class="sub">covering · provisional</span></div>
+      </div>
+      <div class="hero-chart">
+        <span class="stamp" aria-hidden="true">FICTIONAL</span>
+        <svg viewBox="0 0 640 210" role="img" aria-label="Tithes and expenses over 13 weeks with the surplus and shortfall between them shaded">
+          <rect class="ghostband" x="540" y="14" width="100" height="166"/>
+          <polygon class="gain" points="0,116 50,92 100,107 150,70 200,113 250,82 300,92 350,90 350,97 300,95 250,96 200,98 150,97 100,101 50,98 0,100"/>
+          <polygon class="loss" points="350,97 400,148 450,78 450,96 400,99 350,97"/>
+          <polygon class="gain" points="450,96 500,74 540,70 540,95 500,97 450,96"/>
+          <line class="grid" x1="0" y1="180" x2="640" y2="180"/><line class="grid" x1="0" y1="97" x2="640" y2="97" stroke-dasharray="2 4"/>
+          <polyline class="e" points="0,100 50,98 100,101 150,97 200,98 250,96 300,95 350,97 400,99 450,96 500,97 540,95"/>
+          <polyline class="e-ghost" points="540,95 590,95 640,95"/>
+          <polyline class="t" points="0,116 50,92 100,107 150,70 200,113 250,82 300,92 350,90 400,148 450,78 500,74 540,70 590,64 640,50"/>
+          <text class="ann" x="392" y="168">w/e 9 Aug · 0.88×</text>
+          <text class="ann" x="548" y="34">expenses ?</text>
+          <text class="lbl" x="0" y="196">12 Jul</text><text class="lbl" x="300" y="196">9 Aug</text><text class="lbl" x="600" y="196">30 Aug</text>
+        </svg>
+        <details><summary>Show the ledger beneath this chart</summary><p style="margin:.4rem 0 0;color:var(--muted-ink)">The same 13-week table as Classic, folded rather than removed.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="colophon" data-section="colophon">
+    <p class="colophon"><b>Fictional prototype data.</b> Sources this page will read: the finance workbook backfill, then Rock Finance contributions (aggregate by week and fund), and Service Attendance (Metric 81). Giver counts are distinct people per week; counts under 5 read <code>&lt;5</code> and their per-giver measures are withheld. Restricted funds are excluded from operating cash until Finance confirms the policy.</p>
+    <ul class="glyphs" aria-label="What the glyphs mean"><li><code>0</code> a real zero</li><li><code>—</code> cannot exist here</li><li><code class="g">?</code> expected, not yet measured</li><li><code>&lt;5</code> withheld small count</li></ul>
+  </section>
+
+</main>
+</div>
+<script>
+  document.querySelector(".suite-breadcrumbs")?.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (!link) return;
+    const surface = link.dataset.surface;
+    const tab = link.dataset.tab;
+    const href = link.getAttribute("href");
+    if (window.parent && window.parent !== window) {
+      if (surface || tab || (href && href.startsWith("/assets/demos/"))) {
+        e.preventDefault();
+        window.parent.postMessage({ type: "reel-navigate", surface, tab, href }, "*");
+      }
+    }
+  });
+</script>
+</body>
+</html>

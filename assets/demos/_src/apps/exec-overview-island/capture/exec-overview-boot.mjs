@@ -111,8 +111,17 @@ function fill(id, value, healthy = false) {
 }
 
 function setPulseCard(prefix, value, footer, fillValue, badgeLabel, badgeState) {
-  const kpi = byId(`pulse-${prefix}-kpi`); if (kpi) { kpi.textContent = value; kpi.classList.remove("skeleton-value"); }
-  const foot = byId(`pulse-${prefix}-foot`); if (foot) foot.textContent = footer;
+  const kpi = byId(`pulse-${prefix}-kpi`);
+  if (kpi) {
+    kpi.classList.remove("skeleton-value");
+    kpi.classList.add("is-redacted");
+    kpi.textContent = "••••";
+    kpi.setAttribute("aria-label", "Redacted value");
+  }
+  const foot = byId(`pulse-${prefix}-foot`);
+  if (foot) {
+    foot.textContent = footer.replace(/\b[0-9]{1,3}(,[0-9]{3})+\b/g, "••••").replace(/\b[0-9]+(\.[0-9]+)?%\b/g, "••%");
+  }
   fill(`pulse-${prefix}-fill`, fillValue, badgeState === "healthy");
   badge(`pulse-${prefix}-badge`, badgeLabel, badgeState);
 }
@@ -230,8 +239,8 @@ function comboRow(className, name, swatch, fillColor, fillPct, count, pct, seman
   }
   const track=document.createElement("div");track.className="combo-row__track";
   if(fillColor!==null){const fill=document.createElement("span");fill.className="combo-row__fill";fill.style.background=fillColor;fill.style.width=`${fillPct}%`;track.appendChild(fill);}
-  const countCell=document.createElement("span");countCell.className="combo-row__count";countCell.textContent=count;
-  const pctCell=document.createElement("strong");pctCell.className="combo-row__pct";pctCell.textContent=pct;
+  const countCell=document.createElement("span");countCell.className="combo-row__count is-redacted";countCell.textContent="••••";countCell.setAttribute("aria-label","Redacted count");
+  const pctCell=document.createElement("strong");pctCell.className="combo-row__pct is-redacted";pctCell.textContent="••%";pctCell.setAttribute("aria-label","Redacted percentage");
   if(href){
     const arrow=document.createElement("span");arrow.className="combo-row__arrow";arrow.setAttribute("aria-hidden","true");arrow.textContent="↗";
     row.append(label,track,countCell,pctCell,arrow);
@@ -269,7 +278,7 @@ function renderBars(containerId, items, dimensionKind = null, labelOf = null) {
 // `items` (e.g. filtering to one age band leaves a one-item list), so the item that
 // lands at a given index is not always the category that circle was drawn for. Set
 // stroke from the item's own semantic color every render instead of trusting position.
-function updateDonut(ids,items,dimensionKind=null,labelOf=null){let used=0;ids.forEach((id,index)=>{const node=byId(id);if(!node)return;const item=items[index];const pct=item?.pct||0;const dash=pct/100*CIRCUMFERENCE;node.style.strokeDasharray=`${dash} ${CIRCUMFERENCE}`;node.style.strokeDashoffset=`${-(used/100)*CIRCUMFERENCE}`;if(item){node.style.stroke=item.color;const displayName=labelOf?labelOf(item.name):String(item.name);const href=directoryHref(dimensionKind,item);node.dataset.tipLabel=displayName;node.dataset.tipValue=format(item.count);node.dataset.tipUnit="people";node.dataset.tipCompare=href?`${pct.toFixed(1)}% · Click to open in Directory ↗`:`${pct.toFixed(1)}%`;node.setAttribute("aria-label",`${displayName}: ${format(item.count)} people (${pct.toFixed(1)}%)`);node.style.pointerEvents="auto";node.tabIndex=0;if(href){node.onclick=()=>window.open(href,"_blank","noopener,noreferrer");node.style.cursor="pointer";}else{node.onclick=null;node.style.cursor="default";}}used+=pct;});}
+function updateDonut(ids,items,dimensionKind=null,labelOf=null){let used=0;ids.forEach((id,index)=>{const node=byId(id);if(!node)return;const item=items[index];const pct=item?.pct||0;const dash=pct/100*CIRCUMFERENCE;node.style.strokeDasharray=`${dash} ${CIRCUMFERENCE}`;node.style.strokeDashoffset=`${-(used/100)*CIRCUMFERENCE}`;if(item){node.style.stroke=item.color;const displayName=labelOf?labelOf(item.name):String(item.name);const href=directoryHref(dimensionKind,item);node.dataset.tipLabel=displayName;node.dataset.tipValue="••••";node.dataset.tipUnit="people";node.dataset.tipCompare=href?`Click to open in Directory ↗`:"";node.setAttribute("aria-label",`${displayName}: Redacted`);node.style.pointerEvents="auto";node.tabIndex=0;if(href){node.onclick=()=>window.open(href,"_blank","noopener,noreferrer");node.style.cursor="pointer";}else{node.onclick=null;node.style.cursor="default";}}used+=pct;});}
 
 /* The demographic atlas, computed once. Creative draws donuts and bar rows from these items;
  * Classic pivots the same items and the same shares. `campuses` deliberately ignores the campus
@@ -300,18 +309,18 @@ function renderAtlas() {
   const model = atlasModel();
   const {total, campusTotal, available, connection, ages, genders} = model;
   const campusItems = model.campuses;
-  for(const id of ["atlas-hero-kpi","donut-conn-total","donut-age-total","donut-gen-total"]){const node=byId(id);if(node)node.textContent=available?format(total):"—";}
+  for(const id of ["atlas-hero-kpi","donut-conn-total","donut-age-total","donut-gen-total"]){const node=byId(id);if(node){node.classList.add("is-redacted");node.textContent=available?"••••":"—";node.setAttribute("aria-label","Redacted total");}}
   const stamp=byId("atlas-hero-stamp");if(stamp)stamp.textContent=`Counted Church Base (${CAMPUS_LABELS[currentCampus]})`;
   const lead=byId("atlas-hero-lead");if(lead)lead.textContent="Active, living, non-system person records.";
   renderBars("conn-bars-container",connection,"connection"); updateDonut(["donut-conn-crowd","donut-conn-core","donut-conn-new","donut-conn-leader"],connection,"connection");
   renderBars("age-bars-container",ages,"age",(name)=>ageLabel(name));updateDonut(["donut-age-1","donut-age-2","donut-age-3","donut-age-4","donut-age-5","donut-age-6"],ages,"age",(name)=>ageLabel(name));
   renderBars("gender-bars-container",genders,"gender");updateDonut(["donut-gen-women","donut-gen-men","donut-gen-unk"],genders,"gender");
-  renderBars("camp-bars-container",campusItems,"campus");updateDonut(["donut-camp-mnl","donut-camp-bne","donut-camp-sel","donut-camp-unassigned"],campusItems,"campus");if(byId("donut-camp-total"))byId("donut-camp-total").textContent=available?format(campusTotal):"—";
-  if(byId("conn-foot-summary"))byId("conn-foot-summary").textContent=available?`${coreCrowdShare(connection).toFixed(1)}% in Core or Crowd · Target: 15-35-35-15`:"Unavailable";
-  const young=youngAdultShare(ages);const unknown=unknownAgeShare(ages);if(byId("age-foot-summary"))byId("age-foot-summary").textContent=available?`${young.toFixed(1)}% Young Adults (18–25)`:"Unavailable";if(byId("age-foot-unknown"))byId("age-foot-unknown").textContent=available?`${unknown.toFixed(1)}% unrecorded age`:"Unavailable";
-  const women=genders.find((item)=>item.name==="Women")?.pct||0,men=genders.find((item)=>item.name==="Men")?.pct||0;if(byId("gender-foot-summary"))byId("gender-foot-summary").textContent=available?`${women.toFixed(1)}% Women · ${men.toFixed(1)}% Men`:"Unavailable";if(byId("camp-foot-summary"))byId("camp-foot-summary").textContent=available?`${activeCampusCount(campusItems)} active campuses`:"Unavailable";if(byId("camp-foot-scope"))byId("camp-foot-scope").textContent=CAMPUS_LABELS[currentCampus];
+  renderBars("camp-bars-container",campusItems,"campus");updateDonut(["donut-camp-mnl","donut-camp-bne","donut-camp-sel","donut-camp-unassigned"],campusItems,"campus");if(byId("donut-camp-total")){const ct=byId("donut-camp-total");ct.classList.add("is-redacted");ct.textContent=available?"••••":"—";ct.setAttribute("aria-label","Redacted total");}
+  if(byId("conn-foot-summary"))byId("conn-foot-summary").textContent=available?"Core or Crowd · Target: 15-35-35-15":"Unavailable";
+  if(byId("age-foot-summary"))byId("age-foot-summary").textContent=available?"Young Adults (18–25)":"Unavailable";if(byId("age-foot-unknown"))byId("age-foot-unknown").textContent=available?"Unrecorded age":"Unavailable";
+  if(byId("gender-foot-summary"))byId("gender-foot-summary").textContent=available?"Women · Men profile":"Unavailable";if(byId("camp-foot-summary"))byId("camp-foot-summary").textContent=available?`${activeCampusCount(campusItems)} active campuses`:"Unavailable";if(byId("camp-foot-scope"))byId("camp-foot-scope").textContent=CAMPUS_LABELS[currentCampus];
   renderSidebarAges(model.sidebarLocalRows,model.sidebarGlobalRows,sum(model.sidebarLocalRows,"uniquePeople")||0);
-  const campusAllRows=model.allDemographics.filter((row)=>campusMatches(row));const allTotal=sum(campusAllRows,"uniquePeople")||0;const allGender=aggregate(campusAllRows,"gender");const womenCount=allGender.get("Women")||0,menCount=allGender.get("Men")||0;if(byId("btn-gen-all-tag"))byId("btn-gen-all-tag").textContent=allTotal?format(allTotal):"—";if(byId("btn-gen-women-tag"))byId("btn-gen-women-tag").textContent=allTotal?`${percent(womenCount,allTotal).toFixed(1)}%`:"—";if(byId("btn-gen-men-tag"))byId("btn-gen-men-tag").textContent=allTotal?`${percent(menCount,allTotal).toFixed(1)}%`:"—";fill("btn-gen-women-fill",percent(womenCount,allTotal));fill("btn-gen-men-fill",percent(menCount,allTotal));
+  const campusAllRows=model.allDemographics.filter((row)=>campusMatches(row));const allTotal=sum(campusAllRows,"uniquePeople")||0;const allGender=aggregate(campusAllRows,"gender");const womenCount=allGender.get("Women")||0,menCount=allGender.get("Men")||0;if(byId("btn-gen-all-tag")){const bg=byId("btn-gen-all-tag");bg.classList.add("is-redacted");bg.textContent="••••";}if(byId("btn-gen-women-tag")){const bgw=byId("btn-gen-women-tag");bgw.classList.add("is-redacted");bgw.textContent="••%";}if(byId("btn-gen-men-tag")){const bgm=byId("btn-gen-men-tag");bgm.classList.add("is-redacted");bgm.textContent="••%";}fill("btn-gen-women-fill",percent(womenCount,allTotal));fill("btn-gen-men-fill",percent(menCount,allTotal));
   const directoryCta=byId("pulse-coverage-cta");if(directoryCta){const params=new URLSearchParams({connection:"Leader"});if(currentCampus!=="ALL")params.set("campus",currentCampus);directoryCta.href=`/people/directory?${params}`;}
 }
 
@@ -322,7 +331,7 @@ function youngAdultShare(ages) { return ages.find((item)=>item.name==="youngAdul
 function unknownAgeShare(ages) { return ages.find((item)=>item.name==="unknown")?.pct||0; }
 function activeCampusCount(campusItems) { return campusItems.filter((item)=>!item.unknown&&item.count>0).length; }
 
-function renderSidebarAges(rows,globalRows,total){const local=aggregate(rows,"ageBand"),global=aggregate(globalRows,"ageBand"),globalTotal=sum(globalRows,"uniquePeople")||0;const tbody=byId("sidebar-age-tbody");if(!tbody)return;tbody.innerHTML=AGES.map((age)=>{const share=percent(local.get(age)||0,total),baseline=percent(global.get(age)||0,globalTotal),ratio=share!==null&&baseline?share/baseline:null;return `<tr data-age="${age}" class="${selectedAges.has(age)?'is-selected':''}" aria-pressed="${selectedAges.has(age)}"><td><span class="swatch-dot" style="background:${AGE_COLORS[age]}"></span>${ageLabel(age)}</td><td>${share===null?'—':share.toFixed(1)+'%'}</td><td><span class="ratio-idx ${ratio!==null&&ratio>=1?'over':'under'}">${ratio===null?'—':ratio.toFixed(2)+'×'}</span></td></tr>`}).join('');tbody.querySelectorAll('tr').forEach((row)=>row.addEventListener('click',()=>{const age=row.dataset.age;if(selectedAges.has(age))selectedAges.delete(age);else selectedAges.add(age);writeUrl();renderAll()}));}
+function renderSidebarAges(rows,globalRows,total){const tbody=byId("sidebar-age-tbody");if(!tbody)return;tbody.innerHTML=AGES.map((age)=>{return `<tr data-age="${age}" class="${selectedAges.has(age)?'is-selected':''}" aria-pressed="${selectedAges.has(age)}"><td><span class="swatch-dot" style="background:${AGE_COLORS[age]}"></span>${ageLabel(age)}</td><td><span class="is-redacted" style="display:inline-block;width:2.4rem;height:0.75em;"></span></td><td><span class="ratio-idx over"><span class="is-redacted" style="display:inline-block;width:1.8rem;height:0.75em;"></span></span></td></tr>`}).join('');tbody.querySelectorAll('tr').forEach((row)=>row.addEventListener('click',()=>{const age=row.dataset.age;if(selectedAges.has(age))selectedAges.delete(age);else selectedAges.add(age);writeUrl();renderAll()}));}
 
 /* ------------------------------------------------------------------ Classic mode (#217) --
  *

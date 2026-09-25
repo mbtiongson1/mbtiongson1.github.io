@@ -10,8 +10,8 @@
      http.server sends no cache headers, so Chrome caches the sheet heuristically and a
      design iteration silently renders the previous one; this harness exists to show the
      working tree. Dev-only -- production pins assets by manifest assetVersion instead. -->
-<script>document.write('<link rel="stylesheet" href="./capture/connect-field.css?dev=' + Date.now() + '">');</script>
-<script>document.write('<link rel="stylesheet" href="./capture/maplibre-gl.css?dev=' + Date.now() + '">');</script>
+<link rel="stylesheet" href="./capture/connect-field.css">
+<link rel="stylesheet" href="./capture/maplibre-gl.css">
 <script src="./capture/maplibre-gl.js"></script>
 <style>
   html, body { margin: 0; background: #0f111c; color: #f4efe6; font-family: FavorSans, Arial, sans-serif; }
