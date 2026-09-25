@@ -1,0 +1,127 @@
+/* Shared Executive Suite wayfinding. One quiet, full-width bar within the Rock content
+   column. Do not use 100vw here: Rock's fixed navigation rail owns the viewport edge,
+   and a viewport-width breakout would slide underneath it. */
+.suite-breadcrumbs {
+  box-sizing: border-box;
+  width: auto;
+  margin-left: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 2.4rem)));
+  margin-right: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 2.4rem)));
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: .55rem clamp(1.1rem, 2.5vw, 2.4rem);
+  background:
+    repeating-linear-gradient(135deg, color-mix(in srgb, var(--ink) 5%, transparent) 0 1px, transparent 1px 9px),
+    var(--surface-sunken);
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted-ink);
+  font-family: var(--font-mono, "SF Mono", Monaco, Consolas, monospace);
+  font-size: clamp(.62rem, .58rem + .12vw, .72rem);
+  letter-spacing: .08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.suite-breadcrumbs__trail { display: flex; flex-wrap: nowrap; align-items: baseline; gap: .25rem .35rem; margin: 0; padding: 0; list-style: none; max-width: 100%; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; touch-action: pan-x; -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 1.5rem), transparent 100%); mask-image: linear-gradient(90deg, #000 calc(100% - 1.5rem), transparent 100%); }
+.suite-breadcrumbs__trail::-webkit-scrollbar { display: none; }
+.suite-breadcrumbs[data-draggable="true"] .suite-breadcrumbs__trail,
+.suite-breadcrumbs__trail.is-draggable { cursor: grab; }
+.suite-breadcrumbs[data-dragging="true"] .suite-breadcrumbs__trail,
+.suite-breadcrumbs__trail.is-dragging { cursor: grabbing; user-select: none; -webkit-user-select: none; scroll-behavior: auto; }
+.suite-breadcrumbs[data-dragging="true"] .suite-breadcrumbs__link,
+.suite-breadcrumbs__trail.is-dragging .suite-breadcrumbs__link { pointer-events: none; }
+.suite-breadcrumbs__trail::after {
+  content: "";
+  flex: 1 1 0%;
+  min-width: .75rem;
+  align-self: stretch;
+  margin-left: .15rem;
+  background: linear-gradient(90deg, var(--rule), transparent 55%);
+  opacity: .55;
+  pointer-events: none;
+}
+.suite-breadcrumbs__item { display: inline-flex; align-items: baseline; min-width: 0; flex: 0 0 auto; }
+.suite-breadcrumbs__item--root { flex-shrink: 0; }
+.suite-breadcrumbs__peers { display: inline-flex; flex-wrap: nowrap; align-items: baseline; gap: .25rem .35rem; }
+.suite-breadcrumbs__root-link, .suite-breadcrumbs__link { color: var(--ink); text-decoration: none; transition: color 120ms ease; white-space: nowrap; }
+.suite-breadcrumbs__prefix { color: var(--muted-ink); font-weight: 400; }
+.suite-breadcrumbs__link { color: var(--muted-ink); padding: 4px 6px; margin: -4px -2px; }
+.suite-breadcrumbs__root-link:hover, .suite-breadcrumbs__link:hover { color: var(--accent); }
+.suite-breadcrumbs__link.is-active { color: var(--ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: .3em; }
+.suite-breadcrumbs__divider, .suite-breadcrumbs__sep { color: var(--rule); user-select: none; flex-shrink: 0; }
+.suite-breadcrumbs__root-link:focus-visible, .suite-breadcrumbs__link:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: 2px; border-radius: 2px; }
+@media (max-width: 768px) {
+  .suite-breadcrumbs {
+    margin-left: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 1.25rem)));
+    margin-right: calc(-1 * var(--suite-breadcrumbs-bleed, clamp(1rem, 2.5vw, 1.25rem)));
+    margin-top: 0;
+    margin-bottom: .85rem;
+    width: auto;
+    max-width: none;
+    padding: .5rem 1rem;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .suite-breadcrumbs__root-link, .suite-breadcrumbs__link { transition: none; }
+}
+
+/* ------------------------------------------------------------------ nested surfaces (#600)
+   One surface in the suite is three dashboards behind one masthead, and the trail shows it:
+   hovering or tabbing into People reveals the three. Pointer only, and CSS only. A coarse
+   pointer has no hover and a tap on the parent is a navigation, so touch readers reach the
+   three from the page's own lens bar instead of from a menu that opens under their thumb. */
+.suite-breadcrumbs__nest { position: relative; display: inline-block; }
+.suite-breadcrumbs__nest.is-open .suite-breadcrumbs__sub,
+.suite-breadcrumbs__nest[aria-expanded="true"] .suite-breadcrumbs__sub {
+  display: block;
+}
+/* THE TRAIL CLIPS, so it has to stop while the menu is open. `.suite-breadcrumbs__trail` is a
+   horizontally scrolling rail with a fade mask, and a mask clips a child absolutely positioned
+   outside it just as overflow does: the menu rendered at the right coordinates and was invisible
+   on every real page. While a nest is open the rail drops both, which is safe because the reveal
+   is pointer-only and the rail only scrolls when it is too narrow for the pointer case. */
+.suite-breadcrumbs__trail.has-open-nest,
+.suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest.is-open),
+.suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest[aria-expanded="true"]),
+.suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest:hover),
+.suite-breadcrumbs__trail:has(.suite-breadcrumbs__nest:focus-within) {
+  overflow: visible;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.suite-breadcrumbs__sub {
+  position: absolute;
+  top: 100%;
+  left: -.35rem;
+  z-index: 40;
+  display: none;
+  min-width: 15rem;
+  max-width: calc(100vw - 1rem);
+  box-sizing: border-box;
+  margin-top: .4rem;
+  padding: .3rem;
+  background: var(--surface-raised, var(--surface, #fff));
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--shadow-ink, #121411) 22%, transparent);
+}
+/* The gap between the link and the menu is bridged, so a pointer travelling down does not
+   cross dead space and close the thing it is aiming at. */
+.suite-breadcrumbs__sub::before { content: ""; position: absolute; inset: -.5rem 0 100%; }
+@media (hover: hover) and (pointer: fine) {
+  .suite-breadcrumbs__nest:hover .suite-breadcrumbs__sub,
+  .suite-breadcrumbs__nest:focus-within .suite-breadcrumbs__sub { display: block; }
+}
+.suite-breadcrumbs__tab {
+  display: block;
+  padding: .4rem .55rem;
+  border-radius: 6px;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.suite-breadcrumbs__tab:hover { background: var(--hover-wash, color-mix(in srgb, var(--accent) 10%, transparent)); }
+.suite-breadcrumbs__tab:focus-visible { outline: 2px solid var(--focus, #005eb8); outline-offset: -2px; }
+.suite-breadcrumbs__tab-label { display: block; font-weight: 700; font-size: .82rem; }
+.suite-breadcrumbs__tab-question { display: block; font-size: .72rem; color: var(--muted-ink); }

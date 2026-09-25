@@ -1,0 +1,740 @@
+{
+  "schemaVersion": 1,
+  "dashboardId": "favor-exec-grow",
+  "mode": "fictional",
+  "campus": "MNL",
+  "responses": {
+    "grow-session-attendance": {
+      "status": "ok",
+      "queryId": "grow-session-attendance",
+      "rows": [
+        {
+          "groupRef": 32478,
+          "occurrenceDate": "2026-03-03",
+          "sessionIndex": 1,
+          "attended": 86,
+          "people": 84,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32478,
+          "occurrenceDate": "2026-03-10",
+          "sessionIndex": 2,
+          "attended": 85,
+          "people": 83,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32478,
+          "occurrenceDate": "2026-03-17",
+          "sessionIndex": 3,
+          "attended": 83,
+          "people": 82,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32478,
+          "occurrenceDate": "2026-03-24",
+          "sessionIndex": 4,
+          "attended": 81,
+          "people": 79,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32478,
+          "occurrenceDate": "2026-03-31",
+          "sessionIndex": 5,
+          "attended": 79,
+          "people": 77,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32479,
+          "occurrenceDate": "2026-04-07",
+          "sessionIndex": 1,
+          "attended": 96,
+          "people": 96,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32479,
+          "occurrenceDate": "2026-04-14",
+          "sessionIndex": 2,
+          "attended": 96,
+          "people": 96,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32479,
+          "occurrenceDate": "2026-04-21",
+          "sessionIndex": 3,
+          "attended": 95,
+          "people": 93,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32479,
+          "occurrenceDate": "2026-04-28",
+          "sessionIndex": 4,
+          "attended": 51,
+          "people": 49,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 42383,
+          "occurrenceDate": "2026-05-05",
+          "sessionIndex": 1,
+          "attended": 119,
+          "people": 118,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 42383,
+          "occurrenceDate": "2026-05-12",
+          "sessionIndex": 2,
+          "attended": 63,
+          "people": 62,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 42383,
+          "occurrenceDate": "2026-05-19",
+          "sessionIndex": 3,
+          "attended": 58,
+          "people": 58,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32475,
+          "occurrenceDate": "2026-06-02",
+          "sessionIndex": 1,
+          "attended": 64,
+          "people": 63,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32475,
+          "occurrenceDate": "2026-06-09",
+          "sessionIndex": 2,
+          "attended": 58,
+          "people": 56,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32477,
+          "occurrenceDate": "2026-06-13",
+          "sessionIndex": 1,
+          "attended": 74,
+          "people": 74,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32477,
+          "occurrenceDate": "2026-06-20",
+          "sessionIndex": 2,
+          "attended": 62,
+          "people": 60,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32480,
+          "occurrenceDate": "2026-08-25",
+          "sessionIndex": 1,
+          "attended": 42,
+          "people": 41,
+          "didNotOccur": 0
+        },
+        {
+          "groupRef": 32480,
+          "occurrenceDate": "2026-09-01",
+          "sessionIndex": 2,
+          "attended": 40,
+          "people": 40,
+          "didNotOccur": 0
+        }
+      ]
+    },
+    "grow-session-continuity": {
+      "status": "ok",
+      "queryId": "grow-session-continuity",
+      "rows": [
+        {
+          "groupRef": 32478,
+          "sessionIndex": 1,
+          "attended": 84,
+          "returnedFromPrevious": 84,
+          "newOrReentry": null,
+          "droppedSincePrevious": null,
+          "perfectThroughSession": null,
+          "uniqueReachToDate": null
+        },
+        {
+          "groupRef": 32478,
+          "sessionIndex": 2,
+          "attended": 83,
+          "returnedFromPrevious": 79,
+          "newOrReentry": 4,
+          "droppedSincePrevious": 5,
+          "perfectThroughSession": 79,
+          "uniqueReachToDate": 88
+        },
+        {
+          "groupRef": 32478,
+          "sessionIndex": 3,
+          "attended": 82,
+          "returnedFromPrevious": 79,
+          "newOrReentry": 3,
+          "droppedSincePrevious": 4,
+          "perfectThroughSession": 75,
+          "uniqueReachToDate": 90
+        },
+        {
+          "groupRef": 32478,
+          "sessionIndex": 4,
+          "attended": 79,
+          "returnedFromPrevious": 77,
+          "newOrReentry": 2,
+          "droppedSincePrevious": 5,
+          "perfectThroughSession": 70,
+          "uniqueReachToDate": 91
+        },
+        {
+          "groupRef": 32478,
+          "sessionIndex": 5,
+          "attended": 77,
+          "returnedFromPrevious": 75,
+          "newOrReentry": 2,
+          "droppedSincePrevious": 4,
+          "perfectThroughSession": 66,
+          "uniqueReachToDate": 92
+        },
+        {
+          "groupRef": 32479,
+          "sessionIndex": 1,
+          "attended": 96,
+          "returnedFromPrevious": 96,
+          "newOrReentry": null,
+          "droppedSincePrevious": null,
+          "perfectThroughSession": null,
+          "uniqueReachToDate": null
+        },
+        {
+          "groupRef": 32479,
+          "sessionIndex": 2,
+          "attended": 96,
+          "returnedFromPrevious": 91,
+          "newOrReentry": 5,
+          "droppedSincePrevious": 5,
+          "perfectThroughSession": 91,
+          "uniqueReachToDate": 101
+        },
+        {
+          "groupRef": 32479,
+          "sessionIndex": 3,
+          "attended": 93,
+          "returnedFromPrevious": 90,
+          "newOrReentry": 3,
+          "droppedSincePrevious": 6,
+          "perfectThroughSession": 87,
+          "uniqueReachToDate": 103
+        },
+        {
+          "groupRef": 32479,
+          "sessionIndex": 4,
+          "attended": 49,
+          "returnedFromPrevious": 47,
+          "newOrReentry": 2,
+          "droppedSincePrevious": 46,
+          "perfectThroughSession": 43,
+          "uniqueReachToDate": 104
+        },
+        {
+          "groupRef": 42383,
+          "sessionIndex": 1,
+          "attended": 118,
+          "returnedFromPrevious": 118,
+          "newOrReentry": null,
+          "droppedSincePrevious": null,
+          "perfectThroughSession": null,
+          "uniqueReachToDate": null
+        },
+        {
+          "groupRef": 42383,
+          "sessionIndex": 2,
+          "attended": 62,
+          "returnedFromPrevious": 58,
+          "newOrReentry": 4,
+          "droppedSincePrevious": 60,
+          "perfectThroughSession": 58,
+          "uniqueReachToDate": 122
+        },
+        {
+          "groupRef": 42383,
+          "sessionIndex": 3,
+          "attended": 58,
+          "returnedFromPrevious": 55,
+          "newOrReentry": 3,
+          "droppedSincePrevious": 7,
+          "perfectThroughSession": 51,
+          "uniqueReachToDate": 124
+        },
+        {
+          "groupRef": 32475,
+          "sessionIndex": 1,
+          "attended": 63,
+          "returnedFromPrevious": 63,
+          "newOrReentry": null,
+          "droppedSincePrevious": null,
+          "perfectThroughSession": null,
+          "uniqueReachToDate": null
+        },
+        {
+          "groupRef": 32475,
+          "sessionIndex": 2,
+          "attended": 56,
+          "returnedFromPrevious": 54,
+          "newOrReentry": 2,
+          "droppedSincePrevious": 9,
+          "perfectThroughSession": 54,
+          "uniqueReachToDate": 65
+        },
+        {
+          "groupRef": 32477,
+          "sessionIndex": 1,
+          "attended": 74,
+          "returnedFromPrevious": 74,
+          "newOrReentry": null,
+          "droppedSincePrevious": null,
+          "perfectThroughSession": null,
+          "uniqueReachToDate": null
+        },
+        {
+          "groupRef": 32477,
+          "sessionIndex": 2,
+          "attended": 60,
+          "returnedFromPrevious": 57,
+          "newOrReentry": 3,
+          "droppedSincePrevious": 17,
+          "perfectThroughSession": 57,
+          "uniqueReachToDate": 77
+        },
+        {
+          "groupRef": 32480,
+          "sessionIndex": 1,
+          "attended": 41,
+          "returnedFromPrevious": 41,
+          "newOrReentry": null,
+          "droppedSincePrevious": null,
+          "perfectThroughSession": null,
+          "uniqueReachToDate": null
+        },
+        {
+          "groupRef": 32480,
+          "sessionIndex": 2,
+          "attended": 40,
+          "returnedFromPrevious": 38,
+          "newOrReentry": 2,
+          "droppedSincePrevious": 3,
+          "perfectThroughSession": 38,
+          "uniqueReachToDate": 43
+        }
+      ]
+    },
+    "grow-completion-tiers": {
+      "status": "ok",
+      "queryId": "grow-completion-tiers",
+      "rows": [
+        {
+          "groupRef": 32478,
+          "sessionsAttended": 1,
+          "people": 4,
+          "sessionsHeld": 5,
+          "uniqueReach": 92
+        },
+        {
+          "groupRef": 32478,
+          "sessionsAttended": 2,
+          "people": 5,
+          "sessionsHeld": 5,
+          "uniqueReach": 92
+        },
+        {
+          "groupRef": 32478,
+          "sessionsAttended": 3,
+          "people": 7,
+          "sessionsHeld": 5,
+          "uniqueReach": 92
+        },
+        {
+          "groupRef": 32478,
+          "sessionsAttended": 4,
+          "people": 10,
+          "sessionsHeld": 5,
+          "uniqueReach": 92
+        },
+        {
+          "groupRef": 32478,
+          "sessionsAttended": 5,
+          "people": 66,
+          "sessionsHeld": 5,
+          "uniqueReach": 92
+        },
+        {
+          "groupRef": 32479,
+          "sessionsAttended": 1,
+          "people": 7,
+          "sessionsHeld": 4,
+          "uniqueReach": 104
+        },
+        {
+          "groupRef": 32479,
+          "sessionsAttended": 2,
+          "people": 7,
+          "sessionsHeld": 4,
+          "uniqueReach": 104
+        },
+        {
+          "groupRef": 32479,
+          "sessionsAttended": 3,
+          "people": 47,
+          "sessionsHeld": 4,
+          "uniqueReach": 104
+        },
+        {
+          "groupRef": 32479,
+          "sessionsAttended": 4,
+          "people": 43,
+          "sessionsHeld": 4,
+          "uniqueReach": 104
+        },
+        {
+          "groupRef": 42383,
+          "sessionsAttended": 1,
+          "people": 61,
+          "sessionsHeld": 3,
+          "uniqueReach": 124
+        },
+        {
+          "groupRef": 42383,
+          "sessionsAttended": 2,
+          "people": 12,
+          "sessionsHeld": 3,
+          "uniqueReach": 124
+        },
+        {
+          "groupRef": 42383,
+          "sessionsAttended": 3,
+          "people": 51,
+          "sessionsHeld": 3,
+          "uniqueReach": 124
+        },
+        {
+          "groupRef": 32475,
+          "sessionsAttended": 1,
+          "people": 11,
+          "sessionsHeld": 2,
+          "uniqueReach": 65
+        },
+        {
+          "groupRef": 32475,
+          "sessionsAttended": 2,
+          "people": 54,
+          "sessionsHeld": 2,
+          "uniqueReach": 65
+        },
+        {
+          "groupRef": 32477,
+          "sessionsAttended": 1,
+          "people": 20,
+          "sessionsHeld": 2,
+          "uniqueReach": 77
+        },
+        {
+          "groupRef": 32477,
+          "sessionsAttended": 2,
+          "people": 57,
+          "sessionsHeld": 2,
+          "uniqueReach": 77
+        },
+        {
+          "groupRef": 32480,
+          "sessionsAttended": 1,
+          "people": 5,
+          "sessionsHeld": 2,
+          "uniqueReach": 43
+        },
+        {
+          "groupRef": 32480,
+          "sessionsAttended": 2,
+          "people": 38,
+          "sessionsHeld": 2,
+          "uniqueReach": 43
+        }
+      ]
+    },
+    "grow-core-pipeline": {
+      "status": "ok",
+      "queryId": "grow-core-pipeline",
+      "rows": [
+        {
+          "opportunityId": 8,
+          "statusId": 3,
+          "connectionState": 0,
+          "opportunityName": "Build",
+          "statusOrder": 0,
+          "requests": 37,
+          "oldestCreated": "2026-02-11",
+          "newestModified": "2026-09-04"
+        },
+        {
+          "opportunityId": 8,
+          "statusId": 20,
+          "connectionState": 0,
+          "opportunityName": "Build",
+          "statusOrder": 2,
+          "requests": 12,
+          "oldestCreated": "2026-03-02",
+          "newestModified": "2026-09-02"
+        },
+        {
+          "opportunityId": 8,
+          "statusId": 7,
+          "connectionState": 0,
+          "opportunityName": "Build",
+          "statusOrder": 3,
+          "requests": 19,
+          "oldestCreated": "2026-03-09",
+          "newestModified": "2026-09-05"
+        },
+        {
+          "opportunityId": 8,
+          "statusId": 8,
+          "connectionState": 0,
+          "opportunityName": "Build",
+          "statusOrder": 4,
+          "requests": 44,
+          "oldestCreated": "2026-01-19",
+          "newestModified": "2026-09-06"
+        },
+        {
+          "opportunityId": 8,
+          "statusId": 8,
+          "connectionState": 3,
+          "opportunityName": "Build",
+          "statusOrder": 4,
+          "requests": 58,
+          "oldestCreated": "2025-11-03",
+          "newestModified": "2026-08-30"
+        },
+        {
+          "opportunityId": 8,
+          "statusId": 3,
+          "connectionState": 1,
+          "opportunityName": "Build",
+          "statusOrder": 0,
+          "requests": 9,
+          "oldestCreated": "2025-12-15",
+          "newestModified": "2026-07-21"
+        },
+        {
+          "opportunityId": 4,
+          "statusId": 3,
+          "connectionState": 0,
+          "opportunityName": "Favor DNA",
+          "statusOrder": 0,
+          "requests": 29,
+          "oldestCreated": "2026-02-24",
+          "newestModified": "2026-09-03"
+        },
+        {
+          "opportunityId": 4,
+          "statusId": 20,
+          "connectionState": 0,
+          "opportunityName": "Favor DNA",
+          "statusOrder": 2,
+          "requests": 8,
+          "oldestCreated": "2026-04-06",
+          "newestModified": "2026-08-29"
+        },
+        {
+          "opportunityId": 4,
+          "statusId": 7,
+          "connectionState": 0,
+          "opportunityName": "Favor DNA",
+          "statusOrder": 3,
+          "requests": 14,
+          "oldestCreated": "2026-04-13",
+          "newestModified": "2026-09-01"
+        },
+        {
+          "opportunityId": 4,
+          "statusId": 8,
+          "connectionState": 0,
+          "opportunityName": "Favor DNA",
+          "statusOrder": 4,
+          "requests": 31,
+          "oldestCreated": "2026-02-02",
+          "newestModified": "2026-09-05"
+        },
+        {
+          "opportunityId": 4,
+          "statusId": 8,
+          "connectionState": 3,
+          "opportunityName": "Favor DNA",
+          "statusOrder": 4,
+          "requests": 47,
+          "oldestCreated": "2025-10-20",
+          "newestModified": "2026-08-25"
+        },
+        {
+          "opportunityId": 4,
+          "statusId": 3,
+          "connectionState": 1,
+          "opportunityName": "Favor DNA",
+          "statusOrder": 0,
+          "requests": 6,
+          "oldestCreated": "2026-01-08",
+          "newestModified": "2026-06-30"
+        },
+        {
+          "opportunityId": 37,
+          "statusId": 3,
+          "connectionState": 0,
+          "opportunityName": "UPNext",
+          "statusOrder": 0,
+          "requests": 22,
+          "oldestCreated": "2026-05-11",
+          "newestModified": "2026-09-06"
+        },
+        {
+          "opportunityId": 37,
+          "statusId": 7,
+          "connectionState": 0,
+          "opportunityName": "UPNext",
+          "statusOrder": 3,
+          "requests": 13,
+          "oldestCreated": "2026-06-01",
+          "newestModified": "2026-09-04"
+        },
+        {
+          "opportunityId": 37,
+          "statusId": 8,
+          "connectionState": 3,
+          "opportunityName": "UPNext",
+          "statusOrder": 4,
+          "requests": 26,
+          "oldestCreated": "2026-03-16",
+          "newestModified": "2026-08-28"
+        }
+      ]
+    },
+    "grow-graduate-census": {
+      "status": "ok",
+      "queryId": "grow-graduate-census",
+      "rows": [
+        {
+          "campusShortCode": "MNL",
+          "buildGraduates": 71,
+          "dnaGraduates": 58,
+          "completedBoth": 39,
+          "bibleMasterclass": 24
+        }
+      ]
+    },
+    "grow-agreement": {
+      "status": "ok",
+      "queryId": "grow-agreement",
+      "rows": [
+        {
+          "opportunityId": 8,
+          "category": "agree",
+          "people": 61
+        },
+        {
+          "opportunityId": 8,
+          "category": "boardAhead",
+          "people": 44
+        },
+        {
+          "opportunityId": 8,
+          "category": "groupAhead",
+          "people": 7
+        },
+        {
+          "opportunityId": 8,
+          "category": "onBoardNotInGroup",
+          "people": 23
+        },
+        {
+          "opportunityId": 8,
+          "category": "inGroupNotOnBoard",
+          "people": 15
+        },
+        {
+          "opportunityId": 4,
+          "category": "agree",
+          "people": 52
+        },
+        {
+          "opportunityId": 4,
+          "category": "boardAhead",
+          "people": 31
+        },
+        {
+          "opportunityId": 4,
+          "category": "groupAhead",
+          "people": 4
+        },
+        {
+          "opportunityId": 4,
+          "category": "onBoardNotInGroup",
+          "people": 18
+        },
+        {
+          "opportunityId": 4,
+          "category": "inGroupNotOnBoard",
+          "people": 11
+        }
+      ]
+    },
+    "grow-calendar": {
+      "status": "ok",
+      "queryId": "grow-calendar",
+      "rows": [
+        {
+          "scheduleId": 336,
+          "scheduleName": "Grow | Stewarding Your Finances",
+          "iCalendarContent": "BEGIN:VCALENDAR\r\nPRODID:-//github.com/SparkDevNetwork/Rock//NONSGML Rock//EN\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:20260505T190000\r\nRDATE:20260505T190000,20260512T190000,20260519T190000\r\nEND:VEVENT\r\nEND:VCALENDAR",
+          "effectiveStartDate": "2026-05-05",
+          "effectiveEndDate": "2026-05-19",
+          "isActive": 1
+        },
+        {
+          "scheduleId": 476,
+          "scheduleName": "Grow | Bible Masterclass",
+          "iCalendarContent": "BEGIN:VCALENDAR\r\nPRODID:-//github.com/SparkDevNetwork/Rock//NONSGML Rock//EN\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:20260602T190000\r\nRDATE:20260602T190000,20260609T190000\r\nEND:VEVENT\r\nEND:VCALENDAR",
+          "effectiveStartDate": "2026-06-02",
+          "effectiveEndDate": "2026-06-09",
+          "isActive": 1
+        },
+        {
+          "scheduleId": 335,
+          "scheduleName": "Grow | Build",
+          "iCalendarContent": "BEGIN:VCALENDAR\r\nPRODID:-//github.com/SparkDevNetwork/Rock//NONSGML Rock//EN\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:20260613T190000\r\nRDATE:20260613T190000,20260620T190000\r\nEND:VEVENT\r\nEND:VCALENDAR",
+          "effectiveStartDate": "2026-06-13",
+          "effectiveEndDate": "2026-06-20",
+          "isActive": 1
+        },
+        {
+          "scheduleId": 475,
+          "scheduleName": "Grow | Gifts of the Holy Spirit",
+          "iCalendarContent": "BEGIN:VCALENDAR\r\nPRODID:-//github.com/SparkDevNetwork/Rock//NONSGML Rock//EN\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:20260817T190000\r\nRRULE:FREQ=WEEKLY;INTERVAL=1;COUNT=4\r\nEND:VEVENT\r\nEND:VCALENDAR",
+          "effectiveStartDate": "2026-08-17",
+          "effectiveEndDate": "2026-09-07",
+          "isActive": 1
+        }
+      ]
+    }
+  },
+  "unavailable": {}
+}

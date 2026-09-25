@@ -1,0 +1,551 @@
+<main class="dashboard">
+<div class="shell">
+
+  <nav class="suite-breadcrumbs" data-ux-host-chrome="suite" aria-label="Executive Suite"><ol class="suite-breadcrumbs__trail"><li class="suite-breadcrumbs__item suite-breadcrumbs__item--root"><a href="/assets/demos/exec-overview/" class="suite-breadcrumbs__root-link">Executive Dashboards</a></li><li class="suite-breadcrumbs__divider" aria-hidden="true">/</li><li class="suite-breadcrumbs__item suite-breadcrumbs__item--siblings"><span class="suite-breadcrumbs__peers"><a href="/assets/demos/exec-overview/" class="suite-breadcrumbs__link is-active" data-surface="exec-overview" aria-current="page">Overview</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><span class="suite-breadcrumbs__nest"><a href="/assets/demos/people-leaders/" class="suite-breadcrumbs__link" data-surface="pathways">People</a><span class="suite-breadcrumbs__sub" role="group" aria-label="People &amp; Leaders"><a href="/assets/demos/people-leaders/?tab=pathways" class="suite-breadcrumbs__tab" data-tab="pathways"><span class="suite-breadcrumbs__tab-label">Pathways</span><span class="suite-breadcrumbs__tab-question">Who is becoming ready?</span></a><a href="/assets/demos/people-leaders/?tab=leadership" class="suite-breadcrumbs__tab" data-tab="leadership"><span class="suite-breadcrumbs__tab-label">Leadership</span><span class="suite-breadcrumbs__tab-question">Who carries responsibility now?</span></a><a href="/assets/demos/people-leaders/?tab=multiplication" class="suite-breadcrumbs__tab" data-tab="multiplication"><span class="suite-breadcrumbs__tab-label">Multiplication</span><span class="suite-breadcrumbs__tab-question">Who are those leaders building?</span></a></span></span><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/assets/demos/connect/" class="suite-breadcrumbs__link" data-surface="connect-field">Connect</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/assets/demos/grow/" class="suite-breadcrumbs__link" data-surface="grow">Grow</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/assets/demos/finance/" class="suite-breadcrumbs__link" data-surface="finance">Finance</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/assets/demos/events/" class="suite-breadcrumbs__link" data-surface="events">Events</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/assets/demos/sunday-report/" class="suite-breadcrumbs__link" data-surface="sunday-report">Sunday</a></span></li></ol></nav>
+
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="masthead__top">
+      <div class="masthead__title">
+        <svg class="masthead__mark" viewBox="0 0 48 48" role="img" aria-label="Favor Church">
+          <path fill="currentColor" d="M24 1l4.6 9.7 10.3-3.4-3.4 10.3L45.2 22l-9.7 4.6 3.4 10.3-10.3-3.4L24 43.2l-4.6-9.7-10.3 3.4 3.4-10.3L2.8 22l9.7-4.6L9.1 7.1l10.3 3.4z"/>
+        </svg>
+        <div>
+          <h1>Executive Overview <span class="title-beta">(Beta)</span></h1>
+          <p class="stamp" style="margin-top:.2rem;">Favor Church · Whole Church Command Surface</p>
+          <div class="masthead__meta" style="margin-top:.4rem;">
+            <p class="stamp">Active Scope <strong id="scope-label">Loading…</strong></p>
+            <p class="stamp">Filters <strong id="filter-summary-label">All People · All Ages</strong></p>
+          </div>
+        </div>
+      </div>
+      <!-- Masthead right-hand corner (#229): agent affordances stay in the corner where a reader
+           looks for what a page lets them do. Scope stamps read down the left side with the title (#295). -->
+      <div class="masthead__aside">
+        <!-- Agent affordances (#214 §9/§10, #229). The runtime mounts the copy-prompt button
+             and its guidelines tip into #exec-copy-prompt, and the surface-level package
+             control with its guide link into #exec-package-rail; both stay in the masthead in
+             Creative and Classic alike. -->
+        <div class="masthead__tools">
+          <div class="masthead__prompt" id="exec-copy-prompt"></div>
+          <div class="masthead__package" id="exec-package-rail"></div>
+        </div>
+      </div>
+    </div>
+    <div class="masthead__flags">
+      <p class="status-beta"><strong>Beta</strong><span>Numbers are real; what each one counts is still under review and can change</span></p>
+      <p class="fixture-label" id="fixture-label">Live Rock aggregate data</p>
+    </div>
+  </header>
+
+  <!-- One polite live region for every export, copy, and package announcement. -->
+  <p class="sr-live" id="exec-overview-live" role="status" aria-live="polite"></p>
+
+  <!-- TOGGLE BAR -->
+  <div class="sidebar-toggle-bar">
+    <button type="button" class="toggle-btn" id="btn-toggle-sidebar" aria-expanded="true" aria-controls="filter-sidebar">
+      <span id="toggle-text">Filter console</span>
+      <!-- ▸, aria-hidden, as Connect Health's is: the state is already on the button's
+           aria-expanded, and ▶ is a filled triangle some platforms render as an emoji
+           and every screen reader reads out as "black right-pointing triangle". -->
+      <span class="arrow" aria-hidden="true">▸</span>
+    </button>
+  </div>
+
+  <!-- TWO-COLUMN DASHBOARD LAYOUT: MAIN CONTENT + SLEEK COLLAPSIBLE RIGHT SIDEBAR -->
+  <div class="dashboard-layout" id="app-layout">
+
+    <!-- MAIN CONTENT COLUMN -->
+    <div class="main-column">
+
+      <!-- CHAPTER 1: PULSE (COMBO CARDS) -->
+      <section class="chapter creative-only" id="pulse" aria-labelledby="pulse-title">
+        <div class="chapter__head">
+          <div class="chapter__title-group">
+            <span class="chapter__no">01</span>
+            <h2 id="pulse-title">Church Pulse</h2>
+          </div>
+          <p class="chapter__meta" id="pulse-chapter-meta">6 vital signs · Sliced by active scope</p>
+          <div class="head-rail" id="pulse-rail"></div>
+        </div>
+        <p class="chapter__what">Decisive church-health signals answering “what needs attention now?” Each metric pairs the headline state with baseline benchmark pacing.</p>
+
+        <div class="pulse-grid">
+          <!-- HERO COMBO CARD: LEADER COVERAGE -->
+          <article class="pulse-card hero-card">
+            <div class="pulse-card__head">
+              <h3>People / Leader Coverage</h3>
+              <div class="metric-actions">
+                <button class="info-tip" type="button" aria-label="About Leader Coverage" data-tooltip="Active people divided by people in the Leader connection status cohort. Target 1 : 6.7 is derived from the 15% Leader target in Connection Status."><span aria-hidden="true">i</span></button>
+                <span class="state-badge unavail" id="pulse-coverage-badge">Loading</span>
+              </div>
+            </div>
+            <div class="pulse-card__body">
+              <div class="pulse-kpi skeleton-value" id="pulse-coverage-kpi">—</div>
+              <div class="pulse-combo-bar">
+                <div class="pulse-track"><div class="pulse-fill" id="pulse-coverage-fill" style="width: 0%;"></div></div>
+              </div>
+            </div>
+            <div class="pulse-card__foot">
+              <span id="pulse-coverage-foot">Live aggregate loading</span>
+              <a class="pulse-cta" id="pulse-coverage-cta" href="/people/directory?connection=Leader">View Leader cohort →</a>
+            </div>
+          </article>
+
+          <!-- CARD 2: WEEKEND ATTENDANCE -->
+          <article class="pulse-card">
+            <div class="pulse-card__head">
+              <h3>28-Day Attendance Reach</h3>
+              <div class="metric-actions">
+                <button class="info-tip" type="button" aria-label="About Attendance Reach" data-tooltip="Distinct active people in scope with any DidAttend record in the last 28 days. This isn't Sunday service headcount; use Sunday Report for service totals."><span aria-hidden="true">i</span></button>
+                <span class="state-badge unavail" id="pulse-att-badge">Loading</span>
+              </div>
+            </div>
+            <div class="pulse-card__body">
+              <div class="pulse-kpi skeleton-value" id="pulse-att-kpi">—</div>
+              <div class="pulse-combo-bar">
+                <div class="pulse-track"><div class="pulse-fill healthy" id="pulse-att-fill" style="width: 0%;"></div></div>
+              </div>
+            </div>
+            <div class="pulse-card__foot">
+              <span id="pulse-att-foot">Live aggregate loading</span>
+              <a class="pulse-cta" href="/TechStatsNew">Sunday Report →</a>
+            </div>
+          </article>
+
+          <!-- CARD 3: CONNECT BELONGING -->
+          <article class="pulse-card">
+            <div class="pulse-card__head">
+              <h3>Connect Belonging</h3>
+              <div class="metric-actions">
+                <button class="info-tip" type="button" aria-label="About Connect Belonging" data-tooltip="Distinct active people in an active Connect Group divided by active people in the selected scope. Current membership, not recent attendance."><span aria-hidden="true">i</span></button>
+                <span class="state-badge unavail" id="pulse-belonging-badge">Loading</span>
+              </div>
+            </div>
+            <div class="pulse-card__body">
+              <div class="pulse-kpi skeleton-value" id="pulse-belonging-kpi">—</div>
+              <div class="pulse-combo-bar">
+                <div class="pulse-track"><div class="pulse-fill healthy" id="pulse-belonging-fill" style="width: 0%;"></div></div>
+              </div>
+            </div>
+            <div class="pulse-card__foot">
+              <span id="pulse-belonging-foot">Live aggregate loading</span>
+              <a class="pulse-cta" href="#" target="_blank" rel="noopener noreferrer">Open Connect Portal ↗</a>
+            </div>
+          </article>
+
+          <!-- CARD 4: MINISTRY SERVING -->
+          <article class="pulse-card">
+            <div class="pulse-card__head">
+              <h3>Active Ministry Team Members</h3>
+              <div class="metric-actions">
+                <button class="info-tip" type="button" aria-label="About Ministry Serving" data-tooltip="Distinct active people who are active, non-archived members of active Ministry Team groups. This is membership, not recent rosters, accepted assignments, or confirmed serving."><span aria-hidden="true">i</span></button>
+                <span class="state-badge unavail" id="pulse-serving-badge">Loading</span>
+              </div>
+            </div>
+            <div class="pulse-card__body">
+              <div class="pulse-kpi skeleton-value" id="pulse-serving-kpi">—</div>
+              <div class="pulse-combo-bar">
+                <div class="pulse-track"><div class="pulse-fill healthy" id="pulse-serving-fill" style="width: 0%;"></div></div>
+              </div>
+            </div>
+            <div class="pulse-card__foot">
+              <span id="pulse-serving-foot">Live aggregate loading</span>
+            </div>
+          </article>
+
+          <!-- CARD 5: GIVING PACING (WHOLE CHURCH) -->
+          <article class="pulse-card" id="card-giving">
+            <div class="pulse-card__head">
+              <h3>Giving Pacing</h3>
+              <div class="metric-actions">
+                <button class="info-tip" type="button" aria-label="About Giving Pacing" data-tooltip="Reserved for an approved giving metric contract. No production query is registered yet, so unavailable is shown instead of an estimate."><span aria-hidden="true">i</span></button>
+                <span class="state-badge unavail" id="pulse-giving-badge">Loading</span>
+              </div>
+            </div>
+            <div class="pulse-card__body">
+              <div class="pulse-kpi skeleton-value" id="pulse-giving-kpi">—</div>
+              <div class="pulse-combo-bar">
+                <div class="pulse-track"><div class="pulse-fill" id="pulse-giving-fill" style="width: 0%;"></div></div>
+              </div>
+            </div>
+            <div class="pulse-card__foot">
+              <span id="pulse-giving-foot">Live aggregate loading</span>
+            </div>
+          </article>
+
+          <!-- CARD 6: PATHWAY MOVEMENT -->
+          <article class="pulse-card">
+            <div class="pulse-card__head">
+              <h3>Completed Connection Requests</h3>
+              <div class="metric-actions">
+                <button class="info-tip" type="button" aria-label="About Completed Connection Requests" data-tooltip="Completed ConnectionRequest records modified in the last 30 days. One person can contribute more than one request; this isn't yet restricted to named People Pathway milestones."><span aria-hidden="true">i</span></button>
+                <span class="state-badge unavail" id="pulse-movement-badge">Loading</span>
+              </div>
+            </div>
+            <div class="pulse-card__body">
+              <div class="pulse-kpi skeleton-value" id="pulse-movement-kpi">—</div>
+              <div class="pulse-combo-bar">
+                <div class="pulse-track"><div class="pulse-fill healthy" id="pulse-movement-fill" style="width: 0%;"></div></div>
+              </div>
+            </div>
+            <div class="pulse-card__foot">
+              <span id="pulse-movement-foot">Live aggregate loading</span>
+              <a class="pulse-cta" href="/assets/demos/people-leaders/?tab=pathways">Open People Pathways →</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CHAPTER 2: DEMOGRAPHICS MEGA ATLAS -->
+      <section class="chapter creative-only" id="demographics" aria-labelledby="demographics-title">
+        <div class="chapter__head">
+          <div class="chapter__title-group">
+            <span class="chapter__no">02</span>
+            <h2 id="demographics-title">Favor, by People</h2>
+          </div>
+          <p class="chapter__meta">All combo charts derive from one shared active denominator</p>
+        </div>
+        <p class="chapter__what">A unified demographic atlas answering “who makes up Favor Church?” Every panel pairs a proportional donut slice with comparative benchmark bars and honest unknown accounting.</p>
+
+        <!-- ATLAS HERO -->
+        <div class="atlas-hero">
+          <div>
+            <span class="stamp" id="atlas-hero-stamp">Counted Church Base (Manila)</span>
+            <div class="atlas-hero__kpi" id="atlas-hero-kpi">—</div>
+          </div>
+          <div class="atlas-hero__desc">
+            <p><strong id="atlas-hero-lead">Active, living, non-system person records.</strong> All 4 combo modules decompose this baseline across Connection Status, Age Bands, Gender, and Campus Share.</p>
+          </div>
+          <div class="head-rail" id="atlas-rail"></div>
+        </div>
+
+        <div class="combo-grid">
+
+          <!-- COMBO CHART 1: CONNECTION STATUS -->
+          <article class="combo-card" id="card-connection">
+            <div>
+              <div class="combo-card__head">
+                <h2>Connection Status</h2>
+                <span class="combo-card__source" title="Current Rock Person.ConnectionStatus for active, living person records. Target: 15% Leader · 35% Core · 35% Crowd · 15% New (15-35-35-15). Derives 1 : 6.7 people per leader.">Target: 15-35-35-15</span>
+                <div class="head-rail" id="conn-rail"></div>
+              </div>
+
+              <div class="combo-stage">
+                <div class="donut-box">
+                  <svg class="donut-svg" viewBox="0 0 200 200" aria-label="Connection Status Donut Chart">
+                    <circle class="donut-circle donut-track" cx="100" cy="100" r="70"></circle>
+                    <circle class="donut-circle" id="donut-conn-crowd" cx="100" cy="100" r="70" stroke="var(--cohort-crowd)"></circle>
+                    <circle class="donut-circle" id="donut-conn-core" cx="100" cy="100" r="70" stroke="var(--cohort-core)"></circle>
+                    <circle class="donut-circle" id="donut-conn-new" cx="100" cy="100" r="70" stroke="var(--cohort-new)"></circle>
+                    <circle class="donut-circle" id="donut-conn-leader" cx="100" cy="100" r="70" stroke="var(--cohort-leader)"></circle>
+                  </svg>
+                  <div class="donut-center-label">
+                    <span class="donut-center-total" id="donut-conn-total">—</span>
+                    <span class="donut-center-unit">People</span>
+                  </div>
+                </div>
+
+                <div class="combo-bars" id="conn-bars-container">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+            </div>
+            <div class="combo-card__foot">
+              <span id="conn-foot-summary">Loading live aggregate</span>
+              <span>Prod-read supported</span>
+            </div>
+          </article>
+
+          <!-- COMBO CHART 2: AGE DISTRIBUTION -->
+          <article class="combo-card" id="card-age">
+            <div>
+              <div class="combo-card__head">
+                <h2>Age Distribution</h2>
+                <span class="combo-card__source" title="Calculated from recorded birthdate into explicit age bands. Missing birthdates remain visible as Unknown.">Favor Age Bands</span>
+                <div class="head-rail" id="age-rail"></div>
+              </div>
+
+              <div class="combo-stage">
+                <div class="donut-box">
+                  <svg class="donut-svg" viewBox="0 0 200 200" aria-label="Age Distribution Donut Chart">
+                    <circle class="donut-circle donut-track" cx="100" cy="100" r="70"></circle>
+                    <circle class="donut-circle" id="donut-age-1" cx="100" cy="100" r="70" stroke="var(--age-kids)"></circle>
+                    <circle class="donut-circle" id="donut-age-2" cx="100" cy="100" r="70" stroke="var(--age-youth)"></circle>
+                    <circle class="donut-circle" id="donut-age-3" cx="100" cy="100" r="70" stroke="var(--age-young-adults)"></circle>
+                    <circle class="donut-circle" id="donut-age-4" cx="100" cy="100" r="70" stroke="var(--age-adults)"></circle>
+                    <circle class="donut-circle" id="donut-age-5" cx="100" cy="100" r="70" stroke="var(--age-seasoned)"></circle>
+                    <circle class="donut-circle" id="donut-age-6" cx="100" cy="100" r="70" stroke="var(--state-unknown)"></circle>
+                  </svg>
+                  <div class="donut-center-label">
+                    <span class="donut-center-total" id="donut-age-total">—</span>
+                    <span class="donut-center-unit">People</span>
+                  </div>
+                </div>
+
+                <div class="combo-bars" id="age-bars-container">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+              <div class="filter-tags" id="age-filter-tags"></div>
+            </div>
+            <div class="combo-card__foot">
+              <span id="age-foot-summary">Loading live aggregate</span>
+              <span id="age-foot-unknown">Loading live aggregate</span>
+            </div>
+          </article>
+
+          <!-- COMBO CHART 3: GENDER PROFILE -->
+          <article class="combo-card" id="card-gender">
+            <div>
+              <div class="combo-card__head">
+                <h2>Gender Profile</h2>
+                <span class="combo-card__source" title="Rock Person.Gender for active, living person records. Unknown is retained rather than inferred.">Rock Core Demographics</span>
+                <div class="head-rail" id="gender-rail"></div>
+              </div>
+
+              <div class="combo-stage">
+                <div class="donut-box">
+                  <svg class="donut-svg" viewBox="0 0 200 200" aria-label="Gender Profile Donut Chart">
+                    <circle class="donut-circle donut-track" cx="100" cy="100" r="70"></circle>
+                    <circle class="donut-circle" id="donut-gen-women" cx="100" cy="100" r="70" stroke="var(--accent)"></circle>
+                    <circle class="donut-circle" id="donut-gen-men" cx="100" cy="100" r="70" stroke="var(--secondary)"></circle>
+                    <circle class="donut-circle" id="donut-gen-unk" cx="100" cy="100" r="70" stroke="var(--state-unknown)"></circle>
+                  </svg>
+                  <div class="donut-center-label">
+                    <span class="donut-center-total" id="donut-gen-total">—</span>
+                    <span class="donut-center-unit">People</span>
+                  </div>
+                </div>
+
+                <div class="combo-bars" id="gender-bars-container">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+              <div class="filter-tags" id="gender-filter-tags"></div>
+            </div>
+            <div class="combo-card__foot">
+              <span id="gender-foot-summary">Loading live aggregate</span>
+              <span>97% completeness</span>
+            </div>
+          </article>
+
+          <!-- COMBO CHART 4: CAMPUS SHARE -->
+          <article class="combo-card" id="card-campus">
+            <div>
+              <div class="combo-card__head">
+                <h2>Campus Share</h2>
+                <span class="combo-card__source" title="Person.PrimaryCampus across the production church base. Unassigned records remain explicit.">Primary Campus</span>
+                <div class="head-rail" id="camp-rail"></div>
+              </div>
+
+              <div class="combo-stage">
+                <div class="donut-box">
+                  <svg class="donut-svg" viewBox="0 0 200 200" aria-label="Campus Distribution Donut Chart">
+                    <circle class="donut-circle donut-track" cx="100" cy="100" r="70"></circle>
+                    <circle class="donut-circle" id="donut-camp-mnl" cx="100" cy="100" r="70" stroke="var(--accent)"></circle>
+                    <circle class="donut-circle" id="donut-camp-bne" cx="100" cy="100" r="70" stroke="var(--secondary)"></circle>
+                    <circle class="donut-circle" id="donut-camp-sel" cx="100" cy="100" r="70" stroke="var(--cohort-crowd)"></circle>
+                    <circle class="donut-circle" id="donut-camp-unassigned" cx="100" cy="100" r="70" stroke="var(--muted-ink)"></circle>
+                  </svg>
+                  <div class="donut-center-label">
+                    <span class="donut-center-total" id="donut-camp-total">—</span>
+                    <span class="donut-center-unit">People</span>
+                  </div>
+                </div>
+
+                <div class="combo-bars" id="camp-bars-container">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+            </div>
+            <div class="combo-card__foot">
+              <span id="camp-foot-summary">Loading live aggregate</span>
+              <span id="camp-foot-scope">Loading live aggregate</span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- CHAPTER 3: GO DEEPER (DIRECTORY) -->
+      <section class="chapter creative-only" id="directory" aria-labelledby="teams-title">
+        <div class="chapter__head">
+          <div class="chapter__title-group">
+            <span class="chapter__no">03</span>
+            <h2 id="teams-title">Go Deeper</h2>
+          </div>
+          <p class="chapter__meta">Available and planned executive dashboards</p>
+        </div>
+        <p class="chapter__what">Open live operational surfaces now. Planned cards are shown quietly so future destinations aren't mistaken for working links.</p>
+
+        <div class="dir-grid">
+          <a class="dir-card" href="/assets/demos/people-leaders/?tab=pathways">
+            <div>
+              <span class="dir-status dir-status--live">Live</span>
+              <h3>People Pathways</h3>
+              <p>Living map of church journey: movement, stalls, and leadership readiness.</p>
+            </div>
+            <span class="dir-arrow">→</span>
+          </a>
+          <a class="dir-card" href="/assets/demos/connect/">
+            <div>
+              <span class="dir-status dir-status--live">Live</span>
+              <h3>Connect Health</h3>
+              <p>Connect groups, leader capacity, health, and discipleship field dynamics.</p>
+            </div>
+            <span class="dir-arrow">→</span>
+          </a>
+          <a class="dir-card" href="/assets/demos/grow/">
+            <div>
+              <span class="dir-status dir-status--live">Live</span>
+              <h3>Grow Continuity</h3>
+              <p>Course batches, cohort retention ladders, Build and Favor DNA pipelines, and completion health.</p>
+            </div>
+            <span class="dir-arrow">→</span>
+          </a>
+          <a class="dir-card" href="/assets/demos/sunday-report/">
+            <div>
+              <span class="dir-status dir-status--live">Live</span>
+              <h3>Sunday Report</h3>
+              <p>Sunday service headcounts, attendance trends, and operational reporting.</p>
+            </div>
+            <span class="dir-arrow">→</span>
+          </a>
+          <a class="dir-card" href="/assets/demos/events/">
+            <div>
+              <span class="dir-status dir-status--progress">In Progress</span>
+              <h3>Events</h3>
+              <p>Conferences and church-wide gatherings — wiring into Rock so this reads live.</p>
+            </div>
+            <span class="dir-arrow">→</span>
+          </a>
+          <a class="dir-card" href="/assets/demos/finance/">
+            <div>
+              <span class="dir-status dir-status--progress">In Progress</span>
+              <h3>Finance Tithes</h3>
+              <p>Tithes, spending, and runway — wiring into Rock so this reads live.</p>
+            </div>
+            <span class="dir-arrow">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- CLASSIC COMPOSITION (#214 / #217).
+           A second renderer over the same filtered slice, beside the Creative chapters rather
+           than instead of them: in Classic the chapters carrying .creative-only are hidden and
+           this section shows, so switching back is instant and identical. The runtime fills
+           #exec-classic-grid; the markup here is only the mount point. -->
+      <section class="classic-shell" id="exec-classic" aria-labelledby="exec-classic-title">
+        <h2 class="classic-shell__title" id="exec-classic-title">Executive Overview · Classic</h2>
+        <div class="classic-grid" id="exec-classic-grid"></div>
+      </section>
+
+    </div>
+
+    <!-- PERSISTING SLEEK FILTER SIDEBAR ON THE RIGHTMOST -->
+    <aside class="filter-sidebar" id="filter-sidebar" role="region" aria-label="Dashboard Filters">
+      <!-- Issue #237 ruling: Classic on the left, Creative on the right, on every surface.
+           Every other island gets this order from the shared classic-widgets modeSwitch();
+           this one hand-writes its sidebar, so the order has to be maintained here. The
+           aria-pressed values below are first paint only -- syncModeSwitch() re-derives them
+           from data-mode against the live mode on every render. -->
+      <div class="mode-switch" role="group" aria-label="Display mode">
+        <button type="button" class="mode-switch__btn" data-mode="classic" aria-pressed="false">Classic</button>
+        <button type="button" class="mode-switch__btn" data-mode="creative" aria-pressed="true">Creative</button>
+      </div>
+      <div class="sidebar-head">
+        <button type="button" class="sidebar-back-btn" id="btn-sidebar-back" aria-label="Close filters"><span class="back-arrow" aria-hidden="true">←</span> Back</button>
+        <h2>Filters</h2>
+        <button type="button" class="reset-btn" id="btn-reset-filters">Reset All</button>
+      </div>
+
+      <form class="filter-form" id="filter-form" role="search" aria-label="Scope and Demographic Slicers" onsubmit="return false;">
+
+        <!-- 1. CAMPUS SCOPE (ONE-LINE ACRONYMS ONLY) -->
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend">
+            <span>Campus</span>
+            <span class="sub" id="sidebar-campus-sub">Loading…</span>
+          </legend>
+          <div class="campus-acronym-row">
+            <button type="button" class="acronym-btn is-active" data-filter="campus" data-val="mnl" aria-pressed="true">MNL</button>
+            <button type="button" class="acronym-btn" data-filter="campus" data-val="bne" aria-pressed="false">BNE</button>
+            <button type="button" class="acronym-btn" data-filter="campus" data-val="sel" aria-pressed="false">SEL</button>
+            <button type="button" class="acronym-btn" data-filter="campus" data-val="all" aria-pressed="false">ALL</button>
+          </div>
+        </fieldset>
+
+        <!-- 2. GENDER SLICER (SLEEK PILL ROW WITH IN-BUTTON METERS) -->
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend">
+            <span>Gender</span>
+            <span class="sub" id="sidebar-gender-sub">All People</span>
+          </legend>
+          <div class="gender-pill-row">
+            <button type="button" class="gender-btn is-active" data-filter="gender" data-val="all" aria-pressed="true">
+              <div class="gender-btn-top">
+                <span>All</span>
+                <span class="val-tag" id="btn-gen-all-tag">—</span>
+              </div>
+              <div class="btn-meter"><div class="btn-meter-fill" style="width: 100%; background: var(--ink);"></div></div>
+            </button>
+            <button type="button" class="gender-btn" data-filter="gender" data-val="women" aria-pressed="false">
+              <div class="gender-btn-top">
+                <span>Women</span>
+                <span class="val-tag" id="btn-gen-women-tag">—</span>
+              </div>
+              <div class="btn-meter"><div class="btn-meter-fill" id="btn-gen-women-fill" style="width: 0%;"></div></div>
+            </button>
+            <button type="button" class="gender-btn" data-filter="gender" data-val="men" aria-pressed="false">
+              <div class="gender-btn-top">
+                <span>Men</span>
+                <span class="val-tag" id="btn-gen-men-tag">—</span>
+              </div>
+              <div class="btn-meter"><div class="btn-meter-fill" id="btn-gen-men-fill" style="width: 0%;"></div></div>
+            </button>
+          </div>
+        </fieldset>
+
+        <!-- 3. AGE DISTRIBUTION & GLOBAL RATIO TABLE -->
+        <fieldset class="filter-fieldset">
+          <legend class="filter-legend">
+            <span>Age Distribution</span>
+            <span class="sub">vs Global</span>
+          </legend>
+
+          <table class="ratio-table" aria-label="Age distribution against global baseline">
+            <thead>
+              <tr>
+                <th scope="col">Age Band</th>
+                <th scope="col">Share</th>
+                <th scope="col">Global (Ratio)</th>
+              </tr>
+            </thead>
+            <tbody id="sidebar-age-tbody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </fieldset>
+
+        <!-- 4. QUICK CHAPTER JUMPS -->
+        <div class="chapter-jump-strip">
+          <span class="jump-title">Jump:</span>
+          <a class="jump-chip" href="#pulse">01 Pulse</a>
+          <a class="jump-chip" href="#demographics">02 Demographics</a>
+          <a class="jump-chip" href="#directory">03 Go Deeper</a>
+        </div>
+
+      </form>
+    </aside>
+
+  </div>
+
+  <div class="filter-backdrop" id="filter-backdrop" aria-hidden="true"></div>
+  <footer class="footer">
+    <span>Favor Church · Executive Overview</span>
+    <span>Live aggregate Rock data · No PII</span>
+  </footer>
+
+</div>
+</main>

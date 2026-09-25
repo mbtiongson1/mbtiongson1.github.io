@@ -1,0 +1,205 @@
+/* Dashboard zoom — the shared "[ − ] [100%] [ + ]" furniture (#768).
+ * ===========================================================================================
+ * ONE JOB: scale the reading, and nothing else. This module holds no business logic, reads no
+ * data, mutates no filter, writes no address, and keeps nothing between page loads. It owns a
+ * number between ZOOM_MIN and ZOOM_MAX and one CSS property on one element the caller names.
+ *
+ *     mountZoom(host, { target, announce, labels }) -> handle | null
+ *     clampZoom(percent) -> number
+ *     stepZoom(percent, direction) -> number
+ *
+ * WHY `zoom` AND NOT `transform: scale`. A transform leaves the element's layout box at its old
+ * size: the page keeps the 100% height it had, hit areas land where the untransformed box was,
+ * and text re-wraps at the old measure while being drawn larger. That is a picture of a zoom,
+ * not a zoom. The CSS `zoom` property changes the used value of every length inside the subtree,
+ * so the column genuinely reflows, the scroll height changes with it, and pointer coordinates
+ * track — which is the behaviour #768 asks for in as many words. It is Baseline across the
+ * engines this suite runs on; where it is not supported this module refuses to mount rather
+ * than shipping a control that moves a percentage and changes nothing (mountZoom returns null).
+ *
+ * WHAT IT DOES NOT SCALE. The caller passes the READING as `target`, never the island root: the
+ * filter console, the status chip, the breadcrumb trail, the host's own chrome and this control
+ * itself all sit outside it and stay at their designed size. A control that shrinks when you
+ * press it is a control you cannot press twice.
+ *
+ * STATE. Ephemeral and in-memory for the life of the page. Nothing here reaches a browser store
+ * (ADR 0016), the address bar, the query state, or an export; two readers on the same surface
+ * therefore still read the same page, and a link still means one thing.
+ */
+
+/* The range lives here, once, so widening it later is one edit and not a sweep of the surfaces.
+ * V1 is deliberately narrow: 80% is the point where this surface's smallest type (the .74rem
+ * table head) reaches the readable floor, and 120% is where the 320px console and the reading
+ * stop fitting side by side on a 1280px screen. */
+export const ZOOM_MIN = 80;
+export const ZOOM_MAX = 120;
+export const ZOOM_STEP = 10;
+export const ZOOM_DEFAULT = 100;
+
+const DEFAULT_LABELS = {
+  group: "Dashboard zoom",
+  out: "Zoom out dashboard",
+  reset: "Reset dashboard zoom to 100 percent",
+  in: "Zoom in dashboard",
+};
+
+/** Hold a percentage inside the supported range, and round it onto the step grid. */
+export function clampZoom(percent) {
+  const n = Number(percent);
+  if (!Number.isFinite(n)) return ZOOM_DEFAULT;
+  const snapped = Math.round(n / ZOOM_STEP) * ZOOM_STEP;
+  return Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, snapped));
+}
+
+/** One step out (-1) or in (+1). At a bound it returns the bound, so a caller cannot walk off. */
+export function stepZoom(percent, direction) {
+  return clampZoom(clampZoom(percent) + (direction < 0 ? -ZOOM_STEP : ZOOM_STEP));
+}
+
+/** Whether this engine can actually reflow at a scale. Checked once per mount, never assumed. */
+export function zoomSupported(view = globalThis) {
+  const css = view && view.CSS;
+  if (!css || typeof css.supports !== "function") return false;
+  return css.supports("zoom", "1.1");
+}
+
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text != null) node.textContent = text;
+  return node;
+}
+
+/* The icons are drawn, not typed. A hyphen-minus and a plus sign are punctuation at the body
+ * font's stroke weight; these two match the 1.7px stroke the rest of this suite's marks use, so
+ * the control reads as one object with the export rail beside it. */
+function glyph(kind) {
+  const NS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(NS, "svg");
+  svg.setAttribute("viewBox", "0 0 16 16");
+  svg.setAttribute("aria-hidden", "true");
+  svg.setAttribute("focusable", "false");
+  const bar = document.createElementNS(NS, "path");
+  bar.setAttribute("d", "M3.5 8h9");
+  svg.append(bar);
+  if (kind === "in") {
+    const up = document.createElementNS(NS, "path");
+    up.setAttribute("d", "M8 3.5v9");
+    svg.append(up);
+  }
+  return svg;
+}
+
+/**
+ * Mount the segmented zoom control.
+ *
+ * @param {Element} host        where the control is appended
+ * @param {object}  options
+ * @param {Element|function} options.target   the reading to scale (element, or a getter)
+ * @param {function} [options.announce]       says the new percentage to assistive tech; when it
+ *                                            is absent the control carries its own live region
+ * @param {object}  [options.labels]          copy overrides
+ * @param {number}  [options.initial]         starting percentage, clamped
+ * @returns {{element: Element, get: function, set: function, reset: function, destroy: function}|null}
+ */
+export function mountZoom(host, options = {}) {
+  if (!host) return null;
+  const { target = null, announce = null, labels = {}, initial = ZOOM_DEFAULT } = options;
+  if (!zoomSupported(options.view || globalThis)) return null;
+
+  const copy = { ...DEFAULT_LABELS, ...labels };
+  const group = el("div", "dzoom");
+  group.setAttribute("role", "group");
+  group.setAttribute("aria-label", copy.group);
+
+  const out = el("button", "dzoom__btn dzoom__btn--out");
+  out.type = "button";
+  out.setAttribute("aria-label", copy.out);
+  out.append(glyph("out"));
+
+  const reset = el("button", "dzoom__reset");
+  reset.type = "button";
+  reset.setAttribute("aria-label", copy.reset);
+
+  const into = el("button", "dzoom__btn dzoom__btn--in");
+  into.type = "button";
+  into.setAttribute("aria-label", copy.in);
+  into.append(glyph("in"));
+
+  group.append(out, reset, into);
+
+  /* Its own live region only when the caller has none. An island with a status chip passes its
+   * quiet() instead, so the surface never gains a second voice saying the same sentence twice. */
+  let live = null;
+  if (typeof announce !== "function") {
+    live = el("span", "dzoom__live");
+    live.setAttribute("role", "status");
+    live.setAttribute("aria-live", "polite");
+    group.append(live);
+  }
+
+  let percent = clampZoom(initial);
+
+  const resolveTarget = () => (typeof target === "function" ? target() : target);
+
+  function paint() {
+    reset.textContent = `${percent}%`;
+    group.dataset.zoom = String(percent);
+    /* Disabled at the bounds, and still legible: the reader learns the range exists by reaching
+     * it, rather than by pressing a live button that quietly does nothing. */
+    out.disabled = percent <= ZOOM_MIN;
+    into.disabled = percent >= ZOOM_MAX;
+    const node = resolveTarget();
+    if (node && node.style) {
+      /* 100% clears the property outright rather than writing `zoom: 1`. A cleared property is
+       * the untouched page; `zoom: 1` still creates the containing block a zoomed subtree makes,
+       * and leaving one behind at the default would change behaviour nobody asked to change. */
+      if (percent === ZOOM_DEFAULT) node.style.removeProperty("zoom");
+      else node.style.setProperty("zoom", String(percent / 100));
+      if (node.dataset) node.dataset.zoom = String(percent);
+    }
+  }
+
+  function say(message) {
+    if (typeof announce === "function") announce(message);
+    else if (live) live.textContent = message;
+  }
+
+  function set(next, { quiet = false } = {}) {
+    const clamped = clampZoom(next);
+    const changed = clamped !== percent;
+    percent = clamped;
+    paint();
+    if (changed && !quiet) say(`Dashboard zoom ${percent} percent.`);
+    return percent;
+  }
+
+  const onOut = () => { if (!out.disabled) set(stepZoom(percent, -1)); };
+  const onIn = () => { if (!into.disabled) set(stepZoom(percent, 1)); };
+  const onReset = () => {
+    if (percent === ZOOM_DEFAULT) { say("Dashboard zoom is already 100 percent."); return; }
+    set(ZOOM_DEFAULT);
+  };
+
+  out.addEventListener("click", onOut);
+  into.addEventListener("click", onIn);
+  reset.addEventListener("click", onReset);
+
+  host.append(group);
+  paint();
+
+  return {
+    element: group,
+    get: () => percent,
+    set: (value) => set(value),
+    reset: () => set(ZOOM_DEFAULT),
+    destroy() {
+      out.removeEventListener("click", onOut);
+      into.removeEventListener("click", onIn);
+      reset.removeEventListener("click", onReset);
+      const node = resolveTarget();
+      if (node && node.style) node.style.removeProperty("zoom");
+      group.remove();
+    },
+  };
+}

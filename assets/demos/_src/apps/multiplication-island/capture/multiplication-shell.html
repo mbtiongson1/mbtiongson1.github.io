@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multiplication — dev harness</title>
+<!--
+  Development harness for the Multiplication island (#394, #600). Never part of a production
+  package; ops/multiplication-island-production.json lists it under excludedFromProduction.
+
+      python3 -m http.server 8600      # from the repository root
+
+  Then open /apps/multiplication-island/capture/multiplication-shell.html. No bundle is fetched,
+  because this surface draws no number: it is the watershed grammar and an honest statement of
+  what is still being built.
+-->
+<link rel="stylesheet" href="./multiplication.css">
+<style>body { margin: 0; background: var(--background, #f6fbfd); }</style>
+</head>
+<body>
+<div id="multiplication-root"></div>
+<script type="module">
+  import { boot } from "./multiplication-boot.mjs";
+  await boot(document.getElementById("multiplication-root"));
+</script>
+</body>
+</html>

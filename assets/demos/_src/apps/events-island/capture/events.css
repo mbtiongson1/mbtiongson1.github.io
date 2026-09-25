@@ -1,0 +1,174 @@
+/* Events (name pending) -- Under Construction stage for /exec/events.
+   Tokens: themes/favor-events-2026.json (not in the universal swatch; see its description).
+   Type: Bricolage Grotesque (self-hosted variable, OFL) carries the page; MARKED, from the
+   Favor brand kit, is one short handwritten aside scrawled across the poster. */
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-stretch: 75% 100%;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Favor Marked";
+  src: url("fonts/MARKED.otf") format("opentype");
+  font-display: swap;
+}
+
+#events-island {
+  --background: #0b0a10;
+  --surface: #14121c;
+  --surface-raised: #1c1927;
+  --surface-sunken: #08070c;
+  --ink: #f5f1e8;
+  --muted-ink: #b3adc4;
+  --faint-ink: #8a849c;
+  --rule: #2c2839;
+  --edge-strong: #4a4460;
+  --accent: #ff5b3a;
+  --secondary: #8f7bff;
+  --brand-gold: #ffb42a;
+  --focus: #7cc8ff;
+  --hover-wash: #1f1b2b;
+  --shadow-ink: #000000;
+  --ease-out: cubic-bezier(.16, 1, .3, 1);
+  --display: "Bricolage Grotesque", "Favorvetica", Arial, sans-serif;
+  --marked: "Favor Marked", "Bricolage Grotesque", Arial, sans-serif;
+
+  position: relative;
+  box-sizing: border-box;
+  min-height: calc(100vh - 4rem);
+  overflow: hidden;
+  padding: 0 clamp(1rem, 2.5vw, 2.4rem) 3.5rem;
+  background: var(--background);
+  color: var(--ink);
+  font-family: var(--display);
+  font-optical-sizing: auto;
+  color-scheme: dark;
+}
+#events-island ::selection { background: var(--accent); color: var(--background); }
+#events-island *, #events-island *::before, #events-island *::after { box-sizing: border-box; }
+#events-island .suite-breadcrumbs { position: relative; z-index: 5; }
+#events-island a:focus-visible,
+#events-island button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+/* ------------------------------------------------------------------ the stage */
+.ev-stage {
+  --x: 50%; --y: 50%; --r: 16rem; --power: 0;
+  position: relative;
+  height: min(58vh, 540px);
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+.ev-haze { position: absolute; inset: -10% -10% 0; z-index: -2; filter: blur(60px); opacity: 0; pointer-events: none; transition: opacity 1.8s var(--ease-out); }
+.ev-haze i { position: absolute; border-radius: 50%; mix-blend-mode: screen; animation: ev-drift 22s ease-in-out infinite alternate; }
+.ev-haze i:nth-child(1) { width: 46vw; height: 30vw; left: 6%; top: 18%; background: #8f7bff33; }
+.ev-haze i:nth-child(2) { width: 40vw; height: 26vw; right: 4%; top: 8%; background: #ff5b3a26; animation-duration: 28s; animation-delay: -6s; }
+.ev-haze i:nth-child(3) { width: 30vw; height: 22vw; left: 36%; top: 40%; background: #ffb42a1a; animation-duration: 34s; animation-delay: -12s; }
+@keyframes ev-drift { to { transform: translate3d(6vw, -3vw, 0) scale(1.15); } }
+
+.ev-cone {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: var(--power);
+  background: radial-gradient(circle var(--r) at var(--x) var(--y), #fff3e016 0, #ffb42a0e 40%, transparent 70%);
+}
+.ev-word {
+  position: relative; margin: 0; user-select: none;
+  font-family: var(--display); font-weight: 800; font-stretch: 75%;
+  font-size: clamp(5.2rem, 19vw, 17rem); line-height: .82; letter-spacing: -.015em; text-transform: uppercase;
+}
+.ev-word span { display: block; }
+.ev-word .ev-dark { color: #1a1724; }
+.ev-word .ev-lit {
+  position: absolute; inset: 0; color: var(--ink); opacity: var(--power);
+  -webkit-mask-image: radial-gradient(circle var(--r) at var(--lx, 50%) var(--ly, 50%), #000 0 30%, rgba(0, 0, 0, .35) 55%, transparent 72%);
+          mask-image: radial-gradient(circle var(--r) at var(--lx, 50%) var(--ly, 50%), #000 0 30%, rgba(0, 0, 0, .35) 55%, transparent 72%);
+}
+/* MARKED is handwriting, so it is written ON the poster, not typeset under it: short, offset,
+   on a diagonal across the word's top-right shoulder, revealed left to right like a pen stroke. */
+.ev-word .ev-scrawl {
+  position: absolute; right: -.35em; top: -.42em; z-index: 2;
+  font-family: var(--marked); font-weight: 400; font-stretch: normal; text-transform: none; letter-spacing: 0;
+  font-size: clamp(1.5rem, 4.2vw, 3.4rem); line-height: 1; white-space: nowrap; color: var(--accent);
+  transform: rotate(-9deg); transform-origin: 0 100%;
+  clip-path: inset(0 100% 0 0); transition: clip-path .9s cubic-bezier(.65, 0, .35, 1);
+}
+.ev-stage.is-lit .ev-word .ev-scrawl { clip-path: inset(-20% -5% -20% 0); }
+.ev-lip { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--edge-strong) 20% 80%, transparent); }
+.ev-foot { position: absolute; bottom: -5px; left: 50%; transform: translateX(-50%); display: flex; gap: clamp(1.2rem, 6vw, 5rem); }
+.ev-foot b { position: relative; width: 10px; height: 10px; border-radius: 50%; background: #3a3024; transition: background .12s linear; }
+.ev-foot b::after {
+  content: ""; position: absolute; left: 50%; bottom: 4px; width: 70px; height: 90px; transform: translateX(-50%);
+  background: radial-gradient(ellipse at 50% 100%, #ffb42a40, transparent 70%); opacity: 0; transition: opacity .5s var(--ease-out);
+}
+.ev-foot b.is-on { background: var(--brand-gold); animation: ev-flicker 4s steps(1) infinite; }
+.ev-foot b.is-on::after { opacity: 1; }
+.ev-foot b:nth-child(2n) { animation-delay: -1.3s; }
+.ev-foot b:nth-child(3n) { animation-delay: -2.7s; }
+@keyframes ev-flicker { 0%, 100% { opacity: 1; } 47% { opacity: .55; } 49% { opacity: 1; } 83% { opacity: .8; } }
+.ev-stage.is-lit .ev-haze { opacity: .55; }
+
+/* the one authored moment: a carbon-arc strike -- on, stutter, catch, hold */
+.ev-stage.is-striking .ev-cone,
+.ev-stage.is-striking .ev-word .ev-lit { animation: ev-strike .62s steps(1) both; }
+@keyframes ev-strike { 0% { opacity: 0; } 12% { opacity: 1; } 22% { opacity: .15; } 34% { opacity: .9; } 44% { opacity: .35; } 56%, 100% { opacity: 1; } }
+
+/* sound: small, in the wings, never in the way */
+.ev-sound {
+  position: absolute; top: 1rem; right: 0; z-index: 3;
+  display: inline-flex; align-items: center; gap: .45rem; padding: .45rem .75rem;
+  border: 1px solid var(--rule); border-radius: 999px; background: color-mix(in srgb, var(--surface-sunken) 70%, transparent);
+  color: var(--muted-ink); font: 600 .74rem/1 var(--display); letter-spacing: .02em; cursor: pointer;
+  transition: color .2s var(--ease-out), border-color .2s var(--ease-out), background .2s var(--ease-out);
+}
+.ev-sound:hover { color: var(--ink); border-color: var(--edge-strong); background: var(--hover-wash); }
+.ev-sound[aria-pressed="true"] { color: var(--ink); }
+.ev-sound svg { flex: none; }
+.ev-sound .ev-wave { transition: opacity .2s var(--ease-out); }
+.ev-sound[aria-pressed="false"] .ev-wave { opacity: 0; }
+.ev-sound[aria-pressed="true"] .ev-mute { opacity: 0; }
+
+/* ------------------------------------------------------------------ the cue sheet (ghost dashboard) */
+.ev-cues {
+  display: flex; justify-content: center; align-items: baseline; flex-wrap: wrap; gap: .5rem clamp(.8rem, 3vw, 2.2rem);
+  margin: 2.2rem auto 0; padding: 0; list-style: none; max-width: 44rem;
+}
+.ev-cue { display: inline-flex; align-items: baseline; gap: .55rem; white-space: nowrap; }
+.ev-cue + .ev-cue::before { content: ""; align-self: center; width: clamp(1rem, 4vw, 2.6rem); height: 0; margin-right: clamp(.3rem, 1.5vw, 1.2rem); border-top: 1px dashed var(--edge-strong); }
+.ev-cue__label { color: var(--muted-ink); font-size: .78rem; font-weight: 600; letter-spacing: .04em; }
+.ev-cue__value { color: var(--faint-ink); font-size: 1.35rem; font-weight: 700; font-stretch: 85%; font-variant-numeric: tabular-nums; }
+
+/* ------------------------------------------------------------------ the programme */
+.ev-copy { max-width: 44rem; margin: 2.6rem auto 0; text-align: center; }
+.ev-copy h1 {
+  margin: 0 0 .7rem; font-family: var(--display); font-weight: 650; font-stretch: 92%;
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem); line-height: 1.1; letter-spacing: -.02em; text-wrap: balance; color: var(--ink);
+}
+.ev-q {
+  margin: 0 auto 1.1rem; max-width: 38ch; color: var(--accent);
+  font-weight: 600; font-size: 1.06rem; line-height: 1.4; text-wrap: balance;
+}
+.ev-copy p.ev-note { margin: 0 auto 2rem; max-width: 52ch; color: var(--muted-ink); font-size: .95rem; line-height: 1.6; }
+.ev-cta {
+  display: inline-flex; align-items: center; gap: .6rem; padding: .8rem 1.25rem; border: 1px solid var(--edge-strong); border-radius: 999px;
+  color: var(--ink); text-decoration: none; font-weight: 700; font-size: .88rem;
+  transition: background .25s var(--ease-out), border-color .25s var(--ease-out), color .25s var(--ease-out);
+}
+.ev-cta svg { transition: transform .35s var(--ease-out); }
+.ev-cta:hover { background: var(--accent); border-color: var(--accent); color: var(--background); }
+.ev-cta:hover svg { transform: translateX(-4px); }
+
+@media (max-width: 640px) {
+  .ev-stage { height: 44vh; --r: 6.5rem; }
+  .ev-word { font-size: 26vw; }
+  .ev-word .ev-scrawl { right: -.1em; top: -.55em; font-size: 1.45rem; }
+  .ev-sound { top: .6rem; }
+  .ev-cue + .ev-cue::before { display: none; }
+  .ev-cues { gap: .4rem 1.4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ev-haze i, .ev-foot b.is-on, .ev-stage.is-striking .ev-cone, .ev-stage.is-striking .ev-word .ev-lit { animation: none; }
+  .ev-haze, .ev-word .ev-scrawl { transition: none; }
+}

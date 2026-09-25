@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "note": "Which Connection Types are serving sign-up areas, and which of each type's OWN statuses means the person was actually placed on a team. Placement is NOT uniformly expressible on this schema: most VOL types end in 'Serving', but MNL | VOL | Worship uses instrument names as statuses (Vocals, Drums, Auditioned) and has no terminal placement status at all. An area with no placedStatuses renders its placement figure UNAVAILABLE, never zero -- a tall sign-up bar with an unknown placed count is a different fact from one with a placed count of nothing.",
+  "verified": {
+    "environment": "production Rock",
+    "date": "2026-09-16",
+    "method": "read-only REST"
+  },
+  "areas": {
+    "MNL | VOL | Worship": {
+      "connectionTypeId": 7,
+      "statuses": [
+        "Acoustic Guitar",
+        "Auditioned",
+        "Auditioned for Vocals",
+        "Bass",
+        "Drums",
+        "Electric Guitar",
+        "Keyboard",
+        "New",
+        "Not serving/cancelled",
+        "Offstage",
+        "Vocals"
+      ],
+      "placedStatuses": [],
+      "placementResolvable": false,
+      "unresolvedReason": "No status on this type denotes placement on a team."
+    },
+    "MNL | VOL | CRTVS x Prod": {
+      "connectionTypeId": 8,
+      "statuses": [
+        "Contacted",
+        "For interview",
+        "New",
+        "Not serving/cancelled",
+        "Onboarding",
+        "Serving",
+        "Shadowing"
+      ],
+      "placedStatuses": [
+        "Serving"
+      ],
+      "placementResolvable": true
+    },
+    "MNL | VOL | Deaf/Prayer/Grow/Street": {
+      "connectionTypeId": 9,
+      "statuses": [
+        "Cancelled / Unresponsive",
+        "Contacted",
+        "For Interview",
+        "For Onboarding",
+        "New",
+        "Serving"
+      ],
+      "placedStatuses": [
+        "Serving"
+      ],
+      "placementResolvable": true
+    },
+    "MNL | VOL | Events/Support Ops/Logistics/Socials": {
+      "connectionTypeId": 10,
+      "statuses": [
+        "Contacted",
+        "For Onboarding",
+        "New",
+        "Not Serving / Cancelled / Unresponsive",
+        "Serving"
+      ],
+      "placedStatuses": [
+        "Serving"
+      ],
+      "placementResolvable": true
+    },
+    "MNL | VOL | Kids": {
+      "connectionTypeId": 11,
+      "statuses": [
+        "Cancelled / Unresponsive",
+        "Emailed",
+        "For Onboarding",
+        "New",
+        "Responsive - processing requirements",
+        "Serving",
+        "Unresponsive / For Follow-up"
+      ],
+      "placedStatuses": [
+        "Serving"
+      ],
+      "placementResolvable": true
+    },
+    "MNL | VOL | People": {
+      "connectionTypeId": 12,
+      "statuses": [
+        "Cancelled / Unresponsive",
+        "Contacted",
+        "For Onboarding",
+        "New",
+        "Revisit (not ready)",
+        "Scheduled Shadowing",
+        "Scheduled Training",
+        "Serving"
+      ],
+      "placedStatuses": [
+        "Serving"
+      ],
+      "placementResolvable": true
+    },
+    "MNL | VOL | Tech": {
+      "connectionTypeId": 13,
+      "statuses": [
+        "Emailed",
+        "For Onboarding",
+        "New",
+        "Not Serving / Cancelled / Unresponsive",
+        "Serving",
+        "Waiting for NBI Clearance"
+      ],
+      "placedStatuses": [
+        "Serving"
+      ],
+      "placementResolvable": true
+    },
+    "MNL | VOL | Youth": {
+      "connectionTypeId": 14,
+      "statuses": [
+        "Contacted",
+        "For Interview",
+        "New",
+        "Not Serving / Cancelled",
+        "Onboarding",
+        "Serving",
+        "Serving (18+)"
+      ],
+      "placedStatuses": [
+        "Serving"
+      ],
+      "placementResolvable": true
+    },
+    "MNL | VOL | Fitness": {
+      "connectionTypeId": 15,
+      "statuses": [
+        "New",
+        "Not Serving / Cancelled",
+        "Onboarding",
+        "Serving"
+      ],
+      "placedStatuses": [
+        "Serving"
+      ],
+      "placementResolvable": true
+    },
+    "MNL | VOL | Movement": {
+      "connectionTypeId": 16,
+      "statuses": [
+        "Booth",
+        "CRTVS",
+        "Events",
+        "Film",
+        "Follow Thru",
+        "Host & Security",
+        "Logistics",
+        "New",
+        "New People",
+        "Onsite",
+        "Parked / Transitioning Out",
+        "Production",
+        "Serving",
+        "Socials",
+        "Uni Outreach",
+        "Worship",
+        "Young Pro Outreach"
+      ],
+      "placedStatuses": [
+        "Serving"
+      ],
+      "placementResolvable": true
+    },
+    "MNL | ECHO | Volunteer to Serve": {
+      "connectionTypeId": 27,
+      "statuses": [
+        "Added to GC",
+        "Completed",
+        "Contacted",
+        "For Contact",
+        "New Signup",
+        "Onboarded"
+      ],
+      "placedStatuses": [],
+      "placementResolvable": false,
+      "unresolvedReason": "No status on this type denotes placement on a team."
+    }
+  }
+}

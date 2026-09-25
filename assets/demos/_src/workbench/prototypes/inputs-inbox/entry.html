@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Focused entry · Sunday Inputs prototype</title>
+<link rel="stylesheet" href="proto.css">
+<link rel="stylesheet" href="../../../apps/stats_inputs/src/ui/shared/inputs-tokens.css">
+<link rel="stylesheet" href="../../../apps/stats_inputs/src/ui/shared/inputs-base.css">
+</head>
+<body>
+<main id="app" class="favor-inputs"></main>
+<nav class="proto-nav" aria-label="Prototype screens"><a href="index.html">1 · My Inputs</a><a href="entry.html" aria-current="page">2 · Entry</a><a href="setup.html">3 · Setup</a></nav>
+<script src="../../../apps/stats_inputs/src/ui/shared/inputs-inbox.js"></script>
+<script src="data.js"></script>
+<script src="proto-render.js"></script>
+<script>
+(function () {
+  var R = window.PROTO_RENDER;
+  var app = document.getElementById("app");
+  R.shell(app);
+  var page = R.el("div", "in-page");
+  page.appendChild(R.el("p", "in-fictional", "Fictional prototype data. Type a number and press Save and finish to see the receipt moment."));
+  var key = new URLSearchParams(location.search).get("key") || "team:MNL:KIDS";
+  R.entry(page, key);
+  app.appendChild(page);
+  window.PROTO_STATUS = R.mountStatus(app);
+}());
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Events · C · Admit One</title>
+<link rel="stylesheet" href="../../shared/breadcrumbs-base.css">
+<style>
+  /* Tokens: themes/favor-events-2026.json */
+  #events-island {
+    --background:#0b0a10; --surface:#14121c; --surface-raised:#1c1927; --surface-sunken:#08070c;
+    --ink:#f5f1e8; --muted-ink:#b3adc4; --rule:#2c2839; --edge:#4a4460;
+    --accent:#ff5b3a; --secondary:#8f7bff; --brand-gold:#ffb42a; --focus:#7cc8ff;
+    --hover-wash:#1f1b2b; --shadow-ink:#000;
+    --ease-out: cubic-bezier(.16,1,.3,1);
+    --serif:"Instrument Serif", Georgia, serif;
+    --grot:"Schibsted Grotesk", "Favor Sans", Arial, sans-serif;
+  }
+  html, body { margin:0; background:#0b0a10; }
+  ::selection { background:#8f7bff; color:#0b0a10; }
+  #events-island { min-height:100vh; box-sizing:border-box; padding:0 clamp(1rem,2.5vw,2.4rem) 4rem; background:var(--background); color:var(--ink); font-family:var(--grot); overflow:hidden; }
+
+  .tk-layout { max-width:68rem; margin:clamp(2rem,6vw,5rem) auto 0; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.15fr); gap:clamp(2rem,5vw,4.5rem); align-items:center; }
+  .tk-copy h1 { margin:0 0 1.1rem; font-family:var(--serif); font-weight:400; font-size:clamp(2.6rem,5.6vw,4.6rem); line-height:.95; letter-spacing:-.02em; text-wrap:balance; }
+  .tk-copy h1 em { color:var(--accent); }
+  .tk-copy .tk-q { margin:0 0 1rem; font-size:1.08rem; font-weight:500; color:var(--ink); text-wrap:balance; }
+  .tk-copy p { margin:0 0 2rem; max-width:44ch; color:var(--muted-ink); line-height:1.6; font-size:.95rem; }
+  .tk-cta { display:inline-flex; align-items:center; gap:.55rem; color:var(--ink); text-decoration:none; font-weight:700; font-size:.9rem; padding:.3rem 0; border-bottom:1px solid var(--edge); transition:border-color .25s var(--ease-out), gap .3s var(--ease-out); }
+  .tk-cta:hover { border-color:var(--accent); gap:.85rem; }
+  #events-island a:focus-visible { outline:2px solid var(--focus); outline-offset:4px; }
+
+  /* ---- the ticket ---- */
+  .tk-scene { perspective:1100px; }
+  .tk { --rx:0deg; --ry:0deg; --mx:50%; --my:50%;
+    position:relative; display:grid; grid-template-columns:1fr auto; border-radius:14px; transform-style:preserve-3d;
+    transform:rotateX(var(--rx)) rotateY(var(--ry)); transition:transform .5s var(--ease-out);
+    animation:tk-deal 1.2s var(--ease-out) both; filter:drop-shadow(0 28px 34px #000a); }
+  @keyframes tk-deal { from { transform:translate3d(40%, 20%, 0) rotate(12deg); opacity:0; } }
+  .tk-main, .tk-stub { position:relative; background:#f5f1e8; color:#0b0a10; overflow:hidden; }
+  .tk-main { border-radius:14px 0 0 14px; padding:clamp(1.2rem,3vw,1.8rem);
+    -webkit-mask:radial-gradient(circle 12px at 100% 0,#0000 98%,#000) top/100% 51% no-repeat, radial-gradient(circle 12px at 100% 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+            mask:radial-gradient(circle 12px at 100% 0,#0000 98%,#000) top/100% 51% no-repeat, radial-gradient(circle 12px at 100% 100%,#0000 98%,#000) bottom/100% 51% no-repeat; }
+  .tk-stub { border-radius:0 14px 14px 0; width:clamp(4.5rem,11vw,6.5rem); display:grid; place-items:center; border-left:2px dashed #0b0a1033;
+    -webkit-mask:radial-gradient(circle 12px at 0 0,#0000 98%,#000) top/100% 51% no-repeat, radial-gradient(circle 12px at 0 100%,#0000 98%,#000) bottom/100% 51% no-repeat;
+            mask:radial-gradient(circle 12px at 0 0,#0000 98%,#000) top/100% 51% no-repeat, radial-gradient(circle 12px at 0 100%,#0000 98%,#000) bottom/100% 51% no-repeat; }
+  .tk-stub span { writing-mode:vertical-rl; transform:rotate(180deg); font-weight:700; letter-spacing:.3em; font-size:.72rem; text-transform:uppercase; }
+  /* holographic foil strip: follows the tilt, like light across a real laminate */
+  .tk-foil { position:absolute; inset:0; mix-blend-mode:multiply; opacity:.38; pointer-events:none;
+    background:conic-gradient(from 120deg at var(--mx) var(--my), #ff5b3a, #ffb42a, #7cc8ff, #8f7bff, #ff5b3a); }
+  .tk-shine { position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle 14rem at var(--mx) var(--my), #ffffff80, transparent 60%); mix-blend-mode:soft-light; }
+
+  .tk-top { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
+  .tk-title { position:relative; margin:1.4rem 0 1.2rem; font-family:var(--serif); font-size:clamp(3.4rem,8vw,6rem); line-height:.85; letter-spacing:-.03em; }
+  .tk-title i { font-style:italic; }
+  .tk-grid { position:relative; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:.8rem; border-top:1px solid #0b0a1026; padding-top:.9rem; }
+  .tk-grid dt { font-size:.62rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; opacity:.62; }
+  .tk-grid dd { margin:.25rem 0 0; font-size:.9rem; font-weight:700; }
+  .tk-bar { position:relative; display:block; margin-top:1.2rem; width:100%; height:34px; }
+
+  /* the stamp lands once, after the ticket is dealt */
+  .tk-stamp { position:absolute; right:clamp(.8rem,3vw,2rem); top:clamp(3.6rem,8vw,4.8rem); padding:.35rem .7rem; border:2.5px solid var(--accent); border-radius:6px; color:var(--accent);
+    font-weight:700; font-size:clamp(.62rem,1.4vw,.95rem); letter-spacing:.12em; text-transform:uppercase; transform:rotate(-9deg); mix-blend-mode:multiply;
+    animation:tk-stamp .55s cubic-bezier(.16,1,.3,1) 1.25s both; }
+  @keyframes tk-stamp { from { transform:rotate(-9deg) scale(2.4); opacity:0; } 60% { opacity:1; } }
+
+  @media (max-width: 760px) {
+    .tk-layout { grid-template-columns:1fr; }
+    .tk-scene { order:-1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tk, .tk-stamp { animation:none; transition:none; }
+  }
+</style>
+</head>
+<body>
+<div id="events-island">
+  <nav class="suite-breadcrumbs" aria-label="Executive Suite"><ol class="suite-breadcrumbs__trail"><li class="suite-breadcrumbs__item suite-breadcrumbs__item--root"><a href="/exec" class="suite-breadcrumbs__root-link">Executive Dashboards</a></li><li class="suite-breadcrumbs__divider" aria-hidden="true">/</li><li class="suite-breadcrumbs__item suite-breadcrumbs__item--siblings"><span class="suite-breadcrumbs__peers"><a href="/exec" class="suite-breadcrumbs__link" data-surface="exec-overview">Overview</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><span class="suite-breadcrumbs__nest"><a href="/exec/people" class="suite-breadcrumbs__link" data-surface="pathways">People</a><span class="suite-breadcrumbs__sub" role="group" aria-label="People &amp; Leaders"><a href="/exec/people" class="suite-breadcrumbs__tab" data-tab="pathways"><span class="suite-breadcrumbs__tab-label">Pathways</span><span class="suite-breadcrumbs__tab-question">Who is becoming ready?</span></a><a href="/exec/people?tab=leadership" class="suite-breadcrumbs__tab" data-tab="leadership"><span class="suite-breadcrumbs__tab-label">Leadership</span><span class="suite-breadcrumbs__tab-question">Who carries responsibility now?</span></a><a href="/exec/people?tab=multiplication" class="suite-breadcrumbs__tab" data-tab="multiplication"><span class="suite-breadcrumbs__tab-label">Multiplication</span><span class="suite-breadcrumbs__tab-question">Who are those leaders building?</span></a></span></span><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/connect" class="suite-breadcrumbs__link" data-surface="connect-field">Connect</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/grow" class="suite-breadcrumbs__link" data-surface="grow">Grow</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/finance" class="suite-breadcrumbs__link" data-surface="finance">Finance</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/exec/events" class="suite-breadcrumbs__link is-active" data-surface="events" aria-current="page">Events</a><span class="suite-breadcrumbs__sep" aria-hidden="true">·</span><a href="/TechStatsNew" class="suite-breadcrumbs__link" data-surface="sunday-report">Sunday</a></span></li></ol></nav>
+  <div class="tk-layout">
+    <div class="tk-copy">
+      <h1>Events is <em>under construction</em></h1>
+      <p class="tk-q">Are our big nights drawing people in, and bringing them back?</p>
+      <p>We're wiring conferences and church-wide gatherings into Rock so this reads live.</p>
+      <a class="tk-cta" href="/exec"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg>Return to Executive Dashboards</a>
+    </div>
+    <div class="tk-scene" aria-hidden="true">
+      <div class="tk">
+        <div class="tk-main">
+          <div class="tk-foil"></div><div class="tk-shine"></div>
+          <div class="tk-top" style="position:relative"><span>Favor Church</span><span>Admit one</span></div>
+          <p class="tk-title">Ev<i>e</i>nts</p>
+          <dl class="tk-grid">
+            <div><dt>Doors</dt><dd>Soon</dd></div>
+            <div><dt>Section</dt><dd>Exec</dd></div>
+            <div><dt>Seat</dt><dd>Yours</dd></div>
+          </dl>
+          <svg class="tk-bar" viewBox="0 0 300 34" preserveAspectRatio="none"></svg>
+          <div class="tk-stamp">Under construction</div>
+        </div>
+        <div class="tk-stub"><span>Keep this stub</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var root = document.getElementById("events-island");
+  var bar = root.querySelector(".tk-bar"), x = 0, seed = 7, d = "";
+  while (x < 300) { seed = (seed * 9301 + 49297) % 233280; var w = 1 + (seed % 4); d += '<rect x="' + x + '" width="' + w + '" height="34" fill="#0b0a10"/>'; x += w + 1 + (seed % 3); }
+  bar.innerHTML = d;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var tk = root.querySelector(".tk"), scene = root.querySelector(".tk-scene");
+  tk.addEventListener("animationend", function () { tk.style.animation = "none"; }, { once:true });
+  function tilt(px, py) {
+    tk.style.setProperty("--ry", ((px - .5) * 18).toFixed(2) + "deg");
+    tk.style.setProperty("--rx", ((.5 - py) * 14).toFixed(2) + "deg");
+    tk.style.setProperty("--mx", (px * 100).toFixed(1) + "%");
+    tk.style.setProperty("--my", (py * 100).toFixed(1) + "%");
+  }
+  root.addEventListener("pointermove", function (e) {
+    var r = scene.getBoundingClientRect();
+    tilt(Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)), Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)));
+  });
+  root.addEventListener("pointerleave", function () { tilt(.5, .5); });
+})();
+</script>
+</body>
+</html>

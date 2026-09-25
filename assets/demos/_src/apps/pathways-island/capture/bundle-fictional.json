@@ -1,0 +1,2908 @@
+{
+  "schemaVersion": 1,
+  "label": "Fictional prototype data.",
+  "fictional": true,
+  "generatedNote": "Structure-only fixture for the People Pathway island. Every person, count, and date below is invented. The live bundle is assembled from the registered registered-read named queries and never ships in Git.",
+  "meta": {
+    "campus": "MNL",
+    "compareAnchor": "last Sunday",
+    "migrationThrough": "2026-08-01",
+    "compareDate": "2026-08-23",
+    "profileUrlTemplate": null,
+    "profileNote": "Profile links activate on the staff-locked Rock page under normal Rock staff page authorization.",
+    "personLayerAuthorized": true
+  },
+  "pathways": [
+    {
+      "id": "foundational",
+      "label": "Foundational",
+      "description": "New to Crowd to Core: the front door through belonging and serving.",
+      "logo": "burst",
+      "steps": [
+        {
+          "id": "front-door",
+          "label": "Front Door",
+          "persistence": "seasonal",
+          "grain": "aggregate",
+          "schemaStatus": "live",
+          "freshnessDays": 28,
+          "uniqueCount": null,
+          "observedDate": "2026-08-23",
+          "signalsObserved": 4,
+          "aggregateSignals": [
+            {
+              "key": "new-people",
+              "label": "New-people bags",
+              "token": "--cohort-core",
+              "rockMetric": "PPL New People",
+              "description": "Welcome bags handed to first-time guests.",
+              "value": 58,
+              "observedDate": "2026-08-23",
+              "previousValue": 52,
+              "previousDate": "2026-08-16",
+              "delta": 6,
+              "averageValue": 54,
+              "averageWeeks": 4,
+              "observations": [
+                {
+                  "date": "2026-08-23",
+                  "value": 58
+                },
+                {
+                  "date": "2026-08-16",
+                  "value": 52
+                },
+                {
+                  "date": "2026-08-09",
+                  "value": 49
+                },
+                {
+                  "date": "2026-08-02",
+                  "value": 55
+                },
+                {
+                  "date": "2026-07-26",
+                  "value": 47
+                }
+              ]
+            },
+            {
+              "key": "hands-raised",
+              "label": "Hands raised",
+              "token": "--cohort-leader",
+              "rockMetric": "PPL Hands Raised",
+              "description": "First-time decisions counted at the response.",
+              "value": 41,
+              "observedDate": "2026-08-23",
+              "previousValue": 38,
+              "previousDate": "2026-08-16",
+              "delta": 3,
+              "averageValue": 38,
+              "averageWeeks": 4,
+              "observations": [
+                {
+                  "date": "2026-08-23",
+                  "value": 41
+                },
+                {
+                  "date": "2026-08-16",
+                  "value": 38
+                },
+                {
+                  "date": "2026-08-09",
+                  "value": 34
+                },
+                {
+                  "date": "2026-08-02",
+                  "value": 40
+                },
+                {
+                  "date": "2026-07-26",
+                  "value": 33
+                }
+              ]
+            },
+            {
+              "key": "physical-cards",
+              "label": "Orange cards",
+              "token": "--cohort-new",
+              "rockMetric": "PPL Physical Cards",
+              "description": "Physical visitor cards collected.",
+              "value": 35,
+              "observedDate": "2026-08-23",
+              "previousValue": 31,
+              "previousDate": "2026-08-16",
+              "delta": 4,
+              "averageValue": 32,
+              "averageWeeks": 4,
+              "observations": [
+                {
+                  "date": "2026-08-23",
+                  "value": 35
+                },
+                {
+                  "date": "2026-08-16",
+                  "value": 31
+                },
+                {
+                  "date": "2026-08-09",
+                  "value": 30
+                },
+                {
+                  "date": "2026-08-02",
+                  "value": 33
+                },
+                {
+                  "date": "2026-07-26",
+                  "value": 28
+                }
+              ]
+            },
+            {
+              "key": "response-lounge",
+              "label": "Response lounge",
+              "token": "--move-gain",
+              "rockMetric": "PPL Gospel Response Lounge",
+              "description": "Guests hosted in the lounge after the service.",
+              "value": 23,
+              "observedDate": "2026-08-23",
+              "previousValue": 25,
+              "previousDate": "2026-08-16",
+              "delta": -2,
+              "averageValue": 24,
+              "averageWeeks": 4,
+              "observations": [
+                {
+                  "date": "2026-08-23",
+                  "value": 23
+                },
+                {
+                  "date": "2026-08-16",
+                  "value": 25
+                },
+                {
+                  "date": "2026-08-09",
+                  "value": 22
+                },
+                {
+                  "date": "2026-08-02",
+                  "value": 26
+                },
+                {
+                  "date": "2026-07-26",
+                  "value": 21
+                }
+              ]
+            }
+          ],
+          "note": "Independent Sunday touchpoints, read from the Sunday Stats metrics. They overlap, so they never sum to people. Per-person identity starts at New People Gathering."
+        },
+        {
+          "id": "npg",
+          "label": "New People Gathering",
+          "persistence": "seasonal",
+          "schemaStatus": "live",
+          "freshnessDays": 90,
+          "uniqueCount": 214,
+          "states": {
+            "attended": 214
+          },
+          "segments": {
+            "lifecycle": {
+              "new": 128,
+              "crowd": 74,
+              "core": 12,
+              "leader": 0
+            },
+            "gender": {
+              "women": 118,
+              "men": 89,
+              "unknown": 7
+            },
+            "age": {
+              "kids": 0,
+              "youth": 24,
+              "youngAdults": 96,
+              "adults": 81,
+              "seasoned": 13
+            },
+            "state": {
+              "observed": 0,
+              "enrolled": 0,
+              "attended": 214,
+              "active": 0,
+              "completed": 0,
+              "unfinished": 0
+            }
+          },
+          "allTimeCount": 577
+        },
+        {
+          "id": "build",
+          "label": "Build",
+          "persistence": "seasonal",
+          "attainedOn": "completed",
+          "schemaStatus": "live",
+          "freshnessDays": 70,
+          "uniqueCount": 173,
+          "states": {
+            "enrolled": 41,
+            "active": 96,
+            "completed": 36
+          },
+          "segments": {
+            "lifecycle": {
+              "new": 38,
+              "crowd": 92,
+              "core": 41,
+              "leader": 2
+            },
+            "gender": {
+              "women": 94,
+              "men": 76,
+              "unknown": 3
+            },
+            "age": {
+              "kids": 0,
+              "youth": 12,
+              "youngAdults": 74,
+              "adults": 75,
+              "seasoned": 12
+            },
+            "state": {
+              "observed": 0,
+              "enrolled": 41,
+              "attended": 0,
+              "active": 96,
+              "completed": 36,
+              "unfinished": 0
+            }
+          },
+          "allTimeCount": 467
+        },
+        {
+          "id": "fdna",
+          "label": "Favor DNA",
+          "persistence": "seasonal",
+          "attainedOn": "completed",
+          "schemaStatus": "live",
+          "freshnessDays": 70,
+          "uniqueCount": 142,
+          "states": {
+            "enrolled": 33,
+            "active": 71,
+            "completed": 38
+          },
+          "segments": {
+            "lifecycle": {
+              "new": 21,
+              "crowd": 78,
+              "core": 41,
+              "leader": 2
+            },
+            "gender": {
+              "women": 80,
+              "men": 59,
+              "unknown": 3
+            },
+            "age": {
+              "kids": 0,
+              "youth": 9,
+              "youngAdults": 63,
+              "adults": 61,
+              "seasoned": 9
+            },
+            "state": {
+              "observed": 0,
+              "enrolled": 33,
+              "attended": 0,
+              "active": 71,
+              "completed": 38,
+              "unfinished": 0
+            }
+          },
+          "allTimeCount": 383
+        },
+        {
+          "id": "baptized",
+          "label": "Baptisms",
+          "persistence": "seasonal",
+          "attainedOn": "completed",
+          "schemaStatus": "live",
+          "freshnessDays": 90,
+          "uniqueCount": 86,
+          "states": {
+            "completed": 86
+          },
+          "segments": {
+            "lifecycle": {
+              "new": 8,
+              "crowd": 29,
+              "core": 35,
+              "leader": 14
+            },
+            "gender": {
+              "women": 48,
+              "men": 34,
+              "unknown": 4
+            },
+            "age": {
+              "kids": 11,
+              "youth": 17,
+              "youngAdults": 22,
+              "adults": 29,
+              "seasoned": 7
+            },
+            "state": {
+              "observed": 0,
+              "enrolled": 0,
+              "attended": 0,
+              "active": 0,
+              "completed": 86,
+              "unfinished": 0
+            }
+          },
+          "allTimeCount": 232,
+          "note": "Fictional fixture: read from the Baptized Here Person attribute in live data."
+        },
+        {
+          "id": "grow",
+          "label": "Grow",
+          "persistence": "seasonal",
+          "schemaStatus": "live",
+          "freshnessDays": 90,
+          "uniqueCount": 118,
+          "states": {
+            "enrolled": 26,
+            "active": 79,
+            "unfinished": 13
+          },
+          "segments": {
+            "lifecycle": {
+              "new": 6,
+              "crowd": 54,
+              "core": 51,
+              "leader": 7
+            },
+            "gender": {
+              "women": 66,
+              "men": 50,
+              "unknown": 2
+            },
+            "age": {
+              "kids": 0,
+              "youth": 6,
+              "youngAdults": 48,
+              "adults": 55,
+              "seasoned": 9
+            },
+            "state": {
+              "observed": 0,
+              "enrolled": 26,
+              "attended": 0,
+              "active": 79,
+              "completed": 0,
+              "unfinished": 13
+            }
+          },
+          "allTimeCount": 318
+        },
+        {
+          "id": "upnext",
+          "label": "UPNEXT Track",
+          "persistence": "seasonal",
+          "optional": true,
+          "schemaStatus": "live",
+          "freshnessDays": 56,
+          "uniqueCount": 24,
+          "states": {
+            "enrolled": 9,
+            "active": 15
+          },
+          "segments": {
+            "lifecycle": {
+              "new": 0,
+              "crowd": 8,
+              "core": 14,
+              "leader": 2
+            },
+            "gender": {
+              "women": 13,
+              "men": 11,
+              "unknown": 0
+            },
+            "age": {
+              "kids": 0,
+              "youth": 0,
+              "youngAdults": 11,
+              "adults": 12,
+              "seasoned": 1
+            },
+            "state": {
+              "observed": 0,
+              "enrolled": 9,
+              "attended": 0,
+              "active": 15,
+              "completed": 0,
+              "unfinished": 0
+            }
+          },
+          "allTimeCount": 64
+        },
+        {
+          "id": "connect",
+          "label": "Connect Group",
+          "persistence": "current",
+          "schemaStatus": "live",
+          "freshnessDays": 90,
+          "uniqueCount": 612,
+          "states": {
+            "active": 612
+          },
+          "campusNote": "Manila-only today",
+          "segments": {
+            "lifecycle": {
+              "new": 18,
+              "crowd": 231,
+              "core": 297,
+              "leader": 66
+            },
+            "gender": {
+              "women": 342,
+              "men": 259,
+              "unknown": 11
+            },
+            "age": {
+              "kids": 0,
+              "youth": 88,
+              "youngAdults": 224,
+              "adults": 251,
+              "seasoned": 49
+            },
+            "state": {
+              "observed": 0,
+              "enrolled": 0,
+              "attended": 0,
+              "active": 612,
+              "completed": 0,
+              "unfinished": 0
+            }
+          },
+          "allTimeCount": 1652
+        },
+        {
+          "id": "serving",
+          "label": "Serving",
+          "persistence": "current",
+          "schemaStatus": "live",
+          "freshnessDays": 90,
+          "uniqueCount": 547,
+          "states": {
+            "active": 547
+          },
+          "segments": {
+            "lifecycle": {
+              "new": 4,
+              "crowd": 121,
+              "core": 344,
+              "leader": 78
+            },
+            "gender": {
+              "women": 301,
+              "men": 238,
+              "unknown": 8
+            },
+            "age": {
+              "kids": 0,
+              "youth": 61,
+              "youngAdults": 213,
+              "adults": 231,
+              "seasoned": 42
+            },
+            "state": {
+              "observed": 0,
+              "enrolled": 0,
+              "attended": 0,
+              "active": 547,
+              "completed": 0,
+              "unfinished": 0
+            }
+          },
+          "allTimeCount": 1476
+        }
+      ]
+    },
+    {
+      "id": "leadership-readiness",
+      "label": "Leadership Pathway",
+      "note": "This pathway is about readiness, not appointment: it is open to anyone leaning in, and being on it does not mean someone leads yet.",
+      "description": "Open doors before appointment: training for anyone leaning in.",
+      "logo": "spark",
+      "steps": [
+        {
+          "id": "clt",
+          "label": "Connect Leadership Training",
+          "persistence": "seasonal",
+          "attainedOn": "completed",
+          "schemaStatus": "live",
+          "freshnessDays": 28,
+          "uniqueCount": 47,
+          "states": {
+            "enrolled": 14,
+            "active": 12,
+            "completed": 21
+          },
+          "segments": {
+            "lifecycle": {
+              "new": 0,
+              "crowd": 9,
+              "core": 31,
+              "leader": 7
+            },
+            "gender": {
+              "women": 26,
+              "men": 21,
+              "unknown": 0
+            },
+            "age": {
+              "kids": 0,
+              "youth": 2,
+              "youngAdults": 22,
+              "adults": 21,
+              "seasoned": 2
+            },
+            "state": {
+              "observed": 0,
+              "enrolled": 14,
+              "attended": 0,
+              "active": 12,
+              "completed": 21,
+              "unfinished": 0
+            }
+          },
+          "allTimeCount": 126
+        },
+        {
+          "id": "mlt",
+          "label": "Ministry Leader Training",
+          "persistence": "seasonal",
+          "schemaStatus": "ghost",
+          "freshnessDays": 28,
+          "uniqueCount": null,
+          "ghostNote": "No Rock schema yet. Reserved, not zero."
+        }
+      ]
+    },
+    {
+      "id": "active-leadership",
+      "label": "Active leadership and beyond",
+      "description": "Appointed leaders, Favor College, and the roads past it.",
+      "logo": "scallop",
+      "steps": [
+        {
+          "id": "leader",
+          "label": "Leader",
+          "persistence": "invariant",
+          "schemaStatus": "live",
+          "freshnessDays": 0,
+          "uniqueCount": 187,
+          "states": {
+            "active": 187
+          },
+          "note": "Status and leader-role signals shown side by side; disagreement is data signal.",
+          "segments": {
+            "lifecycle": {
+              "new": 0,
+              "crowd": 0,
+              "core": 0,
+              "leader": 187
+            },
+            "gender": {
+              "women": 96,
+              "men": 91,
+              "unknown": 0
+            },
+            "age": {
+              "kids": 0,
+              "youth": 8,
+              "youngAdults": 66,
+              "adults": 96,
+              "seasoned": 17
+            },
+            "state": {
+              "observed": 0,
+              "enrolled": 0,
+              "attended": 0,
+              "active": 187,
+              "completed": 0,
+              "unfinished": 0
+            }
+          }
+        },
+        {
+          "id": "leaders-lab",
+          "label": "Leaders Lab",
+          "persistence": "seasonal",
+          "schemaStatus": "ghost",
+          "freshnessDays": 180,
+          "uniqueCount": null,
+          "ghostNote": "No Rock schema yet."
+        },
+        {
+          "id": "favor-college",
+          "label": "Favor College Year 1",
+          "persistence": "seasonal",
+          "schemaStatus": "live",
+          "freshnessDays": 365,
+          "uniqueCount": 31,
+          "states": {
+            "enrolled": 6,
+            "active": 25
+          },
+          "segments": {
+            "lifecycle": {
+              "new": 0,
+              "crowd": 3,
+              "core": 19,
+              "leader": 9
+            },
+            "gender": {
+              "women": 17,
+              "men": 14,
+              "unknown": 0
+            },
+            "age": {
+              "kids": 0,
+              "youth": 0,
+              "youngAdults": 21,
+              "adults": 10,
+              "seasoned": 0
+            },
+            "state": {
+              "observed": 0,
+              "enrolled": 6,
+              "attended": 0,
+              "active": 25,
+              "completed": 0,
+              "unfinished": 0
+            }
+          },
+          "allTimeCount": 83
+        },
+        {
+          "id": "fcx",
+          "label": "Favor College X (FCX)",
+          "persistence": "seasonal",
+          "schemaStatus": "live",
+          "freshnessDays": 365,
+          "uniqueCount": 12,
+          "states": {
+            "active": 12
+          },
+          "segments": {
+            "lifecycle": {
+              "new": 0,
+              "crowd": 0,
+              "core": 7,
+              "leader": 5
+            },
+            "gender": {
+              "women": 7,
+              "men": 5,
+              "unknown": 0
+            },
+            "age": {
+              "kids": 0,
+              "youth": 0,
+              "youngAdults": 8,
+              "adults": 4,
+              "seasoned": 0
+            },
+            "state": {
+              "observed": 0,
+              "enrolled": 0,
+              "attended": 0,
+              "active": 12,
+              "completed": 0,
+              "unfinished": 0
+            }
+          },
+          "allTimeCount": 32
+        },
+        {
+          "id": "people-care",
+          "label": "People Care Pathway",
+          "persistence": "seasonal",
+          "schemaStatus": "ghost",
+          "freshnessDays": 365,
+          "uniqueCount": null,
+          "ghostNote": "No Rock schema yet."
+        },
+        {
+          "id": "lay-pastor",
+          "label": "Lay Pastor",
+          "persistence": "invariant",
+          "schemaStatus": "ghost",
+          "freshnessDays": 0,
+          "uniqueCount": null,
+          "ghostNote": "No Rock schema yet."
+        },
+        {
+          "id": "church-planting",
+          "label": "Church Planting",
+          "persistence": "invariant",
+          "schemaStatus": "ghost",
+          "freshnessDays": 0,
+          "uniqueCount": null,
+          "ghostNote": "No Rock schema yet. Future, possibly through Open Access."
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "ref": "fic-001",
+      "displayName": "Alpha S.",
+      "lifecycle": "new",
+      "gender": "women",
+      "ageBand": "youngAdults",
+      "trajectory": [
+        {
+          "stepId": "npg",
+          "kind": "entered",
+          "date": "2026-08-02"
+        }
+      ]
+    },
+    {
+      "ref": "fic-002",
+      "displayName": "Bravo M.",
+      "lifecycle": "new",
+      "gender": "men",
+      "ageBand": "adults",
+      "trajectory": [
+        {
+          "stepId": "npg",
+          "kind": "entered",
+          "date": "2026-07-12"
+        },
+        {
+          "stepId": "build",
+          "kind": "entered",
+          "date": "2026-08-09"
+        }
+      ]
+    },
+    {
+      "ref": "fic-003",
+      "displayName": "Charlie P.",
+      "lifecycle": "crowd",
+      "gender": "women",
+      "ageBand": "adults",
+      "trajectory": [
+        {
+          "stepId": "npg",
+          "kind": "entered",
+          "date": "2026-05-03"
+        },
+        {
+          "stepId": "build",
+          "kind": "entered",
+          "date": "2026-05-24"
+        },
+        {
+          "stepId": "build",
+          "kind": "completed",
+          "date": "2026-07-19"
+        },
+        {
+          "stepId": "fdna",
+          "kind": "entered",
+          "date": "2026-08-16"
+        }
+      ]
+    },
+    {
+      "ref": "fic-004",
+      "displayName": "Delta F.",
+      "lifecycle": "crowd",
+      "gender": "men",
+      "ageBand": "youngAdults",
+      "trajectory": [
+        {
+          "stepId": "build",
+          "kind": "entered",
+          "date": "2026-06-07"
+        },
+        {
+          "stepId": "build",
+          "kind": "unfinished",
+          "date": "2026-08-16"
+        }
+      ]
+    },
+    {
+      "ref": "fic-005",
+      "displayName": "Echo N.",
+      "lifecycle": "crowd",
+      "gender": "women",
+      "ageBand": "youth",
+      "trajectory": [
+        {
+          "stepId": "npg",
+          "kind": "entered",
+          "date": "2026-04-12"
+        },
+        {
+          "stepId": "connect",
+          "kind": "entered",
+          "date": "2026-06-14"
+        }
+      ]
+    },
+    {
+      "ref": "fic-006",
+      "displayName": "Foxtrot I.",
+      "lifecycle": "core",
+      "gender": "women",
+      "ageBand": "adults",
+      "trajectory": [
+        {
+          "stepId": "fdna",
+          "kind": "entered",
+          "date": "2026-02-08"
+        },
+        {
+          "stepId": "fdna",
+          "kind": "completed",
+          "date": "2026-04-05"
+        },
+        {
+          "stepId": "connect",
+          "kind": "entered",
+          "date": "2026-04-19"
+        },
+        {
+          "stepId": "serving",
+          "kind": "entered",
+          "date": "2026-06-21"
+        }
+      ]
+    },
+    {
+      "ref": "fic-007",
+      "displayName": "Golf P.",
+      "lifecycle": "core",
+      "gender": "men",
+      "ageBand": "youngAdults",
+      "trajectory": [
+        {
+          "stepId": "build",
+          "kind": "entered",
+          "date": "2026-01-11"
+        },
+        {
+          "stepId": "build",
+          "kind": "completed",
+          "date": "2026-03-08"
+        },
+        {
+          "stepId": "grow",
+          "kind": "entered",
+          "date": "2026-03-22"
+        },
+        {
+          "stepId": "serving",
+          "kind": "entered",
+          "date": "2026-05-17"
+        },
+        {
+          "stepId": "clt",
+          "kind": "entered",
+          "date": "2026-08-10"
+        }
+      ]
+    },
+    {
+      "ref": "fic-008",
+      "displayName": "Hotel M.",
+      "lifecycle": "core",
+      "gender": "women",
+      "ageBand": "youngAdults",
+      "trajectory": [
+        {
+          "stepId": "connect",
+          "kind": "entered",
+          "date": "2025-11-16"
+        },
+        {
+          "stepId": "grow",
+          "kind": "entered",
+          "date": "2026-02-15"
+        },
+        {
+          "stepId": "grow",
+          "kind": "unfinished",
+          "date": "2026-05-31"
+        },
+        {
+          "stepId": "grow",
+          "kind": "resumed",
+          "date": "2026-08-09"
+        }
+      ]
+    },
+    {
+      "ref": "fic-009",
+      "displayName": "India P.",
+      "lifecycle": "crowd",
+      "gender": "unknown",
+      "ageBand": "seasoned",
+      "trajectory": [
+        {
+          "stepId": "npg",
+          "kind": "entered",
+          "date": "2026-03-01"
+        },
+        {
+          "stepId": "grow",
+          "kind": "entered",
+          "date": "2026-04-12"
+        }
+      ]
+    },
+    {
+      "ref": "fic-010",
+      "displayName": "Juliett F.",
+      "lifecycle": "core",
+      "gender": "women",
+      "ageBand": "adults",
+      "trajectory": [
+        {
+          "stepId": "serving",
+          "kind": "entered",
+          "date": "2025-09-07"
+        },
+        {
+          "stepId": "connect",
+          "kind": "entered",
+          "date": "2026-01-18"
+        },
+        {
+          "stepId": "upnext",
+          "kind": "entered",
+          "date": "2026-07-05"
+        }
+      ]
+    },
+    {
+      "ref": "fic-011",
+      "displayName": "Kilo N.",
+      "lifecycle": "leader",
+      "gender": "men",
+      "ageBand": "adults",
+      "trajectory": [
+        {
+          "stepId": "connect",
+          "kind": "entered",
+          "date": "2024-06-02"
+        },
+        {
+          "stepId": "clt",
+          "kind": "entered",
+          "date": "2025-05-04"
+        },
+        {
+          "stepId": "clt",
+          "kind": "completed",
+          "date": "2025-06-01"
+        },
+        {
+          "stepId": "leader",
+          "kind": "became-leader",
+          "date": "2025-08-17"
+        },
+        {
+          "stepId": "favor-college",
+          "kind": "entered",
+          "date": "2026-06-07"
+        }
+      ]
+    },
+    {
+      "ref": "fic-012",
+      "displayName": "Lima E.",
+      "lifecycle": "crowd",
+      "gender": "women",
+      "ageBand": "adults",
+      "trajectory": [
+        {
+          "stepId": "build",
+          "kind": "entered",
+          "date": "2025-10-05"
+        },
+        {
+          "stepId": "build",
+          "kind": "unfinished",
+          "date": "2025-12-14"
+        },
+        {
+          "stepId": "build",
+          "kind": "resumed",
+          "date": "2026-07-26"
+        }
+      ]
+    },
+    {
+      "ref": "fic-013",
+      "displayName": "Mike S.",
+      "lifecycle": "crowd",
+      "gender": "men",
+      "ageBand": "youth",
+      "trajectory": [
+        {
+          "stepId": "npg",
+          "kind": "entered",
+          "date": "2026-06-28"
+        },
+        {
+          "stepId": "serving",
+          "kind": "entered",
+          "date": "2026-08-16"
+        }
+      ]
+    },
+    {
+      "ref": "fic-014",
+      "displayName": "November D.",
+      "lifecycle": "core",
+      "gender": "women",
+      "ageBand": "seasoned",
+      "trajectory": [
+        {
+          "stepId": "connect",
+          "kind": "entered",
+          "date": "2023-02-05"
+        },
+        {
+          "stepId": "grow",
+          "kind": "entered",
+          "date": "2026-01-11"
+        },
+        {
+          "stepId": "grow",
+          "kind": "completed",
+          "date": "2026-03-29"
+        },
+        {
+          "stepId": "clt",
+          "kind": "entered",
+          "date": "2026-08-17"
+        }
+      ]
+    },
+    {
+      "ref": "fic-015",
+      "displayName": "Oscar I.",
+      "lifecycle": "core",
+      "gender": "men",
+      "ageBand": "adults",
+      "trajectory": [
+        {
+          "stepId": "serving",
+          "kind": "entered",
+          "date": "2025-03-16"
+        },
+        {
+          "stepId": "connect",
+          "kind": "regressed",
+          "date": "2026-06-07"
+        },
+        {
+          "stepId": "serving",
+          "kind": "entered",
+          "date": "2026-08-09"
+        }
+      ]
+    },
+    {
+      "ref": "fic-016",
+      "displayName": "Papa F.",
+      "lifecycle": "leader",
+      "gender": "men",
+      "ageBand": "youngAdults",
+      "trajectory": [
+        {
+          "stepId": "fdna",
+          "kind": "entered",
+          "date": "2024-04-14"
+        },
+        {
+          "stepId": "fdna",
+          "kind": "completed",
+          "date": "2024-06-09"
+        },
+        {
+          "stepId": "connect",
+          "kind": "entered",
+          "date": "2024-06-23"
+        },
+        {
+          "stepId": "clt",
+          "kind": "entered",
+          "date": "2025-02-02"
+        },
+        {
+          "stepId": "clt",
+          "kind": "completed",
+          "date": "2025-03-02"
+        },
+        {
+          "stepId": "leader",
+          "kind": "became-leader",
+          "date": "2025-05-18"
+        },
+        {
+          "stepId": "fcx",
+          "kind": "entered",
+          "date": "2026-06-14"
+        }
+      ]
+    },
+    {
+      "ref": "fic-017",
+      "displayName": "Quebec M.",
+      "lifecycle": "new",
+      "gender": "women",
+      "ageBand": "youngAdults",
+      "trajectory": [
+        {
+          "stepId": "npg",
+          "kind": "entered",
+          "date": "2026-08-23"
+        }
+      ]
+    },
+    {
+      "ref": "fic-018",
+      "displayName": "Romeo U.",
+      "lifecycle": "crowd",
+      "gender": "men",
+      "ageBand": "adults",
+      "trajectory": [
+        {
+          "stepId": "grow",
+          "kind": "entered",
+          "date": "2026-05-10"
+        },
+        {
+          "stepId": "upnext",
+          "kind": "entered",
+          "date": "2026-08-16"
+        }
+      ]
+    },
+    {
+      "ref": "fic-019",
+      "displayName": "Sierra T.",
+      "lifecycle": "crowd",
+      "gender": "women",
+      "ageBand": "adults",
+      "trajectory": [
+        {
+          "stepId": "build",
+          "kind": "entered",
+          "date": "2026-08-16"
+        }
+      ]
+    },
+    {
+      "ref": "fic-020",
+      "displayName": "Tango M.",
+      "lifecycle": "core",
+      "gender": "men",
+      "ageBand": "youngAdults",
+      "trajectory": [
+        {
+          "stepId": "connect",
+          "kind": "entered",
+          "date": "2025-08-03"
+        },
+        {
+          "stepId": "serving",
+          "kind": "entered",
+          "date": "2025-10-19"
+        },
+        {
+          "stepId": "grow",
+          "kind": "entered",
+          "date": "2026-08-09"
+        }
+      ]
+    },
+    {
+      "ref": "fic-021",
+      "displayName": "Uniform P.",
+      "lifecycle": "crowd",
+      "gender": "unknown",
+      "ageBand": "youngAdults",
+      "trajectory": [
+        {
+          "stepId": "npg",
+          "kind": "entered",
+          "date": "2025-12-07"
+        },
+        {
+          "stepId": "build",
+          "kind": "entered",
+          "date": "2026-01-18"
+        },
+        {
+          "stepId": "build",
+          "kind": "stalled",
+          "date": "2026-05-03"
+        }
+      ]
+    },
+    {
+      "ref": "fic-022",
+      "displayName": "Victor N.",
+      "lifecycle": "core",
+      "gender": "men",
+      "ageBand": "adults",
+      "trajectory": [
+        {
+          "stepId": "fdna",
+          "kind": "entered",
+          "date": "2026-06-14"
+        },
+        {
+          "stepId": "connect",
+          "kind": "entered",
+          "date": "2026-07-12"
+        },
+        {
+          "stepId": "clt",
+          "kind": "entered",
+          "date": "2026-08-24"
+        }
+      ]
+    },
+    {
+      "ref": "fic-023",
+      "displayName": "Whiskey I.",
+      "lifecycle": "leader",
+      "gender": "women",
+      "ageBand": "adults",
+      "trajectory": [
+        {
+          "stepId": "leader",
+          "kind": "became-leader",
+          "date": "2024-11-17"
+        },
+        {
+          "stepId": "favor-college",
+          "kind": "entered",
+          "date": "2026-06-07"
+        }
+      ]
+    },
+    {
+      "ref": "fic-024",
+      "displayName": "Xray P.",
+      "lifecycle": "crowd",
+      "gender": "women",
+      "ageBand": "seasoned",
+      "trajectory": [
+        {
+          "stepId": "grow",
+          "kind": "entered",
+          "date": "2025-09-14"
+        },
+        {
+          "stepId": "grow",
+          "kind": "stalled",
+          "date": "2026-01-04"
+        }
+      ]
+    },
+    {
+      "ref": "fic-025",
+      "displayName": "Yankee B.",
+      "lifecycle": "new",
+      "gender": "men",
+      "ageBand": "youngAdults",
+      "trajectory": [
+        {
+          "stepId": "npg",
+          "kind": "entered",
+          "date": "2026-08-09"
+        },
+        {
+          "stepId": "build",
+          "kind": "entered",
+          "date": "2026-08-23"
+        }
+      ]
+    },
+    {
+      "ref": "fic-026",
+      "displayName": "Zulu F.",
+      "lifecycle": "core",
+      "gender": "women",
+      "ageBand": "youth",
+      "trajectory": [
+        {
+          "stepId": "connect",
+          "kind": "entered",
+          "date": "2026-02-15"
+        },
+        {
+          "stepId": "serving",
+          "kind": "entered",
+          "date": "2026-04-26"
+        },
+        {
+          "stepId": "upnext",
+          "kind": "entered",
+          "date": "2026-08-23"
+        }
+      ]
+    },
+    {
+      "ref": "fic-027",
+      "displayName": "Acacia M.",
+      "lifecycle": "crowd",
+      "gender": "women",
+      "ageBand": "adults",
+      "trajectory": [
+        {
+          "stepId": "npg",
+          "kind": "entered",
+          "date": "2026-07-26"
+        },
+        {
+          "stepId": "grow",
+          "kind": "entered",
+          "date": "2026-08-23"
+        }
+      ]
+    },
+    {
+      "ref": "fic-028",
+      "displayName": "Banyan S.",
+      "lifecycle": "core",
+      "gender": "men",
+      "ageBand": "adults",
+      "trajectory": [
+        {
+          "stepId": "serving",
+          "kind": "entered",
+          "date": "2024-02-11"
+        },
+        {
+          "stepId": "clt",
+          "kind": "entered",
+          "date": "2026-05-10"
+        },
+        {
+          "stepId": "clt",
+          "kind": "completed",
+          "date": "2026-06-07"
+        },
+        {
+          "stepId": "mlt",
+          "kind": "entered",
+          "date": "2026-08-16"
+        }
+      ]
+    }
+  ],
+  "waterfall": {
+    "compareDate": "2026-08-23",
+    "anchorBeforeLabel": "Last Sunday",
+    "anchorNowLabel": "Now",
+    "anchorBefore": 1852,
+    "anchorNow": 1850,
+    "populationNote": "Anchors count unique people holding at least one live step on this path. Within-path movements shift bars without changing the total; the reconciliation check enforces both.",
+    "movements": [
+      {
+        "kind": "entered",
+        "label": "Entered",
+        "delta": 38,
+        "affectsTotal": true
+      },
+      {
+        "kind": "progressed",
+        "label": "Progressed",
+        "delta": 22,
+        "affectsTotal": false
+      },
+      {
+        "kind": "resumed",
+        "label": "Resumed",
+        "delta": 7,
+        "affectsTotal": true
+      },
+      {
+        "kind": "completed",
+        "label": "Completed",
+        "delta": 19,
+        "affectsTotal": false
+      },
+      {
+        "kind": "unfinished",
+        "label": "Unfinished",
+        "delta": -12,
+        "affectsTotal": true
+      },
+      {
+        "kind": "stalled",
+        "label": "Stalled beyond season",
+        "delta": -26,
+        "affectsTotal": true
+      },
+      {
+        "kind": "regressed",
+        "label": "Regressed",
+        "delta": -9,
+        "affectsTotal": true
+      },
+      {
+        "kind": "leadership-prep",
+        "label": "Entered leadership prep",
+        "delta": 6,
+        "affectsTotal": false
+      },
+      {
+        "kind": "became-leader",
+        "label": "Became Leader",
+        "delta": 3,
+        "affectsTotal": false
+      }
+    ]
+  },
+  "freshness": [
+    {
+      "stepId": "build",
+      "windowDays": 70,
+      "densityBins": [
+        {
+          "fromDays": 0,
+          "toDays": 17,
+          "count": 44,
+          "capped": false,
+          "label": "0–17 days"
+        },
+        {
+          "fromDays": 18,
+          "toDays": 35,
+          "count": 51,
+          "capped": false,
+          "label": "18–35 days"
+        },
+        {
+          "fromDays": 36,
+          "toDays": 52,
+          "count": 33,
+          "capped": false,
+          "label": "36–52 days"
+        },
+        {
+          "fromDays": 53,
+          "toDays": 70,
+          "count": 19,
+          "capped": false,
+          "label": "53–70 days"
+        },
+        {
+          "fromDays": 71,
+          "toDays": 105,
+          "count": 14,
+          "capped": false,
+          "label": "71–105 days"
+        },
+        {
+          "fromDays": 106,
+          "toDays": 140,
+          "count": 8,
+          "capped": false,
+          "label": "106–140 days"
+        },
+        {
+          "fromDays": 141,
+          "toDays": 210,
+          "count": 4,
+          "capped": false,
+          "label": "141–210 days"
+        }
+      ],
+      "undatedPeople": 0,
+      "datedPeople": 173,
+      "capped": false,
+      "oldestBandFromDays": 141
+    },
+    {
+      "stepId": "fdna",
+      "windowDays": 70,
+      "densityBins": [
+        {
+          "fromDays": 0,
+          "toDays": 17,
+          "count": 39,
+          "capped": false,
+          "label": "0–17 days"
+        },
+        {
+          "fromDays": 18,
+          "toDays": 35,
+          "count": 41,
+          "capped": false,
+          "label": "18–35 days"
+        },
+        {
+          "fromDays": 36,
+          "toDays": 52,
+          "count": 28,
+          "capped": false,
+          "label": "36–52 days"
+        },
+        {
+          "fromDays": 53,
+          "toDays": 70,
+          "count": 17,
+          "capped": false,
+          "label": "53–70 days"
+        },
+        {
+          "fromDays": 71,
+          "toDays": 105,
+          "count": 11,
+          "capped": false,
+          "label": "71–105 days"
+        },
+        {
+          "fromDays": 106,
+          "toDays": 140,
+          "count": 6,
+          "capped": false,
+          "label": "106–140 days"
+        }
+      ],
+      "undatedPeople": 0,
+      "datedPeople": 142,
+      "capped": false,
+      "oldestBandFromDays": 106
+    },
+    {
+      "stepId": "grow",
+      "windowDays": 90,
+      "densityBins": [
+        {
+          "fromDays": 0,
+          "toDays": 22,
+          "count": 31,
+          "capped": false,
+          "label": "0–22 days"
+        },
+        {
+          "fromDays": 23,
+          "toDays": 45,
+          "count": 27,
+          "capped": false,
+          "label": "23–45 days"
+        },
+        {
+          "fromDays": 46,
+          "toDays": 68,
+          "count": 21,
+          "capped": false,
+          "label": "46–68 days"
+        },
+        {
+          "fromDays": 69,
+          "toDays": 90,
+          "count": 14,
+          "capped": false,
+          "label": "69–90 days"
+        },
+        {
+          "fromDays": 91,
+          "toDays": 135,
+          "count": 13,
+          "capped": false,
+          "label": "91–135 days"
+        },
+        {
+          "fromDays": 136,
+          "toDays": 180,
+          "count": 8,
+          "capped": false,
+          "label": "136–180 days"
+        },
+        {
+          "fromDays": 181,
+          "toDays": 270,
+          "count": 4,
+          "capped": false,
+          "label": "181–270 days"
+        }
+      ],
+      "undatedPeople": 0,
+      "datedPeople": 118,
+      "capped": false,
+      "oldestBandFromDays": 181
+    },
+    {
+      "stepId": "connect",
+      "windowDays": 90,
+      "densityBins": [
+        {
+          "fromDays": 0,
+          "toDays": 22,
+          "count": 118,
+          "capped": false,
+          "label": "0–22 days"
+        },
+        {
+          "fromDays": 23,
+          "toDays": 45,
+          "count": 141,
+          "capped": false,
+          "label": "23–45 days"
+        },
+        {
+          "fromDays": 46,
+          "toDays": 68,
+          "count": 133,
+          "capped": false,
+          "label": "46–68 days"
+        },
+        {
+          "fromDays": 69,
+          "toDays": 90,
+          "count": 96,
+          "capped": false,
+          "label": "69–90 days"
+        },
+        {
+          "fromDays": 91,
+          "toDays": 135,
+          "count": 71,
+          "capped": false,
+          "label": "91–135 days"
+        },
+        {
+          "fromDays": 136,
+          "toDays": 180,
+          "count": 38,
+          "capped": false,
+          "label": "136–180 days"
+        },
+        {
+          "fromDays": 181,
+          "toDays": 270,
+          "count": 15,
+          "capped": false,
+          "label": "181–270 days"
+        }
+      ],
+      "undatedPeople": 0,
+      "datedPeople": 612,
+      "capped": false,
+      "oldestBandFromDays": 181
+    },
+    {
+      "stepId": "serving",
+      "windowDays": 90,
+      "densityBins": [
+        {
+          "fromDays": 0,
+          "toDays": 22,
+          "count": 102,
+          "capped": false,
+          "label": "0–22 days"
+        },
+        {
+          "fromDays": 23,
+          "toDays": 45,
+          "count": 124,
+          "capped": false,
+          "label": "23–45 days"
+        },
+        {
+          "fromDays": 46,
+          "toDays": 68,
+          "count": 119,
+          "capped": false,
+          "label": "46–68 days"
+        },
+        {
+          "fromDays": 69,
+          "toDays": 90,
+          "count": 92,
+          "capped": false,
+          "label": "69–90 days"
+        },
+        {
+          "fromDays": 91,
+          "toDays": 135,
+          "count": 66,
+          "capped": false,
+          "label": "91–135 days"
+        },
+        {
+          "fromDays": 136,
+          "toDays": 180,
+          "count": 31,
+          "capped": false,
+          "label": "136–180 days"
+        },
+        {
+          "fromDays": 181,
+          "toDays": 270,
+          "count": 13,
+          "capped": false,
+          "label": "181–270 days"
+        }
+      ],
+      "undatedPeople": 0,
+      "datedPeople": 547,
+      "capped": false,
+      "oldestBandFromDays": 181
+    },
+    {
+      "stepId": "clt",
+      "windowDays": 28,
+      "densityBins": [
+        {
+          "fromDays": 0,
+          "toDays": 7,
+          "count": 9,
+          "capped": false,
+          "label": "0–7 days"
+        },
+        {
+          "fromDays": 8,
+          "toDays": 14,
+          "count": 11,
+          "capped": false,
+          "label": "8–14 days"
+        },
+        {
+          "fromDays": 15,
+          "toDays": 21,
+          "count": 8,
+          "capped": false,
+          "label": "15–21 days"
+        },
+        {
+          "fromDays": 22,
+          "toDays": 28,
+          "count": 7,
+          "capped": false,
+          "label": "22–28 days"
+        },
+        {
+          "fromDays": 29,
+          "toDays": 42,
+          "count": 7,
+          "capped": false,
+          "label": "29–42 days"
+        },
+        {
+          "fromDays": 43,
+          "toDays": 56,
+          "count": 5,
+          "capped": false,
+          "label": "43–56 days"
+        }
+      ],
+      "undatedPeople": 0,
+      "datedPeople": 47,
+      "capped": false,
+      "oldestBandFromDays": 43
+    }
+  ],
+  "responses": {
+    "people-base-counts": {
+      "status": "ok",
+      "queryId": "people-base-counts",
+      "rows": [
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "kids",
+          "gender": "women",
+          "lifecycle": "New",
+          "uniquePeople": 35
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "kids",
+          "gender": "women",
+          "lifecycle": "Crowd",
+          "uniquePeople": 57
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "kids",
+          "gender": "women",
+          "lifecycle": "Core",
+          "uniquePeople": 46
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "kids",
+          "gender": "women",
+          "lifecycle": "Leader",
+          "uniquePeople": 24
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "kids",
+          "gender": "men",
+          "lifecycle": "New",
+          "uniquePeople": 34
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "kids",
+          "gender": "men",
+          "lifecycle": "Crowd",
+          "uniquePeople": 56
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "kids",
+          "gender": "men",
+          "lifecycle": "Core",
+          "uniquePeople": 45
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "kids",
+          "gender": "men",
+          "lifecycle": "Leader",
+          "uniquePeople": 23
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youth",
+          "gender": "women",
+          "lifecycle": "New",
+          "uniquePeople": 53
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youth",
+          "gender": "women",
+          "lifecycle": "Crowd",
+          "uniquePeople": 87
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youth",
+          "gender": "women",
+          "lifecycle": "Core",
+          "uniquePeople": 70
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youth",
+          "gender": "women",
+          "lifecycle": "Leader",
+          "uniquePeople": 36
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youth",
+          "gender": "men",
+          "lifecycle": "New",
+          "uniquePeople": 52
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youth",
+          "gender": "men",
+          "lifecycle": "Crowd",
+          "uniquePeople": 86
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youth",
+          "gender": "men",
+          "lifecycle": "Core",
+          "uniquePeople": 69
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youth",
+          "gender": "men",
+          "lifecycle": "Leader",
+          "uniquePeople": 35
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youngAdults",
+          "gender": "women",
+          "lifecycle": "New",
+          "uniquePeople": 71
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youngAdults",
+          "gender": "women",
+          "lifecycle": "Crowd",
+          "uniquePeople": 117
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youngAdults",
+          "gender": "women",
+          "lifecycle": "Core",
+          "uniquePeople": 94
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youngAdults",
+          "gender": "women",
+          "lifecycle": "Leader",
+          "uniquePeople": 48
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youngAdults",
+          "gender": "men",
+          "lifecycle": "New",
+          "uniquePeople": 70
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youngAdults",
+          "gender": "men",
+          "lifecycle": "Crowd",
+          "uniquePeople": 116
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youngAdults",
+          "gender": "men",
+          "lifecycle": "Core",
+          "uniquePeople": 93
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "youngAdults",
+          "gender": "men",
+          "lifecycle": "Leader",
+          "uniquePeople": 47
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "adults",
+          "gender": "women",
+          "lifecycle": "New",
+          "uniquePeople": 125
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "adults",
+          "gender": "women",
+          "lifecycle": "Crowd",
+          "uniquePeople": 207
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "adults",
+          "gender": "women",
+          "lifecycle": "Core",
+          "uniquePeople": 166
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "adults",
+          "gender": "women",
+          "lifecycle": "Leader",
+          "uniquePeople": 84
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "adults",
+          "gender": "men",
+          "lifecycle": "New",
+          "uniquePeople": 124
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "adults",
+          "gender": "men",
+          "lifecycle": "Crowd",
+          "uniquePeople": 206
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "adults",
+          "gender": "men",
+          "lifecycle": "Core",
+          "uniquePeople": 165
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "adults",
+          "gender": "men",
+          "lifecycle": "Leader",
+          "uniquePeople": 83
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "seasoned",
+          "gender": "women",
+          "lifecycle": "New",
+          "uniquePeople": 41
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "seasoned",
+          "gender": "women",
+          "lifecycle": "Crowd",
+          "uniquePeople": 67
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "seasoned",
+          "gender": "women",
+          "lifecycle": "Core",
+          "uniquePeople": 54
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "seasoned",
+          "gender": "women",
+          "lifecycle": "Leader",
+          "uniquePeople": 28
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "seasoned",
+          "gender": "men",
+          "lifecycle": "New",
+          "uniquePeople": 40
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "seasoned",
+          "gender": "men",
+          "lifecycle": "Crowd",
+          "uniquePeople": 66
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "seasoned",
+          "gender": "men",
+          "lifecycle": "Core",
+          "uniquePeople": 53
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "seasoned",
+          "gender": "men",
+          "lifecycle": "Leader",
+          "uniquePeople": 27
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "unknown",
+          "gender": "women",
+          "lifecycle": "New",
+          "uniquePeople": 23
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "unknown",
+          "gender": "women",
+          "lifecycle": "Crowd",
+          "uniquePeople": 37
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "unknown",
+          "gender": "women",
+          "lifecycle": "Core",
+          "uniquePeople": 30
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "unknown",
+          "gender": "women",
+          "lifecycle": "Leader",
+          "uniquePeople": 16
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "unknown",
+          "gender": "men",
+          "lifecycle": "New",
+          "uniquePeople": 22
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "unknown",
+          "gender": "men",
+          "lifecycle": "Crowd",
+          "uniquePeople": 36
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "unknown",
+          "gender": "men",
+          "lifecycle": "Core",
+          "uniquePeople": 29
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "unknown",
+          "gender": "men",
+          "lifecycle": "Leader",
+          "uniquePeople": 15
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "unknown",
+          "gender": "unknown",
+          "lifecycle": "Crowd",
+          "uniquePeople": 4
+        },
+        {
+          "campusShortCode": "MNL",
+          "ageBand": "unknown",
+          "gender": "unknown",
+          "lifecycle": "Core",
+          "uniquePeople": 4
+        }
+      ]
+    },
+    "people-leader-counts": {
+      "status": "ok",
+      "queryId": "people-leader-counts",
+      "rows": [
+        {
+          "campusShortCode": "MNL",
+          "leaderRole": "cluster",
+          "uniquePeople": 6
+        },
+        {
+          "campusShortCode": "MNL",
+          "leaderRole": "connect",
+          "uniquePeople": 48
+        },
+        {
+          "campusShortCode": "MNL",
+          "leaderRole": "lay-pastor",
+          "uniquePeople": 3
+        },
+        {
+          "campusShortCode": "MNL",
+          "leaderRole": "ministry-team:Fictional Kids Team",
+          "uniquePeople": 9
+        },
+        {
+          "campusShortCode": "MNL",
+          "leaderRole": "ministry-team:Fictional Sound Team",
+          "uniquePeople": 4
+        },
+        {
+          "campusShortCode": "MNL",
+          "leaderRole": "ministry-team:Fictional Welcome Team",
+          "uniquePeople": 7
+        },
+        {
+          "campusShortCode": "MNL",
+          "leaderRole": "regional",
+          "uniquePeople": 14
+        }
+      ]
+    },
+    "people-leaders-directory": {
+      "status": "ok",
+      "queryId": "people-leaders-directory",
+      "rows": [
+        {
+          "personRef": 9001,
+          "displayName": "Fictional Leader O.",
+          "leaderRole": "connect",
+          "teamNames": null,
+          "tags": "build-graduate,dna-graduate",
+          "campusShortCode": "MNL",
+          "sinceDate": "2024-02-11"
+        },
+        {
+          "personRef": 9002,
+          "displayName": "Fictional Leader T.",
+          "leaderRole": "regional",
+          "teamNames": null,
+          "tags": "baptized,build-graduate,dna-graduate,serving",
+          "campusShortCode": "MNL",
+          "sinceDate": "2023-07-02"
+        },
+        {
+          "personRef": 9003,
+          "displayName": "Fictional Leader T.",
+          "leaderRole": "cluster",
+          "teamNames": null,
+          "tags": "dna-graduate",
+          "campusShortCode": "MNL",
+          "sinceDate": null
+        },
+        {
+          "personRef": 9004,
+          "displayName": "Fictional Leader F.",
+          "leaderRole": "ministry-team",
+          "teamNames": "Fictional Sound Team,Fictional Welcome Team",
+          "tags": "serving",
+          "campusShortCode": "MNL",
+          "sinceDate": "2025-01-19"
+        },
+        {
+          "personRef": 9005,
+          "displayName": "Fictional Leader F.",
+          "leaderRole": "lay-pastor",
+          "teamNames": null,
+          "tags": "baptized,serving",
+          "campusShortCode": "MNL",
+          "sinceDate": "2022-11-06"
+        },
+        {
+          "personRef": 9006,
+          "displayName": "Fictional Leader S.",
+          "leaderRole": "ministry-team",
+          "teamNames": "Fictional Kids Team",
+          "tags": null,
+          "campusShortCode": "MNL",
+          "sinceDate": "2026-03-15"
+        }
+      ]
+    }
+  },
+  "base": {
+    "availability": {
+      "status": "available",
+      "reason": null
+    },
+    "dimensions": {
+      "ageBands": [
+        {
+          "id": "kids",
+          "label": "Kids"
+        },
+        {
+          "id": "youth",
+          "label": "Youth"
+        },
+        {
+          "id": "youngAdults",
+          "label": "Young Adults"
+        },
+        {
+          "id": "adults",
+          "label": "Adults"
+        },
+        {
+          "id": "seasoned",
+          "label": "Seasoned"
+        },
+        {
+          "id": "unknown",
+          "label": "Unknown"
+        }
+      ],
+      "genders": [
+        {
+          "id": "women",
+          "label": "Women"
+        },
+        {
+          "id": "men",
+          "label": "Men"
+        },
+        {
+          "id": "unknown",
+          "label": "Unknown"
+        }
+      ],
+      "lifecycles": [
+        {
+          "id": "Leader",
+          "label": "Leader",
+          "idealShare": 15
+        },
+        {
+          "id": "Core",
+          "label": "Core",
+          "idealShare": 35
+        },
+        {
+          "id": "Crowd",
+          "label": "Crowd",
+          "idealShare": 35
+        },
+        {
+          "id": "New",
+          "label": "New",
+          "idealShare": 15
+        }
+      ]
+    },
+    "rows": [
+      {
+        "campus": "MNL",
+        "ageBand": "kids",
+        "gender": "women",
+        "lifecycle": "New",
+        "count": 35
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "kids",
+        "gender": "women",
+        "lifecycle": "Crowd",
+        "count": 57
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "kids",
+        "gender": "women",
+        "lifecycle": "Core",
+        "count": 46
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "kids",
+        "gender": "women",
+        "lifecycle": "Leader",
+        "count": 24
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "kids",
+        "gender": "men",
+        "lifecycle": "New",
+        "count": 34
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "kids",
+        "gender": "men",
+        "lifecycle": "Crowd",
+        "count": 56
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "kids",
+        "gender": "men",
+        "lifecycle": "Core",
+        "count": 45
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "kids",
+        "gender": "men",
+        "lifecycle": "Leader",
+        "count": 23
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youth",
+        "gender": "women",
+        "lifecycle": "New",
+        "count": 53
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youth",
+        "gender": "women",
+        "lifecycle": "Crowd",
+        "count": 87
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youth",
+        "gender": "women",
+        "lifecycle": "Core",
+        "count": 70
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youth",
+        "gender": "women",
+        "lifecycle": "Leader",
+        "count": 36
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youth",
+        "gender": "men",
+        "lifecycle": "New",
+        "count": 52
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youth",
+        "gender": "men",
+        "lifecycle": "Crowd",
+        "count": 86
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youth",
+        "gender": "men",
+        "lifecycle": "Core",
+        "count": 69
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youth",
+        "gender": "men",
+        "lifecycle": "Leader",
+        "count": 35
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youngAdults",
+        "gender": "women",
+        "lifecycle": "New",
+        "count": 71
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youngAdults",
+        "gender": "women",
+        "lifecycle": "Crowd",
+        "count": 117
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youngAdults",
+        "gender": "women",
+        "lifecycle": "Core",
+        "count": 94
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youngAdults",
+        "gender": "women",
+        "lifecycle": "Leader",
+        "count": 48
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youngAdults",
+        "gender": "men",
+        "lifecycle": "New",
+        "count": 70
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youngAdults",
+        "gender": "men",
+        "lifecycle": "Crowd",
+        "count": 116
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youngAdults",
+        "gender": "men",
+        "lifecycle": "Core",
+        "count": 93
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "youngAdults",
+        "gender": "men",
+        "lifecycle": "Leader",
+        "count": 47
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "adults",
+        "gender": "women",
+        "lifecycle": "New",
+        "count": 125
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "adults",
+        "gender": "women",
+        "lifecycle": "Crowd",
+        "count": 207
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "adults",
+        "gender": "women",
+        "lifecycle": "Core",
+        "count": 166
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "adults",
+        "gender": "women",
+        "lifecycle": "Leader",
+        "count": 84
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "adults",
+        "gender": "men",
+        "lifecycle": "New",
+        "count": 124
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "adults",
+        "gender": "men",
+        "lifecycle": "Crowd",
+        "count": 206
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "adults",
+        "gender": "men",
+        "lifecycle": "Core",
+        "count": 165
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "adults",
+        "gender": "men",
+        "lifecycle": "Leader",
+        "count": 83
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "seasoned",
+        "gender": "women",
+        "lifecycle": "New",
+        "count": 41
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "seasoned",
+        "gender": "women",
+        "lifecycle": "Crowd",
+        "count": 67
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "seasoned",
+        "gender": "women",
+        "lifecycle": "Core",
+        "count": 54
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "seasoned",
+        "gender": "women",
+        "lifecycle": "Leader",
+        "count": 28
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "seasoned",
+        "gender": "men",
+        "lifecycle": "New",
+        "count": 40
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "seasoned",
+        "gender": "men",
+        "lifecycle": "Crowd",
+        "count": 66
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "seasoned",
+        "gender": "men",
+        "lifecycle": "Core",
+        "count": 53
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "seasoned",
+        "gender": "men",
+        "lifecycle": "Leader",
+        "count": 27
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "unknown",
+        "gender": "women",
+        "lifecycle": "New",
+        "count": 23
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "unknown",
+        "gender": "women",
+        "lifecycle": "Crowd",
+        "count": 37
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "unknown",
+        "gender": "women",
+        "lifecycle": "Core",
+        "count": 30
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "unknown",
+        "gender": "women",
+        "lifecycle": "Leader",
+        "count": 16
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "unknown",
+        "gender": "men",
+        "lifecycle": "New",
+        "count": 22
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "unknown",
+        "gender": "men",
+        "lifecycle": "Crowd",
+        "count": 36
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "unknown",
+        "gender": "men",
+        "lifecycle": "Core",
+        "count": 29
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "unknown",
+        "gender": "men",
+        "lifecycle": "Leader",
+        "count": 15
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "unknown",
+        "gender": "unknown",
+        "lifecycle": "Crowd",
+        "count": 4
+      },
+      {
+        "campus": "MNL",
+        "ageBand": "unknown",
+        "gender": "unknown",
+        "lifecycle": "Core",
+        "count": 4
+      }
+    ]
+  },
+  "leaders": {
+    "availability": {
+      "status": "available",
+      "reason": null
+    },
+    "tiers": [
+      {
+        "id": "connect",
+        "label": "Connect leaders",
+        "resolves": true,
+        "gapReason": null
+      },
+      {
+        "id": "regional",
+        "label": "Regional leaders",
+        "resolves": true,
+        "gapReason": null
+      },
+      {
+        "id": "cluster",
+        "label": "Cluster leaders",
+        "resolves": true,
+        "gapReason": null
+      },
+      {
+        "id": "ministry-team",
+        "label": "Ministry Team leaders",
+        "resolves": true,
+        "gapReason": null
+      },
+      {
+        "id": "lay-pastor",
+        "label": "Lay Pastors",
+        "resolves": true,
+        "gapReason": null
+      }
+    ],
+    "rows": [
+      {
+        "campus": "MNL",
+        "role": "cluster",
+        "team": null,
+        "count": 6
+      },
+      {
+        "campus": "MNL",
+        "role": "connect",
+        "team": null,
+        "count": 48
+      },
+      {
+        "campus": "MNL",
+        "role": "lay-pastor",
+        "team": null,
+        "count": 3
+      },
+      {
+        "campus": "MNL",
+        "role": "ministry-team",
+        "team": "Fictional Kids Team",
+        "count": 9
+      },
+      {
+        "campus": "MNL",
+        "role": "ministry-team",
+        "team": "Fictional Sound Team",
+        "count": 4
+      },
+      {
+        "campus": "MNL",
+        "role": "ministry-team",
+        "team": "Fictional Welcome Team",
+        "count": 7
+      },
+      {
+        "campus": "MNL",
+        "role": "regional",
+        "team": null,
+        "count": 14
+      }
+    ],
+    "gaps": [
+      {
+        "role": "section-untiered",
+        "reason": "Some Connect Group Sections aren't named with the 'Region //' or 'Cluster //' convention. Their leaders resolve to no tier and are counted at no tier, because inventing a tier from a name that doesn't follow the convention would be a guess."
+      }
+    ],
+    "notes": [
+      "Rock flags both the Connect Group 'Leader' and 'Assistant Leader' roles as leader roles, so assistant leaders are counted as Connect leaders. The 2025 People PRD recorded the opposite; that caveat is stale on this schema.",
+      "Some active Ministry Teams have no leader recorded in Rock. A team with no leader contributes no row, so a leaderless team is an absent team here rather than a zero.",
+      "Lay Pastor is read from the Organization Unit 'Lay Pastor' role, which is who holds the role today. The People Pathway step of the same name still has no Rock data and stays a ghost step on the pathway map.",
+      "Leaders are counted inside the same Favor People base the counts above total, so the Leader : person ratio compares like with like."
+    ]
+  },
+  "directory": {
+    "availability": {
+      "status": "available",
+      "reason": null
+    },
+    "personLevel": true,
+    "tagVocabulary": [
+      {
+        "id": "dna-graduate",
+        "label": "DNA Graduate",
+        "source": "Person attribute DNAGraduate"
+      },
+      {
+        "id": "build-graduate",
+        "label": "Build Graduate",
+        "source": "Person attribute BuildGraduate"
+      },
+      {
+        "id": "baptized",
+        "label": "Baptized",
+        "source": "Person attribute BaptizedHere"
+      },
+      {
+        "id": "serving",
+        "label": "Serving",
+        "source": "Active Ministry Team membership"
+      }
+    ],
+    "gaps": [
+      {
+        "tag": "clt",
+        "reason": "Connect Leadership Training has no Rock schema behind it beyond a self-report question attribute, so it isn't a directory tag. It stays a marked gap rather than an unticked box."
+      },
+      {
+        "tag": "discipleship-path",
+        "reason": "The Discipleship Path step program is configured but no step has ever been recorded against it, so a step-derived tag would read as 'nobody has done anything'. No tag is derived from Steps."
+      },
+      {
+        "tag": "baptized",
+        "reason": "Baptized is read from the 'Baptized Here' attribute because the Baptism Date attribute holds no values. It therefore records baptism at Favor, which is narrower than 'has been baptized'."
+      }
+    ],
+    "page": {
+      "offset": 0,
+      "limit": 2000,
+      "exhaustive": false
+    },
+    "rows": [
+      {
+        "ref": 9001,
+        "name": "Fictional Leader O.",
+        "role": "connect",
+        "teams": [],
+        "tags": [
+          "build-graduate",
+          "dna-graduate"
+        ],
+        "campus": "MNL",
+        "since": "2024-02-11"
+      },
+      {
+        "ref": 9002,
+        "name": "Fictional Leader T.",
+        "role": "regional",
+        "teams": [],
+        "tags": [
+          "baptized",
+          "build-graduate",
+          "dna-graduate",
+          "serving"
+        ],
+        "campus": "MNL",
+        "since": "2023-07-02"
+      },
+      {
+        "ref": 9003,
+        "name": "Fictional Leader T.",
+        "role": "cluster",
+        "teams": [],
+        "tags": [
+          "dna-graduate"
+        ],
+        "campus": "MNL",
+        "since": null
+      },
+      {
+        "ref": 9004,
+        "name": "Fictional Leader F.",
+        "role": "ministry-team",
+        "teams": [
+          "Fictional Sound Team",
+          "Fictional Welcome Team"
+        ],
+        "tags": [
+          "serving"
+        ],
+        "campus": "MNL",
+        "since": "2025-01-19"
+      },
+      {
+        "ref": 9005,
+        "name": "Fictional Leader F.",
+        "role": "lay-pastor",
+        "teams": [],
+        "tags": [
+          "baptized",
+          "serving"
+        ],
+        "campus": "MNL",
+        "since": "2022-11-06"
+      },
+      {
+        "ref": 9006,
+        "name": "Fictional Leader S.",
+        "role": "ministry-team",
+        "teams": [
+          "Fictional Kids Team"
+        ],
+        "tags": [],
+        "campus": "MNL",
+        "since": "2026-03-15"
+      }
+    ]
+  },
+  "freshnessGaps": [],
+  "freshnessCapDays": 392
+}

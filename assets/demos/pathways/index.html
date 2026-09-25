@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<base href="../_src/apps/pathways-island/">
+<meta name="demo-root" content="../../../../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People Pathways (Fictional Workbench)</title>
+  <!-- The stylesheet is reloaded with a cache-busting query on every visit. python3 -m
+     http.server sends no cache headers, so Chrome caches the sheet heuristically and a
+     design iteration silently renders the previous one; this harness exists to show the
+     working tree. Dev-only -- production pins assets by manifest assetVersion instead. -->
+<script>document.write('<link rel="stylesheet" href="./capture/pathways.css?dev=' + Date.now() + '">');</script>
+  <style>
+    /* Dev-only font bridge: the production asset root serves fonts/ beside the CSS;
+       this workbench reaches back into the repository's single brand-asset copy. */
+    @font-face { font-family: "Favorvetica"; src: url("/assets/demos/_fonts/Favorvetica-Regular.otf") format("opentype"); font-weight: normal; font-display: swap; }
+    @font-face { font-family: "Favorvetica"; src: url("/assets/demos/_fonts/Favorvetica-Bold.otf") format("opentype"); font-weight: bold; font-display: swap; }
+    @font-face { font-family: "Favor Sans"; src: url("/assets/demos/_fonts/FavorSans.otf") format("opentype"); font-weight: normal; font-display: swap; }
+    @font-face { font-family: "Favor Sans"; src: url("/assets/demos/_fonts/FavorSans-Bold.otf") format("opentype"); font-weight: bold; font-display: swap; }
+    @font-face { font-family: "FavorSans"; src: url("/assets/demos/_fonts/FavorSans.otf") format("opentype"); font-weight: normal; font-display: swap; }
+    @font-face { font-family: "FavorSans"; src: url("/assets/demos/_fonts/FavorSans-Bold.otf") format("opentype"); font-weight: bold; font-display: swap; }
+    @font-face { font-family: "Favor Headline"; src: url("/assets/demos/_fonts/Favor-Headline.otf") format("opentype"); font-weight: normal; font-display: swap; }
+    :root {
+      --body-font: "Favor Sans", "FavorSans", Arial, sans-serif;
+      --display-font: "Favorvetica", "Favor Sans", Arial, sans-serif;
+    }
+    body { margin: 0; padding: 0; background: #070b0e; font-family: var(--body-font); }
+    .workbench-bar {
+      background: #121411; color: #fef1e8; padding: 10px 20px;
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      font-family: "Favor Sans", Arial, sans-serif; font-size: 14px;
+    }
+    .workbench-badge {
+      background: #c23f00; color: #fff; font-weight: 700; padding: 2px 9px;
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .workbench-note { opacity: .8; }
+    .workbench-check { font-variant-numeric: tabular-nums; }
+    .workbench-check.is-ok { color: #3fbf8e; }
+    .workbench-check.is-bad { color: #ff6a3d; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="workbench-bar">
+    <span><span class="workbench-badge">Fictional</span> People Pathways island workbench</span>
+    <span class="workbench-note">Every person and count on this page is invented. Serve this directory and open this file; no build step.</span>
+    <span class="workbench-check" id="view-check">view model: not checked yet</span>
+  </div>
+  <div id="pathways-root" data-manual-boot="true"></div>
+  <script type="module">
+    import { boot, buildView } from "./capture/pathways-boot.mjs";
+    import { validateView } from "./capture/dashboard-view.mjs";
+    const response = await fetch("./capture/bundle-fictional.json", { credentials: "same-origin" });
+    if (!response.ok) throw new Error(`fictional bundle fetch failed: ${response.status}`);
+    await boot(document.getElementById("pathways-root"), await response.json());
+
+    /* Workbench-only assertion, printed where a screenshot can see it: the view model
+       every export, prompt, and package is built from has to validate on every render.
+       This lives in the workbench, never in the island. */
+    const badge = document.getElementById("view-check");
+    const check = () => {
+      try {
+        const view = buildView();
+        const problems = validateView(view);
+        const people = view.sections.filter((section) => section.personLevel).length;
+        badge.textContent = problems.length
+          ? `view model: ${problems.length} problem(s) — ${problems[0]}`
+          : `validateView: ok · ${view.sections.length} sections (${people} person-level, never exported) · ${view.controls.length} controls · ${view.mode}`;
+        badge.className = `workbench-check ${problems.length ? "is-bad" : "is-ok"}`;
+      } catch (error) {
+        badge.textContent = `view model threw: ${error && error.message}`;
+        badge.className = "workbench-check is-bad";
+      }
+    };
+    check();
+    document.getElementById("pathways-root").addEventListener("click", () => setTimeout(check, 60));
+    window.addEventListener("hashchange", () => setTimeout(check, 60));
+  </script>
+</body>
+</html>

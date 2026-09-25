@@ -1,0 +1,54 @@
+<!-- Exec Overview Mini — Page 12 compact island shell.
+     Rendered server-side (Lava template injects JSON data island).
+     Reuses the real Exec Overview component vocabulary (.combo-card, .donut-box,
+     .mode-switch, .campus-acronym-row) at #exec-overview-island scope so this
+     reads as a smaller instance of the same product, not a lookalike.
+     Issue #724, #664, #665. -->
+<div class="exec-mini combo-card" id="exec-mini-island">
+  <div class="combo-card__head">
+    <h2 class="exec-mini__heading">Favor, by People</h2>
+    <span class="combo-card__source" id="exec-mini-source">Favor Age Bands</span>
+  </div>
+
+  <div class="exec-mini__filter">
+    <div class="filter-legend">
+      <span>Campus</span>
+      <button type="button" class="reset-btn" id="exec-mini-reset">Reset</button>
+    </div>
+    <div class="campus-acronym-row" role="group" aria-label="Campus filter">
+      <button type="button" data-mini-campus="ALL" class="acronym-btn" aria-pressed="false">ALL</button>
+      <button type="button" data-mini-campus="MNL" class="acronym-btn is-active" aria-pressed="true">MNL</button>
+      <button type="button" data-mini-campus="BNE" class="acronym-btn" aria-pressed="false">BNE</button>
+      <button type="button" data-mini-campus="SEL" class="acronym-btn" aria-pressed="false">SEL</button>
+    </div>
+  </div>
+
+  <nav class="mode-switch" role="tablist" aria-label="Chart mode">
+    <button type="button" role="tab" data-mini-mode="age" class="mode-switch__btn" aria-pressed="true">Age</button>
+    <button type="button" role="tab" data-mini-mode="connection" class="mode-switch__btn" aria-pressed="false">Connection</button>
+    <button type="button" role="tab" data-mini-mode="gender" class="mode-switch__btn" aria-pressed="false">Gender</button>
+    <button type="button" role="tab" data-mini-mode="campus" class="mode-switch__btn" aria-pressed="false">Campus</button>
+  </nav>
+
+  <div class="combo-stage">
+    <div class="donut-box" id="exec-mini-donut">
+      <div class="mini-unavailable">Loading…</div>
+    </div>
+    <div class="combo-bars" id="exec-mini-legend"></div>
+  </div>
+
+  <span class="exec-mini__chart-title" id="exec-mini-title">Age Distribution</span>
+
+  <div class="combo-card__foot">
+    <span id="exec-mini-total">Active People —</span>
+    <span id="exec-mini-scope">Manila (MNL)</span>
+  </div>
+
+  <a href="/exec" id="exec-mini-cta" class="dir-card exec-mini__cta">
+    <div>
+      <h3>Open Executive Overview</h3>
+      <p>Full demographics, trends, and drill-down</p>
+    </div>
+    <span class="exec-mini__cta-arrow" aria-hidden="true">→</span>
+  </a>
+</div>

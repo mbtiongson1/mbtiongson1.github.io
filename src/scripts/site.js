@@ -5,7 +5,7 @@ document.documentElement.classList.add('js');
 const stage = document.querySelector('[data-lens-stage]');
 if (stage) {
   const lenses = {
-    age: 'a donut of 5,995 people and a ruled legend by age band',
+    age: 'a people donut and a ruled legend by age band',
     connection: 'the same people by connection status: crowd, core, new, and leader',
     gender: 'the same people by gender',
     campus: 'people across the Manila, Brisbane, and Seoul campuses',
@@ -19,7 +19,7 @@ if (stage) {
   group.hidden = false;
   const show = (lens) => {
     buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.lens === lens)));
-    const alt = `The Favor, by People island from the staff homepage, ${lens} lens: ${lenses[lens]}. Every count is invented.`;
+    const alt = `The Favor, by People island from the staff homepage, ${lens} lens: ${lenses[lens]}. Every count is invented, and redacted to blank bars.`;
     if (reduced.matches) { image.src = src(lens); image.alt = alt; return; }
     image.classList.add('is-swapping');
     window.setTimeout(() => {
@@ -68,4 +68,89 @@ if ('IntersectionObserver' in window) {
       }
     }, { rootMargin: '-40% 0px -55% 0px' }).observe(suite);
   }
+}
+
+// Dashboard reel: plays the chosen live demo inline. Without this script each item opens its demo in a new tab.
+const reelStage = document.querySelector('[data-reel-stage]');
+if (reelStage) {
+  const items = [...document.querySelectorAll('[data-demo]')];
+  const frameBox = reelStage.querySelector('[data-reel-frame]');
+  const name = reelStage.querySelector('[data-reel-name]');
+  const open = reelStage.querySelector('[data-reel-open]');
+  const start = reelStage.querySelector('[data-reel-start]');
+  let current = items[0];
+  const load = () => {
+    const frame = document.createElement('iframe');
+    frame.src = current.getAttribute('href');
+    frame.title = `${current.querySelector('.reel-title').textContent}, live demo on invented data`;
+    frame.loading = 'eager';
+    frameBox.replaceChildren(frame);
+  };
+  const select = (item, play) => {
+    current = item;
+    items.forEach((other) => other.setAttribute('aria-current', String(other === item)));
+    name.textContent = item.querySelector('.reel-title').textContent;
+    open.href = item.getAttribute('href');
+    if (play || frameBox.querySelector('iframe')) load();
+  };
+  items.forEach((item) => item.addEventListener('click', (event) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey) return;
+    event.preventDefault();
+    select(item, true);
+    reelStage.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }));
+  start.addEventListener('click', load);
+  reelStage.hidden = false;
+  select(current, false);
+
+  window.addEventListener('message', (event) => {
+    if (event.data?.type === 'reel-navigate') {
+      const { surface, tab, href } = event.data;
+      const surfaceToDemo = {
+        'exec-overview': 'exec-overview',
+        'pathways': 'people-leaders',
+        'leadership': 'people-leaders',
+        'multiplication': 'people-leaders',
+        'people': 'people-leaders',
+        'connect-field': 'connect',
+        'connect': 'connect',
+        'grow': 'grow',
+        'finance': 'finance',
+        'events': 'events',
+        'sunday-report': 'sunday-report',
+      };
+      let targetSlug = (tab && surfaceToDemo[tab]) || (surface && surfaceToDemo[surface]);
+      if (!targetSlug && href) {
+        if (href.includes('people') || href.includes('pathways') || href.includes('leadership') || href.includes('multiplication')) targetSlug = 'people-leaders';
+        else if (href.includes('connect')) targetSlug = 'connect';
+        else if (href.includes('grow')) targetSlug = 'grow';
+        else if (href.includes('finance')) targetSlug = 'finance';
+        else if (href.includes('events')) targetSlug = 'events';
+        else if (href.includes('sunday') || href.includes('TechStats')) targetSlug = 'sunday-report';
+        else if (href.includes('overview') || href === '/exec' || href === '/exec/') targetSlug = 'exec-overview';
+      }
+      if (!targetSlug) targetSlug = 'exec-overview';
+
+      const targetItem = items.find((i) => i.dataset.demo === targetSlug) || items[0];
+      let targetHref = targetItem.getAttribute('href');
+
+      if (targetSlug === 'people-leaders') {
+        const tabParam = tab || (href && href.match(/[?&]tab=([^&#]+)/)?.[1]) || (surface === 'leadership' ? 'leadership' : surface === 'multiplication' ? 'multiplication' : 'pathways');
+        targetHref = `/assets/demos/people-leaders/?tab=${encodeURIComponent(tabParam)}`;
+      }
+
+      current = targetItem;
+      items.forEach((other) => other.setAttribute('aria-current', String(other === targetItem)));
+      name.textContent = targetItem.querySelector('.reel-title').textContent;
+      open.href = targetHref;
+      const frame = frameBox.querySelector('iframe');
+      if (frame) {
+        frame.src = targetHref;
+        frame.title = `${targetItem.querySelector('.reel-title').textContent}, live demo on invented data`;
+      } else {
+        load();
+      }
+      reelStage.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+  });
 }

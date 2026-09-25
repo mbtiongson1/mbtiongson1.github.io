@@ -1,0 +1,10 @@
+/* Prototype-only frame: the real Favor faces from design/assets (one copy in the repo),
+   and the page ground. Everything visual comes from the shared Input App stylesheets. */
+@font-face { font-family: "Favorvetica"; src: url("../../../../_fonts/Favorvetica-Regular.otf") format("opentype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Favorvetica"; src: url("../../../../_fonts/Favorvetica-Bold.otf") format("opentype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "FavorSans"; src: url("../../../../_fonts/FavorSans.otf") format("opentype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "FavorSans"; src: url("../../../../_fonts/FavorSans-Bold.otf") format("opentype"); font-weight: 700; font-display: swap; }
+html, body { margin: 0; padding: 0; background: #fef1e8; }
+.proto-nav { position: fixed; right: .75rem; bottom: .75rem; z-index: 50; display: flex; gap: .25rem; padding: .25rem; background: #121411; border-radius: 999px; box-shadow: 0 10px 24px -12px rgba(18,20,17,.5); }
+.proto-nav a { display: inline-flex; align-items: center; min-height: 2.25rem; padding: 0 .8rem; border-radius: 999px; color: #fef1e8; font: 700 .78rem/1 "FavorSans", Arial, sans-serif; text-decoration: none; }
+.proto-nav a[aria-current="page"] { background: #fef1e8; color: #121411; }
